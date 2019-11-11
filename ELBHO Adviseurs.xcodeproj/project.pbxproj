@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		5FE0640923796CBD00E3015B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0640723796CBD00E3015B /* LaunchScreen.storyboard */; };
 		5FE0641423796CBD00E3015B /* ELBHO_AdviseursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0641323796CBD00E3015B /* ELBHO_AdviseursTests.swift */; };
 		5FE0641F23796CBD00E3015B /* ELBHO_AdviseursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0641E23796CBD00E3015B /* ELBHO_AdviseursUITests.swift */; };
+		5FE0642E2379728600E3015B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE0642D2379728600E3015B /* SwiftPackageProductDependency */; };
+		5FE064312379732900E3015B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE064302379732900E3015B /* SwiftPackageProductDependency */; };
+		5FE06434237973A100E3015B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE06433237973A100E3015B /* SwiftPackageProductDependency */; };
 		B3192E5AF023303E332086F7 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9F5590008F316A5059CAB9 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */; };
 		F3C09FCB107C6A00958ED2F2 /* Pods_ELBHO_Adviseurs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24C4A8651D68918388D100F /* Pods_ELBHO_Adviseurs.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FE06434237973A100E3015B /* BuildFile in Frameworks */,
+				5FE064312379732900E3015B /* BuildFile in Frameworks */,
+				5FE0642E2379728600E3015B /* BuildFile in Frameworks */,
 				F3C09FCB107C6A00958ED2F2 /* Pods_ELBHO_Adviseurs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,7 +171,6 @@
 				DF928A0AFEC4778A2DB75621 /* Pods-ELBHO AdviseursTests.debug.xcconfig */,
 				CE932965EAC8C4BB1FA65BD5 /* Pods-ELBHO AdviseursTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -180,12 +185,18 @@
 				5FE063F523796CBC00E3015B /* Sources */,
 				5FE063F623796CBC00E3015B /* Frameworks */,
 				5FE063F723796CBC00E3015B /* Resources */,
+				9A7BD2B669632B63F0F6F8FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "ELBHO Adviseurs";
+			packageProductDependencies = (
+				5FE0642D2379728600E3015B /* SwiftPackageProductDependency */,
+				5FE064302379732900E3015B /* SwiftPackageProductDependency */,
+				5FE06433237973A100E3015B /* SwiftPackageProductDependency */,
+			);
 			productName = "ELBHO Adviseurs";
 			productReference = 5FE063F923796CBC00E3015B /* ELBHO Adviseurs.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +228,7 @@
 				5FE0641623796CBD00E3015B /* Sources */,
 				5FE0641723796CBD00E3015B /* Frameworks */,
 				5FE0641823796CBD00E3015B /* Resources */,
+				96D7BF814FD7CC1975D2EF2D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +272,11 @@
 				Base,
 			);
 			mainGroup = 5FE063F023796CBC00E3015B;
+			packageReferences = (
+				5FE0642C2379728600E3015B /* RemoteSwiftPackageReference */,
+				5FE0642F2379732900E3015B /* RemoteSwiftPackageReference */,
+				5FE06432237973A100E3015B /* RemoteSwiftPackageReference */,
+			);
 			productRefGroup = 5FE063FA23796CBC00E3015B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -363,6 +380,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96D7BF814FD7CC1975D2EF2D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A7BD2B669632B63F0F6F8FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -705,6 +756,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5FE0642C2379728600E3015B /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		5FE0642F2379732900E3015B /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.1;
+			};
+		};
+		5FE06432237973A100E3015B /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5FE0642D2379728600E3015B /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FE0642C2379728600E3015B /* RemoteSwiftPackageReference */;
+			productName = RxSwift;
+		};
+		5FE064302379732900E3015B /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FE0642F2379732900E3015B /* RemoteSwiftPackageReference */;
+			productName = Alamofire;
+		};
+		5FE06433237973A100E3015B /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FE06432237973A100E3015B /* RemoteSwiftPackageReference */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FE063F123796CBC00E3015B /* Project object */;
 }

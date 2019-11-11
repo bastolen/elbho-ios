@@ -20,6 +20,9 @@
 		5FE064312379732900E3015B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE064302379732900E3015B /* Alamofire */; };
 		5FE06434237973A100E3015B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE06433237973A100E3015B /* Kingfisher */; };
 		5FE064372379824C00E3015B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE064362379824C00E3015B /* String.swift */; };
+		5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5B8B223799E0F00EF12D6 /* ApiService.swift */; };
+		5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5B8B423799F9900EF12D6 /* Error.swift */; };
+		5FE5B8B72379A0C600EF12D6 /* ApiLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5B8B62379A0C600EF12D6 /* ApiLoginModel.swift */; };
 		B3192E5AF023303E332086F7 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9F5590008F316A5059CAB9 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */; };
 		F3C09FCB107C6A00958ED2F2 /* Pods_ELBHO_Adviseurs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24C4A8651D68918388D100F /* Pods_ELBHO_Adviseurs.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,9 @@
 		5FE0641E23796CBD00E3015B /* ELBHO_AdviseursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELBHO_AdviseursUITests.swift; sourceTree = "<group>"; };
 		5FE0642023796CBD00E3015B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FE064362379824C00E3015B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		5FE5B8B223799E0F00EF12D6 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		5FE5B8B423799F9900EF12D6 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		5FE5B8B62379A0C600EF12D6 /* ApiLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLoginModel.swift; sourceTree = "<group>"; };
 		72F935BF3AEDE1663C13528F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9A9F5590008F316A5059CAB9 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELBHO_AdviseursTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				5FE064362379824C00E3015B /* String.swift */,
+				5FE5B8B423799F9900EF12D6 /* Error.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 		5FE064392379834500E3015B /* API */ = {
 			isa = PBXGroup;
 			children = (
+				5FE5B8B62379A0C600EF12D6 /* ApiLoginModel.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -192,6 +200,7 @@
 		5FE0643A2379835300E3015B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5FE5B8B223799E0F00EF12D6 /* ApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -467,8 +476,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FE0640123796CBC00E3015B /* ViewController.swift in Sources */,
+				5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */,
 				5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */,
+				5FE5B8B72379A0C600EF12D6 /* ApiLoginModel.swift in Sources */,
 				5FE064372379824C00E3015B /* String.swift in Sources */,
+				5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */,
 				5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

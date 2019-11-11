@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		329372E836273CE285CD985C /* Pods_ELBHO_AdviseursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */; };
 		5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FC23796CBC00E3015B /* AppDelegate.swift */; };
 		5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FE23796CBC00E3015B /* SceneDelegate.swift */; };
 		5FE0640123796CBC00E3015B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0640023796CBC00E3015B /* ViewController.swift */; };
@@ -15,6 +16,8 @@
 		5FE0640923796CBD00E3015B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0640723796CBD00E3015B /* LaunchScreen.storyboard */; };
 		5FE0641423796CBD00E3015B /* ELBHO_AdviseursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0641323796CBD00E3015B /* ELBHO_AdviseursTests.swift */; };
 		5FE0641F23796CBD00E3015B /* ELBHO_AdviseursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0641E23796CBD00E3015B /* ELBHO_AdviseursUITests.swift */; };
+		B3192E5AF023303E332086F7 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9F5590008F316A5059CAB9 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */; };
+		F3C09FCB107C6A00958ED2F2 /* Pods_ELBHO_Adviseurs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24C4A8651D68918388D100F /* Pods_ELBHO_Adviseurs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		416ED8342F0E54585839F80F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FE063F923796CBC00E3015B /* ELBHO Adviseurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ELBHO Adviseurs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE063FC23796CBC00E3015B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE063FE23796CBC00E3015B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,14 @@
 		5FE0641A23796CBD00E3015B /* ELBHO AdviseursUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ELBHO AdviseursUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE0641E23796CBD00E3015B /* ELBHO_AdviseursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELBHO_AdviseursUITests.swift; sourceTree = "<group>"; };
 		5FE0642023796CBD00E3015B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72F935BF3AEDE1663C13528F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9A9F5590008F316A5059CAB9 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELBHO_AdviseursTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0D819A136307EE416AA60D6 /* Pods-ELBHO Adviseurs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs.debug.xcconfig"; sourceTree = "<group>"; };
+		BB6A269DAB75CADACB8ACCA6 /* Pods-ELBHO Adviseurs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs.release.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs.release.xcconfig"; sourceTree = "<group>"; };
+		CE932965EAC8C4BB1FA65BD5 /* Pods-ELBHO AdviseursTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO AdviseursTests.release.xcconfig"; path = "Target Support Files/Pods-ELBHO AdviseursTests/Pods-ELBHO AdviseursTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF928A0AFEC4778A2DB75621 /* Pods-ELBHO AdviseursTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO AdviseursTests.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO AdviseursTests/Pods-ELBHO AdviseursTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F24C4A8651D68918388D100F /* Pods_ELBHO_Adviseurs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELBHO_Adviseurs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C09FCB107C6A00958ED2F2 /* Pods_ELBHO_Adviseurs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329372E836273CE285CD985C /* Pods_ELBHO_AdviseursTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3192E5AF023303E332086F7 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		492888730674320C6758B744 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F24C4A8651D68918388D100F /* Pods_ELBHO_Adviseurs.framework */,
+				9A9F5590008F316A5059CAB9 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */,
+				9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5FE063F023796CBC00E3015B = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				5FE0641223796CBD00E3015B /* ELBHO AdviseursTests */,
 				5FE0641D23796CBD00E3015B /* ELBHO AdviseursUITests */,
 				5FE063FA23796CBC00E3015B /* Products */,
+				EAC3C32954C3D5C718A2603D /* Pods */,
+				492888730674320C6758B744 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +155,20 @@
 			path = "ELBHO AdviseursUITests";
 			sourceTree = "<group>";
 		};
+		EAC3C32954C3D5C718A2603D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0D819A136307EE416AA60D6 /* Pods-ELBHO Adviseurs.debug.xcconfig */,
+				BB6A269DAB75CADACB8ACCA6 /* Pods-ELBHO Adviseurs.release.xcconfig */,
+				416ED8342F0E54585839F80F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */,
+				72F935BF3AEDE1663C13528F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig */,
+				DF928A0AFEC4778A2DB75621 /* Pods-ELBHO AdviseursTests.debug.xcconfig */,
+				CE932965EAC8C4BB1FA65BD5 /* Pods-ELBHO AdviseursTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +176,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FE0642323796CBD00E3015B /* Build configuration list for PBXNativeTarget "ELBHO Adviseurs" */;
 			buildPhases = (
+				6F2D7E7E93641132FBAF459F /* [CP] Check Pods Manifest.lock */,
 				5FE063F523796CBC00E3015B /* Sources */,
 				5FE063F623796CBC00E3015B /* Frameworks */,
 				5FE063F723796CBC00E3015B /* Resources */,
@@ -152,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FE0642623796CBD00E3015B /* Build configuration list for PBXNativeTarget "ELBHO AdviseursTests" */;
 			buildPhases = (
+				87604E62AE8B4234D636F5D6 /* [CP] Check Pods Manifest.lock */,
 				5FE0640B23796CBD00E3015B /* Sources */,
 				5FE0640C23796CBD00E3015B /* Frameworks */,
 				5FE0640D23796CBD00E3015B /* Resources */,
@@ -170,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FE0642923796CBD00E3015B /* Build configuration list for PBXNativeTarget "ELBHO AdviseursUITests" */;
 			buildPhases = (
+				154DD7AC7420C3BCB323CDBB /* [CP] Check Pods Manifest.lock */,
 				5FE0641623796CBD00E3015B /* Sources */,
 				5FE0641723796CBD00E3015B /* Frameworks */,
 				5FE0641823796CBD00E3015B /* Resources */,
@@ -253,6 +297,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		154DD7AC7420C3BCB323CDBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F2D7E7E93641132FBAF459F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ELBHO Adviseurs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87604E62AE8B4234D636F5D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ELBHO AdviseursTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5FE063F523796CBC00E3015B /* Sources */ = {
@@ -432,6 +545,7 @@
 		};
 		5FE0642423796CBD00E3015B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0D819A136307EE416AA60D6 /* Pods-ELBHO Adviseurs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +564,7 @@
 		};
 		5FE0642523796CBD00E3015B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB6A269DAB75CADACB8ACCA6 /* Pods-ELBHO Adviseurs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +583,7 @@
 		};
 		5FE0642723796CBD00E3015B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF928A0AFEC4778A2DB75621 /* Pods-ELBHO AdviseursTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -489,6 +605,7 @@
 		};
 		5FE0642823796CBD00E3015B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE932965EAC8C4BB1FA65BD5 /* Pods-ELBHO AdviseursTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -510,6 +627,7 @@
 		};
 		5FE0642A23796CBD00E3015B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 416ED8342F0E54585839F80F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -529,6 +647,7 @@
 		};
 		5FE0642B23796CBD00E3015B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72F935BF3AEDE1663C13528F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

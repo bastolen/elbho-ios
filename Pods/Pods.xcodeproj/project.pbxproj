@@ -1,0 +1,756 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40ADF416B6D341CAF9126EC1429C313F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		4E82B8BB312EB2F668D3BF469254E351 /* Pods-ELBHO Adviseurs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 497610B27123E1995208A624584290E2 /* Pods-ELBHO Adviseurs-dummy.m */; };
+		5CEC316D38A530523F3A91B1FC51C380 /* Pods-ELBHO AdviseursTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 958B9152FFC923434DB6C6C2DF230DC4 /* Pods-ELBHO AdviseursTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		653DB58A02B72152C7A0F8B2F28A075E /* Pods-ELBHO AdviseursTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DCE918187D43DB7E168FEC72200270 /* Pods-ELBHO AdviseursTests-dummy.m */; };
+		6C00B8F0A4DAE76F9C67FB737D3D4C0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		A70D64AB2C660FDAAF5D8B9778A6004C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		B1BC795232DC0AC86A95D4921D42D4D0 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F00E7218C2FA4C8D95DBB6FC1E523890 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C048ED47747C8A10596D6C4643A25034 /* Pods-ELBHO Adviseurs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A255D912821A082B8DF7C6291DCE328 /* Pods-ELBHO Adviseurs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB31912C4DB86FF15C1B4860EFEA58B0 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B36C3AB67C4BF9AF241D9E40B8C8ABA /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D7403F43FAFC15194DFD7DC442515BE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B018805B5CA0A5C2850A36DE9B57191;
+			remoteInfo = "Pods-ELBHO Adviseurs";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		014749243F019A1DD1AA2EF0A78B99B6 /* Pods-ELBHO AdviseursTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ELBHO AdviseursTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1A255D912821A082B8DF7C6291DCE328 /* Pods-ELBHO Adviseurs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ELBHO Adviseurs-umbrella.h"; sourceTree = "<group>"; };
+		2405EDDB36EE0146467ABED9D28A6B8A /* Pods-ELBHO Adviseurs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ELBHO Adviseurs.debug.xcconfig"; sourceTree = "<group>"; };
+		2C352CA76D52DB806B4D4F6E952B61E6 /* Pods-ELBHO AdviseursTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ELBHO AdviseursTests.release.xcconfig"; sourceTree = "<group>"; };
+		2EADD020B3C8F7BB7A50E33AA60BCDBC /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework; path = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		41D2E3D4F57754825A15BF941FC16706 /* Pods-ELBHO Adviseurs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ELBHO Adviseurs-acknowledgements.plist"; sourceTree = "<group>"; };
+		4626FCF3000404FAA4154C38F30A80E8 /* Pods_ELBHO_Adviseurs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ELBHO_Adviseurs.framework; path = "Pods-ELBHO Adviseurs.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		497610B27123E1995208A624584290E2 /* Pods-ELBHO Adviseurs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ELBHO Adviseurs-dummy.m"; sourceTree = "<group>"; };
+		49DCE918187D43DB7E168FEC72200270 /* Pods-ELBHO AdviseursTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ELBHO AdviseursTests-dummy.m"; sourceTree = "<group>"; };
+		4B36C3AB67C4BF9AF241D9E40B8C8ABA /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-dummy.m"; sourceTree = "<group>"; };
+		5094AE5C51F0FE450C3157F5652FAD49 /* Pods-ELBHO AdviseursTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ELBHO AdviseursTests-Info.plist"; sourceTree = "<group>"; };
+		529B3916B517460BF1F64736CF8249EC /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.modulemap"; sourceTree = "<group>"; };
+		6E1C981C8CE2D060B059CC09D6F9162D /* Pods-ELBHO Adviseurs.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ELBHO Adviseurs.modulemap"; sourceTree = "<group>"; };
+		76E5BE12C377AEB81BA08CADADE2D932 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7C67B31D2CEAC673C30040D89141148A /* Pods-ELBHO AdviseursTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ELBHO AdviseursTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7F6B50A2394567C5E8CAF94B20868F9C /* Pods-ELBHO AdviseursTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ELBHO AdviseursTests.debug.xcconfig"; sourceTree = "<group>"; };
+		958B9152FFC923434DB6C6C2DF230DC4 /* Pods-ELBHO AdviseursTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ELBHO AdviseursTests-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A3315F0EDDF6D9C3536808E6B7E92459 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A4E3D5A5955ACD29E3027B55C488D77B /* Pods_ELBHO_AdviseursTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ELBHO_AdviseursTests.framework; path = "Pods-ELBHO AdviseursTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C50EB2B61BCDB4150EAF6D571B3D2F59 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D778478170DB207AE1DB48C8D2DAFA6F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E2CDF4851BEA3A854BF29CAD91AD6B10 /* Pods-ELBHO Adviseurs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ELBHO Adviseurs-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E6E0BD9C59F15EEB58CC5EAD23204658 /* Pods-ELBHO Adviseurs-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ELBHO Adviseurs-Info.plist"; sourceTree = "<group>"; };
+		F00E7218C2FA4C8D95DBB6FC1E523890 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-umbrella.h"; sourceTree = "<group>"; };
+		F0DAA3BF45DB13D0D79C5F923C0D6429 /* Pods-ELBHO Adviseurs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ELBHO Adviseurs.release.xcconfig"; sourceTree = "<group>"; };
+		F3EDF6C9A1F7A9D2A0D2B6DDF3E919C5 /* Pods-ELBHO AdviseursTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ELBHO AdviseursTests.modulemap"; sourceTree = "<group>"; };
+		FA5D7D66284FCA78374A12B1E7B73DE9 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D102B1A30972F746886CF24CEA35AF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A70D64AB2C660FDAAF5D8B9778A6004C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AEB3C3F5589AB6848C9A5451D63DB22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40ADF416B6D341CAF9126EC1429C313F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E9B47A102F4455AD15FA2BE1CDE3728 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C00B8F0A4DAE76F9C67FB737D3D4C0E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2CB537A5F28B73B5AC5875597B06AD1D /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests */ = {
+			isa = PBXGroup;
+			children = (
+				529B3916B517460BF1F64736CF8249EC /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.modulemap */,
+				D778478170DB207AE1DB48C8D2DAFA6F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-acknowledgements.markdown */,
+				76E5BE12C377AEB81BA08CADADE2D932 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-acknowledgements.plist */,
+				4B36C3AB67C4BF9AF241D9E40B8C8ABA /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-dummy.m */,
+				FA5D7D66284FCA78374A12B1E7B73DE9 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-Info.plist */,
+				F00E7218C2FA4C8D95DBB6FC1E523890 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-umbrella.h */,
+				A3315F0EDDF6D9C3536808E6B7E92459 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */,
+				C50EB2B61BCDB4150EAF6D571B3D2F59 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig */,
+			);
+			name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests";
+			path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests";
+			sourceTree = "<group>";
+		};
+		882EC2BAF6B098EB5B0B7118B796E6A0 /* Pods-ELBHO Adviseurs */ = {
+			isa = PBXGroup;
+			children = (
+				6E1C981C8CE2D060B059CC09D6F9162D /* Pods-ELBHO Adviseurs.modulemap */,
+				E2CDF4851BEA3A854BF29CAD91AD6B10 /* Pods-ELBHO Adviseurs-acknowledgements.markdown */,
+				41D2E3D4F57754825A15BF941FC16706 /* Pods-ELBHO Adviseurs-acknowledgements.plist */,
+				497610B27123E1995208A624584290E2 /* Pods-ELBHO Adviseurs-dummy.m */,
+				E6E0BD9C59F15EEB58CC5EAD23204658 /* Pods-ELBHO Adviseurs-Info.plist */,
+				1A255D912821A082B8DF7C6291DCE328 /* Pods-ELBHO Adviseurs-umbrella.h */,
+				2405EDDB36EE0146467ABED9D28A6B8A /* Pods-ELBHO Adviseurs.debug.xcconfig */,
+				F0DAA3BF45DB13D0D79C5F923C0D6429 /* Pods-ELBHO Adviseurs.release.xcconfig */,
+			);
+			name = "Pods-ELBHO Adviseurs";
+			path = "Target Support Files/Pods-ELBHO Adviseurs";
+			sourceTree = "<group>";
+		};
+		B2368811FDFECF30B180CFDDE008F3AB /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				882EC2BAF6B098EB5B0B7118B796E6A0 /* Pods-ELBHO Adviseurs */,
+				2CB537A5F28B73B5AC5875597B06AD1D /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests */,
+				F93C8075EDD82A4A1E9901F54EC3EEB6 /* Pods-ELBHO AdviseursTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				D6EF590186F00D564A045058D4FE4FD2 /* Products */,
+				B2368811FDFECF30B180CFDDE008F3AB /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6EF590186F00D564A045058D4FE4FD2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4626FCF3000404FAA4154C38F30A80E8 /* Pods_ELBHO_Adviseurs.framework */,
+				2EADD020B3C8F7BB7A50E33AA60BCDBC /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */,
+				A4E3D5A5955ACD29E3027B55C488D77B /* Pods_ELBHO_AdviseursTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F93C8075EDD82A4A1E9901F54EC3EEB6 /* Pods-ELBHO AdviseursTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3EDF6C9A1F7A9D2A0D2B6DDF3E919C5 /* Pods-ELBHO AdviseursTests.modulemap */,
+				014749243F019A1DD1AA2EF0A78B99B6 /* Pods-ELBHO AdviseursTests-acknowledgements.markdown */,
+				7C67B31D2CEAC673C30040D89141148A /* Pods-ELBHO AdviseursTests-acknowledgements.plist */,
+				49DCE918187D43DB7E168FEC72200270 /* Pods-ELBHO AdviseursTests-dummy.m */,
+				5094AE5C51F0FE450C3157F5652FAD49 /* Pods-ELBHO AdviseursTests-Info.plist */,
+				958B9152FFC923434DB6C6C2DF230DC4 /* Pods-ELBHO AdviseursTests-umbrella.h */,
+				7F6B50A2394567C5E8CAF94B20868F9C /* Pods-ELBHO AdviseursTests.debug.xcconfig */,
+				2C352CA76D52DB806B4D4F6E952B61E6 /* Pods-ELBHO AdviseursTests.release.xcconfig */,
+			);
+			name = "Pods-ELBHO AdviseursTests";
+			path = "Target Support Files/Pods-ELBHO AdviseursTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		423D3E745CA80B31E4AF7255BC86E12B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C048ED47747C8A10596D6C4643A25034 /* Pods-ELBHO Adviseurs-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E6B25C80387715E8B2AD742BB17A2AA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BC795232DC0AC86A95D4921D42D4D0 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE6A3BF05C610C0859F712A457B3C8D5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CEC316D38A530523F3A91B1FC51C380 /* Pods-ELBHO AdviseursTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3B018805B5CA0A5C2850A36DE9B57191 /* Pods-ELBHO Adviseurs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C66CB051FAE911904A2F4B78ED6889A9 /* Build configuration list for PBXNativeTarget "Pods-ELBHO Adviseurs" */;
+			buildPhases = (
+				423D3E745CA80B31E4AF7255BC86E12B /* Headers */,
+				614BDDDB2ED00396F99BA81FC83EACA9 /* Sources */,
+				7AEB3C3F5589AB6848C9A5451D63DB22 /* Frameworks */,
+				C6BE18E36B5DAC092FE053D6CCA6E299 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ELBHO Adviseurs";
+			productName = "Pods-ELBHO Adviseurs";
+			productReference = 4626FCF3000404FAA4154C38F30A80E8 /* Pods_ELBHO_Adviseurs.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		80EBAD7B722B47B162FD7ED6B059ABCB /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 087043AA720F24FF96F92F83CBAF0907 /* Build configuration list for PBXNativeTarget "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests" */;
+			buildPhases = (
+				8E6B25C80387715E8B2AD742BB17A2AA /* Headers */,
+				037ECDA2A9B452A342DD325237ED3521 /* Sources */,
+				4D102B1A30972F746886CF24CEA35AF9 /* Frameworks */,
+				EF265AD6732F529DA61A7BE171A41133 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests";
+			productName = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests";
+			productReference = 2EADD020B3C8F7BB7A50E33AA60BCDBC /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CB2A161ADCA9E8A7CCC68E032EE8AB91 /* Pods-ELBHO AdviseursTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A4300DBEBC4E87D6AEDB0C090BE9D09 /* Build configuration list for PBXNativeTarget "Pods-ELBHO AdviseursTests" */;
+			buildPhases = (
+				BE6A3BF05C610C0859F712A457B3C8D5 /* Headers */,
+				B56537786EBF27E103BFF34974DE8DE9 /* Sources */,
+				9E9B47A102F4455AD15FA2BE1CDE3728 /* Frameworks */,
+				0B56B7A168DCFF20D238ECEF784CE4C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED645EFEE1BBECCD20709C9190B8A843 /* PBXTargetDependency */,
+			);
+			name = "Pods-ELBHO AdviseursTests";
+			productName = "Pods-ELBHO AdviseursTests";
+			productReference = A4E3D5A5955ACD29E3027B55C488D77B /* Pods_ELBHO_AdviseursTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = D6EF590186F00D564A045058D4FE4FD2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B018805B5CA0A5C2850A36DE9B57191 /* Pods-ELBHO Adviseurs */,
+				80EBAD7B722B47B162FD7ED6B059ABCB /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests */,
+				CB2A161ADCA9E8A7CCC68E032EE8AB91 /* Pods-ELBHO AdviseursTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B56B7A168DCFF20D238ECEF784CE4C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6BE18E36B5DAC092FE053D6CCA6E299 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF265AD6732F529DA61A7BE171A41133 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		037ECDA2A9B452A342DD325237ED3521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB31912C4DB86FF15C1B4860EFEA58B0 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		614BDDDB2ED00396F99BA81FC83EACA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E82B8BB312EB2F668D3BF469254E351 /* Pods-ELBHO Adviseurs-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B56537786EBF27E103BFF34974DE8DE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				653DB58A02B72152C7A0F8B2F28A075E /* Pods-ELBHO AdviseursTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED645EFEE1BBECCD20709C9190B8A843 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ELBHO Adviseurs";
+			target = 3B018805B5CA0A5C2850A36DE9B57191 /* Pods-ELBHO Adviseurs */;
+			targetProxy = D7403F43FAFC15194DFD7DC442515BE5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		047EC775FB06E681DC15610A5B4BBD0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2405EDDB36EE0146467ABED9D28A6B8A /* Pods-ELBHO Adviseurs.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4B8797E9FB4C63C098A3A02D5326CAFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F6B50A2394567C5E8CAF94B20868F9C /* Pods-ELBHO AdviseursTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ELBHO AdviseursTests/Pods-ELBHO AdviseursTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ELBHO AdviseursTests/Pods-ELBHO AdviseursTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		CB2933885FFD502F3811D339811EE3B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0DAA3BF45DB13D0D79C5F923C0D6429 /* Pods-ELBHO Adviseurs.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CF4CDDEF88AD8DD5A44DC61EBE8F750B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3315F0EDDF6D9C3536808E6B7E92459 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ECB437504DF805BD96CAABF97400B526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		FA5B17023A006951AA541E7FB8954A73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C352CA76D52DB806B4D4F6E952B61E6 /* Pods-ELBHO AdviseursTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ELBHO AdviseursTests/Pods-ELBHO AdviseursTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ELBHO AdviseursTests/Pods-ELBHO AdviseursTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FB6C13FC8FF281EA6E7DEF8DE1A29C36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C50EB2B61BCDB4150EAF6D571B3D2F59 /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		087043AA720F24FF96F92F83CBAF0907 /* Build configuration list for PBXNativeTarget "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF4CDDEF88AD8DD5A44DC61EBE8F750B /* Debug */,
+				FB6C13FC8FF281EA6E7DEF8DE1A29C36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A4300DBEBC4E87D6AEDB0C090BE9D09 /* Build configuration list for PBXNativeTarget "Pods-ELBHO AdviseursTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B8797E9FB4C63C098A3A02D5326CAFD /* Debug */,
+				FA5B17023A006951AA541E7FB8954A73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */,
+				ECB437504DF805BD96CAABF97400B526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C66CB051FAE911904A2F4B78ED6889A9 /* Build configuration list for PBXNativeTarget "Pods-ELBHO Adviseurs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				047EC775FB06E681DC15610A5B4BBD0A /* Debug */,
+				CB2933885FFD502F3811D339811EE3B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

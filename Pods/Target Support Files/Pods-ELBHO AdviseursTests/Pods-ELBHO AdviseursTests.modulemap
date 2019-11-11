@@ -1,0 +1,6 @@
+framework module Pods_ELBHO_AdviseursTests {
+  umbrella header "Pods-ELBHO AdviseursTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

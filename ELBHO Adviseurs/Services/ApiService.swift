@@ -10,14 +10,14 @@ import RxSwift
 import SwiftKeychainWrapper
 
 final class APIService {
-    private static let APIBASEURL: String = "elbho-function.azurewebsites.net/api"
+    private static let APIBASEURL: String = "https://elbho-function.azurewebsites.net/api"
     
-    static func login(username: String, password: String) -> Observable<String> {
-        return Observable.create { (observer) -> Disposable in
+    static func login(email: String, password: String) -> Observable<Bool> {
+        return Observable<String>.create { (observer) -> Disposable in
             Alamofire.request(self.APIBASEURL + "/advisor/login", method: .post, parameters: [
-                "email": username,
+                "email": email,
                 "password": password
-            ]).validate().responseJSON(completionHandler: {response in
+            ], encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {response in
                 if (response.result.isSuccess) {
                     guard let jsonData = response.data else {
                         
@@ -33,7 +33,16 @@ final class APIService {
             })
             
             return Disposables.create()
+        }.map{token in
+            return KeychainWrapper.standard.set(token, forKey: "authToken")
         }
+    }
+    
+    private static func getAuthHeader() -> [String:String] {
+        guard let authToken =  KeychainWrapper.standard.string(forKey: "authToken") else {
+            return [:]
+        }
+        return ["x-jwt": authToken]
     }
     
     private static func returnError<X, Y>(response: DataResponse<X>, observer: AnyObserver<Y>) -> Void {

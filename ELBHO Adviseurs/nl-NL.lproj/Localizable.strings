@@ -6,6 +6,6 @@
   Copyright © 2019 Otters. All rights reserved.
 */
 
-"error_api_message": "Er is iets mis gegaan op de server";
-"error_password_match_message": "De inloggegevens komen niet overeen";
-"error_conflict_message": "Een veld met deze waarde bestaat al";
+"error_api_message" = "Er is iets mis gegaan op de server";
+"error_password_match_message" = "De inloggegevens komen niet overeen";
+"error_conflict_message" = "Een veld met deze waarde bestaat al";

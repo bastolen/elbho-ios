@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import RxSwift
+import SwiftKeychainWrapper
 
 class ViewController: UIViewController {
-
+    
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        APIService.login(email: "582297@student.inholland.nl", password: "lol").subscribe(onNext: {result in
+            print("Login was succesfull: \(result)")
+        }, onError: {Error in
+            print(Error)
+        }).disposed(by: disposeBag)
     }
-
-
+    
+    
 }
 

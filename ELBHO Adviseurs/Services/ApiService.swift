@@ -10,13 +10,13 @@ import RxSwift
 import SwiftKeychainWrapper
 
 final class APIService {
-    private static let APIBASEURL: String = "https://inhollandbackend.azurewebsites.net/api/"
+    private static let APIBASEURL: String = "elbho-function.azurewebsites.net/api"
     
     static func login(username: String, password: String) -> Observable<String> {
         return Observable.create { (observer) -> Disposable in
-            Alamofire.request(self.APIBASEURL + "Users/Login", method: .post, parameters: [
-                "UserName": username,
-                "Password": password
+            Alamofire.request(self.APIBASEURL + "/advisor/login", method: .post, parameters: [
+                "email": username,
+                "password": password
             ]).validate().responseJSON(completionHandler: {response in
                 if (response.result.isSuccess) {
                     guard let jsonData = response.data else {
@@ -26,9 +26,9 @@ final class APIService {
                     let decoder = JSONDecoder()
                     
                     let apiResult = try? decoder.decode(ApiLogin.self, from: jsonData)
-                    return observer.onNext(apiResult!.authToken)
+                    return observer.onNext(apiResult!.jwt)
                 } else {
-                    return self.returnError(response: response, observer: observer, loginError: true)
+                    return self.returnError(response: response, observer: observer)
                 }
             })
             
@@ -36,14 +36,21 @@ final class APIService {
         }
     }
     
-    private static func returnError<X, Y>(response: DataResponse<X>, observer: AnyObserver<Y>, loginError: Bool = false) -> Void {
-        if response.response?.statusCode == 401 {
-            // TODO: Implement more error types
-            let error: CustomError = .api
-            
-            return observer.onError(error)
-        } else {
-            return observer.onError(CustomError.api)
+    private static func returnError<X, Y>(response: DataResponse<X>, observer: AnyObserver<Y>) -> Void {
+        var error: CustomError
+        switch response.response?.statusCode {
+        case 400:
+            error = .passwordMatch
+        case 401:
+            error = .api
+        case 409:
+            error = .conflict
+        case 500:
+            error = .api
+        
+        default:
+            error = .api
         }
+        return observer.onError(error)
     }
 }

@@ -21,6 +21,12 @@ class ViewController: UIViewController {
         }, onError: {Error in
             print(Error)
         }).disposed(by: disposeBag)
+        
+        APIService.getLoggedInAdvisor(true).subscribe(onNext: {result in
+            print("Logged in account: \(result)")
+        }, onError: {Error in
+            print(Error)
+        }).disposed(by: disposeBag)
     }
     
     

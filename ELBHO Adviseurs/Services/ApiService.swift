@@ -38,7 +38,7 @@ final class APIService {
         }
     }
     
-    static func getLoggedInAdvisor(_ itemn: Bool) -> Observable<Advisor> {
+    static func getLoggedInAdvisor() -> Observable<Advisor> {
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/advisors/me", method: .get, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
                 if (response.result.isSuccess) {
@@ -48,7 +48,7 @@ final class APIService {
                     }
                     
                     let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .formatted(.apiNewsDateResult)
+                    decoder.dateDecodingStrategy = .formatted(.apiDateResult)
                     
                     let apiResult = try? decoder.decode(Advisor.self, from: jsonData)
                     return observer.onNext(apiResult!)

@@ -16,19 +16,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIService.login(email: "582297@student.inholland.nl", password: "lol").subscribe(onNext: {result in
-            print("Login was succesfull: \(result)")
-        }, onError: {Error in
-            print(Error)
-        }).disposed(by: disposeBag)
-        
-        APIService.getLoggedInAdvisor(true).subscribe(onNext: {result in
-            print("Logged in account: \(result)")
-        }, onError: {Error in
-            print(Error)
-        }).disposed(by: disposeBag)
+        if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
+            // Not logged in, show login screen
+            print("Not logged in")
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
+        }
+        // Logged in, continue
+//        APIService.login(email: "582297@student.inholland.nl", password: "lol")
+//            .subscribe(onNext: {result in
+//                print("Logged in contact: \(result)")
+//            }, onError: {Error in
+//                print(Error)
+//            }).disposed(by: disposeBag)
+//        print(KeychainWrapper.standard.string(forKey: "authToken"))
+//        APIService.getLoggedInAdvisor().subscribe(onNext: {result in
+//            print("Logged in contact: \(result)")
+//        }, onError: {Error in
+//            print(Error)
+//        }).disposed(by: disposeBag)
     }
-    
-    
 }
-

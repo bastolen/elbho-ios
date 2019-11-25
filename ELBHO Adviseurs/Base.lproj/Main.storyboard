@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="njv-Dg-mD9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="hlD-vg-TbB">
+            <objects>
+                <navigationController id="njv-Dg-mD9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vH5-BL-iCr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3HG-oI-rI1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAg-yp-0eL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-710" y="134"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -17,10 +33,74 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="B5D-vY-auu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="126" y="134"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="HnY-fc-uQ2">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RvT-6b-4Vf" customClass="LoginViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eMa-Bj-5kI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="BrandIcon" translatesAutoresizingMaskIntoConstraints="NO" id="75n-9y-TfD">
+                                <rect key="frame" x="75" y="194" width="264" height="236"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="75n-9y-TfD" secondAttribute="height" multiplier="1007:900" id="qV3-4F-P7E"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gam-AI-c1f" customClass="MDCTextField">
+                                <rect key="frame" x="50" y="480" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RZh-Lc-CL6" customClass="MDCTextField">
+                                <rect key="frame" x="50" y="539" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJm-bi-UWa" customClass="MDCButton">
+                                <rect key="frame" x="50" y="598" width="314" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="CPj-Eh-Nge"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="75n-9y-TfD" firstAttribute="leading" secondItem="eMa-Bj-5kI" secondAttribute="leading" constant="75" id="GH0-BW-QMg"/>
+                            <constraint firstAttribute="trailing" secondItem="75n-9y-TfD" secondAttribute="trailing" constant="75" id="Il6-WY-hx3"/>
+                            <constraint firstItem="RZh-Lc-CL6" firstAttribute="top" secondItem="gam-AI-c1f" secondAttribute="bottom" constant="25" id="JWe-KI-Qr1"/>
+                            <constraint firstItem="RZh-Lc-CL6" firstAttribute="leading" secondItem="tKP-8J-BMY" secondAttribute="leading" constant="50" id="LXs-qS-ZMF"/>
+                            <constraint firstItem="75n-9y-TfD" firstAttribute="top" secondItem="tKP-8J-BMY" secondAttribute="top" constant="150" id="Rm9-UP-qAc"/>
+                            <constraint firstItem="gam-AI-c1f" firstAttribute="leading" secondItem="tKP-8J-BMY" secondAttribute="leading" constant="50" id="bV4-kv-t31"/>
+                            <constraint firstItem="tKP-8J-BMY" firstAttribute="trailing" secondItem="gam-AI-c1f" secondAttribute="trailing" constant="50" id="die-7A-F2M"/>
+                            <constraint firstItem="oJm-bi-UWa" firstAttribute="top" secondItem="RZh-Lc-CL6" secondAttribute="bottom" constant="25" id="fJ6-dy-cKR"/>
+                            <constraint firstItem="tKP-8J-BMY" firstAttribute="trailing" secondItem="oJm-bi-UWa" secondAttribute="trailing" constant="50" id="goB-fM-AW5"/>
+                            <constraint firstItem="tKP-8J-BMY" firstAttribute="trailing" secondItem="RZh-Lc-CL6" secondAttribute="trailing" constant="50" id="hJd-mo-e0t"/>
+                            <constraint firstItem="oJm-bi-UWa" firstAttribute="leading" secondItem="tKP-8J-BMY" secondAttribute="leading" constant="50" id="kOg-9K-2SZ"/>
+                            <constraint firstItem="gam-AI-c1f" firstAttribute="top" secondItem="75n-9y-TfD" secondAttribute="bottom" constant="50" id="yoj-nJ-yj7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tKP-8J-BMY"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="gam-AI-c1f" id="wZ0-BD-e3s"/>
+                        <outlet property="passwordTextField" destination="RZh-Lc-CL6" id="eO0-Az-vW2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Erb-7j-fGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-710" y="835"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="BrandIcon" width="1007" height="900"/>
+    </resources>
 </document>

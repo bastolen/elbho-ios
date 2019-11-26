@@ -5,6 +5,8 @@
   Created by Bas Tolen on 19/11/2019.
   Copyright © 2019 Otters. All rights reserved.
 */
+
 "error_api_message" = "Something went wrong with the api";
 "error_password_match_message" = "The login credentials do not match";
 "error_conflict_message" = "A required field was not unique";
+"error_empty_field" = "One of the required fields is empty";

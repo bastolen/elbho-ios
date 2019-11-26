@@ -8,20 +8,35 @@
 
 import UIKit
 import MaterialComponents
+import RxSwift
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: MDCTextField!
     
     @IBOutlet weak var passwordTextField: MDCTextField!
     
+    @IBOutlet weak var loginButton: MDCButton!
+    
+    private var callSend: Bool = false;
+    
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hideKeyboardWhenTappingOutside()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         navigationController?.isNavigationBarHidden = true
-
+        
+        emailTextField.delegate = self
+        emailTextField.clearButtonMode = .never
+        passwordTextField.delegate = self
+        passwordTextField.clearButtonMode = .never
+        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -29,27 +44,43 @@ class LoginViewController: UIViewController {
             self.view.frame.origin.y -= 150
         }
     }
-
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func loginClicked(_ sender: Any) {
+        if emailTextField.hasText && passwordTextField.hasText && !callSend {
+            callSend = true
+            APIService.login(email: emailTextField.text!, password: passwordTextField.text!)
+                .subscribe(onNext: {result in
+                    if (result) {
+                        // User is logged in
+                    } else {
+                        // Call failed
+                    }
+                    self.callSend = false
+                }, onError: {Error in
+                    if(Error as! CustomError == .passwordMatch) {
+                        // Password incorrect
+                    } else {
+                        // other error
+                    }
+                    self.callSend = false
+                }).disposed(by: disposeBag)
+        } else if !callSend {
+            // Fields are not all filled
+            // show this message: error_empty_field
+        } else {
+            // Call is send, probably do nothing
+        }
     }
-    */
-
 }
+
 extension LoginViewController: UITextFieldDelegate {
-    private func textFieldShouldReturn(_ textField: MDCTextField) -> Bool {
-        print(true)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.returnKeyType == .next {
             if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
                 nextField.becomeFirstResponder()
@@ -58,7 +89,7 @@ extension LoginViewController: UITextFieldDelegate {
                 return true;
             }
         } else if textField.returnKeyType == .go {
-            textField.endEditing(false)
+            textField.endEditing(true)
         }
         return false
     }

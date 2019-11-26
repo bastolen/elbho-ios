@@ -18,11 +18,11 @@ extension CustomError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .api:
-            return "error_api_message".localize
+            return "error_api".localize
         case .passwordMatch:
-            return "error_password_match_message".localize
+            return "error_password_match".localize
         case .conflict:
-            return "error_conflict_message".localize
+            return "error_conflict".localize
         }
     }
 }

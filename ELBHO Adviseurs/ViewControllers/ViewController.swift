@@ -18,9 +18,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
-            print("Not logged in")
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
         }
+        
+        // Present a modal alert
+        // let alertController = MDCAlertController(title: "titleString", message: "messageString")
+        // let action = MDCAlertAction(title:"OK") { (action) in print("OK") }
+        // alertController.addAction(action)
+        // present(alertController, animated:true, completion: nil)
     }
 }

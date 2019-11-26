@@ -39,7 +39,6 @@ class LoginViewController: UIViewController {
         emailTextField.clearButtonMode = .never
         passwordTextField.delegate = self
         passwordTextField.clearButtonMode = .never
-        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -57,25 +56,33 @@ class LoginViewController: UIViewController {
     @IBAction func loginClicked(_ sender: Any) {
         if emailTextField.hasText && passwordTextField.hasText && !callSend {
             callSend = true
+            loginButton.isEnabled = false
             APIService.login(email: emailTextField.text!, password: passwordTextField.text!)
                 .subscribe(onNext: {result in
                     if (result) {
                         // User is logged in
+                        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "MainViewController")], animated:true)
                     } else {
-                        // Call failed
+                        // Saving the token failed
+                        self.showSnackbar("error_general".localize)
                     }
                     self.callSend = false
+                    self.loginButton.isEnabled = true
                 }, onError: {Error in
                     if(Error as! CustomError == .passwordMatch) {
-                        // Password incorrect
+                        // Password is wrong
+                        self.showSnackbar("error_password_match".localize)
                     } else {
-                        // other error
+                        // The api failed
+                        self.showSnackbar("error_api".localize)
                     }
                     self.callSend = false
+                    self.loginButton.isEnabled = true
                 }).disposed(by: disposeBag)
         } else if !callSend {
-            // Fields are not all filled
-            // show this message: error_empty_field
+            // One of the fields is empty
+            showSnackbar("error_empty_field".localize)
         } else {
             // Call is send, probably do nothing
         }

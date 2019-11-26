@@ -8,8 +8,16 @@
 
 import Foundation
 import UIKit
+import MaterialComponents.MDCSnackbarMessage
 
 extension UIViewController {
+    
+    func showSnackbar(_ text: String) -> Void {
+        let message = MDCSnackbarMessage()
+        message.text = text
+        MDCSnackbarManager.show(message)
+    }
+    
     func hideKeyboardWhenTappingOutside() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false

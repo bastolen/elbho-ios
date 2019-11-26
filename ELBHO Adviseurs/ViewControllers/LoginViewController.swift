@@ -32,6 +32,9 @@ class LoginViewController: UIViewController {
         
         navigationController?.isNavigationBarHidden = true
         
+        loginButton.backgroundColor = UIColor(named: "Primary")
+        loginButton.setTitle("login_button".localize, for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
         emailTextField.delegate = self
         emailTextField.clearButtonMode = .never
         passwordTextField.delegate = self

@@ -10,3 +10,5 @@
 "error_password_match_message" = "The login credentials do not match";
 "error_conflict_message" = "A required field was not unique";
 "error_empty_field" = "One of the required fields is empty";
+
+"login_button" = "Login";

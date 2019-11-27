@@ -648,10 +648,12 @@ PODS:
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
+  - SideMenu (6.4.7)
   - SwiftKeychainWrapper (3.4.0)
 
 DEPENDENCIES:
   - MaterialComponents
+  - SideMenu
   - SwiftKeychainWrapper
 
 SPEC REPOS:
@@ -661,6 +663,7 @@ SPEC REPOS:
     - MDFTextAccessibility
     - MotionAnimator
     - MotionInterchange
+    - SideMenu
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
@@ -669,8 +672,9 @@ SPEC CHECKSUMS:
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
+  SideMenu: 928a015669c3afc201e1fe3a87f1b0bc8993a664
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: ddc54d5de4264ae681e313fc8df63bbce09509bc
+PODFILE CHECKSUM: 1a853a7ca7098817558229af11f85f6305766303
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

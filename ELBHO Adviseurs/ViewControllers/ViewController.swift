@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
+import SideMenu
 
 class ViewController: UIViewController {
     
@@ -17,9 +18,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if(KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
             return
         }
@@ -28,6 +30,12 @@ class ViewController: UIViewController {
         let action = MDCAlertAction(title:"OK") { (action) in print("OK") }
         alertController.addAction(action)
         present(alertController, animated:true, completion: nil)
+        
+        // Menu
+        let SideMenuView = mainStoryboard.instantiateViewController(identifier: "SideMenuView") as! SideMenuNavigationController
+        SideMenuManager.default.leftMenuNavigationController = SideMenuView
+        
+        SideMenuView.statusBarEndAlpha = 0
         
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 @objcMembers
 open class SideMenuPresentationStyle: InitializableClass {
     /// Background color behind the views and status bar color
-    open var backgroundColor: UIColor = .black
+    open var backgroundColor: UIColor = .white
     /// The starting alpha value of the menu before it appears
     open var menuStartAlpha: CGFloat = 1
     /// Whether or not the menu is on top. If false, the presenting view is on top. Shadows are applied to the view on top.
@@ -28,7 +28,7 @@ open class SideMenuPresentationStyle: InitializableClass {
     /// The offset of the shadow applied to the top most view.
     open var onTopShadowOffset: CGSize = .zero
     /// The ending alpha of the presenting view when the menu is fully displayed.
-    open var presentingEndAlpha: CGFloat = 1
+    open var presentingEndAlpha: CGFloat = 0.5
     /// The amount the presenting view is translated along the x-axis. Zero is stationary, negative values are off-screen, positive values are on screen.
     open var presentingTranslateFactor: CGFloat = 0
     /// The amount the presenting view is scaled. Less than one shrinks the view, larger than one grows the view.

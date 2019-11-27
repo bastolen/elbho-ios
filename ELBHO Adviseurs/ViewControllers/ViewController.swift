@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
+        if(KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
             return

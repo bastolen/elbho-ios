@@ -32,9 +32,9 @@ class LoginViewController: UIViewController {
         
         navigationController?.isNavigationBarHidden = true
         
-        loginButton.makePrimary()
+        loginButton.setPrimary()
         loginButton.setTitle("login_button".localize, for: .normal)
-        
+
         emailTextField.delegate = self
         emailTextField.clearButtonMode = .never
         passwordTextField.delegate = self
@@ -65,24 +65,24 @@ class LoginViewController: UIViewController {
                         self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "MainViewController")], animated:true)
                     } else {
                         // Saving the token failed
-                        self.showSnackbar("error_general".localize)
+                        self.showSnackbarDanger("error_general".localize)
                     }
                     self.callSend = false
                     self.loginButton.isEnabled = true
                 }, onError: {Error in
                     if(Error as! CustomError == .passwordMatch) {
                         // Password is wrong
-                        self.showSnackbar("error_password_match".localize)
+                        self.showSnackbarDanger("error_password_match".localize)
                     } else {
                         // The api failed
-                        self.showSnackbar("error_api".localize)
+                        self.showSnackbarDanger("error_api".localize)
                     }
                     self.callSend = false
                     self.loginButton.isEnabled = true
                 }).disposed(by: disposeBag)
         } else if !callSend {
             // One of the fields is empty
-            showSnackbar("error_empty_field".localize)
+            showSnackbarDanger("error_empty_field".localize)
         } else {
             // Call is send, probably do nothing
         }

@@ -12,11 +12,35 @@ import MaterialComponents.MDCSnackbarMessage
 
 extension UIViewController {
     
-    func showSnackbar(_ text: String) -> Void {
+    func showSnackbarPrimary(_ text: String) -> Void {
         let message = MDCSnackbarMessage(text: text)
         
-        let colorScheme = MDCSemanticColorScheme()
-        MDCSnackbarColorThemer.applySemanticColorScheme(colorScheme)
+        MDCSnackbarManager.messageTextColor = .white
+        MDCSnackbarManager.snackbarMessageViewBackgroundColor = UIColor(named: "Primary")
+        MDCSnackbarManager.show(message)
+    }
+    
+    func showSnackbarSecondary(_ text: String) -> Void {
+        let message = MDCSnackbarMessage(text: text)
+        
+        MDCSnackbarManager.messageTextColor = .white
+        MDCSnackbarManager.snackbarMessageViewBackgroundColor = UIColor(named: "Secondary")
+        MDCSnackbarManager.show(message)
+    }
+    
+    func showSnackbarDanger(_ text: String) -> Void {
+        let message = MDCSnackbarMessage(text: text)
+        
+        MDCSnackbarManager.messageTextColor = .white
+        MDCSnackbarManager.snackbarMessageViewBackgroundColor = UIColor(named: "Danger")
+        MDCSnackbarManager.show(message)
+    }
+    
+    func showSnackbarSuccess(_ text: String) -> Void {
+        let message = MDCSnackbarMessage(text: text)
+        
+        MDCSnackbarManager.messageTextColor = .white
+        MDCSnackbarManager.snackbarMessageViewBackgroundColor = UIColor(named: "Success")
         MDCSnackbarManager.show(message)
     }
     

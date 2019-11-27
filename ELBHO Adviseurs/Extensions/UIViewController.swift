@@ -13,8 +13,10 @@ import MaterialComponents.MDCSnackbarMessage
 extension UIViewController {
     
     func showSnackbar(_ text: String) -> Void {
-        let message = MDCSnackbarMessage()
-        message.text = text
+        let message = MDCSnackbarMessage(text: text)
+        
+        let colorScheme = MDCSemanticColorScheme()
+        MDCSnackbarColorThemer.applySemanticColorScheme(colorScheme)
         MDCSnackbarManager.show(message)
     }
     

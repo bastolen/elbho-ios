@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import SwiftKeychainWrapper
+import MaterialComponents
 
 class ViewController: UIViewController {
     
@@ -20,12 +21,13 @@ class ViewController: UIViewController {
             // Not logged in, show login screen
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
+            return
         }
-        
         // Present a modal alert
-        // let alertController = MDCAlertController(title: "titleString", message: "messageString")
-        // let action = MDCAlertAction(title:"OK") { (action) in print("OK") }
-        // alertController.addAction(action)
-        // present(alertController, animated:true, completion: nil)
+        let alertController = MDCAlertController(title: "titleString", message: "messageString")
+        let action = MDCAlertAction(title:"OK") { (action) in print("OK") }
+        alertController.addAction(action)
+        present(alertController, animated:true, completion: nil)
+        
     }
 }

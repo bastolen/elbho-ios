@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		329372E836273CE285CD985C /* Pods_ELBHO_AdviseursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */; };
 		5F124853238DB98900411781 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F124852238DB98900411781 /* UIViewController.swift */; };
+		5F124857238E602E00411781 /* MDCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F124856238E602E00411781 /* MDCButton.swift */; };
 		5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F766B238423B4001821BB /* DateFormatter.swift */; };
 		5F584DCD2383EC5500EBE536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F584DCF2383EC5500EBE536 /* Localizable.strings */; };
 		5F584DD62384016000EBE536 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F584DD52384016000EBE536 /* Advisor.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		416ED8342F0E54585839F80F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F124852238DB98900411781 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		5F124856238E602E00411781 /* MDCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDCButton.swift; sourceTree = "<group>"; };
 		5F4F766B238423B4001821BB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		5F584DCE2383EC5500EBE536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F584DD02383EC8D00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				5FE5B8B423799F9900EF12D6 /* Error.swift */,
 				5F4F766B238423B4001821BB /* DateFormatter.swift */,
 				5F124852238DB98900411781 /* UIViewController.swift */,
+				5F124856238E602E00411781 /* MDCButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 			files = (
 				5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */,
 				5F584DD62384016000EBE536 /* Advisor.swift in Sources */,
+				5F124857238E602E00411781 /* MDCButton.swift in Sources */,
 				5FE0640123796CBC00E3015B /* ViewController.swift in Sources */,
 				5F124853238DB98900411781 /* UIViewController.swift in Sources */,
 				5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */,

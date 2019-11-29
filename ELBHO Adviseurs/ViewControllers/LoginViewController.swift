@@ -12,8 +12,10 @@ import RxSwift
 
 class LoginViewController: UIViewController {
     
+    var emailController: MDCTextInputControllerUnderline?
     @IBOutlet weak var emailTextField: MDCTextField!
     
+    var passwordController: MDCTextInputControllerUnderline?
     @IBOutlet weak var passwordTextField: MDCTextField!
     
     @IBOutlet weak var loginButton: MDCButton!
@@ -35,21 +37,26 @@ class LoginViewController: UIViewController {
         loginButton.setPrimary()
         loginButton.setTitle("login_button".localize, for: .normal)
 
+        emailController = MDCTextInputControllerUnderline(textInput: emailTextField)
         emailTextField.delegate = self
         emailTextField.clearButtonMode = .never
+        
+        passwordController = MDCTextInputControllerUnderline(textInput: passwordTextField)
         passwordTextField.delegate = self
         passwordTextField.clearButtonMode = .never
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= 150
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0 {
+                view.frame.origin.y -= keyboardSize.height
+            }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
+        if view.frame.origin.y != 0 {
+            view.frame.origin.y = 0
         }
     }
     

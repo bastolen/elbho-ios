@@ -25,11 +25,6 @@ class ViewController: UIViewController {
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
             return
         }
-        // Present a modal alert
-        let alertController = MDCAlertController(title: "titleString", message: "messageString")
-        let action = MDCAlertAction(title:"OK") { (action) in print("OK") }
-        alertController.addAction(action)
-        present(alertController, animated:true, completion: nil)
         
         // Menu
         let SideMenuView = mainStoryboard.instantiateViewController(identifier: "SideMenuView") as! SideMenuNavigationController

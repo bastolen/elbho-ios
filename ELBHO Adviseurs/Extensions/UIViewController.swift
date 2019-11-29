@@ -44,6 +44,15 @@ extension UIViewController {
         MDCSnackbarManager.show(message)
     }
     
+    func showAlert(title: String, message: String, actions: [MDCAlertAction]) -> Void {
+        let alertController = MDCAlertController(title: title, message: message)
+        actions.forEach{ action in
+            alertController.addAction(action)
+        }
+        
+        present(alertController, animated:true, completion: nil)
+    }
+    
     func hideKeyboardWhenTappingOutside() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false

@@ -38,10 +38,12 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("login_button".localize, for: .normal)
 
         emailController = MDCTextInputControllerUnderline(textInput: emailTextField)
+        emailController?.activeColor = UIColor(named: "Primary")
         emailTextField.delegate = self
         emailTextField.clearButtonMode = .never
         
         passwordController = MDCTextInputControllerUnderline(textInput: passwordTextField)
+        passwordController?.activeColor = UIColor(named: "Primary")
         passwordTextField.delegate = self
         passwordTextField.clearButtonMode = .never
     }

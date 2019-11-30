@@ -713,13 +713,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4X53GU3BXQ;
+				DEVELOPMENT_TEAM = 299V85P9P7;
 				INFOPLIST_FILE = "ELBHO Adviseurs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.otters.ELBHO-Adviseurs";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.otters.ELBHO-Adviseur";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

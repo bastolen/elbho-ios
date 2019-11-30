@@ -15,10 +15,11 @@ import SideMenu
 class ViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        title = "Afspraken"
         
         if(KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
@@ -29,7 +30,6 @@ class ViewController: UIViewController {
         // Menu
         let SideMenuView = mainStoryboard.instantiateViewController(identifier: "SideMenuView") as! SideMenuNavigationController
         SideMenuManager.default.leftMenuNavigationController = SideMenuView
-        
         SideMenuView.statusBarEndAlpha = 0
         
     }

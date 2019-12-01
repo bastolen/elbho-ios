@@ -27,10 +27,13 @@ class ViewController: UIViewController {
             return
         }
         
-        // Menu
+        setupMenu()
+    }
+    
+    func setupMenu()
+    {
         let SideMenuView = mainStoryboard.instantiateViewController(identifier: "SideMenuView") as! SideMenuNavigationController
         SideMenuManager.default.leftMenuNavigationController = SideMenuView
         SideMenuView.statusBarEndAlpha = 0
-        
     }
 }

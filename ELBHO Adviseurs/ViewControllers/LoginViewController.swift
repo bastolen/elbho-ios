@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func loginClicked(_ sender: Any) {
+    @IBAction func loginClicked() {
         if emailTextField.hasText && passwordTextField.hasText && !callSend {
             callSend = true
             loginButton.isEnabled = false
@@ -108,6 +108,7 @@ extension LoginViewController: UITextFieldDelegate {
                 return true;
             }
         } else if textField.returnKeyType == .go {
+            loginClicked()
             textField.endEditing(true)
         }
         return false

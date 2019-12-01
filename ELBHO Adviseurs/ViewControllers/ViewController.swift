@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         title = "Afspraken"
         
-        if(KeychainWrapper.standard.hasValue(forKey: "authToken")) {
+        if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
             return

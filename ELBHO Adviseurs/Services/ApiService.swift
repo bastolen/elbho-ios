@@ -10,7 +10,7 @@ import RxSwift
 import SwiftKeychainWrapper
 
 final class APIService {
-    private static let APIBASEURL: String = "https://elbho-function.azurewebsites.net/api"
+    private static let APIBASEURL: String = "https://582082BasTolen.azurewebsites.net/api"
     
     static func login(email: String, password: String) -> Observable<Bool> {
         return Observable<String>.create { (observer) -> Disposable in

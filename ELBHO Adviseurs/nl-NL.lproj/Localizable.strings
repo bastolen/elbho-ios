@@ -13,3 +13,7 @@
 "error_empty_field" = "Een van de verplichte velden is nog leeg";
 
 "login_button" = "Login";
+
+"agenda_open" = "Openstaand";
+"agenda_accepted" = "Aanstaand";
+"agenda_done" = "Afgerond";

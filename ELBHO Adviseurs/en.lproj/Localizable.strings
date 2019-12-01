@@ -13,3 +13,7 @@
 "error_empty_field" = "One of the required fields is empty";
 
 "login_button" = "Login";
+
+"agenda_open" = "Openstaand";
+"agenda_accepted" = "Aanstaand";
+"agenda_done" = "Afgerond";

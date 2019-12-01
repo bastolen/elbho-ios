@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     private let disposeBag = DisposeBag()
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
+    @IBOutlet weak var Container: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Afspraken"
@@ -28,6 +30,7 @@ class ViewController: UIViewController {
         }
         
         setupMenu()
+        setupTabBar()
     }
     
     private func setupMenu()
@@ -37,9 +40,10 @@ class ViewController: UIViewController {
         SideMenuView.statusBarEndAlpha = 0
     }
     
-    private func setTabBar() {
+    private func setupTabBar() {
         // Create the items
         let itemOpen = UITabBarItem(title: "agenda_open".localize, image: UIImage(named: "AcceptedAgenda"), selectedImage: UIImage(named: "AcceptedAgendaSelected"))
+        itemOpen.badgeValue = "5"
         let itemAccepted = UITabBarItem(title: "agenda_accepted".localize, image: UIImage(named: "OpenAgenda"), selectedImage: UIImage(named: "OpenAgendaSelected"))
         let itemDone = UITabBarItem(title: "agenda_done".localize, image: UIImage(named: "DoneAgenda"), selectedImage: UIImage(named: "DoneAgendaSelected"))
         
@@ -53,9 +57,10 @@ class ViewController: UIViewController {
         tabBar.itemAppearance = .titledImages
         tabBar.setTitleColor(UIColor(named: "Disabled"), for: .normal)
         tabBar.setTitleColor(UIColor(named: "Primary"), for: .selected)
+        tabBar.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         tabBar.sizeToFit()
         
         // Add the bar
-        view.addSubview(tabBar)
+        Container.addSubview(tabBar)
     }
 }

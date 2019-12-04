@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,7 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W0m-zP-qVa">
-                                <rect key="frame" x="0.0" y="135" width="414" height="727"/>
+                                <rect key="frame" x="0.0" y="155" width="414" height="707"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ro7-Sg-ltu">
                                     <size key="itemSize" width="35" height="35"/>
@@ -60,17 +59,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sd-VX-Yet">
-                                                    <rect key="frame" x="12" y="7" width="11" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sd-VX-Yet">
+                                                    <rect key="frame" x="5" y="5" width="25" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="Success"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="4Sd-VX-Yet" secondAttribute="trailing" constant="5" id="KwN-k3-dTb"/>
+                                                <constraint firstItem="4Sd-VX-Yet" firstAttribute="centerY" secondItem="KSF-DG-cPf" secondAttribute="centerY" id="YZf-ux-ELt"/>
+                                                <constraint firstItem="4Sd-VX-Yet" firstAttribute="top" secondItem="KSF-DG-cPf" secondAttribute="top" constant="5" id="joz-Wk-20Q"/>
+                                                <constraint firstItem="4Sd-VX-Yet" firstAttribute="leading" secondItem="KSF-DG-cPf" secondAttribute="leading" constant="5" id="y1r-if-h20"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="contentView" destination="KSF-DG-cPf" id="A06-KZ-Khu"/>
                                             <outlet property="dateLabel" destination="4Sd-VX-Yet" id="6ws-lB-LE0"/>
                                         </connections>
                                     </collectionViewCell>
@@ -90,7 +94,7 @@
                             <constraint firstItem="ReA-Us-X4c" firstAttribute="trailing" secondItem="W0m-zP-qVa" secondAttribute="trailing" id="KrK-YJ-N2V"/>
                             <constraint firstItem="nqf-Ji-OSW" firstAttribute="top" secondItem="40E-2D-PLr" secondAttribute="bottom" constant="20" id="OEX-5C-Pez"/>
                             <constraint firstItem="wgl-a3-gXt" firstAttribute="top" secondItem="ReA-Us-X4c" secondAttribute="top" constant="20" id="Q40-AV-lwQ"/>
-                            <constraint firstItem="W0m-zP-qVa" firstAttribute="top" secondItem="nqf-Ji-OSW" secondAttribute="bottom" id="Tot-We-y9M"/>
+                            <constraint firstItem="W0m-zP-qVa" firstAttribute="top" secondItem="nqf-Ji-OSW" secondAttribute="bottom" constant="20" id="Tot-We-y9M"/>
                             <constraint firstItem="W0m-zP-qVa" firstAttribute="leading" secondItem="ReA-Us-X4c" secondAttribute="leading" id="Ydv-Ep-744"/>
                             <constraint firstItem="ReA-Us-X4c" firstAttribute="trailing" secondItem="nqf-Ji-OSW" secondAttribute="trailing" constant="20" id="ggs-HN-lIo"/>
                             <constraint firstItem="ReA-Us-X4c" firstAttribute="bottom" secondItem="W0m-zP-qVa" secondAttribute="bottom" id="jXw-1x-Zhc"/>
@@ -109,9 +113,4 @@
             <point key="canvasLocation" x="-607.24637681159425" y="70.982142857142847"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="Success">
-            <color red="0.24705882352941178" green="0.70980392156862748" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

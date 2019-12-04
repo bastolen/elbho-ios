@@ -20,7 +20,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     let months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"]
 
     let daysOfMonth = ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"]
-    let daysInMonth = [31, 28, 31, 30, 31, 30, 31,31,30,31,30,31]
+    let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
     var currentMonth = String()
     var numberOfEmptyBox = Int()
@@ -28,7 +28,6 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     var previousNumberOfEmtyBox = 0
     var direction = 0 // 0 = HUIDIGE MAAND, 1 = MAAND VERDER, -1 = MAAND TERUG
     var positionIndex = 0
-    var leapYearCounter = 2
     var dayCounter = 0
     
     override func viewDidLoad() {
@@ -48,9 +47,9 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         let flow = self.Calendar.collectionViewLayout as! UICollectionViewFlowLayout
         flow.sectionInset = UIEdgeInsets(top: itemSpacing, left: itemSpacing, bottom: itemSpacing, right: itemSpacing)
         flow.minimumInteritemSpacing = itemSpacing
-        flow.minimumLineSpacing = itemSpacing
+        flow.minimumLineSpacing = 7
         let cellWidth = (UIScreen.main.bounds.width - (itemSpacing * 2) - ((itemsInOneLine - 1) * itemSpacing)) / itemsInOneLine
-        flow.itemSize = CGSize(width: cellWidth, height: 40)
+        flow.itemSize = CGSize(width: cellWidth, height: 45)
         
         getStartDateDayPosition()
     }
@@ -149,12 +148,17 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
-        cell.backgroundColor = UIColor.clear
+        
+        // Cell styling
+        //cell.backgroundColor = UIColor.red
         cell.dateLabel.textColor = UIColor.black
+        
+        // Onzichtbare cellen zichtbaarmaken
         if cell.isHidden {
             cell.isHidden = false
         }
         
+        // Maand directie bepalen 0 = HUIDIGE MAAND, 1 = MAAND VERDER, -1 = MAAND TERUG
         switch direction {
         case 0:
             cell.dateLabel.text = "\(indexPath.row + 1 - numberOfEmptyBox)"
@@ -166,6 +170,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
             fatalError()
         }
         
+        // Cell hiden wanner het 0 of negatief is
         if Int(cell.dateLabel.text!)! < 1 {
             cell.isHidden = true
         }
@@ -174,7 +179,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         switch indexPath.row {
         case 5,6,12,13,19,20,26,27,33,34:
             if Int(cell.dateLabel.text!)! > 0 {
-                cell.dateLabel.textColor = UIColor.red
+                cell.dateLabel.textColor = UIColor.lightGray
             }
         default:
             break

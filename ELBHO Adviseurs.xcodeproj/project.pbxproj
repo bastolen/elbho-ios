@@ -25,6 +25,9 @@
 		5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */; };
 		5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092B23994D980080C82B /* DetailViewRow.swift */; };
 		5FC2092E239954FE0080C82B /* DetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092D239954FE0080C82B /* DetailViewButton.swift */; };
+		5FC209322399649B0080C82B /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC209302399649B0080C82B /* DetailViewCell.swift */; };
+		5FC209332399649B0080C82B /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC209312399649B0080C82B /* DetailViewCell.xib */; };
+		5FC2093523996A310080C82B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2093423996A310080C82B /* UIView.swift */; };
 		5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FC23796CBC00E3015B /* AppDelegate.swift */; };
 		5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FE23796CBC00E3015B /* SceneDelegate.swift */; };
 		5FE0640123796CBC00E3015B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0640023796CBC00E3015B /* ViewController.swift */; };
@@ -83,6 +86,9 @@
 		5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewController.swift; sourceTree = "<group>"; };
 		5FC2092B23994D980080C82B /* DetailViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewRow.swift; sourceTree = "<group>"; };
 		5FC2092D239954FE0080C82B /* DetailViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButton.swift; sourceTree = "<group>"; };
+		5FC209302399649B0080C82B /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
+		5FC209312399649B0080C82B /* DetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
+		5FC2093423996A310080C82B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5FE063F923796CBC00E3015B /* ELBHO Adviseurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ELBHO Adviseurs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE063FC23796CBC00E3015B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE063FE23796CBC00E3015B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +178,15 @@
 			path = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
+		5FC2092F239964760080C82B /* DetailViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5FC209302399649B0080C82B /* DetailViewCell.swift */,
+				5FC209312399649B0080C82B /* DetailViewCell.xib */,
+			);
+			path = DetailViewCell;
+			sourceTree = "<group>";
+		};
 		5FE063F023796CBC00E3015B = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +212,7 @@
 		5FE063FB23796CBC00E3015B /* ELBHO Adviseurs */ = {
 			isa = PBXGroup;
 			children = (
+				5FC2092F239964760080C82B /* DetailViewCell */,
 				5F12485823911AEA00411781 /* CustomTableViewCell */,
 				5FE0643A2379835300E3015B /* Services */,
 				5FE064382379833B00E3015B /* Models */,
@@ -240,6 +256,7 @@
 				5F4F766B238423B4001821BB /* DateFormatter.swift */,
 				5F124852238DB98900411781 /* UIViewController.swift */,
 				5F124856238E602E00411781 /* MDCButton.swift */,
+				5FC2093423996A310080C82B /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -417,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FE0640923796CBD00E3015B /* LaunchScreen.storyboard in Resources */,
+				5FC209332399649B0080C82B /* DetailViewCell.xib in Resources */,
 				5F584DCD2383EC5500EBE536 /* Localizable.strings in Resources */,
 				17A1F79623943E68009FAEA7 /* Beschikbaarheid.storyboard in Resources */,
 				5FE0640623796CBD00E3015B /* Assets.xcassets in Resources */,
@@ -552,9 +570,11 @@
 				5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */,
 				5F584DD62384016000EBE536 /* Advisor.swift in Sources */,
 				5F124857238E602E00411781 /* MDCButton.swift in Sources */,
+				5FC209322399649B0080C82B /* DetailViewCell.swift in Sources */,
 				17488BCA239837FA008BAA98 /* CalendarVars.swift in Sources */,
 				5FE0640123796CBC00E3015B /* ViewController.swift in Sources */,
 				5F124853238DB98900411781 /* UIViewController.swift in Sources */,
+				5FC2093523996A310080C82B /* UIView.swift in Sources */,
 				5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */,
 				5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */,
 				5FE5B8B72379A0C600EF12D6 /* ApiLoginModel.swift in Sources */,

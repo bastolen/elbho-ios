@@ -6,6 +6,9 @@
   Copyright © 2019 Otters. All rights reserved.
 */
 
+/*
+ ENGLISH But don't need it yet
+ 
 "error_api" = "Something went wrong with the api";
 "error_general" = "Something went wrong";
 "error_password_match" = "The login credentials do not match";
@@ -17,3 +20,44 @@
 "agenda_open" = "Openstaand";
 "agenda_accepted" = "Aanstaand";
 "agenda_done" = "Afgerond";
+
+"appointment_detail_name" = "Company";
+"appointment_detail_address" = "Address";
+"appointment_detail_contact_name" = "Contact";
+"appointment_detail_contact_function" = "Function of the contact";
+"appointment_detail_contact_phone" = "Phone number";
+"appointment_detail_contact_email" = "Email";
+"appointment_detail_date" = "Date";
+"appointment_detail_time" = "Time";
+"appointment_detail_comment" = "Comment";
+
+"appointment_detail_title_open" = "Openstaande Afspraak";
+"appointment_detail_title_accepted" = "Aanstaande Afspraak";
+"appointment_detail_title_done" = "Afgeronde Afspraak";
+*/
+
+"error_api" = "Er is iets mis gegaan op de server";
+"error_general" = "Er is iets mis gegaan";
+"error_password_match" = "De inloggegevens komen niet overeen";
+"error_conflict" = "Een veld met deze waarde bestaat al";
+"error_empty_field" = "Een van de verplichte velden is nog leeg";
+
+"login_button" = "Login";
+
+"agenda_open" = "Openstaand";
+"agenda_accepted" = "Aanstaand";
+"agenda_done" = "Afgerond";
+
+"appointment_detail_name" = "Bedrijfsnaam";
+"appointment_detail_address" = "Adres";
+"appointment_detail_contact_name" = "Contactpersoon";
+"appointment_detail_contact_function" = "Functie";
+"appointment_detail_contact_phone" = "Telefoon";
+"appointment_detail_contact_email" = "Email";
+"appointment_detail_date" = "Datum";
+"appointment_detail_time" = "Tijd";
+"appointment_detail_comment" = "Opmerking";
+
+"appointment_detail_title_open" = "Openstaande Afspraak";
+"appointment_detail_title_accepted" = "Aanstaande Afspraak";
+"appointment_detail_title_done" = "Afgeronde Afspraak";

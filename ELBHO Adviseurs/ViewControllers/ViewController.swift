@@ -11,6 +11,7 @@ import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
 import SideMenu
+import MessageUI
 
 class ViewController: UIViewController {
     
@@ -63,7 +64,7 @@ class ViewController: UIViewController {
     }
     
     private func fillTheTable() {
-        let appointment1 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "Comment", Address: "Ohmstraat 11 Haarlem", PhoneNumber: "0612345678", ContactPersonName: "Kevin Bosma", ContactPersonPhoneNumber: "0612345678", ContactPersonFunction: "CEO", Active: true, Website: "https://www.bos-tol.nl", Logo: "", COCNumber: "6435453", COCName: "Bos-Tol", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
+        let appointment1 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "This is a comment that should be longer for one line, just to check if the item looks right with a longer comment", Address: "Ohmstraat 11 Haarlem", PhoneNumber: "0612345678", ContactPersonName: "Bas Tolen", ContactPersonPhoneNumber: "0612345678", ContactPersonFunction: "CEO", Active: true, Website: "https://www.bos-tol.nl", Logo: "", COCNumber: "6435453", COCName: "Bos-Tol", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
         
         let appointment2 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "Richard Holkade 14 Haarlem", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "ELBHO", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
         
@@ -146,10 +147,54 @@ extension ViewController: UITableViewDelegate {
         let detailVc = mainStoryboard.instantiateViewController(withIdentifier:
             "AppointmentDetailViewController") as! AppointmentDetailViewController
         let item = shownItems[indexPath.row]
-        detailVc.title = item.COCName
-        detailVc.rows = []
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let timeString = "\( formatter.string(from: item.AppointmentDatetime) ) - \( formatter.string(from: item.AppointmentDatetime.addingTimeInterval(2*60*60)) )"
+        
+        formatter.dateFormat = "EEEE d MMMM"
+        var title: String
+        switch SelectedItemTag {
+        case 0:
+            title = "appointment_detail_title_open"
+            break
+        case 1:
+            title = "appointment_detail_title_accepted"
+            break
+        case 2:
+            title = "appointment_detail_title_done"
+            break
+        default:
+            title = item.COCName
+            break
+        }
+        
+        detailVc.title = title.localize
+        
+        detailVc.rows = [
+            DetailViewRow(title: "appointment_detail_name".localize, content: item.COCName, icon: nil, iconClicked: {}),
+            DetailViewRow(title: "appointment_detail_address".localize, content: item.Address, icon: UIImage(named: "RouteIcon"), iconClicked: {
+                let url = URL(string: "http://maps.apple.com/?address=\(item.Address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")
+                UIApplication.shared.open(url!)
+            }),
+            DetailViewRow(title: "appointment_detail_contact_name".localize, content: item.ContactPersonName, icon: nil, iconClicked: {}),
+            DetailViewRow(title: "appointment_detail_contact_function".localize, content: item.ContactPersonFunction, icon: nil, iconClicked: {}),
+            DetailViewRow(title: "appointment_detail_contact_phone".localize, content: item.ContactPersonPhoneNumber, icon: UIImage(named: "CallIcon"), iconClicked: {
+                let url = URL(string: "tel://\(item.ContactPersonPhoneNumber)")
+                UIApplication.shared.open(url!)
+            }),
+            DetailViewRow(title: "appointment_detail_contact_email".localize, content: item.Website, icon: UIImage(named: "MailIcon"), iconClicked: {
+                let url = URL(string: item.Website)
+                UIApplication.shared.open(url!)
+            }),
+            DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.AppointmentDatetime), icon: nil, iconClicked: {}),
+            DetailViewRow(title: "appointment_detail_time".localize, content: timeString, icon: nil, iconClicked: {}),
+            DetailViewRow(title: "appointment_detail_comment".localize, content: item.Comment, icon: nil, iconClicked: {}),
+        ]
+        
         detailVc.buttons = []
         
-        navigationController?.pushViewController(detailVc, animated: true)    }
+        navigationController?.pushViewController(detailVc, animated: true)
+    }
 
 }

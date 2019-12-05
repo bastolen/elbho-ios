@@ -17,3 +17,17 @@
 "agenda_open" = "Openstaand";
 "agenda_accepted" = "Aanstaand";
 "agenda_done" = "Afgerond";
+
+"appointment_detail_name" = "Bedrijfsnaam";
+"appointment_detail_address" = "Adres";
+"appointment_detail_contact_name" = "Contactpersoon";
+"appointment_detail_contact_function" = "Functie";
+"appointment_detail_contact_phone" = "Telefoon";
+"appointment_detail_contact_email" = "Email";
+"appointment_detail_date" = "Datum";
+"appointment_detail_time" = "Tijd";
+"appointment_detail_comment" = "Opmerking";
+
+"appointment_detail_title_open" = "Openstaande Afspraak";
+"appointment_detail_title_accepted" = "Aanstaande Afspraak";
+"appointment_detail_title_done" = "Afgeronde Afspraak";

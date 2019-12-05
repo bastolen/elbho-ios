@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         tabItem3.tag = 2
         
         TabBar.items = [tabItem1, tabItem2, tabItem3]
-        TabBar.selectedItem = tabItem1
+        TabBar.selectedItem = TabBar.items![SelectedItemTag]
         TabBar.delegate = self
     }
     
@@ -96,16 +96,54 @@ class ViewController: UIViewController {
         DateLabel.text = formatter.string(from: date)
     }
     
-    private func setupMenu()
-    {
+    private func setupMenu() {
         let SideMenuView = mainStoryboard.instantiateViewController(identifier: "SideMenuView") as! SideMenuNavigationController
         SideMenuManager.default.leftMenuNavigationController = SideMenuView
         SideMenuView.statusBarEndAlpha = 0
+    }
+    
+    @objc func refresh() {
+        TableView.reloadData()
+        self.refreshControl.endRefreshing()
     }
 }
 
 extension ViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print(item.tag)
+        SelectedItemTag = item.tag
+        fillTheTable()
     }
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shownItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
+        let item = shownItems[indexPath.row]
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EE"
+        cell.DayLabel.text = formatter.string(from: item.AppointmentDatetime)
+        
+        formatter.dateFormat = "dd-MM"
+        cell.DateLabel.text = formatter.string(from: item.AppointmentDatetime)
+        
+        formatter.dateFormat = "HH:mm"
+        cell.TimeLocationLabel.text = formatter.string(from: item.AppointmentDatetime)
+        
+        cell.CompanyLabel.text = item.COCName
+        return cell
+    }
+    
+    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        return UITableView.automaticDimension;
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+
 }

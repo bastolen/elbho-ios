@@ -11,7 +11,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hlD-vg-TbB">
             <objects>
-                <navigationController id="njv-Dg-mD9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="StartNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="njv-Dg-mD9" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="vH5-BL-iCr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -315,7 +315,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="loginClicked:" destination="RvT-6b-4Vf" eventType="touchUpInside" id="0os-aZ-hYB"/>
+                                    <action selector="loginClicked" destination="RvT-6b-4Vf" eventType="touchUpInside" id="bKd-Tc-DeV"/>
                                 </connections>
                             </button>
                         </subviews>

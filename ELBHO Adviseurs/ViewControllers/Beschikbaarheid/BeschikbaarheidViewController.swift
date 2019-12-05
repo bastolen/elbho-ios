@@ -200,11 +200,11 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         clickedDate = "\(year)-\(month+1)-\(indexPath.row - positionIndex + 1)"
-        print(clickedDate)
+        
         let storyboard = UIStoryboard(name: "Beschikbaarheid", bundle: nil)
-        let DetailVc = storyboard.instantiateViewController(withIdentifier: "WeekOverzichtViewController") as! WeekOverzichtViewController
-
-        self.navigationController?.pushViewController(DetailVc, animated: true)
+        let Vc = storyboard.instantiateViewController(withIdentifier: "WeekOverzichtViewController") as! WeekOverzichtViewController
+        Vc.clickedDate = clickedDate+" 12:00:00"
+        self.navigationController?.pushViewController(Vc, animated: true)
         
     }
 }

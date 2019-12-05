@@ -49,7 +49,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUO-hI-lqp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="134"/>
+            <point key="canvasLocation" x="125" y="-643"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="UmX-Ma-Efp">
@@ -224,7 +224,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ves-NS-VQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2029" y="134"/>
+            <point key="canvasLocation" x="1100" y="-643"/>
         </scene>
         <!--Beschikbaarheid-->
         <scene sceneID="9ge-18-A0Q">
@@ -234,7 +234,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZz-tY-3XK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2849" y="-68"/>
+            <point key="canvasLocation" x="1919" y="-845"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -256,18 +256,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YOY-Qe-58n">
-                                <rect key="frame" x="20" y="110" width="374" height="664"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="664"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YOY-Qe-58n" secondAttribute="bottom" id="BWh-ZW-sZA"/>
-                            <constraint firstItem="YOY-Qe-58n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JWL-HF-x8F"/>
+                            <constraint firstItem="YOY-Qe-58n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JWL-HF-x8F"/>
                             <constraint firstItem="maT-Fr-l76" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MC8-Mk-0yJ"/>
                             <constraint firstItem="WvJ-At-dUq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Oo0-ry-Jj9"/>
                             <constraint firstItem="WvJ-At-dUq" firstAttribute="top" secondItem="maT-Fr-l76" secondAttribute="bottom" constant="20" id="UKD-pT-yKr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YOY-Qe-58n" secondAttribute="trailing" constant="20" id="gHm-e3-lQn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YOY-Qe-58n" secondAttribute="trailing" id="gHm-e3-lQn"/>
                             <constraint firstItem="maT-Fr-l76" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jou-eX-Ubg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WvJ-At-dUq" secondAttribute="trailing" id="nji-ZX-fvW"/>
                             <constraint firstItem="maT-Fr-l76" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xGE-K7-Ukw"/>
@@ -292,6 +292,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="126" y="134"/>
+        </scene>
+        <!--Appointment Detail View Controller-->
+        <scene sceneID="i9L-wJ-bSz">
+            <objects>
+                <viewController storyboardIdentifier="AppointmentDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ug0-2S-B7E" customClass="AppointmentDetailViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aBH-9U-kzh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LZL-Lh-ez5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6h-L0-8NV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877" y="134"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="HnY-fc-uQ2">

@@ -22,6 +22,9 @@
 		5F584DD62384016000EBE536 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F584DD52384016000EBE536 /* Advisor.swift */; };
 		5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7335DB2399204B0013F4EA /* Appointment.swift */; };
 		5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */; };
+		5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */; };
+		5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092B23994D980080C82B /* DetailViewRow.swift */; };
+		5FC2092E239954FE0080C82B /* DetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092D239954FE0080C82B /* DetailViewButton.swift */; };
 		5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FC23796CBC00E3015B /* AppDelegate.swift */; };
 		5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FE23796CBC00E3015B /* SceneDelegate.swift */; };
 		5FE0640123796CBC00E3015B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0640023796CBC00E3015B /* ViewController.swift */; };
@@ -77,6 +80,9 @@
 		5F584DD52384016000EBE536 /* Advisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advisor.swift; sourceTree = "<group>"; };
 		5F7335DB2399204B0013F4EA /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewController.swift; sourceTree = "<group>"; };
+		5FC2092B23994D980080C82B /* DetailViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewRow.swift; sourceTree = "<group>"; };
+		5FC2092D239954FE0080C82B /* DetailViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButton.swift; sourceTree = "<group>"; };
 		5FE063F923796CBC00E3015B /* ELBHO Adviseurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ELBHO Adviseurs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE063FC23796CBC00E3015B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE063FE23796CBC00E3015B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,6 +250,8 @@
 				5FE064392379834500E3015B /* API */,
 				5F584DD52384016000EBE536 /* Advisor.swift */,
 				5F7335DB2399204B0013F4EA /* Appointment.swift */,
+				5FC2092B23994D980080C82B /* DetailViewRow.swift */,
+				5FC2092D239954FE0080C82B /* DetailViewButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 				17488BC8239837A4008BAA98 /* Beschikbaarheid */,
 				5FE0640023796CBC00E3015B /* ViewController.swift */,
 				5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */,
+				5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -551,7 +560,10 @@
 				5FE5B8B72379A0C600EF12D6 /* ApiLoginModel.swift in Sources */,
 				5FE064372379824C00E3015B /* String.swift in Sources */,
 				5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */,
+				5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */,
+				5FC2092E239954FE0080C82B /* DetailViewButton.swift in Sources */,
 				5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */,
+				5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */,
 				17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */,
 				1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */,
 				5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */,

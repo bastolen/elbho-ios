@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     }
     
     private func fillTheTable() {
-        let appointment1 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "Ohmstraat 11 Haarlem", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "Bos-Tol", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
+        let appointment1 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "Comment", Address: "Ohmstraat 11 Haarlem", PhoneNumber: "0612345678", ContactPersonName: "Kevin Bosma", ContactPersonPhoneNumber: "0612345678", ContactPersonFunction: "CEO", Active: true, Website: "https://www.bos-tol.nl", Logo: "", COCNumber: "6435453", COCName: "Bos-Tol", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
         
         let appointment2 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "Richard Holkade 14 Haarlem", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "ELBHO", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
         
@@ -143,7 +143,13 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
+        let detailVc = mainStoryboard.instantiateViewController(withIdentifier:
+            "AppointmentDetailViewController") as! AppointmentDetailViewController
+        let item = shownItems[indexPath.row]
+        detailVc.title = item.COCName
+        detailVc.rows = []
+        detailVc.buttons = []
+        
+        navigationController?.pushViewController(detailVc, animated: true)    }
 
 }

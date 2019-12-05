@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZC-aa-zdj">
-                        <rect key="frame" x="20" y="10" width="26.5" height="12"/>
+                        <rect key="frame" x="20" y="15" width="26.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" name="DisabledText"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzJ-kS-IOU">
-                        <rect key="frame" x="20" y="27" width="280" height="36"/>
+                        <rect key="frame" x="20" y="32" width="280" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -41,9 +41,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="p9k-mh-y7m" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Bk0-mJ-uhF"/>
-                    <constraint firstItem="HZC-aa-zdj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SYM-Xf-mQX"/>
+                    <constraint firstItem="HZC-aa-zdj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="SYM-Xf-mQX"/>
                     <constraint firstAttribute="trailing" secondItem="TzJ-kS-IOU" secondAttribute="trailing" constant="20" id="Sp9-wO-gFJ"/>
-                    <constraint firstAttribute="bottom" secondItem="TzJ-kS-IOU" secondAttribute="bottom" constant="5" id="V0A-AE-MTo"/>
+                    <constraint firstAttribute="bottom" secondItem="TzJ-kS-IOU" secondAttribute="bottom" constant="15" id="V0A-AE-MTo"/>
                     <constraint firstAttribute="trailing" secondItem="p9k-mh-y7m" secondAttribute="trailing" constant="30" id="Wl7-Ok-jKf"/>
                     <constraint firstItem="TzJ-kS-IOU" firstAttribute="top" secondItem="HZC-aa-zdj" secondAttribute="bottom" constant="5" id="eRW-Do-0Lw"/>
                     <constraint firstItem="p9k-mh-y7m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="f9F-tm-Ifu"/>

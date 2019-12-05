@@ -17,6 +17,8 @@ class AppointmentDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = .white
+        
         TableView.dataSource = self
         TableView.tableFooterView = UIView()
         TableView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellReuseIdentifier: "DetailViewCell")

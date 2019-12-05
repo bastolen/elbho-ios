@@ -16,34 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40E-2D-PLr">
-                                <rect key="frame" x="20" y="64" width="40" height="30"/>
-                                <state key="normal" title="Terug"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40E-2D-PLr">
+                                <rect key="frame" x="20" y="64" width="19" height="22"/>
+                                <state key="normal" image="chevron.left" catalog="system"/>
                                 <connections>
                                     <action selector="prevMonth:" destination="SVH-rd-bKZ" eventType="touchUpInside" id="g6c-Nr-Ugc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRZ-2t-yrw">
-                                <rect key="frame" x="348" y="64" width="46" height="30"/>
-                                <state key="normal" title="Verder"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRZ-2t-yrw">
+                                <rect key="frame" x="374" y="64" width="20" height="22"/>
+                                <state key="normal" image="chevron.right" catalog="system"/>
                                 <connections>
                                     <action selector="nextMonth:" destination="SVH-rd-bKZ" eventType="touchUpInside" id="6Bl-ba-6Kc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 2019" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgl-a3-gXt">
-                                <rect key="frame" x="143.5" y="64" width="127.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="139" y="64" width="136.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAGEN VAN DE WEEK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqf-Ji-OSW">
-                                <rect key="frame" x="20" y="114" width="374" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqf-Ji-OSW">
+                                <rect key="frame" x="20" y="106" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W0m-zP-qVa">
-                                <rect key="frame" x="0.0" y="155" width="414" height="707"/>
+                                <rect key="frame" x="0.0" y="147" width="414" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ro7-Sg-ltu">
                                     <size key="itemSize" width="35" height="35"/>
@@ -105,6 +105,8 @@
                     </view>
                     <connections>
                         <outlet property="Calendar" destination="W0m-zP-qVa" id="EOI-lD-Cff"/>
+                        <outlet property="buttonNext" destination="LRZ-2t-yrw" id="lGd-Dx-gnE"/>
+                        <outlet property="buttonPrev" destination="40E-2D-PLr" id="qMY-x2-py6"/>
                         <outlet property="monthLabel" destination="wgl-a3-gXt" id="410-op-1lf"/>
                     </connections>
                 </viewController>
@@ -113,4 +115,8 @@
             <point key="canvasLocation" x="-607.24637681159425" y="70.982142857142847"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="46" height="64"/>
+        <image name="chevron.right" catalog="system" width="46" height="64"/>
+    </resources>
 </document>

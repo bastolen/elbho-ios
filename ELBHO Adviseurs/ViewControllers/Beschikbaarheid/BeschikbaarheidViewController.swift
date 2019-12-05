@@ -29,6 +29,11 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     var direction = 0 // 0 = HUIDIGE MAAND, 1 = MAAND VERDER, -1 = MAAND TERUG
     var positionIndex = 0
     var dayCounter = 0
+    var LeapYearCounter = 2
+    
+    
+    @IBOutlet weak var buttonPrev: UIButton!
+    @IBOutlet weak var buttonNext: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +47,16 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
             weekday = 7
         }
         
+        buttonNext.imageView?.tintColor = UIColor.black
+        buttonPrev.imageView?.tintColor = UIColor.black
+        
+        
+        getStartDateDayPosition()
+        setupCollectionView()
+    }
+    
+    func setupCollectionView()
+    {
         let itemSpacing: CGFloat = 5
         let itemsInOneLine: CGFloat = 7
         let flow = self.Calendar.collectionViewLayout as! UICollectionViewFlowLayout
@@ -50,8 +65,6 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         flow.minimumLineSpacing = 7
         let cellWidth = (UIScreen.main.bounds.width - (itemSpacing * 2) - ((itemsInOneLine - 1) * itemSpacing)) / itemsInOneLine
         flow.itemSize = CGSize(width: cellWidth, height: 45)
-        
-        getStartDateDayPosition()
     }
     
     func getStartDateDayPosition()
@@ -77,9 +90,9 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
             nextNumberOfEmptyBox = (positionIndex + daysInMonth[month]) % 7
             positionIndex = nextNumberOfEmptyBox
         case -1:
-            previousNumberOfEmtyBox = (7 - (daysInMonth[month] - positionIndex)%7)
+            previousNumberOfEmtyBox = (7 - (daysInMonth[month] - positionIndex) % 7)
             if previousNumberOfEmtyBox == 7 {
-                previousNumberOfEmtyBox=0
+                previousNumberOfEmtyBox = 0
             }
             positionIndex = previousNumberOfEmtyBox
         default:
@@ -97,7 +110,6 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
             getStartDateDayPosition()
             
             currentMonth = months[month]
-            
             monthLabel.text = "\(currentMonth) \(year)"
             Calendar.reloadData()
         default:
@@ -123,9 +135,9 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
             monthLabel.text = "\(currentMonth) \(year)"
             Calendar.reloadData()
         default:
-            month += 1
             direction = 1
             getStartDateDayPosition()
+            month += 1
             currentMonth = months[month]
             monthLabel.text = "\(currentMonth) \(year)"
             Calendar.reloadData()
@@ -137,7 +149,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         switch direction {
         case 0:
             return daysInMonth[month] + numberOfEmptyBox
-        case 1...:
+        case 1:
             return daysInMonth[month] + nextNumberOfEmptyBox
         case -1:
             return daysInMonth[month] + previousNumberOfEmtyBox
@@ -150,7 +162,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
         
         // Cell styling
-        //cell.backgroundColor = UIColor.red
+        cell.backgroundColor = UIColor.clear
         cell.dateLabel.textColor = UIColor.black
         
         // Onzichtbare cellen zichtbaarmaken

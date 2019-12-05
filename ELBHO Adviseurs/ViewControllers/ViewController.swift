@@ -15,24 +15,63 @@ import SideMenu
 class ViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
+    var SelectedItemTag: Int = 0
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    let refreshControl = UIRefreshControl()
+    
+    private var openAppointments: [Appointment] = []
+    private var acceptedAppointments: [Appointment] = []
+    private var doneAppointments: [Appointment] = []
+    private var shownItems: [Appointment] = []
     
     @IBOutlet weak var TabBar: UITabBar!
     @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var TableView: UITableView!
     
     override func viewDidLoad() {
+        checkLoggedIn()
         super.viewDidLoad()
         title = "Afspraken"
+        TableView.dataSource = self
+        TableView.delegate = self
+        TableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        
+        TableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh), for: .allEvents)
+        
+        setupMenu()
+        setupDateLabel()
+        setupTabBar()
+        fillTheTable()
+    }
+    
+    private func checkLoggedIn() {
+//        KeychainWrapper.standard.removeAllKeys()
         if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
             return
         }
         
-        setupMenu()
-        setupDateLabel()
-        setupTabBar()
+        if (!KeychainWrapper.standard.hasValue(forKey: "AdvisorId")) {
+            APIService.getLoggedInAdvisor().subscribe(onNext: {advisor in
+                KeychainWrapper.standard.set(advisor.Id, forKey: "AdvisorId")
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+            }).disposed(by: disposeBag)
+        }
     }
+    
+    private func fillTheTable() {
+        let appointment1 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "Bos-Tol", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
+        
+        let appointment2 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "ELBHO", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
+        
+        shownItems = [appointment1, appointment2]
+        TableView.reloadData()
+        
+    }
+    
     
     private func setupTabBar() {
         let tabItem1 = UITabBarItem(title: "agenda_open".localize, image: UIImage(named: "OpenAgenda"), selectedImage: UIImage(named: "OpenAgendaSelected"))

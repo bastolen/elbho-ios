@@ -20,6 +20,7 @@
 		5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F766B238423B4001821BB /* DateFormatter.swift */; };
 		5F584DCD2383EC5500EBE536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F584DCF2383EC5500EBE536 /* Localizable.strings */; };
 		5F584DD62384016000EBE536 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F584DD52384016000EBE536 /* Advisor.swift */; };
+		5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7335DB2399204B0013F4EA /* Appointment.swift */; };
 		5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */; };
 		5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FC23796CBC00E3015B /* AppDelegate.swift */; };
 		5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FE23796CBC00E3015B /* SceneDelegate.swift */; };
@@ -74,6 +75,7 @@
 		5F584DD12383EC8D00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5F584DD22383EC8E00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5F584DD52384016000EBE536 /* Advisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advisor.swift; sourceTree = "<group>"; };
+		5F7335DB2399204B0013F4EA /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5FE063F923796CBC00E3015B /* ELBHO Adviseurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ELBHO Adviseurs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE063FC23796CBC00E3015B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			children = (
 				5FE064392379834500E3015B /* API */,
 				5F584DD52384016000EBE536 /* Advisor.swift */,
+				5F7335DB2399204B0013F4EA /* Appointment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */,
 				5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */,
 				17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */,
+				5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */,
 				5F12485B23911C2100411781 /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

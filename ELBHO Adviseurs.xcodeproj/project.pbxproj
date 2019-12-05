@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		17488BCA239837FA008BAA98 /* CalendarVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BC9239837FA008BAA98 /* CalendarVars.swift */; };
 		17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */; };
+		1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754193C239912510091D29D /* WeekOverzichtViewController.swift */; };
 		17A1F79623943E68009FAEA7 /* Beschikbaarheid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */; };
 		17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */; };
 		329372E836273CE285CD985C /* Pods_ELBHO_AdviseursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		17488BC9239837FA008BAA98 /* CalendarVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVars.swift; sourceTree = "<group>"; };
 		17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		1754193C239912510091D29D /* WeekOverzichtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekOverzichtViewController.swift; sourceTree = "<group>"; };
 		17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Beschikbaarheid.storyboard; sourceTree = "<group>"; };
 		17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeschikbaarheidViewController.swift; sourceTree = "<group>"; };
 		416ED8342F0E54585839F80F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */,
 				17488BC9239837FA008BAA98 /* CalendarVars.swift */,
 				17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */,
+				1754193C239912510091D29D /* WeekOverzichtViewController.swift */,
 			);
 			path = Beschikbaarheid;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */,
 				5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */,
 				17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */,
+				1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */,
 				5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */,
 				17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */,
 				5F12485B23911C2100411781 /* CustomTableViewCell.swift in Sources */,

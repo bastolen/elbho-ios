@@ -29,8 +29,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     var direction = 0 // 0 = HUIDIGE MAAND, 1 = MAAND VERDER, -1 = MAAND TERUG
     var positionIndex = 0
     var dayCounter = 0
-    var LeapYearCounter = 2
-    
+    var clickedDate = String()
     
     @IBOutlet weak var buttonPrev: UIButton!
     @IBOutlet weak var buttonNext: UIButton!
@@ -49,7 +48,6 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         
         buttonNext.imageView?.tintColor = UIColor.black
         buttonPrev.imageView?.tintColor = UIColor.black
-        
         
         getStartDateDayPosition()
         setupCollectionView()
@@ -198,5 +196,15 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        clickedDate = "\(year)-\(month+1)-\(indexPath.row - positionIndex + 1)"
+        print(clickedDate)
+        let storyboard = UIStoryboard(name: "Beschikbaarheid", bundle: nil)
+        let DetailVc = storyboard.instantiateViewController(withIdentifier: "WeekOverzichtViewController") as! WeekOverzichtViewController
+
+        self.navigationController?.pushViewController(DetailVc, animated: true)
+        
     }
 }

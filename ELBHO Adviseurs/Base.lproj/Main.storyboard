@@ -243,7 +243,28 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maT-Fr-l76">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items/>
+                            </tabBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvJ-At-dUq">
+                                <rect key="frame" x="0.0" y="69" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="maT-Fr-l76" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MC8-Mk-0yJ"/>
+                            <constraint firstItem="WvJ-At-dUq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Oo0-ry-Jj9"/>
+                            <constraint firstItem="WvJ-At-dUq" firstAttribute="top" secondItem="maT-Fr-l76" secondAttribute="bottom" constant="20" id="UKD-pT-yKr"/>
+                            <constraint firstItem="maT-Fr-l76" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jou-eX-Ubg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WvJ-At-dUq" secondAttribute="trailing" id="nji-ZX-fvW"/>
+                            <constraint firstItem="maT-Fr-l76" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xGE-K7-Ukw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="B5D-vY-auu">
@@ -254,6 +275,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="DateLabel" destination="WvJ-At-dUq" id="yKI-LS-oof"/>
+                        <outlet property="TabBar" destination="maT-Fr-l76" id="Cc3-XJ-mMm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

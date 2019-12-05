@@ -63,9 +63,9 @@ class ViewController: UIViewController {
     }
     
     private func fillTheTable() {
-        let appointment1 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "Bos-Tol", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
+        let appointment1 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "Ohmstraat 11 Haarlem", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "Bos-Tol", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
         
-        let appointment2 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "ELBHO", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
+        let appointment2 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "Richard Holkade 14 Haarlem", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "ELBHO", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
         
         shownItems = [appointment1, appointment2]
         TableView.reloadData()
@@ -131,19 +131,19 @@ extension ViewController: UITableViewDataSource {
         cell.DateLabel.text = formatter.string(from: item.AppointmentDatetime)
         
         formatter.dateFormat = "HH:mm"
-        cell.TimeLocationLabel.text = formatter.string(from: item.AppointmentDatetime)
-        
+        cell.TimeLocationLabel.text = "\( formatter.string(from: item.AppointmentDatetime) ) - \( formatter.string(from: item.AppointmentDatetime.addingTimeInterval(2*60*60)) ), \( item.Address )"
         cell.CompanyLabel.text = item.COCName
         return cell
     }
     
-    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        return UITableView.automaticDimension;
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 96
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 
 }

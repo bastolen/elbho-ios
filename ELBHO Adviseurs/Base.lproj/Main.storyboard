@@ -256,18 +256,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YOY-Qe-58n">
-                                <rect key="frame" x="0.0" y="110" width="414" height="664"/>
+                                <rect key="frame" x="20" y="110" width="374" height="664"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YOY-Qe-58n" secondAttribute="bottom" id="BWh-ZW-sZA"/>
-                            <constraint firstItem="YOY-Qe-58n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JWL-HF-x8F"/>
+                            <constraint firstItem="YOY-Qe-58n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JWL-HF-x8F"/>
                             <constraint firstItem="maT-Fr-l76" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MC8-Mk-0yJ"/>
                             <constraint firstItem="WvJ-At-dUq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Oo0-ry-Jj9"/>
                             <constraint firstItem="WvJ-At-dUq" firstAttribute="top" secondItem="maT-Fr-l76" secondAttribute="bottom" constant="20" id="UKD-pT-yKr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YOY-Qe-58n" secondAttribute="trailing" id="gHm-e3-lQn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YOY-Qe-58n" secondAttribute="trailing" constant="20" id="gHm-e3-lQn"/>
                             <constraint firstItem="maT-Fr-l76" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jou-eX-Ubg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WvJ-At-dUq" secondAttribute="trailing" id="nji-ZX-fvW"/>
                             <constraint firstItem="maT-Fr-l76" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xGE-K7-Ukw"/>

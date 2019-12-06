@@ -10,5 +10,5 @@ import Foundation
 
 struct DetailViewButton {
     let text: String
-    let clicked: () -> Void?
+    let clicked: () -> Void
 }

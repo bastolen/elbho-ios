@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MaterialComponents
 
 class AppointmentDetailViewController: UIViewController {
     
@@ -20,8 +21,29 @@ class AppointmentDetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         
         TableView.dataSource = self
-        TableView.tableFooterView = UIView()
         TableView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellReuseIdentifier: "DetailViewCell")
+        let tableFooter = UIView()
+        
+        var yPos: CGFloat = 0
+        
+        buttons.forEach{ btn in
+            let button = MDCButton()
+            button.setTitle(btn.text, for:.normal)
+            button.setTitleColor(.black, for: .normal)
+            let width = TableView.frame.width - 20
+            button.frame = CGRect(x: 10, y: yPos, width: width, height: 48)
+            button.setPrimary()
+            button.isUserInteractionEnabled = true
+            button.addTapGestureRecognizer(action: btn.clicked)
+            tableFooter.addSubview(button)
+            
+            yPos = yPos + 56
+        }
+        
+        tableFooter.frame = CGRect(x: 0, y: 0, width: TableView.frame.width, height: yPos)
+        
+        TableView.tableFooterView = tableFooter
+        TableView.reloadData()
     }
 }
 

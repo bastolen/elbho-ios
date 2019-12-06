@@ -126,13 +126,13 @@ extension ViewController: UITableViewDataSource {
         let item = shownItems[indexPath.row]
         let formatter = DateFormatter()
         formatter.dateFormat = "EE"
-        cell.DayLabel.text = formatter.string(from: item.AppointmentDatetime)
+        cell.DayLabel.text = formatter.string(from: item.AppointmentDatetime).uppercased()
         
         formatter.dateFormat = "dd-MM"
         cell.DateLabel.text = formatter.string(from: item.AppointmentDatetime)
         
         formatter.dateFormat = "HH:mm"
-        cell.TimeLocationLabel.text = "\( formatter.string(from: item.AppointmentDatetime) ) - \( formatter.string(from: item.AppointmentDatetime.addingTimeInterval(2*60*60)) ), \( item.Address )"
+        cell.TimeLocationLabel.text = "\( formatter.string(from: item.AppointmentDatetime) ) - \( formatter.string(from: item.AppointmentDatetime.addingTimeInterval(60*60)) ), \( item.Address )"
         cell.CompanyLabel.text = item.COCName
         return cell
     }
@@ -150,7 +150,7 @@ extension ViewController: UITableViewDelegate {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        let timeString = "\( formatter.string(from: item.AppointmentDatetime) ) - \( formatter.string(from: item.AppointmentDatetime.addingTimeInterval(2*60*60)) )"
+        let timeString = "\( formatter.string(from: item.AppointmentDatetime) ) - \( formatter.string(from: item.AppointmentDatetime.addingTimeInterval(60*60)) )"
         
         formatter.dateFormat = "EEEE d MMMM"
         var title: String
@@ -192,7 +192,14 @@ extension ViewController: UITableViewDelegate {
             DetailViewRow(title: "appointment_detail_comment".localize, content: item.Comment, icon: nil, iconClicked: {}),
         ]
         
-        detailVc.buttons = []
+        detailVc.buttons = [
+            DetailViewButton(text: "Move", clicked: {
+                self.showSnackbarSecondary("TODO Move")
+            }),
+            DetailViewButton(text: "Stop", clicked: {
+                self.showSnackbarSecondary("TODO Stop")
+            })
+        ]
         
         navigationController?.pushViewController(detailVc, animated: true)
     }

@@ -159,9 +159,10 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
         
-        // Cell styling
+        // Cell basic styling
         cell.backgroundColor = UIColor.clear
         cell.dateLabel.textColor = UIColor.black
+        cell.isUserInteractionEnabled = true
         
         // Onzichtbare cellen zichtbaarmaken
         if cell.isHidden {
@@ -190,6 +191,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         case 5,6,12,13,19,20,26,27,33,34:
             if Int(cell.dateLabel.text!)! > 0 {
                 cell.dateLabel.textColor = UIColor.lightGray
+                cell.isUserInteractionEnabled = false
             }
         default:
             break

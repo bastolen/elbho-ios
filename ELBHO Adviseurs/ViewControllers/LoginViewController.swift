@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
         loginButton.setPrimary()
-        loginButton.setTitle("login_button".localize, for: .normal)
+        loginButton.setTitle("button_login".localize, for: .normal)
 
         emailController = MDCTextInputControllerUnderline(textInput: emailTextField)
         emailController?.activeColor = UIColor(named: "Primary")

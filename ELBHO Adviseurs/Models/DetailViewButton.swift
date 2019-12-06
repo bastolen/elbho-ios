@@ -10,5 +10,16 @@ import Foundation
 
 struct DetailViewButton {
     let text: String
+    let style: colors
     let clicked: () -> Void
+}
+
+enum colors {
+    case primary
+    case secondary
+    case danger
+    case success
+    case text
+    case textPrimary
+    case textSecondary
 }

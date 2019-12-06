@@ -32,9 +32,26 @@ class AppointmentDetailViewController: UIViewController {
             button.setTitle(btn.text, for:.normal)
             button.setTitleColor(.black, for: .normal)
             button.frame = CGRect(x: 10, y: yPos, width: TableView.frame.width - 20, height: 48)
-            button.setPrimary()
+            
             button.isUserInteractionEnabled = true
             button.addTapGestureRecognizer(action: btn.clicked)
+            
+            switch btn.style {
+            case .primary:
+                button.setPrimary()
+            case .secondary:
+                button.setSecondary()
+            case .success:
+                button.setSuccess()
+            case .danger:
+                button.setDanger()
+            case .textPrimary:
+                button.setTextPrimary()
+            case .textSecondary:
+                button.setTextSecondary()
+            default:
+                button.setPrimary()
+            }
             
             tableFooter.addSubview(button)
             

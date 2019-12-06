@@ -166,12 +166,26 @@ extension ViewController: UITableViewDelegate {
         switch SelectedItemTag {
         case 0:
             title = "appointment_detail_title_open"
+            detailVc.buttons = [
+                DetailViewButton(text: "button_reject".localize, style: .danger, clicked: {
+                    self.showSnackbarSecondary("\("button_reject".localize) not yet implemented")
+                }),
+                DetailViewButton(text: "button_accept".localize, style: .success, clicked: {
+                    self.showSnackbarSecondary("\("button_accept".localize) not yet implemented")
+                })
+            ]
             break
         case 1:
             title = "appointment_detail_title_accepted"
+            detailVc.buttons = [
+                DetailViewButton(text: "button_leave".localize, style: .primary, clicked: {
+                    self.showSnackbarSecondary("\("button_leave".localize) not yet implemented")
+                })
+            ]
             break
         case 2:
             title = "appointment_detail_title_done"
+            detailVc.buttons = []
             break
         default:
             title = item.COCName
@@ -179,7 +193,6 @@ extension ViewController: UITableViewDelegate {
         }
         
         detailVc.title = title.localize
-        
         detailVc.rows = [
             DetailViewRow(title: "appointment_detail_name".localize, content: item.COCName, icon: nil, iconClicked: {}),
             DetailViewRow(title: "appointment_detail_address".localize, content: item.Address, icon: UIImage(named: "RouteIcon"), iconClicked: {
@@ -199,15 +212,6 @@ extension ViewController: UITableViewDelegate {
             DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.AppointmentDatetime), icon: nil, iconClicked: {}),
             DetailViewRow(title: "appointment_detail_time".localize, content: timeString, icon: nil, iconClicked: {}),
             DetailViewRow(title: "appointment_detail_comment".localize, content: item.Comment, icon: nil, iconClicked: {}),
-        ]
-        
-        detailVc.buttons = [
-            DetailViewButton(text: "Move", clicked: {
-                self.showSnackbarSecondary("TODO Move")
-            }),
-            DetailViewButton(text: "Stop", clicked: {
-                self.showSnackbarSecondary("TODO Stop")
-            })
         ]
         
         navigationController?.pushViewController(detailVc, animated: true)

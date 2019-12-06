@@ -12,6 +12,7 @@ import MobileCoreServices
 
 class AddInvoiceViewController: UIViewController {
     @IBOutlet weak var SubmitButton: MDCButton!
+    @IBOutlet weak var SubmitButtonBottomConstraint: NSLayoutConstraint!
     
     var yearController: MDCTextInputControllerUnderline?
     @IBOutlet weak var yearInputField: MDCTextField!
@@ -48,7 +49,12 @@ class AddInvoiceViewController: UIViewController {
         hideKeyboardWhenTappingOutside()
         SubmitButton.setPrimary()
         SubmitButton.setTitle("button_addinvoice".localize, for: .normal)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     @IBAction func FileInputTouched(_ sender: Any) {
         let importMenu = UIDocumentPickerViewController(documentTypes: ["com.microsoft.word.doc","org.openxmlformats.wordprocessingml.document", kUTTypePDF as String], in: .open)
         
@@ -97,6 +103,22 @@ class AddInvoiceViewController: UIViewController {
     
     @objc func dismissPicker() {
         view.endEditing(true)
+    }
+    
+    @objc override func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if (SubmitButtonBottomConstraint.constant < keyboardSize.height) {
+                SubmitButtonBottomConstraint.constant = 20 + keyboardSize.height
+            }
+        }
+    }
+    
+    @objc override func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if (SubmitButtonBottomConstraint.constant > keyboardSize.height) {
+                SubmitButtonBottomConstraint.constant = 20
+            }
+        }
     }
 }
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialComponents
+import MobileCoreServices
 
 class AddInvoiceViewController: UIViewController {
     @IBOutlet weak var SubmitButton: MDCButton!
@@ -46,6 +47,13 @@ class AddInvoiceViewController: UIViewController {
         hideKeyboardWhenTappingOutside()
         SubmitButton.setPrimary()
         SubmitButton.setTitle("button_addinvoice".localize, for: .normal)
+    }
+    @IBAction func FileInputTouched(_ sender: Any) {
+        let importMenu = UIDocumentPickerViewController(documentTypes: [(kUTTypePDF as String), (kUTTypeJPEG as String), (kUTTypePNG as String)], in: .open)
+        
+        importMenu.delegate = self
+        importMenu.modalPresentationStyle = .formSheet
+        present(importMenu, animated: true)
     }
     
     @IBAction func SubmitClicked(_ sender: Any) {
@@ -124,4 +132,14 @@ extension AddInvoiceViewController: UIPickerViewDataSource {
     }
     
     
+}
+
+extension AddInvoiceViewController: UIDocumentPickerDelegate{
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        // File location
+        print(url)
+        // Filename
+        print(url.lastPathComponent)
+        fileInputField.text = url.lastPathComponent
+    }
 }

@@ -175,10 +175,24 @@ class WeekOverzichtViewController: UIViewController {
         return finalDate
     }
     
+    @IBAction func copyWeekClick(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Week kopieren", message: "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.", preferredStyle: .alert)
+        let imageView = UIImageView(frame: CGRect(x: 10, y: 110, width: 250, height: 125))
+        imageView.image = UIImage(named: "KopieerWeekAlert")
+        alert.view.addSubview(imageView)
+        
+        let height = NSLayoutConstraint(item: alert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
+        let width = NSLayoutConstraint(item: alert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
+        alert.view.addConstraint(height)
+        alert.view.addConstraint(width)
+        
+        alert.addAction(UIAlertAction(title: "Begrepen", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
     @IBAction func saveWeekClick(_ sender: Any) {
-        
         // Eerst checken of de data klopt
-        
+        self.showSnackbarPrimary("Ja dit moeten we nog maken")
     }
     
     

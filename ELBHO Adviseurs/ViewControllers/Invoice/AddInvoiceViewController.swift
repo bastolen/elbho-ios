@@ -37,6 +37,7 @@ class AddInvoiceViewController: UIViewController {
     
     var fileController: MDCTextInputController?
     @IBOutlet weak var fileInputField: MDCTextField!
+    var fileURL: URL?
     
     let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(dismissPicker))
     
@@ -49,7 +50,7 @@ class AddInvoiceViewController: UIViewController {
         SubmitButton.setTitle("button_addinvoice".localize, for: .normal)
     }
     @IBAction func FileInputTouched(_ sender: Any) {
-        let importMenu = UIDocumentPickerViewController(documentTypes: [(kUTTypePDF as String), (kUTTypeJPEG as String), (kUTTypePNG as String)], in: .open)
+        let importMenu = UIDocumentPickerViewController(documentTypes: ["com.microsoft.word.doc","org.openxmlformats.wordprocessingml.document", kUTTypePDF as String], in: .open)
         
         importMenu.delegate = self
         importMenu.modalPresentationStyle = .formSheet
@@ -138,6 +139,7 @@ extension AddInvoiceViewController: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         // File location
         print(url)
+        fileURL = url
         // Filename
         print(url.lastPathComponent)
         fileInputField.text = url.lastPathComponent

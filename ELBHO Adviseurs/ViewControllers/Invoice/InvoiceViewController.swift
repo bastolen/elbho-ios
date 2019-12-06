@@ -14,8 +14,7 @@ class InvoiceViewController: UIViewController {
     @IBOutlet weak var TopLabel: UILabel!
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var AddButton: MDCButton!
-    
-    
+
     let refreshControl = UIRefreshControl()
     var items: [Invoice] = MockService.getInvoices()
     
@@ -78,6 +77,4 @@ extension InvoiceViewController: UITableViewDelegate {
         let item = items[indexPath.row]
         print(item)
     }
-    
 }
-

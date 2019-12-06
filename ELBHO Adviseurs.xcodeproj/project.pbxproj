@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172007FC239A9BF900EF762B /* Invoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172007FB239A9BF900EF762B /* Invoice.storyboard */; };
 		17488BCA239837FA008BAA98 /* CalendarVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BC9239837FA008BAA98 /* CalendarVars.swift */; };
 		17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */; };
 		1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754193C239912510091D29D /* WeekOverzichtViewController.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		172007FB239A9BF900EF762B /* Invoice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invoice.storyboard; sourceTree = "<group>"; };
 		17488BC9239837FA008BAA98 /* CalendarVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVars.swift; sourceTree = "<group>"; };
 		17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		1754193C239912510091D29D /* WeekOverzichtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekOverzichtViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				5FE063FE23796CBC00E3015B /* SceneDelegate.swift */,
 				5FE0640223796CBC00E3015B /* Main.storyboard */,
 				17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */,
+				172007FB239A9BF900EF762B /* Invoice.storyboard */,
 				5FE0640523796CBD00E3015B /* Assets.xcassets */,
 				5FE0640723796CBD00E3015B /* LaunchScreen.storyboard */,
 				5FE0640A23796CBD00E3015B /* Info.plist */,
@@ -442,6 +445,7 @@
 				17A1F79623943E68009FAEA7 /* Beschikbaarheid.storyboard in Resources */,
 				5FE0640623796CBD00E3015B /* Assets.xcassets in Resources */,
 				5F12485C23911C2100411781 /* CustomTableViewCell.xib in Resources */,
+				172007FC239A9BF900EF762B /* Invoice.storyboard in Resources */,
 				5FE0640423796CBC00E3015B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

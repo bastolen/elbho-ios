@@ -67,7 +67,6 @@ class WeekOverzichtViewController: UIViewController {
         buttonCopyWeek.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
         
         // Datepicker opties
-
         dateFormatter.dateFormat =  "HH:mm"
         datePicker.date = dateFormatter.date(from: "17:00")!
         

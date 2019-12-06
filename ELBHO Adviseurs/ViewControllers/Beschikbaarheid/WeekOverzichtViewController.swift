@@ -24,9 +24,33 @@ class WeekOverzichtViewController: UIViewController {
     @IBOutlet weak var weekView: UIView!
     @IBOutlet weak var weekNumberLabel: UILabel!
     
+    // Dag 1
     @IBOutlet weak var dateLabelDay1: UILabel!
     @IBOutlet weak var timeInputDay1From: UITextField!
     @IBOutlet weak var timeInputDay1Until: UITextField!
+    
+    // Dag 2
+    @IBOutlet weak var dateLabelDay2: UILabel!
+    @IBOutlet weak var timeInputDay2From: UITextField!
+    @IBOutlet weak var timeInputDay2Until: UITextField!
+    
+    // Dag 3
+    @IBOutlet weak var dateLabelDay3: UILabel!
+    @IBOutlet weak var timeInputDay3From: UITextField!
+    @IBOutlet weak var timeInputDay3Until: UITextField!
+    
+    
+    // Dag 4
+    @IBOutlet weak var dateLabelDay4: UILabel!
+    @IBOutlet weak var timeInputDay4From: UITextField!
+    @IBOutlet weak var timeInputDay4Until: UITextField!
+    
+    // Dag 5
+    
+    @IBOutlet weak var dateLabelDay5: UILabel!
+    @IBOutlet weak var timeInputDay5From: UITextField!
+    @IBOutlet weak var timeInputDay5Until: UITextField!
+    
     
     
     override func viewDidLoad() {
@@ -41,6 +65,7 @@ class WeekOverzichtViewController: UIViewController {
         weekView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
         
         datePicker.datePickerMode = .time
+        datePicker.minuteInterval = 15
         
         setTimeInput()
         fillLabels()
@@ -53,6 +78,10 @@ class WeekOverzichtViewController: UIViewController {
         if daysToShow.count == 5 {
             dateFormatter.dateFormat = "dd-MM-YY"
             dateLabelDay1.text = dateFormatter.string(from: daysToShow[0])
+            dateLabelDay2.text = dateFormatter.string(from: daysToShow[1])
+            dateLabelDay3.text = dateFormatter.string(from: daysToShow[2])
+            dateLabelDay4.text = dateFormatter.string(from: daysToShow[3])
+            dateLabelDay5.text = dateFormatter.string(from: daysToShow[4])
         }
     }
     
@@ -61,12 +90,60 @@ class WeekOverzichtViewController: UIViewController {
         // datePicker zetten op Text fields
         timeInputDay1From.inputView = datePicker
         timeInputDay1From.inputAccessoryView = toolBar
-        
         timeInputDay1Until.inputView = datePicker
         timeInputDay1Until.inputAccessoryView = toolBar
         
+        timeInputDay2From.inputView = datePicker
+        timeInputDay2From.inputAccessoryView = toolBar
+        timeInputDay2Until.inputView = datePicker
+        timeInputDay2Until.inputAccessoryView = toolBar
+        
+        timeInputDay3From.inputView = datePicker
+        timeInputDay3From.inputAccessoryView = toolBar
+        timeInputDay3Until.inputView = datePicker
+        timeInputDay3Until.inputAccessoryView = toolBar
+        
+        timeInputDay4From.inputView = datePicker
+        timeInputDay4From.inputAccessoryView = toolBar
+        timeInputDay4Until.inputView = datePicker
+        timeInputDay4Until.inputAccessoryView = toolBar
+        
+        timeInputDay5From.inputView = datePicker
+        timeInputDay5From.inputAccessoryView = toolBar
+        timeInputDay5Until.inputView = datePicker
+        timeInputDay5Until.inputAccessoryView = toolBar
     }
     
+    @objc func dismissPicker() {
+
+        dateFormatter.dateFormat = "HH:mm"
+        let pickedTime = dateFormatter.string(from: datePicker.date)
+        
+        if timeInputDay1From.isFirstResponder {
+            timeInputDay1From.text = pickedTime
+        } else if timeInputDay1Until.isFirstResponder {
+            timeInputDay1Until.text = pickedTime
+        } else if timeInputDay2From.isFirstResponder {
+            timeInputDay2From.text = pickedTime
+        } else if timeInputDay2Until.isFirstResponder {
+            timeInputDay2Until.text = pickedTime
+        } else if timeInputDay3From.isFirstResponder {
+            timeInputDay3From.text = pickedTime
+        } else if timeInputDay3Until.isFirstResponder {
+            timeInputDay3Until.text = pickedTime
+        } else if timeInputDay4From.isFirstResponder {
+            timeInputDay4From.text = pickedTime
+        } else if timeInputDay4Until.isFirstResponder {
+            timeInputDay4Until.text = pickedTime
+        } else if timeInputDay5From.isFirstResponder {
+            timeInputDay5From.text = pickedTime
+        } else if timeInputDay5Until.isFirstResponder {
+            timeInputDay5Until.text = pickedTime
+        }
+        
+        view.endEditing(true)
+
+    }
     
     func getDays() -> [Date]
     {
@@ -89,19 +166,6 @@ class WeekOverzichtViewController: UIViewController {
         let finalDate = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: formatted!))! // Date maken van componenten
         
         return finalDate
-    }
-    
-    @objc func dismissPicker() {
-
-        dateFormatter.dateFormat = "HH:mm"
-        let pickedTime = dateFormatter.string(from: datePicker.date)
-        
-        if timeInputDay1From.isFirstResponder {
-            timeInputDay1From.text = pickedTime
-        }
-        
-        view.endEditing(true)
-
     }
     
     // Oude zooi maar nog even bewaren

@@ -46,12 +46,12 @@ class WeekOverzichtViewController: UIViewController {
     @IBOutlet weak var timeInputDay4Until: UITextField!
     
     // Dag 5
-    
     @IBOutlet weak var dateLabelDay5: UILabel!
     @IBOutlet weak var timeInputDay5From: UITextField!
     @IBOutlet weak var timeInputDay5Until: UITextField!
     
-    
+    @IBOutlet weak var buttonCopyWeek: UIButton!
+    @IBOutlet weak var buttonSaveWeek: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +63,13 @@ class WeekOverzichtViewController: UIViewController {
         
         weekView.layer.borderWidth = 1
         weekView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
+        buttonCopyWeek.layer.borderWidth = 1
+        buttonCopyWeek.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
+        
+        // Datepicker opties
+
+        dateFormatter.dateFormat =  "HH:mm"
+        datePicker.date = dateFormatter.date(from: "17:00")!
         
         datePicker.datePickerMode = .time
         datePicker.minuteInterval = 15
@@ -145,6 +152,7 @@ class WeekOverzichtViewController: UIViewController {
 
     }
     
+    // Alle dagen bij dit weeknummer ophalen
     func getDays() -> [Date]
     {
         let today = formattedDate
@@ -167,6 +175,13 @@ class WeekOverzichtViewController: UIViewController {
         
         return finalDate
     }
+    
+    @IBAction func saveWeekClick(_ sender: Any) {
+        
+        // Eerst checken of de data klopt
+        
+    }
+    
     
     // Oude zooi maar nog even bewaren
     func getWeekNumber(date: Date) -> Int {

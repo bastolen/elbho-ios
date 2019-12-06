@@ -136,6 +136,9 @@
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="WIJZIGINGEN OPSLAAN" image="checkmark" catalog="system"/>
+                                <connections>
+                                    <action selector="saveWeekClick:" destination="Kso-cO-Q3K" eventType="touchUpInside" id="RHy-en-A9E"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxY-vy-Dze">
                                 <rect key="frame" x="20" y="738" width="374" height="47"/>
@@ -555,6 +558,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="HdU-xe-2J8"/>
                     <connections>
+                        <outlet property="buttonCopyWeek" destination="SxY-vy-Dze" id="Lr0-ra-NwP"/>
+                        <outlet property="buttonSaveWeek" destination="BK9-b4-Veq" id="NoZ-Km-7Vy"/>
                         <outlet property="dateLabelDay1" destination="uFV-Lv-LhG" id="vwM-bI-8sQ"/>
                         <outlet property="dateLabelDay2" destination="CbN-0T-52d" id="SdQ-kz-hRY"/>
                         <outlet property="dateLabelDay3" destination="nII-xu-SxX" id="3ag-qs-viR"/>

@@ -28,13 +28,14 @@ class AppointmentDetailViewController: UIViewController {
         
         buttons.forEach{ btn in
             let button = MDCButton()
+            
             button.setTitle(btn.text, for:.normal)
             button.setTitleColor(.black, for: .normal)
-            let width = TableView.frame.width - 20
-            button.frame = CGRect(x: 10, y: yPos, width: width, height: 48)
+            button.frame = CGRect(x: 10, y: yPos, width: TableView.frame.width - 20, height: 48)
             button.setPrimary()
             button.isUserInteractionEnabled = true
             button.addTapGestureRecognizer(action: btn.clicked)
+            
             tableFooter.addSubview(button)
             
             yPos = yPos + 56

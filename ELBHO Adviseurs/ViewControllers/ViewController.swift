@@ -20,9 +20,9 @@ class ViewController: UIViewController {
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let refreshControl = UIRefreshControl()
     
-    private var openAppointments: [Appointment] = []
-    private var acceptedAppointments: [Appointment] = []
-    private var doneAppointments: [Appointment] = []
+    private var openAppointments: [Appointment] = MockService.getOpenAppointments()
+    private var acceptedAppointments: [Appointment] = MockService.getAccpetedAppointments()
+    private var doneAppointments: [Appointment] = MockService.getDoneAppointments()
     private var shownItems: [Appointment] = []
     
     @IBOutlet weak var TabBar: UITabBar!
@@ -64,11 +64,20 @@ class ViewController: UIViewController {
     }
     
     private func fillTheTable() {
-        let appointment1 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "This is a comment that should be longer for one line, just to check if the item looks right with a longer comment", Address: "Ohmstraat 11 Haarlem", PhoneNumber: "0612345678", ContactPersonName: "Bas Tolen", ContactPersonPhoneNumber: "0612345678", ContactPersonFunction: "CEO", Active: true, Website: "https://www.bos-tol.nl", Logo: "", COCNumber: "6435453", COCName: "Bos-Tol", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
-        
-        let appointment2 = Appointment(Id: "", AppointmentDatetime: Date(), Comment: "", Address: "Richard Holkade 14 Haarlem", PhoneNumber: "", ContactPersonName: "", ContactPersonPhoneNumber: "", ContactPersonFunction: "", Active: true, Website: "", Logo: "", COCNumber: "", COCName: "ELBHO", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: Date(), ModifiedDate: Date())
-        
-        shownItems = [appointment1, appointment2]
+        switch SelectedItemTag {
+        case 0:
+            shownItems = openAppointments
+            break;
+        case 1:
+            shownItems = acceptedAppointments
+            break;
+        case 2:
+            shownItems = doneAppointments
+            break;
+        default:
+            shownItems = openAppointments
+            break;
+        }
         TableView.reloadData()
         
     }
@@ -152,7 +161,7 @@ extension ViewController: UITableViewDelegate {
         formatter.dateFormat = "HH:mm"
         let timeString = "\( formatter.string(from: item.AppointmentDatetime) ) - \( formatter.string(from: item.AppointmentDatetime.addingTimeInterval(60*60)) )"
         
-        formatter.dateFormat = "EEEE d MMMM"
+        formatter.dateFormat = "EEEE d MMMM yyyy"
         var title: String
         switch SelectedItemTag {
         case 0:

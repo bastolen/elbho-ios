@@ -13,6 +13,7 @@
 		17A1F79623943E68009FAEA7 /* Beschikbaarheid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */; };
 		17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */; };
 		329372E836273CE285CD985C /* Pods_ELBHO_AdviseursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */; };
+		5F06D835239A831500A15EDD /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D834239A831500A15EDD /* MockService.swift */; };
 		5F124853238DB98900411781 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F124852238DB98900411781 /* UIViewController.swift */; };
 		5F124857238E602E00411781 /* MDCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F124856238E602E00411781 /* MDCButton.swift */; };
 		5F12485B23911C2100411781 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F12485923911C2100411781 /* CustomTableViewCell.swift */; };
@@ -71,6 +72,7 @@
 		17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Beschikbaarheid.storyboard; sourceTree = "<group>"; };
 		17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeschikbaarheidViewController.swift; sourceTree = "<group>"; };
 		416ED8342F0E54585839F80F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5F06D834239A831500A15EDD /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		5F124852238DB98900411781 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		5F124856238E602E00411781 /* MDCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDCButton.swift; sourceTree = "<group>"; };
 		5F12485923911C2100411781 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 		5FE0643A2379835300E3015B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5F06D834239A831500A15EDD /* MockService.swift */,
 				5FE5B8B223799E0F00EF12D6 /* ApiService.swift */,
 			);
 			path = Services;
@@ -580,6 +583,7 @@
 				5FE5B8B72379A0C600EF12D6 /* ApiLoginModel.swift in Sources */,
 				5FE064372379824C00E3015B /* String.swift in Sources */,
 				5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */,
+				5F06D835239A831500A15EDD /* MockService.swift in Sources */,
 				5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */,
 				5FC2092E239954FE0080C82B /* DetailViewButton.swift in Sources */,
 				5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */,

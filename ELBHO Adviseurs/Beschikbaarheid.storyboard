@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SVH-rd-bKZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SVH-rd-bKZ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -211,7 +211,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="X4U-SB-HNx"/>
                                                     <constraint firstAttribute="width" constant="100" id="lnr-6v-DdL"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7bs-o0-aC7">
@@ -281,7 +281,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="4iW-OG-7H5"/>
                                                     <constraint firstAttribute="width" constant="100" id="hGH-UX-qQ6"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qiM-7H-FYq">
@@ -351,7 +351,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="CUb-qd-5LU"/>
                                                     <constraint firstAttribute="width" constant="100" id="Px6-q7-OWh"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xWd-FS-Ycz">
@@ -421,7 +421,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="LHv-oU-xNe"/>
                                                     <constraint firstAttribute="height" constant="40" id="Y7W-sg-dil"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mvq-8Y-svZ">
@@ -491,7 +491,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="OR8-vc-PZ2"/>
                                                     <constraint firstAttribute="height" constant="40" id="vTW-4F-5xr"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zX1-bV-802">
@@ -589,8 +589,8 @@
     </scenes>
     <resources>
         <image name="checkmark" catalog="system" width="64" height="56"/>
-        <image name="chevron.left" catalog="system" width="46" height="64"/>
-        <image name="chevron.right" catalog="system" width="46" height="64"/>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
+        <image name="chevron.right" catalog="system" width="48" height="64"/>
         <image name="doc.on.doc.fill" catalog="system" width="58" height="64"/>
         <namedColor name="BeschikbaarheidDateBackground">
             <color red="0.98039215686274506" green="0.9882352941176471" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         checkLoggedIn()
         super.viewDidLoad()
-        title = "Afspraken"
+        title = "title_appointment".localize
         TableView.dataSource = self
         TableView.delegate = self
         TableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")

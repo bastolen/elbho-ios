@@ -15,6 +15,9 @@
 		17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */; };
 		329372E836273CE285CD985C /* Pods_ELBHO_AdviseursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */; };
 		5F06D835239A831500A15EDD /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D834239A831500A15EDD /* MockService.swift */; };
+		5F06D838239AA13500A15EDD /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D837239AA13500A15EDD /* InvoiceViewController.swift */; };
+		5F06D83A239AAB6200A15EDD /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D839239AAB6200A15EDD /* Invoice.swift */; };
+		5F06D83C239ADED700A15EDD /* AddInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D83B239ADED700A15EDD /* AddInvoiceViewController.swift */; };
 		5F124853238DB98900411781 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F124852238DB98900411781 /* UIViewController.swift */; };
 		5F124857238E602E00411781 /* MDCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F124856238E602E00411781 /* MDCButton.swift */; };
 		5F12485B23911C2100411781 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F12485923911C2100411781 /* CustomTableViewCell.swift */; };
@@ -75,6 +78,9 @@
 		17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeschikbaarheidViewController.swift; sourceTree = "<group>"; };
 		416ED8342F0E54585839F80F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F06D834239A831500A15EDD /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		5F06D837239AA13500A15EDD /* InvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
+		5F06D839239AAB6200A15EDD /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		5F06D83B239ADED700A15EDD /* AddInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceViewController.swift; sourceTree = "<group>"; };
 		5F124852238DB98900411781 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		5F124856238E602E00411781 /* MDCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDCButton.swift; sourceTree = "<group>"; };
 		5F12485923911C2100411781 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -171,6 +177,15 @@
 				9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F06D836239AA0F200A15EDD /* Invoice */ = {
+			isa = PBXGroup;
+			children = (
+				5F06D837239AA13500A15EDD /* InvoiceViewController.swift */,
+				5F06D83B239ADED700A15EDD /* AddInvoiceViewController.swift */,
+			);
+			path = Invoice;
 			sourceTree = "<group>";
 		};
 		5F12485823911AEA00411781 /* CustomTableViewCell */ = {
@@ -274,6 +289,7 @@
 				5F7335DB2399204B0013F4EA /* Appointment.swift */,
 				5FC2092B23994D980080C82B /* DetailViewRow.swift */,
 				5FC2092D239954FE0080C82B /* DetailViewButton.swift */,
+				5F06D839239AAB6200A15EDD /* Invoice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +314,7 @@
 		5FE0643B237983AF00E3015B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5F06D836239AA0F200A15EDD /* Invoice */,
 				17488BC8239837A4008BAA98 /* Beschikbaarheid */,
 				5FE0640023796CBC00E3015B /* ViewController.swift */,
 				5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */,
@@ -584,6 +601,7 @@
 				5FC2093523996A310080C82B /* UIView.swift in Sources */,
 				5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */,
 				5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */,
+				5F06D83C239ADED700A15EDD /* AddInvoiceViewController.swift in Sources */,
 				5FE5B8B72379A0C600EF12D6 /* ApiLoginModel.swift in Sources */,
 				5FE064372379824C00E3015B /* String.swift in Sources */,
 				5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */,
@@ -593,10 +611,12 @@
 				5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */,
 				5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */,
 				17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */,
+				5F06D83A239AAB6200A15EDD /* Invoice.swift in Sources */,
 				1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */,
 				5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */,
 				17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */,
 				5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */,
+				5F06D838239AA13500A15EDD /* InvoiceViewController.swift in Sources */,
 				5F12485B23911C2100411781 /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

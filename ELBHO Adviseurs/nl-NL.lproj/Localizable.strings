@@ -17,6 +17,7 @@
 "button_accept" = "Accepteren";
 "button_leave" = "Vertrekken";
 "button_arrive" = "Bestemming bereikt";
+"button_addinvoice" = "Factuur toevoegen";
 
 "agenda_open" = "Openstaand";
 "agenda_accepted" = "Aanstaand";
@@ -35,3 +36,29 @@
 "appointment_detail_title_open" = "Openstaande Afspraak";
 "appointment_detail_title_accepted" = "Aanstaande Afspraak";
 "appointment_detail_title_done" = "Afgeronde Afspraak";
+
+"title_appointment" = "Afspraken";
+"title_invoice" = "Facturen";
+"title_availability" = "Beschikbaarheid";
+
+"invoice_header" = "Geüploade facturen";
+"upload_date" = "Datum upgeload";
+
+"input_year" = "Jaar";
+"input_email" = "Email";
+"input_password" = "Wachtwoord";
+"input_month" = "Maand";
+"input_file" = "Bestand";
+
+"month_1" = "Januari";
+"month_2" = "Februari";
+"month_3" = "Maart";
+"month_4" = "April";
+"month_5" = "Mei";
+"month_6" = "Juni";
+"month_7" = "Juli";
+"month_8" = "Augustus";
+"month_9" = "September";
+"month_10" = "Oktober";
+"month_11" = "November";
+"month_12" = "December";

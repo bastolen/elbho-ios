@@ -38,4 +38,14 @@ final class MockService {
             Appointment(Id: "", AppointmentDatetime: date, Comment: "Afspraak voor 3 IT stageplaatsen", Address: "Ohmstraat 11 Haarlem", PhoneNumber: "0612345678", ContactPersonName: "Bas Tolen", ContactPersonPhoneNumber: "0612345678", ContactPersonFunction: "CEO", Active: true, Website: "https://www.bos-tol.nl", Logo: "", COCNumber: "6435453", COCName: "Bos-Tol", FirstChoice: "", SecondChoice: "", ThirdChoice: "", CreatedDate: date, ModifiedDate: date)
         ]
     }
+    
+    static func getInvoices() -> [Invoice] {
+        let date1 = Date(timeIntervalSince1970: 1572786000)
+        let date2 = Date(timeIntervalSince1970: 1575378000)
+        
+        return [
+            Invoice(Id: "", AdvisorId: "", UploadDate: date1, FileName: "Factuur_november_2019", FilePath: "", Base64EncodedPdf: ""),
+            Invoice(Id: "", AdvisorId: "", UploadDate: date2, FileName: "Factuur_oktober_2019", FilePath: "", Base64EncodedPdf: ""),
+        ]
+    }
 }

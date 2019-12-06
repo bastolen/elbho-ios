@@ -28,9 +28,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         hideKeyboardWhenTappingOutside()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        moveViewUp()
         
         navigationController?.isNavigationBarHidden = true
         
@@ -40,26 +38,16 @@ class LoginViewController: UIViewController {
         emailController = MDCTextInputControllerUnderline(textInput: emailTextField)
         emailController?.activeColor = UIColor(named: "Primary")
         emailTextField.delegate = self
+        emailTextField.placeholderLabel.text = "input_email".localize
+        emailTextField.placeholderLabel.textColor = UIColor(named: "Primary")!
         emailTextField.clearButtonMode = .never
         
         passwordController = MDCTextInputControllerUnderline(textInput: passwordTextField)
         passwordController?.activeColor = UIColor(named: "Primary")
+        passwordTextField.placeholderLabel.text = "input_password".localize
+        emailTextField.placeholderLabel.textColor = UIColor(named: "Primary")!
         passwordTextField.delegate = self
         passwordTextField.clearButtonMode = .never
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if view.frame.origin.y == 0 {
-                view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if view.frame.origin.y != 0 {
-            view.frame.origin.y = 0
-        }
     }
     
     @IBAction func loginClicked() {

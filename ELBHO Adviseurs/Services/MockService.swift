@@ -55,9 +55,9 @@ final class MockService {
         let date3 = Date(timeIntervalSince1970: 1576832400)
         
         return [
-            CarReservation(Id: "", reservationDate: date, car: "Fiat 500 automaat", pickupPlace: "Haarlem", pickupAdres: "Ohmstraat 11", licencePlate: "GB-001-A"),
-            CarReservation(Id: "", reservationDate: date2, car: "Fiat 500 schakel", pickupPlace: "Beverwijk", pickupAdres: "Waterland 14", licencePlate: "GB-001-B"),
-            CarReservation(Id: "", reservationDate: date3, car: "Fiat 500 schakel", pickupPlace: "Overveen", pickupAdres: "Bijdorplaan 15", licencePlate: "GB-001-C")
+            CarReservation(Id: "", reservationDate: date, car: "Fiat 500 automaat", pickupPlace: "Haarlem", pickupAdres: "Ohmstraat 11, Haarlem", licencePlate: "GB-001-A"),
+            CarReservation(Id: "", reservationDate: date2, car: "Fiat 500 schakel", pickupPlace: "Beverwijk", pickupAdres: "Waterland 14, Beverwijk", licencePlate: "GB-001-B"),
+            CarReservation(Id: "", reservationDate: date3, car: "Fiat 500 schakel", pickupPlace: "Overveen", pickupAdres: "Bijdorplaan 15, Overveen", licencePlate: "GB-001-C")
         ]
     }
 }

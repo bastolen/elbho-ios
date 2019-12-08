@@ -18,6 +18,7 @@ class CarsViewController : UIViewController {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    let dateFormatter = DateFormatter()
     let carStoryboard = UIStoryboard(name: "Car", bundle: nil)
     
     var items: [CarReservation] = MockService.getCarReservations()
@@ -72,7 +73,18 @@ extension CarsViewController: UITableViewDelegate {
         let detailVc = carStoryboard.instantiateViewController(withIdentifier:
         "CarDetailViewController") as! CarDetailViewController
         
+        dateFormatter.dateFormat = "dd-MM-YYYY"
         let item = items[indexPath.row]
+        detailVc.item = item
+        detailVc.rows = [
+            DetailViewRow(title: "Kenteken", content: item.licencePlate, icon: nil, iconClicked: {}),
+            DetailViewRow(title: "Datum", content: dateFormatter.string(from: item.reservationDate), icon: nil, iconClicked: {}),
+            DetailViewRow(title: "Tijd", content: "09:00 - 14:00", icon: nil, iconClicked: {}),
+            DetailViewRow(title: "Adres", content: item.pickupAdres, icon: UIImage(named: "RouteIcon"), iconClicked: {
+                let url = URL(string: "http://maps.apple.com/?address=\(item.pickupAdres.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")
+                UIApplication.shared.open(url!)
+            }),
+        ]
         
         navigationController?.pushViewController(detailVc, animated: true)
     }

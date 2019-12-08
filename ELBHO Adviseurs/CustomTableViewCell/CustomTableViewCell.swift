@@ -15,6 +15,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var CompanyLabel: UILabel!
     @IBOutlet weak var TimeLocationLabel: UILabel!
     
+    @IBOutlet weak var imageViewBackground: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -14,4 +14,51 @@ import SideMenu
 
 class CarDetailViewController : UIViewController {
     
+    var item : CarReservation? = nil
+    var rows: [DetailViewRow] = []
+    
+    @IBOutlet weak var carNameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cancelButton: MDCButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        carNameLabel.text = item?.car
+        
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellReuseIdentifier: "DetailViewCell")
+        
+        cancelButton.setDanger()
+    }
+    
+    @IBAction func cancelButtonClick(_ sender: Any) {
+        self.showSnackbarPrimary("TODO")
+    }
+    
 }
+
+extension CarDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rows.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = rows[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailViewCell", for: indexPath ) as! DetailViewCell
+        cell.titleLabel.text = row.title.uppercased()
+        cell.contentLabel.text = row.content
+        
+        if row.icon != nil {
+            cell.iconView.image = row.icon
+            cell.iconView.addTapGestureRecognizer(action: row.iconClicked)
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}
+

@@ -190,11 +190,11 @@ class WeekOverzichtViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Begrepen", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
+    
     @IBAction func saveWeekClick(_ sender: Any) {
         // Eerst checken of de data klopt
         self.showSnackbarPrimary("Ja dit moeten we nog maken")
     }
-    
     
     // Oude zooi maar nog even bewaren
     func getWeekNumber(date: Date) -> Int {

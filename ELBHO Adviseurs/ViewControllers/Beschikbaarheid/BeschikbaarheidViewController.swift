@@ -17,26 +17,16 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     // Calendar
     @IBOutlet weak var Calendar: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
-    let months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"]
-
-    let daysOfMonth = ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"]
-    let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    
-    var currentMonth = String()
-    var numberOfEmptyBox = Int()
-    var nextNumberOfEmptyBox = Int()
-    var previousNumberOfEmtyBox = 0
-    var direction = 0 // 0 = HUIDIGE MAAND, 1 = MAAND VERDER, -1 = MAAND TERUG
-    var positionIndex = 0
-    var dayCounter = 0
-    var clickedDate = String()
     
     @IBOutlet weak var buttonPrev: UIButton!
     @IBOutlet weak var buttonNext: UIButton!
     
+    var clickedDate = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Beschikbaarheid"
+        navigationController?.navigationBar.tintColor = .white
         
         // Start vullen calendar
         currentMonth = months[month]
@@ -65,38 +55,6 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         flow.itemSize = CGSize(width: cellWidth, height: 45)
     }
     
-    func getStartDateDayPosition()
-    {
-        switch direction {
-        case 0:
-            numberOfEmptyBox = weekday
-            dayCounter = day
-            while dayCounter > 0 {
-                numberOfEmptyBox = numberOfEmptyBox - 1
-                dayCounter = dayCounter - 1
-                if numberOfEmptyBox == 0 {
-                    numberOfEmptyBox = 7
-                }
-            }
-            
-            if numberOfEmptyBox == 7 {
-                numberOfEmptyBox = 0
-            }
-            
-            positionIndex = numberOfEmptyBox
-        case 1...:
-            nextNumberOfEmptyBox = (positionIndex + daysInMonth[month]) % 7
-            positionIndex = nextNumberOfEmptyBox
-        case -1:
-            previousNumberOfEmtyBox = (7 - (daysInMonth[month] - positionIndex) % 7)
-            if previousNumberOfEmtyBox == 7 {
-                previousNumberOfEmtyBox = 0
-            }
-            positionIndex = previousNumberOfEmtyBox
-        default:
-            fatalError()
-        }
-    }
     
     @IBAction func prevMonth(_ sender: Any) {
         switch currentMonth {
@@ -146,11 +104,11 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch direction {
         case 0:
-            return daysInMonth[month] + numberOfEmptyBox
+            return daysInMonth[month] + numberOfEmptyBox + 7
         case 1:
-            return daysInMonth[month] + nextNumberOfEmptyBox
+            return daysInMonth[month] + nextNumberOfEmptyBox + 7
         case -1:
-            return daysInMonth[month] + previousNumberOfEmtyBox
+            return daysInMonth[month] + previousNumberOfEmtyBox + 7
         default:
             fatalError()
         }
@@ -159,49 +117,45 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
         
-        // Cell basic styling
-        cell.backgroundColor = UIColor.clear
-        cell.dateLabel.textColor = UIColor.black
-        cell.isUserInteractionEnabled = true
-        
-        // Onzichtbare cellen zichtbaarmaken
-        if cell.isHidden {
-            cell.isHidden = false
-        }
-        
-        // Maand directie bepalen 0 = HUIDIGE MAAND, 1 = MAAND VERDER, -1 = MAAND TERUG
-        switch direction {
-        case 0:
-            cell.dateLabel.text = "\(indexPath.row + 1 - numberOfEmptyBox)"
-        case 1:
-            cell.dateLabel.text = "\(indexPath.row + 1 - nextNumberOfEmptyBox)"
-        case -1:
-            cell.dateLabel.text = "\(indexPath.row + 1 - previousNumberOfEmtyBox)"
-        default:
-            fatalError()
-        }
-        
-        // Cell hiden wanner het 0 of negatief is
-        if Int(cell.dateLabel.text!)! < 1 {
-            cell.isHidden = true
-        }
-        
-        // Kleurtje voor het weekend
-        switch indexPath.row {
-        case 5,6,12,13,19,20,26,27,33,34:
-            if Int(cell.dateLabel.text!)! > 0 {
-                cell.dateLabel.textColor = UIColor.lightGray
-                cell.isUserInteractionEnabled = false
+        // Indexpath tussen 0-6 is week dagen tonen, MA,DI,WO etc,
+        if(indexPath.row <= 6) {
+            cell.dateLabel.text = daysShort[indexPath.row]
+            cell.isUserInteractionEnabled = false
+            cell.backgroundColor = UIColor(named: "BeschikbaarheidDateBackground")
+        } else {
+            // Maand directie bepalen 0 = HUIDIGE MAAND, 1 = MAAND VERDER, -1 = MAAND TERUG
+            switch direction {
+            case 0:
+                cell.dateLabel.text = "\(indexPath.row - 6 - numberOfEmptyBox)"
+            case 1:
+                cell.dateLabel.text = "\(indexPath.row - 6 - nextNumberOfEmptyBox)"
+            case -1:
+                cell.dateLabel.text = "\(indexPath.row - 6 - previousNumberOfEmtyBox)"
+            default:
+                fatalError()
             }
-        default:
-            break
+            
+            // Cell hiden wanner het 0 of negatief is
+            if Int(cell.dateLabel.text!)! < 1 {
+                cell.isHidden = true
+            }
+            
+            // Kleurtje voor het weekend
+            switch indexPath.row {
+            case 12,13,19,20,26,27,33,34,40,41:
+                if Int(cell.dateLabel.text!)! > 0 {
+                    cell.dateLabel.textColor = UIColor.lightGray
+                    cell.isUserInteractionEnabled = false
+                }
+            default:
+                break
+            }
         }
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        clickedDate = "\(year)-\(month+1)-\(indexPath.row - positionIndex + 1)"
+        clickedDate = "\(year)-\(month+1)-\((indexPath.row-6) - positionIndex)"
         
         let storyboard = UIStoryboard(name: "Beschikbaarheid", bundle: nil)
         let Vc = storyboard.instantiateViewController(withIdentifier: "WeekOverzichtViewController") as! WeekOverzichtViewController

@@ -48,4 +48,16 @@ final class MockService {
             Invoice(Id: "", AdvisorId: "", UploadDate: date2, FileName: "Factuur_oktober_2019", FilePath: "", Base64EncodedPdf: ""),
         ]
     }
+    
+    static func getCarReservations() -> [CarReservation] {
+        let date = Date(timeIntervalSince1970: 1577521830)
+        let date2 = Date(timeIntervalSince1970: 1578056400)
+        let date3 = Date(timeIntervalSince1970: 1576832400)
+        
+        return [
+            CarReservation(Id: "", reservationDate: date, car: "Fiat 500 automaat", pickupPlace: "Haarlem", pickupAdres: "Ohmstraat 11", licencePlate: "GB-001-A"),
+            CarReservation(Id: "", reservationDate: date2, car: "Fiat 500 schakel", pickupPlace: "Beverwijk", pickupAdres: "Waterland 14", licencePlate: "GB-001-B"),
+            CarReservation(Id: "", reservationDate: date3, car: "Fiat 500 schakel", pickupPlace: "Overveen", pickupAdres: "Bijdorplaan 15", licencePlate: "GB-001-C")
+        ]
+    }
 }

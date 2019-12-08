@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		172007FC239A9BF900EF762B /* Invoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172007FB239A9BF900EF762B /* Invoice.storyboard */; };
-		17488BCA239837FA008BAA98 /* CalendarVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BC9239837FA008BAA98 /* CalendarVars.swift */; };
+		17200800239D4A1F00EF762B /* CarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172007FF239D4A1F00EF762B /* CarsViewController.swift */; };
+		17200802239D4A7E00EF762B /* Car.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17200801239D4A7E00EF762B /* Car.storyboard */; };
+		17200804239D513D00EF762B /* CarReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200803239D513D00EF762B /* CarReservation.swift */; };
+		17200806239D590300EF762B /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200805239D590300EF762B /* CarDetailViewController.swift */; };
+		17488BCA239837FA008BAA98 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BC9239837FA008BAA98 /* Calendar.swift */; };
 		17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */; };
 		1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754193C239912510091D29D /* WeekOverzichtViewController.swift */; };
 		17A1F79623943E68009FAEA7 /* Beschikbaarheid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */; };
@@ -71,7 +75,11 @@
 
 /* Begin PBXFileReference section */
 		172007FB239A9BF900EF762B /* Invoice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invoice.storyboard; sourceTree = "<group>"; };
-		17488BC9239837FA008BAA98 /* CalendarVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVars.swift; sourceTree = "<group>"; };
+		172007FF239D4A1F00EF762B /* CarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsViewController.swift; sourceTree = "<group>"; };
+		17200801239D4A7E00EF762B /* Car.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Car.storyboard; sourceTree = "<group>"; };
+		17200803239D513D00EF762B /* CarReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarReservation.swift; sourceTree = "<group>"; };
+		17200805239D590300EF762B /* CarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
+		17488BC9239837FA008BAA98 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		1754193C239912510091D29D /* WeekOverzichtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekOverzichtViewController.swift; sourceTree = "<group>"; };
 		17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Beschikbaarheid.storyboard; sourceTree = "<group>"; };
@@ -158,11 +166,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		172007FD239D497700EF762B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				17488BC9239837FA008BAA98 /* Calendar.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		172007FE239D49FC00EF762B /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				172007FF239D4A1F00EF762B /* CarsViewController.swift */,
+				17200805239D590300EF762B /* CarDetailViewController.swift */,
+			);
+			path = Car;
+			sourceTree = "<group>";
+		};
 		17488BC8239837A4008BAA98 /* Beschikbaarheid */ = {
 			isa = PBXGroup;
 			children = (
 				17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */,
-				17488BC9239837FA008BAA98 /* CalendarVars.swift */,
 				17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */,
 				1754193C239912510091D29D /* WeekOverzichtViewController.swift */,
 			);
@@ -231,6 +255,7 @@
 		5FE063FB23796CBC00E3015B /* ELBHO Adviseurs */ = {
 			isa = PBXGroup;
 			children = (
+				172007FD239D497700EF762B /* Calendar */,
 				5FC2092F239964760080C82B /* DetailViewCell */,
 				5F12485823911AEA00411781 /* CustomTableViewCell */,
 				5FE0643A2379835300E3015B /* Services */,
@@ -241,6 +266,7 @@
 				5F584DCF2383EC5500EBE536 /* Localizable.strings */,
 				5FE063FE23796CBC00E3015B /* SceneDelegate.swift */,
 				5FE0640223796CBC00E3015B /* Main.storyboard */,
+				17200801239D4A7E00EF762B /* Car.storyboard */,
 				17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */,
 				172007FB239A9BF900EF762B /* Invoice.storyboard */,
 				5FE0640523796CBD00E3015B /* Assets.xcassets */,
@@ -290,6 +316,7 @@
 				5FC2092B23994D980080C82B /* DetailViewRow.swift */,
 				5FC2092D239954FE0080C82B /* DetailViewButton.swift */,
 				5F06D839239AAB6200A15EDD /* Invoice.swift */,
+				17200803239D513D00EF762B /* CarReservation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -314,6 +341,7 @@
 		5FE0643B237983AF00E3015B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				172007FE239D49FC00EF762B /* Car */,
 				5F06D836239AA0F200A15EDD /* Invoice */,
 				17488BC8239837A4008BAA98 /* Beschikbaarheid */,
 				5FE0640023796CBC00E3015B /* ViewController.swift */,
@@ -462,6 +490,7 @@
 				17A1F79623943E68009FAEA7 /* Beschikbaarheid.storyboard in Resources */,
 				5FE0640623796CBD00E3015B /* Assets.xcassets in Resources */,
 				5F12485C23911C2100411781 /* CustomTableViewCell.xib in Resources */,
+				17200802239D4A7E00EF762B /* Car.storyboard in Resources */,
 				172007FC239A9BF900EF762B /* Invoice.storyboard in Resources */,
 				5FE0640423796CBC00E3015B /* Main.storyboard in Resources */,
 			);
@@ -595,7 +624,7 @@
 				5F584DD62384016000EBE536 /* Advisor.swift in Sources */,
 				5F124857238E602E00411781 /* MDCButton.swift in Sources */,
 				5FC209322399649B0080C82B /* DetailViewCell.swift in Sources */,
-				17488BCA239837FA008BAA98 /* CalendarVars.swift in Sources */,
+				17488BCA239837FA008BAA98 /* Calendar.swift in Sources */,
 				5FE0640123796CBC00E3015B /* ViewController.swift in Sources */,
 				5F124853238DB98900411781 /* UIViewController.swift in Sources */,
 				5FC2093523996A310080C82B /* UIView.swift in Sources */,
@@ -605,6 +634,8 @@
 				5FE5B8B72379A0C600EF12D6 /* ApiLoginModel.swift in Sources */,
 				5FE064372379824C00E3015B /* String.swift in Sources */,
 				5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */,
+				17200806239D590300EF762B /* CarDetailViewController.swift in Sources */,
+				17200804239D513D00EF762B /* CarReservation.swift in Sources */,
 				5F06D835239A831500A15EDD /* MockService.swift in Sources */,
 				5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */,
 				5FC2092E239954FE0080C82B /* DetailViewButton.swift in Sources */,
@@ -618,6 +649,7 @@
 				5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */,
 				5F06D838239AA13500A15EDD /* InvoiceViewController.swift in Sources */,
 				5F12485B23911C2100411781 /* CustomTableViewCell.swift in Sources */,
+				17200800239D4A1F00EF762B /* CarsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

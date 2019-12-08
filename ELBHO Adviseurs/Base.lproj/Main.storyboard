@@ -190,6 +190,9 @@
                                                 <constraint firstItem="UB9-9s-jSU" firstAttribute="leading" secondItem="SdG-wE-4oz" secondAttribute="leadingMargin" constant="22" id="w4U-qM-hj7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="owE-Yy-pUu" kind="show" id="77i-Fe-WYF"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Rxh-xg-qsl">
                                         <rect key="frame" x="0.0" y="310" width="414" height="50"/>
@@ -238,6 +241,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZz-tY-3XK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1919" y="-845"/>
+        </scene>
+        <!--Car-->
+        <scene sceneID="50F-YA-4ug">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Car" id="owE-Yy-pUu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="94K-PG-G7X"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RPs-bl-45U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938" y="-779"/>
         </scene>
         <!--Invoice-->
         <scene sceneID="Ein-HV-0F8">

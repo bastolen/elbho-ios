@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pqZ-3l-net">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cars View Controller-->
+        <scene sceneID="Y3y-gF-CJk">
+            <objects>
+                <viewController id="pqZ-3l-net" customClass="CarsViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="24h-M0-PJ1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RoZ-fG-iTj">
+                                <rect key="frame" x="20" y="795" width="374" height="47"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5X-Th-n7S" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="47"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="AUTO RESERVEREN" image="calendar" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="W5X-Th-n7S" secondAttribute="bottom" id="8Ta-FR-vmI"/>
+                                    <constraint firstItem="W5X-Th-n7S" firstAttribute="leading" secondItem="RoZ-fG-iTj" secondAttribute="leading" id="CNh-ZJ-dy8"/>
+                                    <constraint firstItem="W5X-Th-n7S" firstAttribute="top" secondItem="RoZ-fG-iTj" secondAttribute="top" id="dcM-D4-l41"/>
+                                    <constraint firstAttribute="trailing" secondItem="W5X-Th-n7S" secondAttribute="trailing" id="ox9-ag-Q8f"/>
+                                    <constraint firstAttribute="height" constant="47" id="rDb-2i-SYx"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKS-pH-0Kv">
+                                <rect key="frame" x="20" y="64" width="374" height="711"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OIW-VI-Fdb">
+                                        <rect key="frame" x="15" y="16.5" width="30" height="28"/>
+                                        <color key="tintColor" name="Primary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="FGO-nr-5UM"/>
+                                            <constraint firstAttribute="height" constant="30" id="vq9-Vl-oXy"/>
+                                        </constraints>
+                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jS5-hw-xhv">
+                                        <rect key="frame" x="0.0" y="62.5" width="374" height="648.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gereserveerde auto's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vY6-rW-3Mx">
+                                        <rect key="frame" x="60" y="15" width="241.5" height="32.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jS5-hw-xhv" secondAttribute="trailing" id="0C8-ZH-hpy"/>
+                                    <constraint firstItem="OIW-VI-Fdb" firstAttribute="top" secondItem="yKS-pH-0Kv" secondAttribute="top" constant="15" id="8kb-ko-Fls"/>
+                                    <constraint firstItem="OIW-VI-Fdb" firstAttribute="leading" secondItem="yKS-pH-0Kv" secondAttribute="leading" constant="15" id="CJV-um-Gh5"/>
+                                    <constraint firstItem="jS5-hw-xhv" firstAttribute="leading" secondItem="yKS-pH-0Kv" secondAttribute="leading" id="fKY-Pz-6Wb"/>
+                                    <constraint firstItem="jS5-hw-xhv" firstAttribute="top" secondItem="vY6-rW-3Mx" secondAttribute="bottom" constant="15" id="hft-bG-AvO"/>
+                                    <constraint firstItem="vY6-rW-3Mx" firstAttribute="leading" secondItem="OIW-VI-Fdb" secondAttribute="trailing" constant="15" id="izU-Zw-RuK"/>
+                                    <constraint firstAttribute="bottom" secondItem="jS5-hw-xhv" secondAttribute="bottom" id="lfH-c6-vmn"/>
+                                    <constraint firstItem="vY6-rW-3Mx" firstAttribute="top" secondItem="yKS-pH-0Kv" secondAttribute="top" constant="15" id="xWn-Ar-OPx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RoZ-fG-iTj" firstAttribute="leading" secondItem="XGW-dW-mGI" secondAttribute="leading" constant="20" id="EGF-8I-d8K"/>
+                            <constraint firstItem="yKS-pH-0Kv" firstAttribute="top" secondItem="XGW-dW-mGI" secondAttribute="top" constant="20" id="L2R-eH-hqg"/>
+                            <constraint firstItem="yKS-pH-0Kv" firstAttribute="leading" secondItem="XGW-dW-mGI" secondAttribute="leading" constant="20" id="Mkp-8a-KSl"/>
+                            <constraint firstItem="XGW-dW-mGI" firstAttribute="trailing" secondItem="yKS-pH-0Kv" secondAttribute="trailing" constant="20" id="Wxl-F2-3m5"/>
+                            <constraint firstItem="XGW-dW-mGI" firstAttribute="trailing" secondItem="RoZ-fG-iTj" secondAttribute="trailing" constant="20" id="gcO-Hm-ZbL"/>
+                            <constraint firstItem="XGW-dW-mGI" firstAttribute="bottom" secondItem="RoZ-fG-iTj" secondAttribute="bottom" constant="20" id="iNa-6x-orF"/>
+                            <constraint firstItem="RoZ-fG-iTj" firstAttribute="top" secondItem="yKS-pH-0Kv" secondAttribute="bottom" constant="20" id="q9O-rv-Y8a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XGW-dW-mGI"/>
+                    </view>
+                    <connections>
+                        <outlet property="bookCarButton" destination="W5X-Th-n7S" id="kGA-hb-eXY"/>
+                        <outlet property="mainView" destination="yKS-pH-0Kv" id="aUq-5P-34C"/>
+                        <outlet property="tableView" destination="jS5-hw-xhv" id="TkQ-2J-rfK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ep3-8u-wxK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-59" y="50"/>
+        </scene>
+        <!--Car Detail View Controller-->
+        <scene sceneID="4ia-OJ-dVj">
+            <objects>
+                <viewController storyboardIdentifier="CarDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9qj-Wp-sfB" customClass="CarDetailViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jlm-SB-37w">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGJ-fV-BHN">
+                                <rect key="frame" x="105" y="212" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="IZU-d4-OJ3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fW-5l-qog" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="836" y="50"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar" catalog="system" width="64" height="54"/>
+        <image name="car.fill" catalog="system" width="64" height="48"/>
+        <namedColor name="Primary">
+            <color red="0.0" green="0.28999999165534973" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

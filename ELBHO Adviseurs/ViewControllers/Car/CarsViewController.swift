@@ -37,6 +37,10 @@ class CarsViewController : UIViewController {
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
     }
     
+    @IBAction func carReservationClick(_ sender: Any) {
+        let detailVc = carStoryboard.instantiateViewController(withIdentifier:"CarReservationViewController") as! CarReservationViewController
+        navigationController?.pushViewController(detailVc, animated: true)
+    }
 }
 
 extension CarsViewController: UITableViewDataSource {
@@ -70,8 +74,7 @@ extension CarsViewController: UITableViewDataSource {
 
 extension CarsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVc = carStoryboard.instantiateViewController(withIdentifier:
-        "CarDetailViewController") as! CarDetailViewController
+        let detailVc = carStoryboard.instantiateViewController(withIdentifier:"CarDetailViewController") as! CarDetailViewController
         
         dateFormatter.dateFormat = "dd-MM-YYYY"
         let item = items[indexPath.row]

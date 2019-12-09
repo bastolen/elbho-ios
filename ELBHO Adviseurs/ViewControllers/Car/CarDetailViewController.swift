@@ -30,8 +30,8 @@ class CarDetailViewController : UIViewController {
         
         cancelButton.setDanger()
     }
-    
-    @IBAction func cancelButtonClick(_ sender: Any) {
+
+    @IBAction func carCancelReservationClick(_ sender: Any) {
         self.showSnackbarPrimary("TODO")
     }
     

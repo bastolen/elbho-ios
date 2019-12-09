@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,14 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RoZ-fG-iTj">
-                                <rect key="frame" x="20" y="795" width="374" height="47"/>
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5X-Th-n7S" customClass="MDCButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="AUTO RESERVEREN" image="calendar" catalog="system"/>
+                                        <connections>
+                                            <action selector="carReservationClick:" destination="pqZ-3l-net" eventType="touchUpInside" id="CRc-pL-Kpc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -32,11 +36,11 @@
                                     <constraint firstItem="W5X-Th-n7S" firstAttribute="leading" secondItem="RoZ-fG-iTj" secondAttribute="leading" id="CNh-ZJ-dy8"/>
                                     <constraint firstItem="W5X-Th-n7S" firstAttribute="top" secondItem="RoZ-fG-iTj" secondAttribute="top" id="dcM-D4-l41"/>
                                     <constraint firstAttribute="trailing" secondItem="W5X-Th-n7S" secondAttribute="trailing" id="ox9-ag-Q8f"/>
-                                    <constraint firstAttribute="height" constant="47" id="rDb-2i-SYx"/>
+                                    <constraint firstAttribute="height" constant="50" id="rDb-2i-SYx"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKS-pH-0Kv">
-                                <rect key="frame" x="20" y="64" width="374" height="711"/>
+                                <rect key="frame" x="20" y="64" width="374" height="708"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OIW-VI-Fdb">
                                         <rect key="frame" x="15" y="16.5" width="30" height="28"/>
@@ -47,7 +51,7 @@
                                         </constraints>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jS5-hw-xhv">
-                                        <rect key="frame" x="0.0" y="62.5" width="374" height="648.5"/>
+                                        <rect key="frame" x="0.0" y="62.5" width="374" height="645.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gereserveerde auto's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vY6-rW-3Mx">
@@ -141,7 +145,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="RESERVERING ANNULEREN" image="multiply" catalog="system"/>
                                 <connections>
-                                    <action selector="cancelButtonClick:" destination="9qj-Wp-sfB" eventType="touchUpInside" id="UNm-ze-2o2"/>
+                                    <action selector="carCancelReservationClick:" destination="9qj-Wp-sfB" eventType="touchUpInside" id="sXy-xI-jCI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -172,11 +176,142 @@
             </objects>
             <point key="canvasLocation" x="834.78260869565224" y="49.553571428571423"/>
         </scene>
+        <!--Car Reservation View Controller-->
+        <scene sceneID="ciB-22-YFM">
+            <objects>
+                <viewController storyboardIdentifier="CarReservationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4cw-p3-TXG" customClass="CarReservationViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Ok-xS-zq3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Quc-K1-NMc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="1456"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vW8-Yy-sdi">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1456"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQx-B3-aKC">
+                                                <rect key="frame" x="20" y="20" width="30" height="22"/>
+                                                <state key="normal" image="chevron.left" catalog="system"/>
+                                                <connections>
+                                                    <action selector="prevMonthClick:" destination="4cw-p3-TXG" eventType="touchUpInside" id="BNp-BS-lJH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFF-qU-tpi">
+                                                <rect key="frame" x="381" y="20" width="30" height="22"/>
+                                                <state key="normal" image="chevron.right" catalog="system"/>
+                                                <connections>
+                                                    <action selector="nextMonthClick:" destination="4cw-p3-TXG" eventType="touchUpInside" id="jZh-dD-QBd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80H-Rd-9f1">
+                                                <rect key="frame" x="20" y="1406" width="374" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqq-oR-LEH">
+                                                <rect key="frame" x="185" y="20" width="44.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tko-vG-1Ha">
+                                                <rect key="frame" x="0.0" y="62" width="414" height="380"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="380" id="4Ug-9e-6IW"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Fc3-4b-M5I">
+                                                    <size key="itemSize" width="35" height="35"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="oOr-kV-9wN" customClass="CarDateCell" customModule="ELBHO_Adviseurs" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ewo-Ug-96P">
+                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAV-0I-HjE">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="fAV-0I-HjE" firstAttribute="leading" secondItem="ewo-Ug-96P" secondAttribute="leading" id="CTk-EE-z2p"/>
+                                                                <constraint firstItem="fAV-0I-HjE" firstAttribute="top" secondItem="ewo-Ug-96P" secondAttribute="top" id="Nxu-OB-j3Y"/>
+                                                                <constraint firstAttribute="bottom" secondItem="fAV-0I-HjE" secondAttribute="bottom" id="eBs-RH-yEw"/>
+                                                                <constraint firstAttribute="trailing" secondItem="fAV-0I-HjE" secondAttribute="trailing" id="r7m-se-L0b"/>
+                                                            </constraints>
+                                                        </collectionViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="dateLabel" destination="fAV-0I-HjE" id="vXX-dh-2kq"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Jqq-oR-LEH" firstAttribute="top" secondItem="vW8-Yy-sdi" secondAttribute="top" constant="20" id="1Of-e3-nAp"/>
+                                            <constraint firstItem="DQx-B3-aKC" firstAttribute="top" secondItem="vW8-Yy-sdi" secondAttribute="top" constant="20" id="3eU-tb-SsX"/>
+                                            <constraint firstItem="Jqq-oR-LEH" firstAttribute="centerX" secondItem="vW8-Yy-sdi" secondAttribute="centerX" id="8zx-06-KEd"/>
+                                            <constraint firstItem="mFF-qU-tpi" firstAttribute="top" secondItem="vW8-Yy-sdi" secondAttribute="top" constant="20" id="94F-3g-7mD"/>
+                                            <constraint firstAttribute="bottom" secondItem="80H-Rd-9f1" secondAttribute="bottom" constant="20" id="EFg-rg-WDm"/>
+                                            <constraint firstAttribute="trailing" secondItem="mFF-qU-tpi" secondAttribute="trailing" constant="20" id="OoY-Eu-u2y"/>
+                                            <constraint firstItem="80H-Rd-9f1" firstAttribute="leading" secondItem="vW8-Yy-sdi" secondAttribute="leading" constant="20" id="eCa-7M-hL8"/>
+                                            <constraint firstItem="tko-vG-1Ha" firstAttribute="top" secondItem="DQx-B3-aKC" secondAttribute="bottom" constant="20" id="eF6-Ei-fRw"/>
+                                            <constraint firstAttribute="height" constant="1456" id="kSS-x3-3yS"/>
+                                            <constraint firstItem="DQx-B3-aKC" firstAttribute="leading" secondItem="vW8-Yy-sdi" secondAttribute="leading" constant="20" id="o8s-kG-9k1"/>
+                                            <constraint firstAttribute="trailing" secondItem="tko-vG-1Ha" secondAttribute="trailing" id="oo3-12-S1L"/>
+                                            <constraint firstItem="tko-vG-1Ha" firstAttribute="leading" secondItem="vW8-Yy-sdi" secondAttribute="leading" id="ucj-Va-irn"/>
+                                            <constraint firstAttribute="trailing" secondItem="80H-Rd-9f1" secondAttribute="trailing" constant="20" id="xDx-TO-UEL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vW8-Yy-sdi" firstAttribute="top" secondItem="Quc-K1-NMc" secondAttribute="top" id="9zs-pY-YBB"/>
+                                    <constraint firstItem="vW8-Yy-sdi" firstAttribute="leading" secondItem="Quc-K1-NMc" secondAttribute="leading" id="k14-25-SLD"/>
+                                    <constraint firstItem="vW8-Yy-sdi" firstAttribute="trailing" secondItem="Quc-K1-NMc" secondAttribute="trailing" id="oFn-2L-qfe"/>
+                                    <constraint firstAttribute="bottom" secondItem="vW8-Yy-sdi" secondAttribute="bottom" id="tXc-FM-2Cv"/>
+                                    <constraint firstItem="vW8-Yy-sdi" firstAttribute="width" secondItem="Quc-K1-NMc" secondAttribute="width" id="ypT-KA-Wb9"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="0Mi-eY-MIH"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="oYf-tW-sbQ"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Quc-K1-NMc" secondAttribute="bottom" id="4bG-ph-wMc"/>
+                            <constraint firstItem="Quc-K1-NMc" firstAttribute="trailing" secondItem="NAy-bw-vxl" secondAttribute="trailing" id="6xu-kC-b0z"/>
+                            <constraint firstItem="Quc-K1-NMc" firstAttribute="top" secondItem="NAy-bw-vxl" secondAttribute="top" id="RVe-4b-M2J"/>
+                            <constraint firstItem="Quc-K1-NMc" firstAttribute="leading" secondItem="NAy-bw-vxl" secondAttribute="leading" id="W2X-XB-OeM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NAy-bw-vxl"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outlet property="Calendar" destination="tko-vG-1Ha" id="lgx-xT-1na"/>
+                        <outlet property="monthLabel" destination="Jqq-oR-LEH" id="nC2-rS-F8Z"/>
+                        <outlet property="nextMonth" destination="mFF-qU-tpi" id="w9b-1d-B45"/>
+                        <outlet property="prevMonth" destination="DQx-B3-aKC" id="PII-O4-CZd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fqx-n5-Lub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1715.9420289855075" y="49.553571428571423"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Fiat500Placeholder" width="989" height="546"/>
         <image name="calendar" catalog="system" width="64" height="54"/>
         <image name="car.fill" catalog="system" width="64" height="48"/>
+        <image name="chevron.left" catalog="system" width="46" height="64"/>
+        <image name="chevron.right" catalog="system" width="46" height="64"/>
         <image name="multiply" catalog="system" width="64" height="56"/>
         <namedColor name="BorderColor">
             <color red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

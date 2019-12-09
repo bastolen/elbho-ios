@@ -12,6 +12,8 @@
 		17200802239D4A7E00EF762B /* Car.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17200801239D4A7E00EF762B /* Car.storyboard */; };
 		17200804239D513D00EF762B /* CarReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200803239D513D00EF762B /* CarReservation.swift */; };
 		17200806239D590300EF762B /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200805239D590300EF762B /* CarDetailViewController.swift */; };
+		17200808239E4BA700EF762B /* CarReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200807239E4BA700EF762B /* CarReservationViewController.swift */; };
+		1720080A239E5D6500EF762B /* CarDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200809239E5D6500EF762B /* CarDateCell.swift */; };
 		17488BCA239837FA008BAA98 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BC9239837FA008BAA98 /* Calendar.swift */; };
 		17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */; };
 		1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754193C239912510091D29D /* WeekOverzichtViewController.swift */; };
@@ -79,6 +81,8 @@
 		17200801239D4A7E00EF762B /* Car.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Car.storyboard; sourceTree = "<group>"; };
 		17200803239D513D00EF762B /* CarReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarReservation.swift; sourceTree = "<group>"; };
 		17200805239D590300EF762B /* CarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
+		17200807239E4BA700EF762B /* CarReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarReservationViewController.swift; sourceTree = "<group>"; };
+		17200809239E5D6500EF762B /* CarDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDateCell.swift; sourceTree = "<group>"; };
 		17488BC9239837FA008BAA98 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		1754193C239912510091D29D /* WeekOverzichtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekOverzichtViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 			children = (
 				172007FF239D4A1F00EF762B /* CarsViewController.swift */,
 				17200805239D590300EF762B /* CarDetailViewController.swift */,
+				17200807239E4BA700EF762B /* CarReservationViewController.swift */,
+				17200809239E5D6500EF762B /* CarDateCell.swift */,
 			);
 			path = Car;
 			sourceTree = "<group>";
@@ -620,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1720080A239E5D6500EF762B /* CarDateCell.swift in Sources */,
 				5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */,
 				5F584DD62384016000EBE536 /* Advisor.swift in Sources */,
 				5F124857238E602E00411781 /* MDCButton.swift in Sources */,
@@ -627,6 +634,7 @@
 				17488BCA239837FA008BAA98 /* Calendar.swift in Sources */,
 				5FE0640123796CBC00E3015B /* ViewController.swift in Sources */,
 				5F124853238DB98900411781 /* UIViewController.swift in Sources */,
+				17200808239E4BA700EF762B /* CarReservationViewController.swift in Sources */,
 				5FC2093523996A310080C82B /* UIView.swift in Sources */,
 				5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */,
 				5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */,

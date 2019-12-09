@@ -210,7 +210,7 @@ extension CarReservationViewController: UITableViewDataSource {
         cell.TimeLocationLabel.text = "\(formatter.string(from: item.availibleTime)) - \(formatter.string(from: item.availibleTime.addingTimeInterval(60*60))), \(item.pickupAdres)"
         
         if item.selected == true {
-            cell.imageViewBackground.backgroundColor = UIColor.red
+            cell.imageViewBackground.backgroundColor = UIColor.orange
         }
         return cell
     }
@@ -222,7 +222,8 @@ extension CarReservationViewController: UITableViewDataSource {
 
 extension CarReservationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        items[indexPath.row].selected  = true
+        
+        items[indexPath.row].selected = true
         tableView.reloadData()
     }
 }

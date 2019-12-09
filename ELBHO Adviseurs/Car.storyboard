@@ -181,14 +181,14 @@
             <objects>
                 <viewController storyboardIdentifier="CarReservationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4cw-p3-TXG" customClass="CarReservationViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Ok-xS-zq3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Quc-K1-NMc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1456"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1156"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vW8-Yy-sdi">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1456"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1156"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQx-B3-aKC">
                                                 <rect key="frame" x="20" y="20" width="30" height="22"/>
@@ -204,12 +204,18 @@
                                                     <action selector="nextMonthClick:" destination="4cw-p3-TXG" eventType="touchUpInside" id="jZh-dD-QBd"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80H-Rd-9f1">
-                                                <rect key="frame" x="20" y="1406" width="374" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80H-Rd-9f1" customClass="MDCButton">
+                                                <rect key="frame" x="20" y="1086" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="vn8-Wx-7HP"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="AUTO RESERVEREN" image="car.fill" catalog="system"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqq-oR-LEH">
-                                                <rect key="frame" x="185" y="20" width="44.5" height="21"/>
+                                                <rect key="frame" x="185" y="20" width="44.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -254,18 +260,47 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="69a-Xa-JRE">
+                                                <rect key="frame" x="20" y="456" width="374" height="34"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ITo-u0-Ed3" customClass="MDCTextField">
+                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cL7-3a-z2c" customClass="MDCTextField">
+                                                        <rect key="frame" x="197" y="0.0" width="177" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="cL7-3a-z2c" firstAttribute="width" secondItem="ITo-u0-Ed3" secondAttribute="width" id="Zei-3A-KNU"/>
+                                                </constraints>
+                                            </stackView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Q5-Rb-bzc">
+                                                <rect key="frame" x="5" y="505" width="404" height="566"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="Jqq-oR-LEH" firstAttribute="top" secondItem="vW8-Yy-sdi" secondAttribute="top" constant="20" id="1Of-e3-nAp"/>
                                             <constraint firstItem="DQx-B3-aKC" firstAttribute="top" secondItem="vW8-Yy-sdi" secondAttribute="top" constant="20" id="3eU-tb-SsX"/>
+                                            <constraint firstItem="69a-Xa-JRE" firstAttribute="top" secondItem="tko-vG-1Ha" secondAttribute="bottom" constant="14" id="5xL-bZ-jWY"/>
+                                            <constraint firstAttribute="trailing" secondItem="69a-Xa-JRE" secondAttribute="trailing" constant="20" id="6pd-hl-geX"/>
                                             <constraint firstItem="Jqq-oR-LEH" firstAttribute="centerX" secondItem="vW8-Yy-sdi" secondAttribute="centerX" id="8zx-06-KEd"/>
                                             <constraint firstItem="mFF-qU-tpi" firstAttribute="top" secondItem="vW8-Yy-sdi" secondAttribute="top" constant="20" id="94F-3g-7mD"/>
                                             <constraint firstAttribute="bottom" secondItem="80H-Rd-9f1" secondAttribute="bottom" constant="20" id="EFg-rg-WDm"/>
                                             <constraint firstAttribute="trailing" secondItem="mFF-qU-tpi" secondAttribute="trailing" constant="20" id="OoY-Eu-u2y"/>
+                                            <constraint firstItem="2Q5-Rb-bzc" firstAttribute="top" secondItem="69a-Xa-JRE" secondAttribute="bottom" constant="15" id="TOg-t8-Rrf"/>
+                                            <constraint firstItem="69a-Xa-JRE" firstAttribute="leading" secondItem="vW8-Yy-sdi" secondAttribute="leading" constant="20" id="bcg-xU-ZUo"/>
+                                            <constraint firstAttribute="trailing" secondItem="2Q5-Rb-bzc" secondAttribute="trailing" constant="5" id="byE-OZ-tTM"/>
                                             <constraint firstItem="80H-Rd-9f1" firstAttribute="leading" secondItem="vW8-Yy-sdi" secondAttribute="leading" constant="20" id="eCa-7M-hL8"/>
                                             <constraint firstItem="tko-vG-1Ha" firstAttribute="top" secondItem="DQx-B3-aKC" secondAttribute="bottom" constant="20" id="eF6-Ei-fRw"/>
-                                            <constraint firstAttribute="height" constant="1456" id="kSS-x3-3yS"/>
+                                            <constraint firstItem="80H-Rd-9f1" firstAttribute="top" secondItem="2Q5-Rb-bzc" secondAttribute="bottom" constant="15" id="fDk-qA-7f3"/>
+                                            <constraint firstItem="2Q5-Rb-bzc" firstAttribute="leading" secondItem="vW8-Yy-sdi" secondAttribute="leading" constant="5" id="gwR-ck-Bq9"/>
+                                            <constraint firstAttribute="height" constant="1156" id="kSS-x3-3yS"/>
                                             <constraint firstItem="DQx-B3-aKC" firstAttribute="leading" secondItem="vW8-Yy-sdi" secondAttribute="leading" constant="20" id="o8s-kG-9k1"/>
                                             <constraint firstAttribute="trailing" secondItem="tko-vG-1Ha" secondAttribute="trailing" id="oo3-12-S1L"/>
                                             <constraint firstItem="tko-vG-1Ha" firstAttribute="leading" secondItem="vW8-Yy-sdi" secondAttribute="leading" id="ucj-Va-irn"/>
@@ -293,12 +328,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NAy-bw-vxl"/>
                     </view>
-                    <size key="freeformSize" width="414" height="1500"/>
+                    <size key="freeformSize" width="414" height="1200"/>
                     <connections>
                         <outlet property="Calendar" destination="tko-vG-1Ha" id="lgx-xT-1na"/>
+                        <outlet property="carReservationButton" destination="80H-Rd-9f1" id="4i4-uY-5Mk"/>
                         <outlet property="monthLabel" destination="Jqq-oR-LEH" id="nC2-rS-F8Z"/>
                         <outlet property="nextMonth" destination="mFF-qU-tpi" id="w9b-1d-B45"/>
                         <outlet property="prevMonth" destination="DQx-B3-aKC" id="PII-O4-CZd"/>
+                        <outlet property="tableView" destination="2Q5-Rb-bzc" id="3fL-Ot-SZo"/>
+                        <outlet property="timeFromInput" destination="ITo-u0-Ed3" id="xh9-Ij-Ttb"/>
+                        <outlet property="timeUntilInput" destination="cL7-3a-z2c" id="rwj-QO-Oh9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fqx-n5-Lub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

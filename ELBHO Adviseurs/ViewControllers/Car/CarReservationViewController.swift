@@ -8,22 +8,39 @@
 
 import Foundation
 import UIKit
+import MaterialComponents
+import MobileCoreServices
 
 class CarReservationViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var Calendar: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var prevMonth: UIButton!
     @IBOutlet weak var nextMonth: UIButton!
     @IBOutlet weak var monthLabel: UILabel!
     
+    @IBOutlet weak var carReservationButton: MDCButton!
+    
+    @IBOutlet weak var timeFromInput: MDCTextField!
+    @IBOutlet weak var timeUntilInput: MDCTextField!
+    var inputTimeFromInputController: MDCTextInputControllerUnderline?
+    var inputTimeFromUntilController: MDCTextInputControllerUnderline?
+    
     var clickedDate = String()
+    
+    var items: [CarAvailability] = MockService.getCarAvailability()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Auto reserveren"
         
         Calendar.dataSource = self
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        
         //Calendar.delegate = self
         
         currentMonth = months[month]
@@ -38,7 +55,25 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
      
         getStartDateDayPosition()
         setupCollectionView()
+        setupInputFields()
+    }
+    
+    func setupInputFields()
+    {
+        inputTimeFromInputController = MDCTextInputControllerUnderline(textInput: timeFromInput)
+        inputTimeFromInputController?.activeColor = UIColor(named: "Primary")
         
+        timeFromInput.placeholderLabel.text = "Van"
+        timeFromInput.placeholderLabel.textColor = UIColor(named: "Primary")!
+        timeFromInput.clearButtonMode = .never
+        
+        inputTimeFromUntilController = MDCTextInputControllerUnderline(textInput: timeUntilInput)
+        inputTimeFromUntilController?.activeColor = UIColor(named: "Primary")
+        timeUntilInput.placeholderLabel.text = "Tot"
+        timeUntilInput.placeholderLabel.textColor = UIColor(named: "Primary")!
+        timeUntilInput.clearButtonMode = .never
+        
+        carReservationButton.setPrimary()
     }
     
     func setupCollectionView()
@@ -151,4 +186,43 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
         return cell
     }
     
+}
+
+extension CarReservationViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
+        var item = items[indexPath.row]
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "EE"
+        cell.DayLabel.text = formatter.string(from: item.availibleTime).uppercased()
+        
+        formatter.dateFormat = "dd-MM"
+        cell.DateLabel.text = formatter.string(from: item.availibleTime)
+        
+        cell.CompanyLabel.text = item.car
+        
+        formatter.dateFormat = "HH:mm"
+        cell.TimeLocationLabel.text = "\(formatter.string(from: item.availibleTime)) - \(formatter.string(from: item.availibleTime.addingTimeInterval(60*60))), \(item.pickupAdres)"
+        
+        if item.selected == true {
+            cell.imageViewBackground.backgroundColor = UIColor.red
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 96
+    }
+}
+
+extension CarReservationViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        items[indexPath.row].selected  = true
+        tableView.reloadData()
+    }
 }

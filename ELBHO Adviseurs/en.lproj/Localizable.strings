@@ -49,6 +49,8 @@
 "input_password" = "Wachtwoord";
 "input_month" = "Maand";
 "input_file" = "Bestand";
+"input_from" = "Van";
+"input_until" = "Tot";
 
 "month_1" = "Januari";
 "month_2" = "Februari";

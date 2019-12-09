@@ -60,4 +60,16 @@ final class MockService {
             CarReservation(Id: "", reservationDate: date3, car: "Fiat 500 schakel", pickupPlace: "Overveen", pickupAdres: "Bijdorplaan 15, Overveen", licencePlate: "GB-001-C")
         ]
     }
+    
+    static func getCarAvailability() -> [CarAvailability] {
+        let date4 = Date(timeIntervalSince1970: 1577521830)
+        
+        return [
+            CarAvailability(Id: "", car: "Fiat 500 schakel", availibleTime: date4, pickupAdres: "Beverwijk", selected: false),
+            CarAvailability(Id: "", car: "Fiat 500 schakel", availibleTime: date4, pickupAdres: "Amsterdam", selected: false),
+            CarAvailability(Id: "", car: "Fiat 500 automaat", availibleTime: date4, pickupAdres: "Utrecht", selected: false),
+            CarAvailability(Id: "", car: "Ford focus", availibleTime: date4, pickupAdres: "Zandvoort", selected: false),
+            CarAvailability(Id: "", car: "Fiat 500 automaat", availibleTime: date4, pickupAdres: "Leiden", selected: false)
+        ]
+    }
 }

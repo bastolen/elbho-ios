@@ -11,7 +11,7 @@ import Foundation
 struct CarReservation {
     let Id: String
     let reservationDate: Date
-    let car: String
+    var car: String
     let pickupPlace: String
     let pickupAdres: String
     let licencePlate: String

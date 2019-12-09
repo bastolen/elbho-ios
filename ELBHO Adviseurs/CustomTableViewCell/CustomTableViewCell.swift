@@ -16,6 +16,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var TimeLocationLabel: UILabel!
     
     @IBOutlet weak var imageViewBackground: UIImageView!
+    @IBOutlet weak var rowView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

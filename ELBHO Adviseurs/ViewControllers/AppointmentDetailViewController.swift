@@ -31,7 +31,7 @@ class AppointmentDetailViewController: UIViewController {
             
             button.setTitle(btn.text, for:.normal)
             button.setTitleColor(.black, for: .normal)
-            button.frame = CGRect(x: 10, y: yPos, width: TableView.frame.width - 20, height: 48)
+            button.frame = CGRect(x: 10, y: yPos, width: self.view.frame.width - 20, height: 48)
             
             button.isUserInteractionEnabled = true
             button.addTapGestureRecognizer(action: btn.clicked)

@@ -195,7 +195,7 @@ extension CarReservationViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
-        var item = items[indexPath.row]
+        let item = items[indexPath.row]
         let formatter = DateFormatter()
         
         formatter.dateFormat = "EE"
@@ -224,16 +224,8 @@ extension CarReservationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         for i in 0..<items.count {
-            items[i].selected = false
-            
+            items[i].selected = i == indexPath.row
         }
-        
-        items[indexPath.row].selected = true
-        
-        for i in 0..<items.count {
-            print(items[i].selected)
-        }
-        print("\n")
         
         tableView.reloadData()
     }

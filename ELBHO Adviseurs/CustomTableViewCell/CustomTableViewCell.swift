@@ -27,6 +27,7 @@ class CustomTableViewCell: UITableViewCell {
         DateLabel.text = nil
         CompanyLabel.text = nil
         TimeLocationLabel.text = nil
+        imageViewBackground.backgroundColor = UIColor(named: "Primary")
         super.prepareForReuse()
     }
 

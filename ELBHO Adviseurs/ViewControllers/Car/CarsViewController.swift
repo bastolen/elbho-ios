@@ -21,7 +21,7 @@ class CarsViewController : UIViewController {
     let dateFormatter = DateFormatter()
     let carStoryboard = UIStoryboard(name: "Car", bundle: nil)
     
-    var items: [CarReservation] = MockService.getCarReservations()
+    var items: [CarReservation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

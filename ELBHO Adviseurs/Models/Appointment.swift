@@ -9,43 +9,41 @@
 import Foundation
 
 struct Appointment: Codable {
-    let Id: String
-    let AppointmentDatetime: Date;
+    let _id: String
+    let StartTime: Date;
+    let EndTime: Date;
     let Comment: String
     let Address: String
-    let PhoneNumber: String
     let ContactPersonName: String
     let ContactPersonPhoneNumber: String
     let ContactPersonFunction: String
+    let ContactPersonEmail: String
     let Active: Bool
     let Website: String
     let Logo: String
     let COCNumber: String
     let COCName: String
-    let FirstChoice: String
-    let SecondChoice: String
-    let ThirdChoice: String
-    let CreatedDate: Date
-    let ModifiedDate: Date
+    let Advisor: String?
+    let CreatedAt: Date
+    let UpdatedAt: Date
     
     enum CodingKeys: String, CodingKey {
-        case Id =  "id"
-        case AppointmentDatetime = "appointmentDatetime"
+        case _id =  "_id"
+        case StartTime = "startTime"
+        case EndTime = "endTime"
         case Comment = "comment"
         case Address = "address"
-        case PhoneNumber = "phoneNumber"
         case ContactPersonName = "contactPersonName"
         case ContactPersonPhoneNumber = "contactPersonPhoneNumber"
         case ContactPersonFunction = "contactPersonFunction"
+        case ContactPersonEmail = "contactPersonEmail"
         case Active = "active"
         case Website = "website"
         case Logo = "logo"
         case COCNumber = "cocNumber"
         case COCName = "cocName"
-        case FirstChoice = "firstChoice"
-        case SecondChoice = "secondChoice"
-        case ThirdChoice = "thirdChoice"
-        case CreatedDate = "createdDate"
-        case ModifiedDate = "modifiedDate"
+        case Advisor = "advisor"
+        case CreatedAt = "createdAt"
+        case UpdatedAt = "updatedAt"
     }
 }

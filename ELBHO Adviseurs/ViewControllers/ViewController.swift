@@ -20,10 +20,12 @@ class ViewController: UIViewController {
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let refreshControl = UIRefreshControl()
     
-    private var openAppointments: [Appointment] = MockService.getOpenAppointments()
-    private var acceptedAppointments: [Appointment] = MockService.getAccpetedAppointments()
-    private var doneAppointments: [Appointment] = MockService.getDoneAppointments()
-    private var shownItems: [Appointment] = []
+    private var callSend: Bool = false
+    
+    private var openAppointments: [Appointment?] = []
+    private var acceptedAppointments: [Appointment?] = []
+    private var doneAppointments: [Appointment?] = []
+    private var shownItems: [Appointment?] = []
     
     @IBOutlet weak var TabBar: UITabBar!
     @IBOutlet weak var DateLabel: UILabel!
@@ -43,11 +45,11 @@ class ViewController: UIViewController {
         setupMenu()
         setupDateLabel()
         setupTabBar()
-        fillTheTable()
+        initTableData()
     }
     
     private func checkLoggedIn() {
-//        KeychainWrapper.standard.removeAllKeys()
+        //        KeychainWrapper.standard.removeAllKeys()
         if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
@@ -55,8 +57,8 @@ class ViewController: UIViewController {
         }
         if (
             !KeychainWrapper.standard.hasValue(forKey: "AdvisorId") ||
-            !KeychainWrapper.standard.hasValue(forKey: "AdvisorName")
-        ) {
+                !KeychainWrapper.standard.hasValue(forKey: "AdvisorName")
+            ) {
             APIService.getLoggedInAdvisor().subscribe(onNext: {advisor in
                 KeychainWrapper.standard.set(advisor._id, forKey: "AdvisorId")
                 KeychainWrapper.standard.set("\(advisor.FirstName) \(advisor.LastName)", forKey: "AdvisorName")
@@ -64,6 +66,28 @@ class ViewController: UIViewController {
                 self.showSnackbarDanger("error_api".localize)
             }).disposed(by: disposeBag)
         }
+    }
+    
+    private func initTableData() {
+        callSend = true
+        refreshControl.beginRefreshing()
+        Observable<Any>.combineLatest(
+            APIService.getAppointmentRequests(),
+            APIService.getAppointments(parameters: ["after": Date()]),
+            APIService.getAppointments(parameters: ["before": Date()])
+        ).subscribe(onNext: { requests, acceptedAppointments, doneAppointments in
+            self.openAppointments = requests
+            self.acceptedAppointments = acceptedAppointments
+            self.doneAppointments = doneAppointments
+            self.fillTheTable()
+            self.setupTabBar()
+            self.callSend = false
+            self.refreshControl.endRefreshing()
+        }, onError: {error in
+            self.showSnackbarDanger("error_api".localize)
+            self.callSend = false
+            self.refreshControl.endRefreshing()
+        }).disposed(by: disposeBag)
     }
     
     private func fillTheTable() {
@@ -82,18 +106,27 @@ class ViewController: UIViewController {
             break;
         }
         TableView.reloadData()
-        
     }
     
     
     private func setupTabBar() {
         let tabItem1 = UITabBarItem(title: "agenda_open".localize, image: UIImage(named: "OpenAgenda"), selectedImage: UIImage(named: "OpenAgendaSelected"))
         tabItem1.tag = 0
-        tabItem1.badgeValue = "1"
+        if (openAppointments.count != 0 ) {
+            tabItem1.badgeValue = String(openAppointments.count)
+        }
         
         let tabItem2 = UITabBarItem(title: "agenda_accepted".localize, image: UIImage(named: "AcceptedAgenda"), selectedImage: UIImage(named: "AcceptedAgendaSelected"))
         tabItem2.tag = 1
-        
+        var counter = 0
+        acceptedAppointments.forEach{appointment in
+            if(Calendar.current.isDateInToday(appointment!.StartTime)) {
+                counter+=1
+            }
+        }
+        if (counter != 0) {
+            tabItem2.badgeValue = String(counter)
+        }
         let tabItem3 = UITabBarItem(title: "agenda_done".localize, image: UIImage(named: "DoneAgenda"), selectedImage: UIImage(named: "DoneAgendaSelected"))
         tabItem3.tag = 2
         
@@ -116,8 +149,9 @@ class ViewController: UIViewController {
     }
     
     @objc func refresh() {
-        TableView.reloadData()
-        self.refreshControl.endRefreshing()
+        if(!callSend) {
+            initTableData()
+        }
     }
 }
 
@@ -135,16 +169,15 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
-        let item = shownItems[indexPath.row]
+        let item = shownItems[indexPath.row]!
         let formatter = DateFormatter()
         formatter.dateFormat = "EE"
-        cell.DayLabel.text = formatter.string(from: item.AppointmentDatetime).uppercased()
-        
+        cell.DayLabel.text = formatter.string(from: item.StartTime).uppercased()
         formatter.dateFormat = "dd-MM"
-        cell.DateLabel.text = formatter.string(from: item.AppointmentDatetime)
+        cell.DateLabel.text = formatter.string(from: item.EndTime)
         
         formatter.dateFormat = "HH:mm"
-        cell.TimeLocationLabel.text = "\( formatter.string(from: item.AppointmentDatetime) ) - \( formatter.string(from: item.AppointmentDatetime.addingTimeInterval(60*60)) ), \( item.Address )"
+        cell.TimeLocationLabel.text = "\( formatter.string(from: item.StartTime) ) - \( formatter.string(from: item.EndTime) ), \( item.Address )"
         cell.CompanyLabel.text = item.COCName
         return cell
     }
@@ -158,11 +191,11 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVc = mainStoryboard.instantiateViewController(withIdentifier:
             "AppointmentDetailViewController") as! AppointmentDetailViewController
-        let item = shownItems[indexPath.row]
+        let item = shownItems[indexPath.row]!
         
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        let timeString = "\( formatter.string(from: item.AppointmentDatetime) ) - \( formatter.string(from: item.AppointmentDatetime.addingTimeInterval(60*60)) )"
+        let timeString = "\( formatter.string(from: item.StartTime) ) - \( formatter.string(from: item.EndTime) )"
         
         formatter.dateFormat = "EEEE d MMMM yyyy"
         var title: String
@@ -171,11 +204,34 @@ extension ViewController: UITableViewDelegate {
             title = "appointment_detail_title_open"
             detailVc.buttons = [
                 DetailViewButton(text: "button_reject".localize, style: .danger, clicked: {
-                    self.showSnackbarSecondary("\("button_reject".localize) not yet implemented")
+                    if(!self.callSend) {
+                        APIService.respondToRequest(requestId: item._id, accept: false).subscribe(onNext: {
+                            self.showSnackbarSuccess("appointment_rejected".localize)
+                            self.shownItems = []
+                            self.acceptedAppointments = []
+                            self.doneAppointments = []
+                            self.openAppointments = []
+                            self.initTableData()
+                            self.navigationController?.popViewController(animated: true)
+                        }, onError: {error in
+                            self.showSnackbarDanger("error_api".localize)
+                        }).disposed(by: self.disposeBag)
+                    }
                 }),
                 DetailViewButton(text: "button_accept".localize, style: .success, clicked: {
-                    self.showSnackbarSecondary("\("button_accept".localize) not yet implemented")
-                })
+                    if(!self.callSend) {
+                        APIService.respondToRequest(requestId: item._id, accept: true).subscribe(onNext: {
+                            self.showSnackbarSuccess("appointment_accepted".localize)
+                            self.shownItems = []
+                            self.acceptedAppointments = []
+                            self.doneAppointments = []
+                            self.openAppointments = []
+                            self.initTableData()
+                            self.navigationController?.popViewController(animated: true)
+                        }, onError: {error in
+                            self.showSnackbarDanger("error_api".localize)
+                        }).disposed(by: self.disposeBag)
+                    }                })
             ]
             break
         case 1:
@@ -212,12 +268,12 @@ extension ViewController: UITableViewDelegate {
                 let url = URL(string: item.Website)
                 UIApplication.shared.open(url!)
             }),
-            DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.AppointmentDatetime), icon: nil, iconClicked: {}),
+            DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime), icon: nil, iconClicked: {}),
             DetailViewRow(title: "appointment_detail_time".localize, content: timeString, icon: nil, iconClicked: {}),
             DetailViewRow(title: "appointment_detail_comment".localize, content: item.Comment, icon: nil, iconClicked: {}),
         ]
         
         navigationController?.pushViewController(detailVc, animated: true)
     }
-
+    
 }

@@ -16,7 +16,7 @@ class InvoiceViewController: UIViewController {
     @IBOutlet weak var AddButton: MDCButton!
 
     let refreshControl = UIRefreshControl()
-    var items: [Invoice] = MockService.getInvoices()
+    var items: [Invoice] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
                     self.callSend = false
                     self.loginButton.isEnabled = true
                 }, onError: {Error in
-                    if(Error as! CustomError == .passwordMatch) {
+                    if(Error as! CustomError == .unauthorized) {
                         // Password is wrong
                         self.showSnackbarDanger("error_password_match".localize)
                     } else {

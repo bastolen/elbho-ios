@@ -8,7 +8,8 @@
 
 "error_api" = "Er is iets mis gegaan op de server";
 "error_general" = "Er is iets mis gegaan";
-"error_password_match" = "De inloggegevens komen niet overeen";
+"error_body_invalid" = "De opgestuurde velden zijn niet toegestaan";
+"error_unauthorized" = "Deze actie is niet toegestaan";
 "error_conflict" = "Een veld met deze waarde bestaat al";
 "error_empty_field" = "Een van de verplichte velden is nog leeg";
 
@@ -22,6 +23,9 @@
 "agenda_open" = "Openstaand";
 "agenda_accepted" = "Aanstaand";
 "agenda_done" = "Afgerond";
+
+"appointment_rejected" = "De afspraak is afgewezen";
+"appointment_accepted" = "De afspraak is geaccepteerd";
 
 "appointment_detail_name" = "Bedrijfsnaam";
 "appointment_detail_address" = "Adres";

@@ -29,7 +29,7 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
     
     var clickedDate = String()
     
-    var items: [CarAvailability] = MockService.getCarAvailability()
+    var items: [CarAvailability] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

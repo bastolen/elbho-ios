@@ -60,6 +60,66 @@ final class APIService {
         }
     }
     
+    static func getAppointmentRequests() -> Observable<[Appointment?]> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/request/me", method: .get, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    guard let jsonData = response.data else {
+                        
+                        return observer.onError(CustomError.api)
+                    }
+                    
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(.apiDateResult)
+                    let apiResult = try? decoder.decode([Appointment?].self, from: jsonData)
+                    return observer.onNext(apiResult!)
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
+    static func getAppointments(parameters: Parameters = [:]) -> Observable<[Appointment]> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/appointment/me", method: .get, parameters: parameters,  encoding: URLEncoding.queryString,headers: self.getAuthHeader() ).validate().responseJSON(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    guard let jsonData = response.data else {
+                        
+                        return observer.onError(CustomError.api)
+                    }
+                    
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(.apiDateResult)
+                    let apiResult = try? decoder.decode([Appointment].self, from: jsonData)
+                    return observer.onNext(apiResult!)
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
+    static func respondToRequest(requestId: String, accept: Bool) -> Observable<Void> {
+        return Observable<Void>.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/request/\(requestId)", method: .put, parameters: [
+                "accept": accept
+            ], encoding: JSONEncoding.default, headers: self.getAuthHeader() ).validate().responseString(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    return observer.onNext(Void())
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
     private static func getAuthHeader() -> [String:String] {
         guard let authToken =  KeychainWrapper.standard.string(forKey: "authToken") else {
             return [:]
@@ -71,9 +131,11 @@ final class APIService {
         var error: CustomError
         switch response.response?.statusCode {
         case 400:
-            error = .passwordMatch
+            error = .bodyInvalid
         case 401:
             error = .api
+        case 403:
+            error = .unauthorized
         case 409:
             error = .conflict
         case 500:

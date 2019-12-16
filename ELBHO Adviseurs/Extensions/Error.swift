@@ -10,8 +10,9 @@ import Foundation
 
 public enum CustomError: Error {
     case api
-    case passwordMatch
+    case bodyInvalid
     case conflict
+    case unauthorized
 }
 
 extension CustomError: LocalizedError {
@@ -19,10 +20,12 @@ extension CustomError: LocalizedError {
         switch self {
         case .api:
             return "error_api".localize
-        case .passwordMatch:
-            return "error_password_match".localize
+        case .bodyInvalid:
+            return "error_body_invalid".localize
         case .conflict:
             return "error_conflict".localize
+        case .unauthorized:
+            return "error_unauthorized".localize
         }
     }
 }

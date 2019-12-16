@@ -9,9 +9,9 @@
 import Foundation
 
 struct ApiLogin: Codable {
-    let jwt: String
+    let token: String
     
     enum CodingKeys: String, CodingKey {
-        case jwt = "Jwt"
+        case token = "token"
     }
 }

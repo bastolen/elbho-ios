@@ -10,11 +10,11 @@ import RxSwift
 import SwiftKeychainWrapper
 
 final class APIService {
-    private static let APIBASEURL: String = "https://582082BasTolen.azurewebsites.net/api"
+    private static let APIBASEURL: String = "https://bt-elbho-api.herokuapp.com"
     
     static func login(email: String, password: String) -> Observable<Bool> {
         return Observable<String>.create { (observer) -> Disposable in
-            Alamofire.request(self.APIBASEURL + "/advisor/login", method: .post, parameters: [
+            Alamofire.request(self.APIBASEURL + "/login", method: .post, parameters: [
                 "email": email,
                 "password": password
             ], encoding: JSONEncoding.default).validate().responseJSON(completionHandler: {response in
@@ -26,7 +26,7 @@ final class APIService {
                     let decoder = JSONDecoder()
                     
                     let apiResult = try? decoder.decode(ApiLogin.self, from: jsonData)
-                    return observer.onNext(apiResult!.jwt)
+                    return observer.onNext(apiResult!.token)
                 } else {
                     return self.returnError(response: response, observer: observer)
                 }
@@ -40,7 +40,7 @@ final class APIService {
     
     static func getLoggedInAdvisor() -> Observable<Advisor> {
         return Observable.create { observer -> Disposable in
-            Alamofire.request(self.APIBASEURL + "/advisors/me", method: .get, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
+            Alamofire.request(self.APIBASEURL + "/auth/advisor/me", method: .get, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
                 if (response.result.isSuccess) {
                     guard let jsonData = response.data else {
                         
@@ -49,7 +49,6 @@ final class APIService {
                     
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(.apiDateResult)
-                    
                     let apiResult = try? decoder.decode(Advisor.self, from: jsonData)
                     return observer.onNext(apiResult!)
                 } else {
@@ -65,7 +64,7 @@ final class APIService {
         guard let authToken =  KeychainWrapper.standard.string(forKey: "authToken") else {
             return [:]
         }
-        return ["x-jwt": authToken]
+        return ["Authorization": "Bearer \(authToken)"]
     }
     
     private static func returnError<X, Y>(response: DataResponse<X>, observer: AnyObserver<Y>) -> Void {

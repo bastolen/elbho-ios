@@ -9,7 +9,7 @@
 import Foundation
 
 struct Advisor: Codable {
-    let Id: String
+    let _id: String
     let FirstName: String
     let LastName: String
     let Gender: String
@@ -17,16 +17,17 @@ struct Advisor: Codable {
     let Active: Bool
     let Status: String
     let Location: String
+    let LastPinged: Date?
     let WorkArea: String
     let Region: String
     let PermissionLevel: Int
     let Email: String
-    let CreatedDate: String
-    let ModifiedDate: String
+    let CreatedAt: Date
+    let UpdatedAt: Date
     
     enum CodingKeys: String, CodingKey {
-        case FirstName = "firstname"
-        case LastName = "lastname"
+        case FirstName = "firstName"
+        case LastName = "lastName"
         case Gender = "gender"
         case PhoneNumber = "phoneNumber"
         case Active = "active"
@@ -36,8 +37,9 @@ struct Advisor: Codable {
         case Region = "region"
         case PermissionLevel = "permissionLevel"
         case Email = "email"
-        case Id = "id"
-        case CreatedDate = "createdDate"
-        case ModifiedDate = "modifiedDate"
+        case _id = "_id"
+        case LastPinged = "lastPinged"
+        case CreatedAt = "createdAt"
+        case UpdatedAt = "updatedAt"
     }
 }

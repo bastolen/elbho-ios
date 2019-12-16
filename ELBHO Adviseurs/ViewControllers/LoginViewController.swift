@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
         passwordController = MDCTextInputControllerUnderline(textInput: passwordTextField)
         passwordController?.activeColor = UIColor(named: "Primary")
         passwordTextField.placeholderLabel.text = "input_password".localize
-        emailTextField.placeholderLabel.textColor = UIColor(named: "Primary")!
+        passwordTextField.placeholderLabel.textColor = UIColor(named: "Primary")!
         passwordTextField.delegate = self
         passwordTextField.clearButtonMode = .never
     }

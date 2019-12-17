@@ -264,8 +264,8 @@ extension ViewController: UITableViewDelegate {
                 let url = URL(string: "tel://\(item.ContactPersonPhoneNumber)")
                 UIApplication.shared.open(url!)
             }),
-            DetailViewRow(title: "appointment_detail_contact_email".localize, content: item.Website, icon: UIImage(named: "MailIcon"), iconClicked: {
-                let url = URL(string: item.Website)
+            DetailViewRow(title: "appointment_detail_contact_email".localize, content: item.ContactPersonEmail, icon: UIImage(named: "MailIcon"), iconClicked: {
+                let url = URL(string: "mailto:\(item.ContactPersonEmail)")
                 UIApplication.shared.open(url!)
             }),
             DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime), icon: nil, iconClicked: {}),

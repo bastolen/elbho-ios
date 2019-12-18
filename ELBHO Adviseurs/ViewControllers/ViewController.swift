@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     }
     
     private func checkLoggedIn() {
-        //        KeychainWrapper.standard.removeAllKeys()
+//        KeychainWrapper.standard.removeAllKeys()
         if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
@@ -211,6 +211,7 @@ extension ViewController: UITableViewDelegate {
                             self.acceptedAppointments = []
                             self.doneAppointments = []
                             self.openAppointments = []
+                            self.TableView.reloadData()
                             self.initTableData()
                             self.navigationController?.popViewController(animated: true)
                         }, onError: {error in

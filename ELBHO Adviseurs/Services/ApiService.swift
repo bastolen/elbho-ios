@@ -82,7 +82,7 @@ final class APIService {
         }
     }
     
-    static func getAppointments(parameters: Parameters = [:]) -> Observable<[Appointment]> {
+    static func getAppointments(parameters: Parameters = [:]) -> Observable<[Appointment?]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/appointment/me", method: .get, parameters: parameters,  encoding: URLEncoding.queryString,headers: self.getAuthHeader() ).validate().responseJSON(completionHandler: {response in
                 if (response.result.isSuccess) {
@@ -93,7 +93,7 @@ final class APIService {
                     
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(.apiDateResult)
-                    let apiResult = try? decoder.decode([Appointment].self, from: jsonData)
+                    let apiResult = try? decoder.decode([Appointment?].self, from: jsonData)
                     return observer.onNext(apiResult!)
                 } else {
                     return self.returnError(response: response, observer: observer)
@@ -111,6 +111,28 @@ final class APIService {
             ], encoding: JSONEncoding.default, headers: self.getAuthHeader() ).validate().responseString(completionHandler: {response in
                 if (response.result.isSuccess) {
                     return observer.onNext(Void())
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
+    static func getInvoices() -> Observable<[Invoice?]> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/invoice/me", method: .get, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    guard let jsonData = response.data else {
+                        
+                        return observer.onError(CustomError.api)
+                    }
+                    
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(.apiDateResult)
+                    let apiResult = try? decoder.decode([Invoice?].self, from: jsonData)
+                    return observer.onNext(apiResult!)
                 } else {
                     return self.returnError(response: response, observer: observer)
                 }

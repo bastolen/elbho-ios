@@ -8,15 +8,19 @@
 
 import UIKit
 import MaterialComponents
+import RxSwift
 
 class InvoiceViewController: UIViewController {
+    
+    private let disposeBag = DisposeBag()
     
     @IBOutlet weak var TopLabel: UILabel!
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var AddButton: MDCButton!
-
+    
+    private var callSend: Bool = false
     let refreshControl = UIRefreshControl()
-    var items: [Invoice] = []
+    var items: [Invoice?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,26 @@ class InvoiceViewController: UIViewController {
         
         AddButton.setPrimary()
         AddButton.setTitle("button_addinvoice".localize, for: .normal)
+        
+        initContent()
+    }
+    
+    private func initContent() {
+        if(!callSend) {
+            refreshControl.beginRefreshing()
+            items = []
+            TableView.reloadData()
+            callSend = true
+            APIService.getInvoices().subscribe(onNext: { invoices in
+                self.items = invoices
+                self.callSend = false
+                self.TableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+                self.callSend = false
+            }).disposed(by: disposeBag)
+        }
     }
     
     @IBAction func AddButtonClicked(_ sender: Any) {
@@ -41,8 +65,7 @@ class InvoiceViewController: UIViewController {
     }
     
     @objc func refresh() {
-        TableView.reloadData()
-        self.refreshControl.endRefreshing()
+        initContent()
     }
 }
 
@@ -53,17 +76,17 @@ extension InvoiceViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
-        let item = items[indexPath.row]
+        let item = items[indexPath.row]!
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM"
         
-        cell.TimeLocationLabel.text = "\("upload_date".localize): \(formatter.string(from: item.UploadDate))"
+        cell.TimeLocationLabel.text = "\("upload_date".localize): \(formatter.string(from: item.Date))"
         cell.CompanyLabel.text = item.FileName
         formatter.dateFormat = "MMM"
-        cell.DayLabel.text = formatter.string(from: item.UploadDate)
+        cell.DayLabel.text = formatter.string(from: item.InvoiceMonth)
         formatter.dateFormat = "yyyy"
-        cell.DateLabel.text = formatter.string(from: item.UploadDate)
+        cell.DateLabel.text = formatter.string(from: item.InvoiceMonth)
         return cell
     }
     
@@ -74,7 +97,7 @@ extension InvoiceViewController: UITableViewDataSource {
 
 extension InvoiceViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
+        let item = items[indexPath.row]!
         print(item)
     }
 }

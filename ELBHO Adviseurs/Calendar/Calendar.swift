@@ -30,6 +30,21 @@ var weekday = calendar.component(.weekday, from: date) - 1
 var month = calendar.component(.month, from: date) - 1
 var year = calendar.component(.year, from: date)
 
+func resetVars()
+{
+    currentMonth = String()
+    numberOfEmptyBox = Int()
+    nextNumberOfEmptyBox = Int()
+    previousNumberOfEmtyBox = 0
+    direction = 0
+    positionIndex = 0
+    dayCounter = 0
+    
+    weekday = calendar.component(.weekday, from: date) - 1
+    month = calendar.component(.month, from: date) - 1
+    year = calendar.component(.year, from: date)
+    
+}
 
 func getStartDateDayPosition()
 {

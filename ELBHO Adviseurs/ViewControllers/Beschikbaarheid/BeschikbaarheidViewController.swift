@@ -27,6 +27,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         super.viewDidLoad()
         title = "Beschikbaarheid"
         navigationController?.navigationBar.tintColor = .white
+        resetVars()
         
         // Start vullen calendar
         currentMonth = months[month]

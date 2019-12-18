@@ -34,6 +34,7 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Auto reserveren"
+        resetVars()
         
         Calendar.dataSource = self
         

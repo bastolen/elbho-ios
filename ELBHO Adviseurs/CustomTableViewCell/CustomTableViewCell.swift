@@ -15,8 +15,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var CompanyLabel: UILabel!
     @IBOutlet weak var TimeLocationLabel: UILabel!
     
+    @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var imageViewBackground: UIImageView!
-    @IBOutlet weak var rowView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +28,7 @@ class CustomTableViewCell: UITableViewCell {
         CompanyLabel.text = nil
         TimeLocationLabel.text = nil
         imageViewBackground.backgroundColor = UIColor(named: "Primary")
+        iconView.image = UIImage(named: "ChevronRight")
         super.prepareForReuse()
     }
 

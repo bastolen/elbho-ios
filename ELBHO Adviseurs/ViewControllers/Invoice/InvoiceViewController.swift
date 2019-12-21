@@ -87,6 +87,7 @@ extension InvoiceViewController: UITableViewDataSource {
         cell.DayLabel.text = formatter.string(from: item.InvoiceMonth)
         formatter.dateFormat = "yyyy"
         cell.DateLabel.text = formatter.string(from: item.InvoiceMonth)
+        cell.iconView.image = UIImage(named: "DownloadIcon")
         return cell
     }
     

@@ -60,6 +60,7 @@ extension CarsViewController: UITableViewDataSource {
         formatter.dateFormat = "dd-MM"
         cell.DateLabel.text = formatter.string(from: item.reservationDate)
         cell.CompanyLabel.text = item.car
+        cell.iconView.image = nil
         
         formatter.dateFormat = "HH:mm"
         cell.TimeLocationLabel.text = "\(formatter.string(from: item.reservationDate)) - \(formatter.string(from: item.reservationDate.addingTimeInterval(60*60))), \(item.pickupPlace)"

@@ -28,6 +28,8 @@ class CustomTableViewCell: UITableViewCell {
         CompanyLabel.text = nil
         TimeLocationLabel.text = nil
         imageViewBackground.backgroundColor = UIColor(named: "Primary")
+        iconView.gestureRecognizers = []
+        iconView.isUserInteractionEnabled = true;
         iconView.image = UIImage(named: "ChevronRight")
         super.prepareForReuse()
     }

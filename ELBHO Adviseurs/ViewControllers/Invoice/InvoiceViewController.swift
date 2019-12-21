@@ -88,6 +88,12 @@ extension InvoiceViewController: UITableViewDataSource {
         formatter.dateFormat = "yyyy"
         cell.DateLabel.text = formatter.string(from: item.InvoiceMonth)
         cell.iconView.image = UIImage(named: "DownloadIcon")
+        cell.iconView.addTapGestureRecognizer(action: {
+            let pdfViewer = UIStoryboard(name: "Invoice", bundle: nil).instantiateViewController(identifier: "PDFViewController") as! PDFViewController
+            pdfViewer.pdfLink = item.FilePath
+            
+            self.present(pdfViewer, animated: true)
+        })
         return cell
     }
     
@@ -97,8 +103,4 @@ extension InvoiceViewController: UITableViewDataSource {
 }
 
 extension InvoiceViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]!
-        print(item)
-    }
 }

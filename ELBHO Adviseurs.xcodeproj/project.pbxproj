@@ -29,6 +29,8 @@
 		5F124857238E602E00411781 /* MDCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F124856238E602E00411781 /* MDCButton.swift */; };
 		5F12485B23911C2100411781 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F12485923911C2100411781 /* CustomTableViewCell.swift */; };
 		5F12485C23911C2100411781 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F12485A23911C2100411781 /* CustomTableViewCell.xib */; };
+		5F2301A723AE631F001880C5 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2301A623AE631F001880C5 /* PDFViewController.swift */; };
+		5F2301A923AE6F6B001880C5 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2301A823AE6F6B001880C5 /* URL.swift */; };
 		5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F766B238423B4001821BB /* DateFormatter.swift */; };
 		5F584DCD2383EC5500EBE536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F584DCF2383EC5500EBE536 /* Localizable.strings */; };
 		5F584DD62384016000EBE536 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F584DD52384016000EBE536 /* Advisor.swift */; };
@@ -99,6 +101,8 @@
 		5F124856238E602E00411781 /* MDCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDCButton.swift; sourceTree = "<group>"; };
 		5F12485923911C2100411781 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		5F12485A23911C2100411781 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		5F2301A623AE631F001880C5 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		5F2301A823AE6F6B001880C5 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		5F4F766B238423B4001821BB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		5F584DCE2383EC5500EBE536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F584DD02383EC8D00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 			children = (
 				5F06D837239AA13500A15EDD /* InvoiceViewController.swift */,
 				5F06D83B239ADED700A15EDD /* AddInvoiceViewController.swift */,
+				5F2301A623AE631F001880C5 /* PDFViewController.swift */,
 			);
 			path = Invoice;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 				5F124852238DB98900411781 /* UIViewController.swift */,
 				5F124856238E602E00411781 /* MDCButton.swift */,
 				5FC2093423996A310080C82B /* UIView.swift */,
+				5F2301A823AE6F6B001880C5 /* URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -638,6 +644,8 @@
 				5FE0640123796CBC00E3015B /* ViewController.swift in Sources */,
 				5F124853238DB98900411781 /* UIViewController.swift in Sources */,
 				17200808239E4BA700EF762B /* CarReservationViewController.swift in Sources */,
+				5F2301A723AE631F001880C5 /* PDFViewController.swift in Sources */,
+				5F2301A923AE6F6B001880C5 /* URL.swift in Sources */,
 				5FC2093523996A310080C82B /* UIView.swift in Sources */,
 				5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */,
 				5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */,

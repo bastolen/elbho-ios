@@ -9,6 +9,7 @@
 import UIKit
 import MaterialComponents
 import MobileCoreServices
+import RxSwift
 
 class AddInvoiceViewController: UIViewController {
     @IBOutlet weak var SubmitButton: MDCButton!
@@ -20,7 +21,7 @@ class AddInvoiceViewController: UIViewController {
     
     var monthController: MDCTextInputController?
     @IBOutlet weak var monthInputField: MDCTextField!
-    var selectedMonth: Int?;
+    var selectedMonth: Int = 1
     var months = [
         "month_1".localize,
         "month_2".localize,
@@ -39,8 +40,9 @@ class AddInvoiceViewController: UIViewController {
     var fileController: MDCTextInputController?
     @IBOutlet weak var fileInputField: MDCTextField!
     var fileURL: URL?
+    private var callSend = false
     
-    let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(dismissPicker))
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +53,7 @@ class AddInvoiceViewController: UIViewController {
         SubmitButton.setTitle("button_addinvoice".localize, for: .normal)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
@@ -64,15 +66,38 @@ class AddInvoiceViewController: UIViewController {
     }
     
     @IBAction func SubmitClicked(_ sender: Any) {
-        print("Clicked")
+        if(fileURL == nil && callSend) {
+            return
+        }
+        callSend = true
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM"
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        let date = formatter.date(from: "\(yearInputField.text!)/\(String(format: "%02d", selectedMonth))")!
+        
+        APIService.createInvoice(fileURL: fileURL!, date: date).subscribe(onNext: { invoice in
+            self.callSend = false
+            print(invoice)
+        }, onError: {error in
+            if (error is CustomError) {
+                self.showSnackbarDanger((error as! CustomError).errorDescription!.localize)
+            } else {
+                self.showSnackbarDanger("error_api".localize)
+            }
+            self.callSend = false
+        }).disposed(by: disposeBag)
     }
     
     private func setupInputFields() {
+        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(dismissPicker))
+        
         yearController = MDCTextInputControllerUnderline(textInput: yearInputField)
         yearController?.activeColor = UIColor(named: "Primary")
         yearInputField.placeholderLabel.text = "input_year".localize
         yearInputField.placeholderLabel.textColor = UIColor(named: "Primary")!
         yearInputField.clearButtonMode = .never
+        yearInputField.text = years[0]
         
         let yearPicker = UIPickerView()
         yearPicker.delegate = self
@@ -80,6 +105,7 @@ class AddInvoiceViewController: UIViewController {
         yearPicker.tag = 1
         yearInputField.inputView = yearPicker
         yearInputField.inputAccessoryView = toolBar
+        monthInputField.text = months[0]
         
         monthController = MDCTextInputControllerUnderline(textInput: monthInputField)
         monthController?.activeColor = UIColor(named: "Primary")
@@ -112,7 +138,7 @@ class AddInvoiceViewController: UIViewController {
             }
         }
     }
-    
+
     @objc override func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if (SubmitButtonBottomConstraint.constant > keyboardSize.height) {
@@ -143,7 +169,7 @@ extension AddInvoiceViewController: UIPickerViewDelegate {
         if (pickerView.tag == 1) {
             yearInputField.text = years[row]
         } else {
-            selectedMonth = row
+            selectedMonth = row + 1
             monthInputField.text = months[row]
         }
     }
@@ -159,11 +185,7 @@ extension AddInvoiceViewController: UIPickerViewDataSource {
 
 extension AddInvoiceViewController: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        // File location
-        print(url)
         fileURL = url
-        // Filename
-        print(url.lastPathComponent)
         fileInputField.text = url.lastPathComponent
     }
 }

@@ -12,6 +12,7 @@
 "error_unauthorized" = "Deze actie is niet toegestaan";
 "error_conflict" = "Een veld met deze waarde bestaat al";
 "error_empty_field" = "Een van de verplichte velden is nog leeg";
+"error_fileInvalid" = "Dit bestand is niet valide";
 
 "button_login" = "Login";
 "button_reject" = "Afwijzen";

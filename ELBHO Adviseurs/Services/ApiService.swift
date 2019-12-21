@@ -142,6 +142,41 @@ final class APIService {
         }
     }
     
+    static func createInvoice(fileURL: URL, date: Date) -> Observable<Invoice> {
+        return Observable<Invoice>.create { observer -> Disposable in
+            let formatter = DateFormatter.apiDateResult
+            var fileData: Data
+            do {
+                fileData = try Data(contentsOf: fileURL)
+                
+                Alamofire.upload(multipartFormData: { multipart in
+                    multipart.append(fileData, withName: "file", fileName: fileURL.lastPathComponent, mimeType: fileURL.mimeType())
+                    multipart.append("date".data(using: .utf8)!, withName: formatter.string(from: date))
+                }, to: self.APIBASEURL + "/auth/invoice", method: .post, headers: self.getAuthHeader()) { encodingResult in
+                    switch encodingResult {
+                    case .success(let upload, _, _):
+                        upload.responseJSON { response in
+                            guard let jsonData = response.data else {
+                                
+                                return observer.onError(CustomError.api)
+                            }
+                            let decoder = JSONDecoder()
+                            decoder.dateDecodingStrategy = .formatted(.apiDateResult)
+                            let apiResult = try? decoder.decode(Invoice.self, from: jsonData)
+                            return observer.onNext(apiResult!)
+                        }
+                    case .failure(let error):
+                        print("Error in upload: \(error.localizedDescription)")
+                        return observer.onError(CustomError.api)
+                    }                }
+            } catch {
+                observer.onError(CustomError.fileInvalid)
+            }
+            
+            return Disposables.create()
+        }
+    }
+    
     private static func getAuthHeader() -> [String:String] {
         guard let authToken =  KeychainWrapper.standard.string(forKey: "authToken") else {
             return [:]
@@ -162,7 +197,7 @@ final class APIService {
             error = .conflict
         case 500:
             error = .api
-        
+            
         default:
             error = .api
         }

@@ -13,6 +13,7 @@ public enum CustomError: Error {
     case bodyInvalid
     case conflict
     case unauthorized
+    case fileInvalid
 }
 
 extension CustomError: LocalizedError {
@@ -26,6 +27,8 @@ extension CustomError: LocalizedError {
             return "error_conflict".localize
         case .unauthorized:
             return "error_unauthorized".localize
+        case .fileInvalid:
+            return "error_fileInvalid".localize
         }
     }
 }

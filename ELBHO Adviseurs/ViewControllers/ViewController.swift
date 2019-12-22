@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         Observable<Any>.combineLatest(
             APIService.getAppointmentRequests(),
             APIService.getAppointments(parameters: ["after": Date()]),
-            APIService.getAppointments(parameters: ["before": Date()])
+            APIService.getAppointments(parameters: ["before": Date(), "sort": "DESC"])
         ).subscribe(onNext: { requests, acceptedAppointments, doneAppointments in
             self.openAppointments = requests
             self.acceptedAppointments = acceptedAppointments

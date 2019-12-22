@@ -142,6 +142,7 @@ final class APIService {
         }
     }
     
+    // TODO: Function doesn't work because you don't have access to read the files...
     static func createInvoice(fileURL: URL, date: Date) -> Observable<Invoice> {
         return Observable<Invoice>.create { observer -> Disposable in
             let formatter = DateFormatter.apiDateResult

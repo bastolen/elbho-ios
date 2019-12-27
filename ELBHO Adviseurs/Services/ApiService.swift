@@ -142,6 +142,32 @@ final class APIService {
         }
     }
     
+    static func getAvailability(after: String, before: String) -> Observable<[Availability?]> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/availability/me", method: .get, parameters: [
+                "before": before,
+                "after" : after
+            ], headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    guard let jsonData = response.data else {
+                        
+                        return observer.onError(CustomError.api)
+                    }
+                    
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(.apiDateResult)
+                    let apiResult = try? decoder.decode([Availability?].self, from: jsonData)
+                    return observer.onNext(apiResult!)
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
+    
     // TODO: Function doesn't work because you don't have access to read the files...
     static func createInvoice(fileURL: URL, date: Date) -> Observable<Invoice> {
         return Observable<Invoice>.create { observer -> Disposable in

@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import RxSwift
+import SwiftKeychainWrapper
+import MaterialComponents
+import SideMenu
 
 class WeekOverzichtViewController: UIViewController {
 
     var clickedDate = String()
     var weeknumberClickedDate = Int()
     var formattedDate = Date()
+    
+    var firstDate = String()
+    var lastDate = String()
     
     let dateFormatter = DateFormatter()
     let calendar = Calendar.current
@@ -53,6 +60,12 @@ class WeekOverzichtViewController: UIViewController {
     @IBOutlet weak var buttonCopyWeek: UIButton!
     @IBOutlet weak var buttonSaveWeek: UIButton!
     
+    // API Vars
+    private let disposeBag = DisposeBag()
+    var items: [Availability?] = []
+    private var callSend: Bool = false
+    var daysToShow: [Date] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,15 +86,39 @@ class WeekOverzichtViewController: UIViewController {
         datePicker.datePickerMode = .time
         datePicker.minuteInterval = 15
         
+        daysToShow = getDays()
+        
         setTimeInput()
-        fillLabels()
+        fillLabelsAndInput()
+        
+        initContent()
     }
     
-    func fillLabels()
+    private func initContent() {
+        if(!callSend) {
+            items = []
+            callSend = true
+            APIService.getAvailability(after: "\(firstDate)T00:00:00.000Z", before: "\(lastDate)T00:00:00.000Z").subscribe(onNext: { availability in
+                self.items = availability
+                print(self.items)
+                self.callSend = false
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+                self.callSend = false
+            }).disposed(by: disposeBag)
+        }
+    }
+    
+    func fillLabelsAndInput()
     {
-        let daysToShow = getDays()
         // Checken of er wel 5 dagen zijn doorgekomen
         if daysToShow.count == 5 {
+            // Eerst API vars goedzetten
+            dateFormatter.dateFormat = "YYYY-MM-dd"
+            firstDate = dateFormatter.string(from: daysToShow[0])
+            lastDate = dateFormatter.string(from: daysToShow[4])
+            
+            // Nu de labels vullen
             dateFormatter.dateFormat = "dd-MM-YY"
             dateLabelDay1.text = dateFormatter.string(from: daysToShow[0])
             dateLabelDay2.text = dateFormatter.string(from: daysToShow[1])
@@ -89,6 +126,7 @@ class WeekOverzichtViewController: UIViewController {
             dateLabelDay4.text = dateFormatter.string(from: daysToShow[3])
             dateLabelDay5.text = dateFormatter.string(from: daysToShow[4])
         }
+        
     }
     
     func setTimeInput()
@@ -170,7 +208,8 @@ class WeekOverzichtViewController: UIViewController {
         dateFormatter.locale = Locale.current
         let formatted = dateFormatter.date(from: toFormat)
         
-        let finalDate = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: formatted!))! // Date maken van componenten
+        let finalDate = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: formatted!))!
+        // Date maken van componenten
         
         return finalDate
     }

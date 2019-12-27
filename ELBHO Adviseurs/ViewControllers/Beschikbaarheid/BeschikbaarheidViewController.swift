@@ -22,6 +22,13 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     @IBOutlet weak var buttonNext: UIButton!
     
     var clickedDate = String()
+    var checkDate = String()
+    
+    let dateFormatter = DateFormatter()
+    
+    private let disposeBag = DisposeBag()
+    var items: [Availability?] = []
+    private var callSend: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +49,23 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         
         getStartDateDayPosition()
         setupCollectionView()
+        
+        initContent()
+    }
+    
+    private func initContent() {
+        if(!callSend) {
+            items = []
+            callSend = true
+            APIService.getAvailability(after: "2019-11-01T00:00:00.000Z", before: "2019-12-31T00:00:00.000Z").subscribe(onNext: { availability in
+                self.items = availability
+                self.Calendar.reloadData()
+                self.callSend = false
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+                self.callSend = false
+            }).disposed(by: disposeBag)
+        }
     }
     
     func setupCollectionView()
@@ -139,7 +163,24 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
             // Cell hiden wanner het 0 of negatief is
             if Int(cell.dateLabel.text!)! < 1 {
                 cell.isHidden = true
+            } else {
+                if items.count > 0 {
+                    dateFormatter.dateFormat = "YYYY-MM-dd"
+                    // Checken op beschikbaarheid
+                    if((indexPath.row-6) - positionIndex) < 10 {
+                        checkDate = "\(year)-\(month+1)-0\((indexPath.row-6) - positionIndex)"
+                    } else {
+                        checkDate = "\(year)-\(month+1)-\((indexPath.row-6) - positionIndex)"
+                    }
+                    
+                    for item in items {
+                        if dateFormatter.string(from: item!.date) == checkDate {
+                            cell.backgroundColor = UIColor.init(named: "ActiveCellColor")!
+                        }
+                    }
+                }
             }
+            
             
             // Kleurtje voor het weekend
             switch indexPath.row {

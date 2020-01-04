@@ -27,6 +27,8 @@
 
 "appointment_rejected" = "De afspraak is afgewezen";
 "appointment_accepted" = "De afspraak is geaccepteerd";
+"appointment_arrived" = "U bent aangekomen, de tracking stopt";
+"appointment_left" = "U bent vertrokken, de tracking start";
 
 "appointment_detail_name" = "Bedrijfsnaam";
 "appointment_detail_address" = "Adres";

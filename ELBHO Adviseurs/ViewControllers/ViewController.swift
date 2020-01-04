@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     let locManager = CLLocationManager()
     
     private var callSend: Bool = false
+    private var intervalFunction: Timer?
     
     private var openAppointments: [Appointment?] = []
     private var acceptedAppointments: [Appointment?] = []
@@ -162,6 +163,24 @@ class ViewController: UIViewController {
             initTableData()
         }
     }
+    
+    @objc func updateLocation() {
+        var currentLocation: CLLocation!
+        
+        if(!callSend && (CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() ==  .authorizedAlways)){
+            callSend = true
+            
+            currentLocation = locManager.location
+            APIService.updateLocation(lon: "\(currentLocation.coordinate.longitude)", lat: "\(currentLocation.coordinate.latitude)").subscribe(onNext: {
+                self.callSend = false
+                print("Updated")
+            }, onError: { error in
+                self.callSend = false
+                self.showSnackbarDanger("error_api".localize)
+            }).disposed(by: self.disposeBag)
+        }
+    }
 }
 
 extension ViewController: UITabBarDelegate {
@@ -247,20 +266,28 @@ extension ViewController: UITableViewDelegate {
             break
         case 1:
             title = "appointment_detail_title_accepted"
-            detailVc.buttons = [
-                DetailViewButton(text: "button_leave".localize, style: .primary, clicked: {
-                    var currentLocation: CLLocation!
-                    
-                    if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-                        CLLocationManager.authorizationStatus() ==  .authorizedAlways){
-                        
-                        currentLocation = self.locManager.location
-                        APIService.updateLocation(lon: "\(currentLocation.coordinate.longitude)", lat: "\(currentLocation.coordinate.latitude)").subscribe(onNext: {}, onError: { error in
-                            self.showSnackbarDanger("error_api".localize)
-                        }).disposed(by: self.disposeBag)
-                    }
-                })
-            ]
+            if (KeychainWrapper.standard.string(forKey: "trackingId") == item._id) {
+                detailVc.buttons = [
+                    DetailViewButton(text: "button_arrive".localize, style: .primary, clicked: {
+                        KeychainWrapper.standard.removeObject(forKey: "trackingId")
+                        self.intervalFunction?.invalidate()
+                        self.intervalFunction = nil;
+                        self.showSnackbarSuccess("appointment_arrived".localize)
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                ]
+            } else if(Calendar.current.isDateInToday(item.StartTime) && !KeychainWrapper.standard.hasValue(forKey: "trackingId")) {
+                detailVc.buttons = [
+                    DetailViewButton(text: "button_leave".localize, style: .primary, clicked: {
+                        KeychainWrapper.standard.set(item._id, forKey: "trackingId")
+                        self.intervalFunction = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(ViewController.updateLocation), userInfo: nil, repeats: true)
+                        self.showSnackbarSuccess("appointment_left".localize)
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                ]
+            } else {
+                detailVc.buttons = []
+            }
             break
         case 2:
             title = "appointment_detail_title_done"

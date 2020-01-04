@@ -78,7 +78,8 @@ class AddInvoiceViewController: UIViewController {
         
         APIService.createInvoice(fileURL: fileURL!, date: date).subscribe(onNext: { invoice in
             self.callSend = false
-            print(invoice)
+            NotificationCenter.default.post(name: Notification.Name("refreshInvoices"), object: nil)
+            self.navigationController?.popViewController(animated: true)
         }, onError: {error in
             if (error is CustomError) {
                 self.showSnackbarDanger((error as! CustomError).errorDescription!.localize)

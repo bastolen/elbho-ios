@@ -101,6 +101,7 @@ class WeekOverzichtViewController: UIViewController {
             APIService.getAvailability(after: "\(firstDate)T00:00:00.000Z", before: "\(lastDate)T00:00:00.000Z").subscribe(onNext: { availability in
                 self.items = availability
                 print(self.items)
+                self.setTimeInput()
                 self.callSend = false
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)
@@ -131,31 +132,77 @@ class WeekOverzichtViewController: UIViewController {
     
     func setTimeInput()
     {
+        var response = [String]()
         // datePicker zetten op Text fields
+        response = getInfoByDate(index: 0)
         timeInputDay1From.inputView = datePicker
         timeInputDay1From.inputAccessoryView = toolBar
         timeInputDay1Until.inputView = datePicker
         timeInputDay1Until.inputAccessoryView = toolBar
+        if response.count == 2 {
+            timeInputDay1From.text = response[0]
+            timeInputDay1Until.text = response[1]
+        }
         
+        response = getInfoByDate(index: 1)
         timeInputDay2From.inputView = datePicker
         timeInputDay2From.inputAccessoryView = toolBar
         timeInputDay2Until.inputView = datePicker
         timeInputDay2Until.inputAccessoryView = toolBar
-        
+        if response.count == 2 {
+            timeInputDay2From.text = response[0]
+            timeInputDay2Until.text = response[1]
+        }
+        response = getInfoByDate(index: 2)
         timeInputDay3From.inputView = datePicker
         timeInputDay3From.inputAccessoryView = toolBar
         timeInputDay3Until.inputView = datePicker
         timeInputDay3Until.inputAccessoryView = toolBar
+        if response.count == 2 {
+            timeInputDay3From.text = response[0]
+            timeInputDay3Until.text = response[1]
+        }
         
+        response = getInfoByDate(index: 3)
         timeInputDay4From.inputView = datePicker
         timeInputDay4From.inputAccessoryView = toolBar
         timeInputDay4Until.inputView = datePicker
         timeInputDay4Until.inputAccessoryView = toolBar
+        if response.count == 2 {
+            timeInputDay4From.text = response[0]
+            timeInputDay4Until.text = response[1]
+        }
         
+        response = getInfoByDate(index: 4)
         timeInputDay5From.inputView = datePicker
         timeInputDay5From.inputAccessoryView = toolBar
         timeInputDay5Until.inputView = datePicker
         timeInputDay5Until.inputAccessoryView = toolBar
+        if response.count == 2 {
+            timeInputDay5From.text = response[0]
+            timeInputDay5Until.text = response[1]
+        }
+        
+    }
+    
+    func getInfoByDate(index : Int) -> [String]
+    {
+        var values = [String]()
+        var search = String()
+        
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        search = dateFormatter.string(from: daysToShow[index])
+        
+        for item in items {
+            if dateFormatter.string(for: item?.date) == search {
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+                dateFormatter.dateFormat = "HH:mm"
+
+                values = [dateFormatter.string(from: item!.start), dateFormatter.string(from: item!.end)]
+            }
+        }
+        
+        return values
     }
     
     @objc func dismissPicker() {
@@ -233,6 +280,8 @@ class WeekOverzichtViewController: UIViewController {
     @IBAction func saveWeekClick(_ sender: Any) {
         // Eerst checken of de data klopt
         self.showSnackbarPrimary("Ja dit moeten we nog maken")
+        
+        
     }
     
     // Oude zooi maar nog even bewaren

@@ -23,6 +23,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
     
     var clickedDate = String()
     var checkDate = String()
+    var monthCheck = Int()
     
     let dateFormatter = DateFormatter()
     
@@ -57,7 +58,7 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
         if(!callSend) {
             items = []
             callSend = true
-            APIService.getAvailability(after: "2019-11-01T00:00:00.000Z", before: "2019-12-31T00:00:00.000Z").subscribe(onNext: { availability in
+            APIService.getAvailability(after: "2020-01-01T00:00:00.000Z", before: "2020-01-31T00:00:00.000Z").subscribe(onNext: { availability in
                 self.items = availability
                 self.Calendar.reloadData()
                 self.callSend = false
@@ -168,9 +169,9 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
                     dateFormatter.dateFormat = "YYYY-MM-dd"
                     // Checken op beschikbaarheid
                     if((indexPath.row-6) - positionIndex) < 10 {
-                        checkDate = "\(year)-\(month+1)-0\((indexPath.row-6) - positionIndex)"
+                        checkDate = "\(year)-0\(month+1)-0\((indexPath.row-6) - positionIndex)"
                     } else {
-                        checkDate = "\(year)-\(month+1)-\((indexPath.row-6) - positionIndex)"
+                        checkDate = "\(year)-0\(month+1)-\((indexPath.row-6) - positionIndex)"
                     }
                     
                     for item in items {

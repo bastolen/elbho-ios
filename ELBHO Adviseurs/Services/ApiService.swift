@@ -167,6 +167,22 @@ final class APIService {
         }
     }
     
+    static func updateLocation(lon: String, lat: String) -> Observable<Void> {
+        return Observable<Void>.create { (observer) -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/location", method: .put, parameters: [
+                "lon": lon,
+                "lat": lat
+            ], encoding: JSONEncoding.default, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    return observer.onNext(Void())
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
     
     // TODO: Function doesn't work because you don't have access to read the files...
     static func createInvoice(fileURL: URL, date: Date) -> Observable<Invoice> {

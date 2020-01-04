@@ -238,10 +238,11 @@ extension ViewController: UITableViewDelegate {
                             self.openAppointments = []
                             self.initTableData()
                             self.navigationController?.popViewController(animated: true)
-                        }, onError: {error in
+                        }, onError: { error in
                             self.showSnackbarDanger("error_api".localize)
                         }).disposed(by: self.disposeBag)
-                    }                })
+                    }
+                })
             ]
             break
         case 1:
@@ -254,13 +255,10 @@ extension ViewController: UITableViewDelegate {
                         CLLocationManager.authorizationStatus() ==  .authorizedAlways){
                         
                         currentLocation = self.locManager.location
-                        
-                        print("lon \(currentLocation.coordinate.longitude)")
-                        print("lat \(currentLocation.coordinate.latitude)")
-                        
+                        APIService.updateLocation(lon: "\(currentLocation.coordinate.longitude)", lat: "\(currentLocation.coordinate.latitude)").subscribe(onNext: {}, onError: { error in
+                            self.showSnackbarDanger("error_api".localize)
+                        }).disposed(by: self.disposeBag)
                     }
-                    
-                    self.showSnackbarSecondary("\("button_leave".localize) not yet implemented")
                 })
             ]
             break

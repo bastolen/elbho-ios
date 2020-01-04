@@ -63,6 +63,8 @@ class WeekOverzichtViewController: UIViewController {
     // API Vars
     private let disposeBag = DisposeBag()
     var items: [Availability?] = []
+    var sendItems : [Availability2] = []
+    
     private var callSend: Bool = false
     var daysToShow: [Date] = []
     
@@ -278,10 +280,79 @@ class WeekOverzichtViewController: UIViewController {
     }
     
     @IBAction func saveWeekClick(_ sender: Any) {
-        // Eerst checken of de data klopt
+        sendItems.removeAll()
+        // Eerst checken of de data klopt "2020-01-01T00:00:00.000Z"
         self.showSnackbarPrimary("Ja dit moeten we nog maken")
+        var from = String()
+        var until = String()
         
+        for (index, day) in daysToShow.enumerated() {
+            if index == 0 {
+                from = timeInputDay1From.text!
+                until = timeInputDay1Until.text!
+                
+                if !from.isEmpty && !until.isEmpty {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                }
+            } else if index == 1 {
+                from = timeInputDay2From.text!
+                until = timeInputDay2Until.text!
+                
+                if !from.isEmpty && !until.isEmpty {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                }
+            } else if index == 2 {
+                from = timeInputDay3From.text!
+                until = timeInputDay3Until.text!
+                
+                if !from.isEmpty && !until.isEmpty {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                }
+            } else if index == 3 {
+                from = timeInputDay4From.text!
+                until = timeInputDay4Until.text!
+                
+                if !from.isEmpty && !until.isEmpty {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                }
+            } else if index == 4 {
+                from = timeInputDay5From.text!
+                until = timeInputDay5Until.text!
+                
+                if !from.isEmpty && !until.isEmpty {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                }
+            }
+        }
         
+        //print(sendItems)
+        sendItemsToAPI(sendItems: sendItems)
+    }
+    
+    private func sendItemsToAPI(sendItems : [Availability2]) {
+        if(!callSend) {
+            callSend = true
+            APIService.postAvailability(availability: sendItems).subscribe(onNext: { availability in
+                self.setTimeInput()
+                self.showSnackbarSuccess("GEUPDATEKUT")
+                self.callSend = false
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+                self.callSend = false
+            }).disposed(by: disposeBag)
+        }
+    }
+    
+    
+    func createAvailabilityObject(from : String, until : String, date : Date) -> Availability2 {
+        // Eerst de normale date
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        let dateToSend = dateFormatter.string(from: date)+"T00:00:00.000Z"
+        let startToSend = dateFormatter.string(from: date)+"T"+from+":00.000Z"
+        let endToSend = dateFormatter.string(from: date)+"T"+until+":00.000Z"
+        
+        let a = Availability2(date: dateToSend, start: startToSend, end: endToSend)
+        return a
     }
     
     // Oude zooi maar nog even bewaren

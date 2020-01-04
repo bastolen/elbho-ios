@@ -9,13 +9,11 @@
 import Foundation
 
 struct Availability: Codable {
-    let _id: String
-    let date: Date
-    let start: Date
-    let end: Date
+    var date: Date
+    var start: Date
+    var end: Date
     
     enum CodingKeys: String, CodingKey {
-        case _id =  "_id"
         case date = "date"
         case start = "start"
         case end = "end"

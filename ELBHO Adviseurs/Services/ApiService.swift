@@ -167,6 +167,31 @@ final class APIService {
         }
     }
     
+    static func postAvailability(availability : [Availability2]) -> Observable<[Availability2?]> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/availability", method: .post, parameters: [
+                "availabilities": availability
+            ], encoding: JSONEncoding.default, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    guard let jsonData = response.data else {
+                        
+                        return observer.onError(CustomError.api)
+                    }
+                    
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(.apiDateResult)
+                    let apiResult = try? decoder.decode([Availability2?].self, from: jsonData)
+                    return observer.onNext(apiResult!)
+                } else {
+                    print(response)
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
     static func updateLocation(lon: String, lat: String) -> Observable<Void> {
         return Observable<Void>.create { (observer) -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/location", method: .put, parameters: [

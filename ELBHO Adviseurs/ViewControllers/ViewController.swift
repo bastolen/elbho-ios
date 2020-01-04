@@ -11,6 +11,7 @@ import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
 import SideMenu
+import CoreLocation
 import MessageUI
 
 class ViewController: UIViewController {
@@ -19,6 +20,7 @@ class ViewController: UIViewController {
     var SelectedItemTag: Int = 0
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let refreshControl = UIRefreshControl()
+    let locManager = CLLocationManager()
     
     private var callSend: Bool = false
     
@@ -46,10 +48,17 @@ class ViewController: UIViewController {
         setupDateLabel()
         setupTabBar()
         initTableData()
+        initPermissions()
+    }
+    
+    private func initPermissions() {
+        if( CLLocationManager.authorizationStatus() == .notDetermined){
+            self.locManager.requestWhenInUseAuthorization()
+        }
     }
     
     private func checkLoggedIn() {
-//        KeychainWrapper.standard.removeAllKeys()
+        //        KeychainWrapper.standard.removeAllKeys()
         if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
@@ -239,6 +248,18 @@ extension ViewController: UITableViewDelegate {
             title = "appointment_detail_title_accepted"
             detailVc.buttons = [
                 DetailViewButton(text: "button_leave".localize, style: .primary, clicked: {
+                    var currentLocation: CLLocation!
+                    
+                    if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+                        CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+                        
+                        currentLocation = self.locManager.location
+                        
+                        print("lon \(currentLocation.coordinate.longitude)")
+                        print("lat \(currentLocation.coordinate.latitude)")
+                        
+                    }
+                    
                     self.showSnackbarSecondary("\("button_leave".localize) not yet implemented")
                 })
             ]

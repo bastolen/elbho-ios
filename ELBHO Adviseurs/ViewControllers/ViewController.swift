@@ -174,7 +174,6 @@ class ViewController: UIViewController {
             currentLocation = locManager.location
             APIService.updateLocation(lon: "\(currentLocation.coordinate.longitude)", lat: "\(currentLocation.coordinate.latitude)").subscribe(onNext: {
                 self.callSend = false
-                print("Updated")
             }, onError: { error in
                 self.callSend = false
                 self.showSnackbarDanger("error_api".localize)

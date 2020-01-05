@@ -332,7 +332,7 @@ class WeekOverzichtViewController: UIViewController {
     private func sendItemsToAPI(sendItems : [Availability2]) {
         if(!callSend) {
             callSend = true
-            APIService.postAvailability(availability: sendItems).subscribe(onNext: {
+            APIService.postAvailability(availabilities: sendItems).subscribe(onNext: {
                 self.showSnackbarSuccess("GEUPDATE")
                 self.callSend = false
             }, onError: {error in

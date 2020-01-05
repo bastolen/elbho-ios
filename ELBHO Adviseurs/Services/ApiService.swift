@@ -167,10 +167,15 @@ final class APIService {
         }
     }
     
-    static func postAvailability(availability : [Availability2]) -> Observable<Void> {
+    static func postAvailability(availabilities : [Availability2]) -> Observable<Void> {
+        var data: [String] = []
+        let jsonEncoder = JSONEncoder()
+        availabilities.forEach({ availability in
+            data.append(String(data: try! jsonEncoder.encode(availability), encoding: String.Encoding.utf8)!)
+        })
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/availability", method: .post, parameters: [
-                "availabilities": availability
+                "availabilities": data
             ], encoding: JSONEncoding.default, headers: self.getAuthHeader()).validate().responseString(completionHandler: {response in
                 if (response.result.isSuccess) {
                     return observer.onNext(Void())

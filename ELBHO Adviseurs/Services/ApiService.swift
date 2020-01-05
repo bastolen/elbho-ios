@@ -142,6 +142,30 @@ final class APIService {
         }
     }
     
+    static func getCarReservation(after: String) -> Observable<[CarReservation?]> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/reservation/me", method: .get, parameters: [
+                "after" : after
+            ], headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    guard let jsonData = response.data else {
+                        return observer.onError(CustomError.api)
+                    }
+
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(.apiDateResult)
+                    let apiResult = try? decoder.decode([CarReservation?].self, from: jsonData)
+                    return observer.onNext(apiResult!)
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
+    
     static func getAvailability(after: String, before: String) -> Observable<[Availability?]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/availability/me", method: .get, parameters: [

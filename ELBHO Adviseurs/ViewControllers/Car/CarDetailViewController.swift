@@ -23,7 +23,9 @@ class CarDetailViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        carNameLabel.text = item?.car
+        
+        let fullCarName = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model))"
+        carNameLabel.text = fullCarName
         
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellReuseIdentifier: "DetailViewCell")

@@ -12,7 +12,7 @@ import SwiftKeychainWrapper
 import MaterialComponents
 import SideMenu
 
-class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class BeschikbaarheidViewController : UIViewController {
     
     // Calendar
     @IBOutlet weak var Calendar: UICollectionView!
@@ -125,8 +125,10 @@ class BeschikbaarheidViewController : UIViewController, UICollectionViewDelegate
             Calendar.reloadData()
         }
     }
-    
-    
+}
+
+extension BeschikbaarheidViewController : UICollectionViewDelegate, UICollectionViewDataSource
+{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch direction {
         case 0:

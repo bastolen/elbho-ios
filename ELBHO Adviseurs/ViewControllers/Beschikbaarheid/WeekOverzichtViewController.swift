@@ -83,6 +83,7 @@ class WeekOverzichtViewController: UIViewController {
         
         // Datepicker opties
         dateFormatter.dateFormat =  "HH:mm"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         datePicker.date = dateFormatter.date(from: "17:00")!
         
         datePicker.datePickerMode = .time
@@ -197,7 +198,7 @@ class WeekOverzichtViewController: UIViewController {
         
         for item in items {
             if dateFormatter.string(for: item?.date) == search {
-                dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+                dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
                 dateFormatter.dateFormat = "HH:mm"
 
                 values = [dateFormatter.string(from: item!.start), dateFormatter.string(from: item!.end)]
@@ -282,7 +283,7 @@ class WeekOverzichtViewController: UIViewController {
     @IBAction func saveWeekClick(_ sender: Any) {
         sendItems.removeAll()
         // Eerst checken of de data klopt "2020-01-01T00:00:00.000Z"
-        self.showSnackbarPrimary("Ja dit moeten we nog maken")
+        
         var from = String()
         var until = String()
         
@@ -333,7 +334,7 @@ class WeekOverzichtViewController: UIViewController {
         if(!callSend) {
             callSend = true
             APIService.postAvailability(availabilities: sendItems).subscribe(onNext: {
-                self.showSnackbarSuccess("GEUPDATE")
+                self.showSnackbarSuccess("De beschikbaarheid is ingevoerd.")
                 self.callSend = false
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)

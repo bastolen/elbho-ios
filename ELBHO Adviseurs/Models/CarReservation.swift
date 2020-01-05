@@ -8,11 +8,16 @@
 
 import Foundation
 
-struct CarReservation {
-    let Id: String
-    let reservationDate: Date
-    var car: String
-    let pickupPlace: String
-    let pickupAdres: String
-    let licencePlate: String
+struct CarReservation: Codable {
+    var vehicle: Car
+    var date: Date
+    var start: Date
+    var end: Date
+    
+    enum CodingKeys: String, CodingKey {
+        case vehicle = "vehicle"
+        case date = "date"
+        case start = "start"
+        case end = "end"
+    }
 }

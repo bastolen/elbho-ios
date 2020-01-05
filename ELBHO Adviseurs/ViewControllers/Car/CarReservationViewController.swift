@@ -11,7 +11,7 @@ import UIKit
 import MaterialComponents
 import MobileCoreServices
 
-class CarReservationViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CarReservationViewController : UIViewController {
     
     @IBOutlet weak var Calendar: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
@@ -28,8 +28,13 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
     var inputTimeFromUntilController: MDCTextInputControllerUnderline?
     
     var clickedDate = String()
-    
+    var highLighted = -1
     var items: [CarAvailability] = []
+    let dateFormatter = DateFormatter()
+    
+    // UI ELEMENTEN
+    var datePicker = UIDatePicker()
+    let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(dismissPicker))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +47,7 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
         tableView.delegate = self
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         
-        //Calendar.delegate = self
+        Calendar.delegate = self
         
         currentMonth = months[month]
         monthLabel.text = "\(currentMonth) \(year)"
@@ -54,6 +59,12 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
         prevMonth.imageView?.tintColor = UIColor.black
         nextMonth.imageView?.tintColor = UIColor.black
      
+        dateFormatter.dateFormat =  "HH:mm"
+        datePicker.date = dateFormatter.date(from: "10:00")!
+        
+        datePicker.datePickerMode = .time
+        datePicker.minuteInterval = 15
+        
         getStartDateDayPosition()
         setupCollectionView()
         setupInputFields()
@@ -74,6 +85,12 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
         timeUntilInput.placeholderLabel.textColor = UIColor(named: "Primary")!
         timeUntilInput.clearButtonMode = .never
         
+        
+        timeFromInput.inputView = datePicker
+        timeFromInput.inputAccessoryView = toolBar
+        timeUntilInput.inputView = datePicker
+        timeUntilInput.inputAccessoryView = toolBar
+        
         carReservationButton.setPrimary()
     }
     
@@ -89,7 +106,29 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
         flow.itemSize = CGSize(width: cellWidth, height: 45)
     }
     
+    @objc func dismissPicker() {
+        dateFormatter.dateFormat = "HH:mm"
+        let pickedTime = dateFormatter.string(from: datePicker.date)
+        
+        if timeFromInput.isFirstResponder {
+            timeFromInput.text = pickedTime
+        } else if timeUntilInput.isFirstResponder {
+            timeUntilInput.text = pickedTime
+        }
+        
+        view.endEditing(true)
+        getCars()
+    }
+    
+    func getCars()
+    {
+        if !clickedDate.isEmpty && !timeFromInput.text!.isEmpty && !timeUntilInput.text!.isEmpty {
+            print("Zoekeeeee")
+        }
+    }
+    
     @IBAction func prevMonthClick(_ sender: Any) {
+        highLighted = -1
         switch currentMonth {
         case "Januari":
             month = 11
@@ -114,6 +153,7 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
     }
     
     @IBAction func nextMonthClick(_ sender: Any) {
+        highLighted = -1
         switch currentMonth {
         case "December":
             month = 0
@@ -133,7 +173,9 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
         }
     }
     
-    
+}
+
+extension CarReservationViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch direction {
         case 0:
@@ -173,6 +215,10 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
                 cell.isHidden = true
             }
             
+            if highLighted == indexPath.row {
+                cell.backgroundColor = UIColor.init(named: "ActiveCellColor")!
+            }
+            
             // Kleurtje voor het weekend
             switch indexPath.row {
             case 12,13,19,20,26,27,33,34,40,41:
@@ -187,6 +233,12 @@ class CarReservationViewController : UIViewController, UICollectionViewDelegate,
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        clickedDate = "\(year)-\(month+1)-\((indexPath.row-6) - positionIndex)"
+        highLighted = indexPath.row
+        collectionView.reloadData()
+        getCars()
+    }
 }
 
 extension CarReservationViewController: UITableViewDataSource {

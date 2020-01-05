@@ -22,6 +22,7 @@
 		17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */; };
 		17A34A3C23AA553200C90CDC /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A34A3B23AA553200C90CDC /* Availability.swift */; };
 		17A34A3E23C0C68F00C90CDC /* Availability2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A34A3D23C0C68F00C90CDC /* Availability2.swift */; };
+		17A34A4023C219FC00C90CDC /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A34A3F23C219FC00C90CDC /* Car.swift */; };
 		329372E836273CE285CD985C /* Pods_ELBHO_AdviseursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */; };
 		5F06D838239AA13500A15EDD /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D837239AA13500A15EDD /* InvoiceViewController.swift */; };
 		5F06D83A239AAB6200A15EDD /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D839239AAB6200A15EDD /* Invoice.swift */; };
@@ -95,6 +96,7 @@
 		17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeschikbaarheidViewController.swift; sourceTree = "<group>"; };
 		17A34A3B23AA553200C90CDC /* Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
 		17A34A3D23C0C68F00C90CDC /* Availability2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Availability2.swift; sourceTree = "<group>"; };
+		17A34A3F23C219FC00C90CDC /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		416ED8342F0E54585839F80F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F06D837239AA13500A15EDD /* InvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
 		5F06D839239AAB6200A15EDD /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				1720080B239E884900EF762B /* CarAvailability.swift */,
 				17A34A3B23AA553200C90CDC /* Availability.swift */,
 				17A34A3D23C0C68F00C90CDC /* Availability2.swift */,
+				17A34A3F23C219FC00C90CDC /* Car.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */,
 				17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */,
 				5F06D83A239AAB6200A15EDD /* Invoice.swift in Sources */,
+				17A34A4023C219FC00C90CDC /* Car.swift in Sources */,
 				1720080C239E884900EF762B /* CarAvailability.swift in Sources */,
 				1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */,
 				5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */,

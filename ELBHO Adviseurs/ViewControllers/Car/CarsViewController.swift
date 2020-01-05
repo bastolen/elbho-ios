@@ -21,7 +21,9 @@ class CarsViewController : UIViewController {
     let dateFormatter = DateFormatter()
     let carStoryboard = UIStoryboard(name: "Car", bundle: nil)
     
-    var items: [CarReservation] = []
+    private let disposeBag = DisposeBag()
+    var items: [CarReservation?] = []
+    private var callSend: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,25 @@ class CarsViewController : UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        
+        initContent()
     }
+    
+    private func initContent() {
+        if(!callSend) {
+            items = []
+            callSend = true
+            APIService.getCarReservation(after: "2020-01-01T00:00:00.000Z").subscribe(onNext: { reservation in
+                self.items = reservation
+                self.tableView.reloadData()
+                self.callSend = false
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+                self.callSend = false
+            }).disposed(by: disposeBag)
+        }
+    }
+    
     
     @IBAction func carReservationClick(_ sender: Any) {
         let detailVc = carStoryboard.instantiateViewController(withIdentifier:"CarReservationViewController") as! CarReservationViewController
@@ -53,17 +73,19 @@ extension CarsViewController: UITableViewDataSource {
         let item = items[indexPath.row]
         
         let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         formatter.dateFormat = "EE"
-        cell.DayLabel.text = formatter.string(from: item.reservationDate).uppercased()
+        cell.DayLabel.text = formatter.string(from: item!.date).uppercased()
         
         formatter.dateFormat = "dd-MM"
-        cell.DateLabel.text = formatter.string(from: item.reservationDate)
-        cell.CompanyLabel.text = item.car
+        cell.DateLabel.text = formatter.string(from: item!.date)
+        
+        cell.CompanyLabel.text = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model))"
         cell.iconView.image = nil
         
         formatter.dateFormat = "HH:mm"
-        cell.TimeLocationLabel.text = "\(formatter.string(from: item.reservationDate)) - \(formatter.string(from: item.reservationDate.addingTimeInterval(60*60))), \(item.pickupPlace)"
+        cell.TimeLocationLabel.text = "\(formatter.string(from: item!.start)) - \(formatter.string(from: item!.end))"
         
         return cell
     }
@@ -78,16 +100,18 @@ extension CarsViewController: UITableViewDelegate {
         let detailVc = carStoryboard.instantiateViewController(withIdentifier:"CarDetailViewController") as! CarDetailViewController
         
         dateFormatter.dateFormat = "dd-MM-YYYY"
+        
         let item = items[indexPath.row]
+        let detailDate = dateFormatter.string(from: item!.date)
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
         detailVc.item = item
         detailVc.rows = [
-            DetailViewRow(title: "Kenteken", content: item.licencePlate, icon: nil, iconClicked: {}),
-            DetailViewRow(title: "Datum", content: dateFormatter.string(from: item.reservationDate), icon: nil, iconClicked: {}),
-            DetailViewRow(title: "Tijd", content: "09:00 - 14:00", icon: nil, iconClicked: {}),
-            DetailViewRow(title: "Adres", content: item.pickupAdres, icon: UIImage(named: "RouteIcon"), iconClicked: {
-                let url = URL(string: "http://maps.apple.com/?address=\(item.pickupAdres.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")
-                UIApplication.shared.open(url!)
-            }),
+            DetailViewRow(title: "Kenteken", content: (item?.vehicle.licensePlate)!, icon: nil, iconClicked: {}),
+            DetailViewRow(title: "Datum", content: (detailDate), icon: nil, iconClicked: {}),
+            DetailViewRow(title: "Tijd", content: ("\(dateFormatter.string(from: item!.start)) - \(dateFormatter.string(from: item!.end))"), icon: nil, iconClicked: {}),
+            DetailViewRow(title: "Adres", content: "Waterland 14, Beverwijk", icon: nil, iconClicked: {}),
         ]
         
         navigationController?.pushViewController(detailVc, animated: true)

@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+struct Car: Codable {
+    var licensePlate: String
+    var brand: String
+    var model: String
+    var location: String
+    var image: URL
+    var transmission : String
+    
+    enum CodingKeys: String, CodingKey {
+        case licensePlate = "licensePlate"
+        case brand = "brand"
+        case model = "model"
+        case location = "location"
+        case image = "image"
+        case transmission = "transmission"
+    }
+}

@@ -6,12 +6,15 @@
 //  Copyright © 2019 Otters. All rights reserved.
 //
 
+import RxSwift
 import Foundation
 import UIKit
 import MaterialComponents
 import MobileCoreServices
 
 class CarReservationViewController : UIViewController {
+    
+    let nc = NotificationCenter.default
     
     @IBOutlet weak var Calendar: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
@@ -29,12 +32,15 @@ class CarReservationViewController : UIViewController {
     
     var clickedDate = String()
     var highLighted = -1
-    var items: [CarAvailability] = []
+    var items: [CarAvailability?] = []
     let dateFormatter = DateFormatter()
     
     // UI ELEMENTEN
     var datePicker = UIDatePicker()
     let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(dismissPicker))
+    
+    private let disposeBag = DisposeBag()
+    private var callSend: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,7 +129,67 @@ class CarReservationViewController : UIViewController {
     func getCars()
     {
         if !clickedDate.isEmpty && !timeFromInput.text!.isEmpty && !timeUntilInput.text!.isEmpty {
-            print("Zoekeeeee")
+            initContent()
+        }
+    }
+    
+    private func initContent() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        let show = formatter.date(from: clickedDate)
+        let dateSend = formatter.string(from: show!)
+        if(!callSend) {
+            items = []
+            callSend = true
+            APIService.getCarsAvailability(date: dateSend+"T00:00:00.000Z").subscribe(onNext: { cars in
+                self.items = cars
+                self.tableView.reloadData()
+                self.callSend = false
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+                self.callSend = false
+            }).disposed(by: disposeBag)
+        }
+    }
+    
+    @IBAction func makeCarReservation(_ sender: Any) {
+        
+        if(timeFromInput.text!.isEmpty || timeUntilInput.text!.isEmpty) {
+            self.showSnackbarDanger("Niet alle velden ingevuld")
+        } else {
+            dateFormatter.dateFormat = "YYYY-MM-dd"
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            
+            let clickedInFormat = dateFormatter.date(from: clickedDate)
+            let clickedInString = dateFormatter.string(from: clickedInFormat!)
+            var car = String()
+            
+            for c in items {
+                if c?.selected == true {
+                    car = c!._id
+                }
+            }
+            
+            if(!callSend) {
+                callSend = true
+                APIService.postCarReservation(
+                    vehicle: car,
+                    date: clickedInString+"T00:00:00.000Z",
+                    start: clickedInString+"T"+timeFromInput.text!+":00.000Z",
+                    end: clickedInString+"T"+timeUntilInput.text!+":00.000Z")
+                    .subscribe(onNext: {
+                    self.showSnackbarSuccess("AUTO GERESERVEERD")
+                    self.callSend = false
+                }, onError: {error in
+                    self.showSnackbarDanger("error_api".localize)
+                    self.callSend = false
+                }).disposed(by: disposeBag)
+            }
+            
+            nc.post(name: Notification.Name("reloadCarReservations"), object: nil)
+            
         }
     }
     
@@ -250,22 +316,45 @@ extension CarReservationViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
         let item = items[indexPath.row]
         let formatter = DateFormatter()
+        cell.isUserInteractionEnabled = true
+        formatter.dateFormat = "YYYY-MM-dd"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
+        let show = formatter.date(from: clickedDate)
         formatter.dateFormat = "EE"
-        cell.DayLabel.text = formatter.string(from: item.availibleTime).uppercased()
+        cell.DayLabel.text = formatter.string(from: show!).uppercased()
         
         formatter.dateFormat = "dd-MM"
-        cell.DateLabel.text = formatter.string(from: item.availibleTime)
+        cell.DateLabel.text = formatter.string(from: show!)
         
-        cell.CompanyLabel.text = item.car
+        cell.CompanyLabel.text =  "\(String(describing: item!.brand)) \(String(describing: item!.model))"
+        cell.TimeLocationLabel.text = "\(String(describing: timeFromInput.text!)) - \(String(describing: timeUntilInput.text!))"
         
-        formatter.dateFormat = "HH:mm"
-        cell.TimeLocationLabel.text = "\(formatter.string(from: item.availibleTime)) - \(formatter.string(from: item.availibleTime.addingTimeInterval(60*60))), \(item.pickupAdres)"
-        
-        if item.selected == true {
+        if item!.selected == true {
             cell.imageViewBackground.backgroundColor = UIColor(named: "Secondary")
         }
+        
+        // Nu kijken of de auto wel beschikbaar is in de aangegeven tijden
+        if !checkAvailability(reservations: item!.reservations) {
+            cell.isUserInteractionEnabled = false
+            cell.TimeLocationLabel.text = "Deze auto is al gereserveerd"
+            cell.imageViewBackground.backgroundColor = UIColor.darkGray
+        }
+        
         return cell
+    }
+    
+    func checkAvailability(reservations: [CarReservations]) -> Bool
+    {
+        var beschikbaar = false
+        
+        if reservations.count > 0 {
+            beschikbaar = false
+        } else {
+            beschikbaar = true
+        }
+        
+        return beschikbaar
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -277,7 +366,7 @@ extension CarReservationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         for i in 0..<items.count {
-            items[i].selected = i == indexPath.row
+            items[i]!.selected = i == indexPath.row
         }
         
         tableView.reloadData()

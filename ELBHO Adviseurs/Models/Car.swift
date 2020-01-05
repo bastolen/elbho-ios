@@ -9,6 +9,7 @@
 import Foundation
 
 struct Car: Codable {
+    var _id: String
     var licensePlate: String
     var brand: String
     var model: String
@@ -17,6 +18,7 @@ struct Car: Codable {
     var transmission : String
     
     enum CodingKeys: String, CodingKey {
+        case _id = "_id"
         case licensePlate = "licensePlate"
         case brand = "brand"
         case model = "model"

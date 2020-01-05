@@ -165,6 +165,47 @@ final class APIService {
         }
     }
     
+    static func getCarsAvailability(date: String) -> Observable<[CarAvailability?]> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/reservation", method: .get, parameters: [
+                "date" : date
+            ], headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    guard let jsonData = response.data else {
+                        return observer.onError(CustomError.api)
+                    }
+
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(.apiDateResult)
+                    let apiResult = try? decoder.decode([CarAvailability?].self, from: jsonData)
+                    return observer.onNext(apiResult!)
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
+    static func postCarReservation(vehicle : String, date : String, start: String, end: String) -> Observable<Void> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/reservation", method: .post, parameters: [
+                "vehicle": vehicle,
+                "date" : date,
+                "start" : start,
+                "end" : end
+            ], encoding: JSONEncoding.default, headers: self.getAuthHeader()).validate().responseString(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    return observer.onNext(Void())
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
     
     static func getAvailability(after: String, before: String) -> Observable<[Availability?]> {
         return Observable.create { observer -> Disposable in

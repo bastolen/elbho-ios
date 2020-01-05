@@ -8,10 +8,40 @@
 
 import Foundation
 
-struct CarAvailability {
-    let Id: String
-    var car: String
-    let availibleTime: Date
-    let pickupAdres: String
+struct CarAvailability: Codable {
+    var _id: String
+    var licensePlate: String
+    var brand: String
+    var model: String
+    var location: String
+    var image: URL
+    var transmission : String
+    var reservations: [CarReservations]
     var selected : Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case _id = "_id"
+        case licensePlate = "licensePlate"
+        case brand = "brand"
+        case model = "model"
+        case location = "location"
+        case image = "image"
+        case transmission = "transmission"
+        case reservations = "reservations"
+    }
+}
+
+
+struct CarReservations: Codable {
+    var vehicle: String?
+    var date: Date
+    var start: Date
+    var end: Date
+    
+    enum CodingKeys: String, CodingKey {
+        case vehicle = "vehicle"
+        case date = "date"
+        case start = "start"
+        case end = "end"
+    }
 }

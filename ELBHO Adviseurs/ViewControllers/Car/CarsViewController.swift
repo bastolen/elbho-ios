@@ -14,6 +14,8 @@ import SideMenu
 
 class CarsViewController : UIViewController {
     
+    let nc = NotificationCenter.default
+    
     @IBOutlet weak var bookCarButton: MDCButton!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -30,6 +32,9 @@ class CarsViewController : UIViewController {
         title = "Auto overzicht"
         navigationController?.navigationBar.tintColor = .white
         
+        nc.addObserver(self, selector: #selector(initContent), name: Notification.Name("reloadCarReservations"), object: nil)
+
+        
         bookCarButton.setPrimary()
         mainView.layer.borderWidth = 1
         mainView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
@@ -41,7 +46,7 @@ class CarsViewController : UIViewController {
         initContent()
     }
     
-    private func initContent() {
+    @objc private func initContent() {
         if(!callSend) {
             items = []
             callSend = true

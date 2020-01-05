@@ -13,6 +13,7 @@ import MaterialComponents
 import SideMenu
 
 class CarDetailViewController : UIViewController {
+    let nc = NotificationCenter.default
     
     var item : CarReservation? = nil
     var rows: [DetailViewRow] = []
@@ -20,6 +21,9 @@ class CarDetailViewController : UIViewController {
     @IBOutlet weak var carNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: MDCButton!
+    
+    private let disposeBag = DisposeBag()
+    private var callSend: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +38,19 @@ class CarDetailViewController : UIViewController {
     }
 
     @IBAction func carCancelReservationClick(_ sender: Any) {
-        self.showSnackbarPrimary("TODO")
+        if(!callSend) {
+            callSend = true
+            APIService.deleteCarReservation(_id: item!._id).subscribe(onNext: {
+                self.showSnackbarSuccess("De reservering is verwijderd!")
+                self.callSend = false
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+                self.callSend = false
+            }).disposed(by: disposeBag)
+        }
+        
+        _ = navigationController?.popViewController(animated: true)
+        nc.post(name: Notification.Name("reloadCarReservations"), object: nil)
     }
     
 }

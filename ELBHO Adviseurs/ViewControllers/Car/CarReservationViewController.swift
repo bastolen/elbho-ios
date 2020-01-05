@@ -180,7 +180,7 @@ class CarReservationViewController : UIViewController {
                     start: clickedInString+"T"+timeFromInput.text!+":00.000Z",
                     end: clickedInString+"T"+timeUntilInput.text!+":00.000Z")
                     .subscribe(onNext: {
-                    self.showSnackbarSuccess("AUTO GERESERVEERD")
+                    self.showSnackbarSuccess("De auto is gereserveerd!")
                     self.callSend = false
                 }, onError: {error in
                     self.showSnackbarDanger("error_api".localize)
@@ -188,8 +188,8 @@ class CarReservationViewController : UIViewController {
                 }).disposed(by: disposeBag)
             }
             
+            _ = navigationController?.popViewController(animated: true)
             nc.post(name: Notification.Name("reloadCarReservations"), object: nil)
-            
         }
     }
     

@@ -9,12 +9,14 @@
 import Foundation
 
 struct CarReservation: Codable {
+    var _id: String
     var vehicle: Car
     var date: Date
     var start: Date
     var end: Date
     
     enum CodingKeys: String, CodingKey {
+        case _id = "_id"
         case vehicle = "vehicle"
         case date = "date"
         case start = "start"

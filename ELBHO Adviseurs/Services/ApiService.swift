@@ -207,6 +207,20 @@ final class APIService {
         }
     }
     
+    static func deleteCarReservation(_id : String) -> Observable<Void> {
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.APIBASEURL + "/auth/reservation/"+_id, method: .delete, parameters: [:], encoding: JSONEncoding.default, headers: self.getAuthHeader()).validate().responseString(completionHandler: {response in
+                if (response.result.isSuccess) {
+                    return observer.onNext(Void())
+                } else {
+                    return self.returnError(response: response, observer: observer)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
     static func getAvailability(after: String, before: String) -> Observable<[Availability?]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/availability/me", method: .get, parameters: [

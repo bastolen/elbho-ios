@@ -293,35 +293,45 @@ class WeekOverzichtViewController: UIViewController {
                 until = timeInputDay1Until.text!
                 
                 if !from.isEmpty && !until.isEmpty {
-                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: false))
+                } else {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: true))
                 }
             } else if index == 1 {
                 from = timeInputDay2From.text!
                 until = timeInputDay2Until.text!
                 
                 if !from.isEmpty && !until.isEmpty {
-                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: false))
+                } else {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: true))
                 }
             } else if index == 2 {
                 from = timeInputDay3From.text!
                 until = timeInputDay3Until.text!
                 
                 if !from.isEmpty && !until.isEmpty {
-                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: false))
+                } else {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: true))
                 }
             } else if index == 3 {
                 from = timeInputDay4From.text!
                 until = timeInputDay4Until.text!
                 
                 if !from.isEmpty && !until.isEmpty {
-                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: false))
+                } else {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: true))
                 }
             } else if index == 4 {
                 from = timeInputDay5From.text!
                 until = timeInputDay5Until.text!
                 
                 if !from.isEmpty && !until.isEmpty {
-                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day))
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: false))
+                } else {
+                    sendItems.append(createAvailabilityObject(from: from, until: until, date: day, empty: true))
                 }
             }
         }
@@ -344,16 +354,52 @@ class WeekOverzichtViewController: UIViewController {
     }
     
     
-    func createAvailabilityObject(from : String, until : String, date : Date) -> Availability2 {
+    func createAvailabilityObject(from : String, until : String, date : Date, empty: Bool) -> Availability2 {
         // Eerst de normale date
         dateFormatter.dateFormat = "YYYY-MM-dd"
         let dateToSend = dateFormatter.string(from: date)+"T00:00:00.000Z"
-        let startToSend = dateFormatter.string(from: date)+"T"+from+":00.000Z"
-        let endToSend = dateFormatter.string(from: date)+"T"+until+":00.000Z"
+        var startToSend = String()
+        var endToSend = String()
+        
+        if empty {
+            startToSend = dateFormatter.string(from: date)+"T00:00:00.000Z"
+            endToSend = dateFormatter.string(from: date)+"T00:00:00.000Z"
+        } else {
+            startToSend = dateFormatter.string(from: date)+"T"+from+":00.000Z"
+            endToSend = dateFormatter.string(from: date)+"T"+until+":00.000Z"
+        }
         
         let a = Availability2(date: dateToSend, start: startToSend, end: endToSend)
         return a
     }
+    
+    // Buttons to clear inputs
+    @IBAction func trashDay1(_ sender: Any) {
+        timeInputDay1From.text = ""
+        timeInputDay1Until.text = ""
+    }
+    
+    @IBAction func trashDay2(_ sender: Any) {
+        timeInputDay2From.text = ""
+        timeInputDay2Until.text = ""
+    }
+    
+    @IBAction func trashDay3(_ sender: Any) {
+        timeInputDay3From.text = ""
+        timeInputDay3Until.text = ""
+    }
+    
+    @IBAction func trashDay4(_ sender: Any) {
+        timeInputDay4From.text = ""
+        timeInputDay4Until.text = ""
+    }
+    
+    @IBAction func trashDay5(_ sender: Any) {
+        timeInputDay5From.text = ""
+        timeInputDay5Until.text = ""
+    }
+    
+    
     
     // Oude zooi maar nog even bewaren
     func getWeekNumber(date: Date) -> Int {

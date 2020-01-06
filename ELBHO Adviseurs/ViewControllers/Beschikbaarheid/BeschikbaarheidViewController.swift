@@ -14,6 +14,7 @@ import SideMenu
 
 class BeschikbaarheidViewController : UIViewController {
     
+    let nc = NotificationCenter.default
     // Calendar
     @IBOutlet weak var Calendar: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
@@ -45,6 +46,8 @@ class BeschikbaarheidViewController : UIViewController {
             weekday = 7
         }
         
+        nc.addObserver(self, selector: #selector(initContent), name: Notification.Name("reloadAvailibility"), object: nil)
+        
         buttonNext.imageView?.tintColor = UIColor.black
         buttonPrev.imageView?.tintColor = UIColor.black
         
@@ -54,7 +57,7 @@ class BeschikbaarheidViewController : UIViewController {
         initContent()
     }
     
-    private func initContent() {
+    @objc private func initContent() {
         if(!callSend) {
             items = []
             callSend = true

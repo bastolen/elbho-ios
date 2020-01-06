@@ -14,6 +14,8 @@ import SideMenu
 
 class WeekOverzichtViewController: UIViewController {
 
+    let nc = NotificationCenter.default
+    
     var clickedDate = String()
     var weeknumberClickedDate = Int()
     var formattedDate = Date()
@@ -351,6 +353,9 @@ class WeekOverzichtViewController: UIViewController {
                 self.callSend = false
             }).disposed(by: disposeBag)
         }
+        
+        _ = navigationController?.popViewController(animated: true)
+        nc.post(name: Notification.Name("reloadAvailibility"), object: nil)
     }
     
     

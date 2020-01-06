@@ -200,9 +200,7 @@ class WeekOverzichtViewController: UIViewController {
         
         for item in items {
             if dateFormatter.string(for: item?.date) == search {
-                dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
                 dateFormatter.dateFormat = "HH:mm"
-
                 values = [dateFormatter.string(from: item!.start), dateFormatter.string(from: item!.end)]
             }
         }
@@ -256,8 +254,6 @@ class WeekOverzichtViewController: UIViewController {
     
     func formatStringToDate(toFormat: String) -> Date {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Gegeven date format in String
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.locale = Locale.current
         let formatted = dateFormatter.date(from: toFormat)
         
         let finalDate = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: formatted!))!
@@ -278,13 +274,22 @@ class WeekOverzichtViewController: UIViewController {
         alert.view.addConstraint(height)
         alert.view.addConstraint(width)
         
-        alert.addAction(UIAlertAction(title: "Begrepen", style: .default, handler: nil))
+        // Setup naar andere scherm
+        let storyboard = UIStoryboard(name: "Beschikbaarheid", bundle: nil)
+        let Vc = storyboard.instantiateViewController(withIdentifier: "CopyWeekViewController") as! CopyWeekViewController
+        Vc.weekToCopy = getWeekNumber(date: formattedDate)
+        Vc.daysFromWeekToCopy = items
+        
+        alert.addAction(UIAlertAction(title: "Begrepen", style: .default, handler: { (action) in
+            self.navigationController?.pushViewController(Vc, animated: true)
+        }))
         self.present(alert, animated: true)
+        
     }
     
     @IBAction func saveWeekClick(_ sender: Any) {
         sendItems.removeAll()
-        // Eerst checken of de data klopt "2020-01-01T00:00:00.000Z"
+        // Eerst checken of de data klopt
         
         var from = String()
         var until = String()
@@ -338,7 +343,6 @@ class WeekOverzichtViewController: UIViewController {
             }
         }
         
-        //print(sendItems)
         sendItemsToAPI(sendItems: sendItems)
     }
     
@@ -405,8 +409,6 @@ class WeekOverzichtViewController: UIViewController {
     }
     
     
-    
-    // Oude zooi maar nog even bewaren
     func getWeekNumber(date: Date) -> Int {
         let weekOfYear = calendar.component(.weekOfYear, from: date)
         return weekOfYear

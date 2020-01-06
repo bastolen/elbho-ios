@@ -14,7 +14,7 @@ let calendar = Calendar.current
 let months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"]
 let daysOfMonth = ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"]
 let daysShort = ["MA", "DI", "WO", "DO", "VR", "ZA", "ZO"]
-let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 var currentMonth = String()
 var numberOfEmptyBox = Int()

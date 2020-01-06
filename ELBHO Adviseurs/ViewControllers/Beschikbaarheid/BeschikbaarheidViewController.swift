@@ -58,10 +58,15 @@ class BeschikbaarheidViewController : UIViewController {
     }
     
     @objc private func initContent() {
+        let today = Date()
+        let modifiedDate = NSCalendar.current.date(byAdding: .month, value: 2, to: today)!
+        
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        
         if(!callSend) {
             items = []
             callSend = true
-            APIService.getAvailability(after: "2020-01-01T00:00:00.000Z", before: "2020-01-31T00:00:00.000Z").subscribe(onNext: { availability in
+            APIService.getAvailability(after: dateFormatter.string(from: today), before: dateFormatter.string(from: modifiedDate)).subscribe(onNext: { availability in
                 self.items = availability
                 self.Calendar.reloadData()
                 self.callSend = false
@@ -86,6 +91,13 @@ class BeschikbaarheidViewController : UIViewController {
     
     
     @IBAction func prevMonth(_ sender: Any) {
+        
+        if year == 2020 {
+            daysInMonth[1] = 29
+        } else {
+            daysInMonth[1] = 28
+        }
+        
         switch currentMonth {
         case "Januari":
             month = 11
@@ -96,6 +108,7 @@ class BeschikbaarheidViewController : UIViewController {
             
             currentMonth = months[month]
             monthLabel.text = "\(currentMonth) \(year)"
+            
             Calendar.reloadData()
         default:
             month -= 1
@@ -110,6 +123,12 @@ class BeschikbaarheidViewController : UIViewController {
     }
     
     @IBAction func nextMonth(_ sender: Any) {
+        if year == 2020 {
+            daysInMonth[1] = 29
+        } else {
+            daysInMonth[1] = 28
+        }
+        
         switch currentMonth {
         case "December":
             month = 0
@@ -118,6 +137,7 @@ class BeschikbaarheidViewController : UIViewController {
             getStartDateDayPosition()
             currentMonth = months[month]
             monthLabel.text = "\(currentMonth) \(year)"
+            
             Calendar.reloadData()
         default:
             direction = 1

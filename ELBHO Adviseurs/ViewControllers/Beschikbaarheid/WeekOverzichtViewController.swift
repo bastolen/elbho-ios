@@ -263,27 +263,30 @@ class WeekOverzichtViewController: UIViewController {
     }
     
     @IBAction func copyWeekClick(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "Week kopieren", message: "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.", preferredStyle: .alert)
-        let imageView = UIImageView(frame: CGRect(x: 10, y: 110, width: 250, height: 125))
-        imageView.image = UIImage(named: "KopieerWeekAlert")
-        alert.view.addSubview(imageView)
-        
-        let height = NSLayoutConstraint(item: alert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
-        let width = NSLayoutConstraint(item: alert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
-        alert.view.addConstraint(height)
-        alert.view.addConstraint(width)
+        if (!KeychainWrapper.standard.hasValue(forKey: "onboarding-copy-week")) {
+            let alert = UIAlertController(title: "Week kopieren", message: "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.", preferredStyle: .alert)
+            let imageView = UIImageView(frame: CGRect(x: 10, y: 110, width: 250, height: 125))
+            imageView.image = UIImage(named: "KopieerWeekAlert")
+            alert.view.addSubview(imageView)
+            
+            let height = NSLayoutConstraint(item: alert.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
+            let width = NSLayoutConstraint(item: alert.view!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
+            alert.view.addConstraint(height)
+            alert.view.addConstraint(width)
+            alert.addAction(UIAlertAction(title: "Begrepen", style: .default, handler: { (action) in
+                KeychainWrapper.standard.set(true, forKey: "onboarding-copy-week")
+            }))
+            self.present(alert, animated: true)
+            return
+        }
         
         // Setup naar andere scherm
         let storyboard = UIStoryboard(name: "Beschikbaarheid", bundle: nil)
         let Vc = storyboard.instantiateViewController(withIdentifier: "CopyWeekViewController") as! CopyWeekViewController
         Vc.weekToCopy = getWeekNumber(date: formattedDate)
         Vc.daysFromWeekToCopy = items
+        self.navigationController?.pushViewController(Vc, animated: true)
         
-        alert.addAction(UIAlertAction(title: "Begrepen", style: .default, handler: { (action) in
-            self.navigationController?.pushViewController(Vc, animated: true)
-        }))
-        self.present(alert, animated: true)
         
     }
     

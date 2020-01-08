@@ -59,12 +59,13 @@ class ViewController: UIViewController {
     }
     
     private func checkLoggedIn() {
-        //        KeychainWrapper.standard.removeAllKeys()
+//        KeychainWrapper.standard.removeAllKeys()
         if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
             return
         }
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         if (
             !KeychainWrapper.standard.hasValue(forKey: "AdvisorId") ||
                 !KeychainWrapper.standard.hasValue(forKey: "AdvisorName")

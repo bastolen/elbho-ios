@@ -328,7 +328,7 @@ extension CarReservationViewController: UITableViewDataSource {
         cell.DateLabel.text = formatter.string(from: show!)
         
         cell.CompanyLabel.text =  "\(String(describing: item!.brand)) \(String(describing: item!.model))"
-        cell.TimeLocationLabel.text = "\(String(describing: timeFromInput.text!)) - \(String(describing: timeUntilInput.text!))"
+        cell.TimeLocationLabel.text = "\(String(describing: timeFromInput.text!)) - \(String(describing: timeUntilInput.text!)) - \(item!.location)"
         
         if item!.selected == true {
             cell.imageViewBackground.backgroundColor = UIColor(named: "Secondary")

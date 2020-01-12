@@ -116,7 +116,7 @@ extension CarsViewController: UITableViewDelegate {
             DetailViewRow(title: "Kenteken", content: (item?.vehicle.licensePlate)!, icon: nil, iconClicked: {}),
             DetailViewRow(title: "Datum", content: (detailDate), icon: nil, iconClicked: {}),
             DetailViewRow(title: "Tijd", content: ("\(dateFormatter.string(from: item!.start)) - \(dateFormatter.string(from: item!.end))"), icon: nil, iconClicked: {}),
-            DetailViewRow(title: "Adres", content: "Waterland 14, Beverwijk", icon: nil, iconClicked: {}),
+            DetailViewRow(title: "Adres", content: item!.vehicle.location, icon: nil, iconClicked: {}),
         ]
         
         navigationController?.pushViewController(detailVc, animated: true)

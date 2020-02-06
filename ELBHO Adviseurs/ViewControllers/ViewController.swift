@@ -10,14 +10,13 @@ import UIKit
 import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
-import SideMenu
 import CoreLocation
 import MessageUI
 
 class ViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
-    var SelectedItemTag: Int = 0
+    static var SelectedItemTag: Int = 0
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let refreshControl = UIRefreshControl()
     let locManager = CLLocationManager()
@@ -44,8 +43,7 @@ class ViewController: UIViewController {
         
         TableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refresh), for: .allEvents)
-        
-        setupMenu()
+        initMenu(id: ViewController.SelectedItemTag)
         setupDateLabel()
         setupTabBar()
         initTableData()
@@ -102,7 +100,7 @@ class ViewController: UIViewController {
     }
     
     private func fillTheTable() {
-        switch SelectedItemTag {
+        switch ViewController.SelectedItemTag {
         case 0:
             shownItems = openAppointments
             break;
@@ -142,7 +140,7 @@ class ViewController: UIViewController {
         tabItem3.tag = 2
         
         TabBar.items = [tabItem1, tabItem2, tabItem3]
-        TabBar.selectedItem = TabBar.items![SelectedItemTag]
+        TabBar.selectedItem = TabBar.items![ViewController.SelectedItemTag]
         TabBar.delegate = self
     }
     
@@ -151,12 +149,6 @@ class ViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM yyyy"
         DateLabel.text = formatter.string(from: date)
-    }
-    
-    private func setupMenu() {
-        let SideMenuView = mainStoryboard.instantiateViewController(identifier: "SideMenuView") as! SideMenuNavigationController
-        SideMenuManager.default.leftMenuNavigationController = SideMenuView
-        SideMenuView.statusBarEndAlpha = 0
     }
     
     @objc func refresh() {
@@ -185,7 +177,8 @@ class ViewController: UIViewController {
 
 extension ViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        SelectedItemTag = item.tag
+        ViewController.SelectedItemTag = item.tag
+        MenuViewController.selectedItem = item.tag
         fillTheTable()
     }
 }
@@ -227,7 +220,7 @@ extension ViewController: UITableViewDelegate {
         
         formatter.dateFormat = "EEEE d MMMM yyyy"
         var title: String
-        switch SelectedItemTag {
+        switch ViewController.SelectedItemTag {
         case 0:
             title = "appointment_detail_title_open"
             detailVc.buttons = [

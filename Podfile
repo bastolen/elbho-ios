@@ -7,7 +7,6 @@ target 'ELBHO Adviseurs' do
   # Pods for ELBHO Adviseurs
   pod 'MaterialComponents'
   pod 'SwiftKeychainWrapper'
-  pod 'SideMenu'
 
   target 'ELBHO AdviseursTests' do
     inherit! :search_paths

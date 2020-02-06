@@ -10,8 +10,6 @@ import UIKit
 import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
-import SideMenu
-
 class CopyWeekViewController : UIViewController {
     
     let nc = NotificationCenter.default

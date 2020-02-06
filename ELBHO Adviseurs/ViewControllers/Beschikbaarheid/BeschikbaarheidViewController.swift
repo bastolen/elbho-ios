@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
-import SideMenu
 
 class BeschikbaarheidViewController : UIViewController {
     
@@ -36,6 +35,7 @@ class BeschikbaarheidViewController : UIViewController {
         super.viewDidLoad()
         title = "Beschikbaarheid"
         navigationController?.navigationBar.tintColor = .white
+        initMenu(id: 3)
         resetVars()
         
         // Start vullen calendar

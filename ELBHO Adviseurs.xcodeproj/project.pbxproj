@@ -45,6 +45,8 @@
 		5FC209322399649B0080C82B /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC209302399649B0080C82B /* DetailViewCell.swift */; };
 		5FC209332399649B0080C82B /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC209312399649B0080C82B /* DetailViewCell.xib */; };
 		5FC2093523996A310080C82B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2093423996A310080C82B /* UIView.swift */; };
+		5FC988EF23EC9ECA009877FF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC988EE23EC9ECA009877FF /* MenuItem.swift */; };
+		5FC988F123EC9F67009877FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC988F023EC9F67009877FF /* MenuViewController.swift */; };
 		5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FC23796CBC00E3015B /* AppDelegate.swift */; };
 		5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FE23796CBC00E3015B /* SceneDelegate.swift */; };
 		5FE0640123796CBC00E3015B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0640023796CBC00E3015B /* ViewController.swift */; };
@@ -123,6 +125,8 @@
 		5FC209302399649B0080C82B /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
 		5FC209312399649B0080C82B /* DetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
 		5FC2093423996A310080C82B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		5FC988EE23EC9ECA009877FF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		5FC988F023EC9F67009877FF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		5FE063F923796CBC00E3015B /* ELBHO Adviseurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ELBHO Adviseurs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE063FC23796CBC00E3015B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE063FE23796CBC00E3015B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 				17A34A3B23AA553200C90CDC /* Availability.swift */,
 				17A34A3D23C0C68F00C90CDC /* Availability2.swift */,
 				17A34A3F23C219FC00C90CDC /* Car.swift */,
+				5FC988EE23EC9ECA009877FF /* MenuItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				5FE0640023796CBC00E3015B /* ViewController.swift */,
 				5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */,
 				5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */,
+				5FC988F023EC9F67009877FF /* MenuViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -650,6 +656,7 @@
 				5F124857238E602E00411781 /* MDCButton.swift in Sources */,
 				5FC209322399649B0080C82B /* DetailViewCell.swift in Sources */,
 				17488BCA239837FA008BAA98 /* Calendar.swift in Sources */,
+				5FC988EF23EC9ECA009877FF /* MenuItem.swift in Sources */,
 				5FE0640123796CBC00E3015B /* ViewController.swift in Sources */,
 				5F124853238DB98900411781 /* UIViewController.swift in Sources */,
 				17200808239E4BA700EF762B /* CarReservationViewController.swift in Sources */,
@@ -674,6 +681,7 @@
 				5F06D83A239AAB6200A15EDD /* Invoice.swift in Sources */,
 				17A34A4023C219FC00C90CDC /* Car.swift in Sources */,
 				1720080C239E884900EF762B /* CarAvailability.swift in Sources */,
+				5FC988F123EC9F67009877FF /* MenuViewController.swift in Sources */,
 				1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */,
 				5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */,
 				17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */,

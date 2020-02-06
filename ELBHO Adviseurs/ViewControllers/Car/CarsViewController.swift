@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
-import SideMenu
 
 class CarsViewController : UIViewController {
     
@@ -42,7 +41,7 @@ class CarsViewController : UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
-        
+        initMenu(id: 4)
         initContent()
     }
     

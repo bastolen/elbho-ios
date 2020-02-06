@@ -11,7 +11,69 @@ import UIKit
 import MaterialComponents.MDCSnackbarMessage
 
 extension UIViewController {
+    // MARK: Menu
+    func initMenu(id: Int) {
+        MenuViewController.selectedItem = id
+        let button = UIBarButtonItem(image: UIImage(named: "MenuIcon"), style: .plain, target: self, action: #selector(menuTapped))
+        button.tintColor = .white
+        navigationItem.leftBarButtonItem = button
+
+        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
+        edgePan.edges = .left
+
+        view.addGestureRecognizer(edgePan)
+    }
     
+    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .recognized {
+            self.menuTapped()
+        }
+    }
+    
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (view.viewWithTag(999) != nil) {
+            if let firstTouch = touches.first {
+                let hit = (view.viewWithTag(999)?.frame.contains(firstTouch.location(in: self.view)))!
+                if !hit {
+                    self.menuTapped()
+                }
+            }
+        }
+    }
+    
+    @objc func menuTapped() {
+        let menuWidth = self.view.frame.width*0.75
+        let animationTime = 0.2
+        if (view.viewWithTag(999) == nil) {
+            let containerView = UIView()
+            containerView.translatesAutoresizingMaskIntoConstraints = false
+            containerView.frame = CGRect(x: 0, y: 0, width: menuWidth, height: self.view.frame.height)
+            containerView.tag = 999
+            view.addSubview(containerView)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let menuViewController = storyboard.instantiateViewController(withIdentifier:
+                "MenuViewController") as! MenuViewController
+            
+            menuViewController.view.frame = CGRect(x: -menuWidth, y: 0, width: menuWidth, height: self.view.frame.height)
+            addChild(menuViewController)
+            UIView.animate(withDuration: animationTime, delay: 0.0, options: [.curveLinear], animations: {
+                menuViewController.view.frame = CGRect(x: 0, y: 0, width: menuWidth, height: self.view.frame.height)
+            })
+            
+            menuViewController.view.translatesAutoresizingMaskIntoConstraints = true
+            containerView.addSubview(menuViewController.view)
+        } else {
+            UIView.animate(withDuration: animationTime, delay: 0.0, options: [.curveLinear], animations: {
+                self.view.viewWithTag(999)?.subviews.first!.frame = CGRect(x: -menuWidth, y: 0, width: menuWidth, height: self.view.frame.height)
+            }, completion: { _ in
+                self.view.viewWithTag(999)?.removeFromSuperview()
+            })
+            
+        }
+    }
+    
+    // MARK: Snackbars
     func showSnackbarPrimary(_ text: String) -> Void {
         let message = MDCSnackbarMessage(text: text)
         

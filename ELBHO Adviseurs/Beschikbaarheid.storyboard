@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SVH-rd-bKZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SVH-rd-bKZ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -12,7 +12,7 @@
         <!--Beschikbaarheid View Controller-->
         <scene sceneID="GR7-Ie-55e">
             <objects>
-                <viewController id="SVH-rd-bKZ" customClass="BeschikbaarheidViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BeschikbaarheidViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SVH-rd-bKZ" customClass="BeschikbaarheidViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NBe-bX-6Fp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -918,8 +918,8 @@
     </scenes>
     <resources>
         <image name="checkmark" catalog="system" width="64" height="56"/>
-        <image name="chevron.left" catalog="system" width="46" height="64"/>
-        <image name="chevron.right" catalog="system" width="46" height="64"/>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
+        <image name="chevron.right" catalog="system" width="48" height="64"/>
         <image name="doc.on.doc.fill" catalog="system" width="58" height="64"/>
         <image name="trash" catalog="system" width="60" height="64"/>
         <namedColor name="BeschikbaarheidDateBackground">

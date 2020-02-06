@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
-import SideMenu
 
 class WeekOverzichtViewController: UIViewController {
 

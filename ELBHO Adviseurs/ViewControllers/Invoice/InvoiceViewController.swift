@@ -38,6 +38,7 @@ class InvoiceViewController: UIViewController {
         AddButton.setTitle("button_addinvoice".localize, for: .normal)
         
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name("refreshInvoices"), object: nil)
+        initMenu(id: 5)
         initContent()
     }
     

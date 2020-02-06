@@ -56,13 +56,14 @@ extension MenuViewController: UITableViewDataSource {
 
 extension MenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if MenuViewController.selectedItem < 3 && self.menuItems[indexPath.row].id < 3 {
-            ViewController.SelectedItemTag = MenuViewController.selectedItem
+        let selectedItem = self.menuItems[indexPath.row]
+        if selectedItem.id < 3 {
+            ViewController.SelectedItemTag = selectedItem.id
         }
-        MenuViewController.selectedItem = self.menuItems[indexPath.row].id
-        let storyboard = UIStoryboard(name: self.menuItems[indexPath.row].storyboardIdentifier, bundle: nil)
+        MenuViewController.selectedItem = selectedItem.id
+        let storyboard = UIStoryboard(name: selectedItem.storyboardIdentifier, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier:
-            self.menuItems[indexPath.row].viewControllerIdentifier)
+            selectedItem.viewControllerIdentifier)
         navigationController?.setViewControllers([controller], animated: true)
         
     }

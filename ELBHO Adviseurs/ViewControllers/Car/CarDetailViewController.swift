@@ -10,6 +10,8 @@ import UIKit
 import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
+import Kingfisher
+
 class CarDetailViewController : UIViewController {
     let nc = NotificationCenter.default
     
@@ -17,6 +19,7 @@ class CarDetailViewController : UIViewController {
     var rows: [DetailViewRow] = []
     
     @IBOutlet weak var carNameLabel: UILabel!
+    @IBOutlet weak var ImageHolder: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: MDCButton!
     
@@ -28,7 +31,7 @@ class CarDetailViewController : UIViewController {
         
         let fullCarName = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model))"
         carNameLabel.text = fullCarName
-        
+        ImageHolder.kf.setImage(with: item?.vehicle.image)
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellReuseIdentifier: "DetailViewCell")
         
@@ -41,14 +44,14 @@ class CarDetailViewController : UIViewController {
             APIService.deleteCarReservation(_id: item!._id).subscribe(onNext: {
                 self.showSnackbarSuccess("De reservering is verwijderd!")
                 self.callSend = false
+                self.nc.post(name: Notification.Name("reloadCarReservations"), object: nil)
+                self.navigationController?.popViewController(animated: true)
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)
                 self.callSend = false
             }).disposed(by: disposeBag)
         }
         
-        _ = navigationController?.popViewController(animated: true)
-        nc.post(name: Notification.Name("reloadCarReservations"), object: nil)
     }
     
 }

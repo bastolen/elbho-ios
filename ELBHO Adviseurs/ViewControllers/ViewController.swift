@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     static var SelectedItemTag: Int = 0
-    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let refreshControl = UIRefreshControl()
     let locManager = CLLocationManager()
     
@@ -58,8 +57,12 @@ class ViewController: UIViewController {
     
     private func checkLoggedIn() {
 //        KeychainWrapper.standard.removeAllKeys()
+//        KeychainWrapper.standard.set("testToken", forKey: "authToken")
+
         if(!KeychainWrapper.standard.hasValue(forKey: "authToken")) {
             // Not logged in, show login screen
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
             return
         }
@@ -210,6 +213,8 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+ 
         let detailVc = mainStoryboard.instantiateViewController(withIdentifier:
             "AppointmentDetailViewController") as! AppointmentDetailViewController
         let item = shownItems[indexPath.row]!

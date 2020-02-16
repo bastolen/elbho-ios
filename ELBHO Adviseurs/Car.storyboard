@@ -167,6 +167,7 @@
                         <viewLayoutGuide key="safeArea" id="IZU-d4-OJ3"/>
                     </view>
                     <connections>
+                        <outlet property="ImageHolder" destination="oPZ-ze-NfS" id="Acu-LQ-NFo"/>
                         <outlet property="cancelButton" destination="Hq2-rN-p6a" id="blL-7l-sww"/>
                         <outlet property="carNameLabel" destination="NPY-yH-mgs" id="Dtq-ok-JzZ"/>
                         <outlet property="tableView" destination="eqT-m7-v1C" id="DkI-qd-LcQ"/>

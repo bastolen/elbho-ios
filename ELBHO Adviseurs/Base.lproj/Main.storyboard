@@ -185,23 +185,47 @@
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2X9-Ex-1rr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Oc9-bI-djN">
+                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Oc9-bI-djN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIr-y9-hQf">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIr-y9-hQf">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                     </tableView>
-                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nY-2z-7zO">
-                                        <rect key="frame" x="0.0" y="448" width="414" height="448"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TUD-JE-H7c">
+                                        <rect key="frame" x="0.0" y="696" width="414" height="200"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ELBHO-LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="hrR-Uy-UIj">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqO-aj-ph5">
+                                                <rect key="frame" x="0.0" y="50" width="414" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VO-ed-T0b" customClass="MDCButton">
+                                                <rect key="frame" x="0.0" y="100" width="414" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="LogoutButtonClicked:" destination="p51-dL-oIi" eventType="touchUpInside" id="hWD-BB-B70"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-d0-2tH">
+                                                <rect key="frame" x="0.0" y="150" width="414" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="NgF-ab-g5O"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="nIr-y9-hQf" firstAttribute="leading" secondItem="Oc9-bI-djN" secondAttribute="leading" id="BNe-ra-Ish"/>
-                                    <constraint firstItem="2nY-2z-7zO" firstAttribute="leading" secondItem="Oc9-bI-djN" secondAttribute="leading" id="M1n-cF-d44"/>
-                                    <constraint firstAttribute="trailing" secondItem="2nY-2z-7zO" secondAttribute="trailing" id="Yj1-wJ-f6l"/>
+                                    <constraint firstAttribute="trailing" secondItem="TUD-JE-H7c" secondAttribute="trailing" id="IhN-c0-Uni"/>
+                                    <constraint firstItem="TUD-JE-H7c" firstAttribute="leading" secondItem="Oc9-bI-djN" secondAttribute="leading" id="N6m-uB-rvy"/>
                                     <constraint firstAttribute="trailing" secondItem="nIr-y9-hQf" secondAttribute="trailing" id="ydQ-2o-4QD"/>
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -216,20 +240,25 @@
                             <constraint firstItem="Oc9-bI-djN" firstAttribute="top" secondItem="2X9-Ex-1rr" secondAttribute="top" id="iKR-PI-ltW"/>
                         </constraints>
                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                        <viewLayoutGuide key="safeArea" id="QII-iz-4ai"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="BottomView" destination="TUD-JE-H7c" id="afV-Kd-eZp"/>
+                        <outlet property="LogoutButton" destination="3VO-ed-T0b" id="ZYg-l3-USN"/>
+                        <outlet property="NameLabel" destination="nqO-aj-ph5" id="br7-qB-6fj"/>
                         <outlet property="TableView" destination="nIr-y9-hQf" id="JLj-2f-Ht6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRp-zH-1lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="-651"/>
+            <point key="canvasLocation" x="85.507246376811594" y="-651.5625"/>
         </scene>
     </scenes>
     <resources>
         <image name="BrandIcon" width="1007" height="900"/>
+        <image name="ELBHO-LOGO" width="32" height="32"/>
         <namedColor name="Primary">
             <color red="0.0" green="0.28999999165534973" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

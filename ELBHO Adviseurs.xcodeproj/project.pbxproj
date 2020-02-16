@@ -39,6 +39,7 @@
 		5F584DD62384016000EBE536 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F584DD52384016000EBE536 /* Advisor.swift */; };
 		5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7335DB2399204B0013F4EA /* Appointment.swift */; };
 		5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */; };
+		5F9B529323F9DA67001FA776 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9B529223F9DA67001FA776 /* Date.swift */; };
 		5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */; };
 		5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092B23994D980080C82B /* DetailViewRow.swift */; };
 		5FC2092E239954FE0080C82B /* DetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092D239954FE0080C82B /* DetailViewButton.swift */; };
@@ -119,6 +120,7 @@
 		5F584DD52384016000EBE536 /* Advisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advisor.swift; sourceTree = "<group>"; };
 		5F7335DB2399204B0013F4EA /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F9B529223F9DA67001FA776 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewController.swift; sourceTree = "<group>"; };
 		5FC2092B23994D980080C82B /* DetailViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewRow.swift; sourceTree = "<group>"; };
 		5FC2092D239954FE0080C82B /* DetailViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButton.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				5F124856238E602E00411781 /* MDCButton.swift */,
 				5FC2093423996A310080C82B /* UIView.swift */,
 				5F2301A823AE6F6B001880C5 /* URL.swift */,
+				5F9B529223F9DA67001FA776 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				5F2301A723AE631F001880C5 /* PDFViewController.swift in Sources */,
 				5F2301A923AE6F6B001880C5 /* URL.swift in Sources */,
 				5FC2093523996A310080C82B /* UIView.swift in Sources */,
+				5F9B529323F9DA67001FA776 /* Date.swift in Sources */,
 				5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */,
 				5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */,
 				5F06D83C239ADED700A15EDD /* AddInvoiceViewController.swift in Sources */,

@@ -14,7 +14,16 @@
 "error_empty_field" = "Een van de verplichte velden is nog leeg";
 "error_fileInvalid" = "Dit bestand is niet valide";
 
+"menu_name_label" = "Ingelogd als %@";
+"menu_open" = "Openstaande afspraken";
+"menu_accepted" = "Aanstaande afspraken";
+"menu_done" = "Afgeronde afspraken";
+"menu_availability" = "Beschikbaarheid";
+"menu_vehicle" = "Auto reserveren";
+"menu_invoice" = "Facturen";
+
 "button_login" = "Login";
+"button_logout" = "Log uit";
 "button_reject" = "Afwijzen";
 "button_accept" = "Accepteren";
 "button_leave" = "Vertrekken";

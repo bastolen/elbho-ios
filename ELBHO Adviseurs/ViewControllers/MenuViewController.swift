@@ -7,24 +7,48 @@
 //
 
 import UIKit
+import MaterialComponents
+import SwiftKeychainWrapper
 
 class MenuViewController: UIViewController {
     static public var selectedItem: Int = 0;
 
+    @IBOutlet weak var BottomView: UIStackView!
     @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var LogoutButton: MDCButton!
+    
     let menuItems: [MenuItem] = [
-        MenuItem(text: "Open", viewControllerIdentifier: "MainViewController", storyboardIdentifier: "Main", id: 0),
-        MenuItem(text: "Aanstaand", viewControllerIdentifier: "MainViewController", storyboardIdentifier: "Main", id: 1),
-        MenuItem(text: "Afgerond", viewControllerIdentifier: "MainViewController", storyboardIdentifier: "Main", id: 2),
-        MenuItem(text: "Beschikbaarheid", viewControllerIdentifier: "BeschikbaarheidViewController", storyboardIdentifier: "Beschikbaarheid", id: 3),
-        MenuItem(text: "Auto", viewControllerIdentifier: "CarsViewController", storyboardIdentifier: "Car", id: 4),
-        MenuItem(text: "Facturen", viewControllerIdentifier: "InvoiceViewController", storyboardIdentifier: "Invoice", id: 5)
+        MenuItem(text: "menu_open".localize, viewControllerIdentifier: "MainViewController", storyboardIdentifier: "Main", id: 0),
+        MenuItem(text: "menu_accepted".localize, viewControllerIdentifier: "MainViewController", storyboardIdentifier: "Main", id: 1),
+        MenuItem(text: "menu_done".localize, viewControllerIdentifier: "MainViewController", storyboardIdentifier: "Main", id: 2),
+        MenuItem(text: "menu_availability".localize, viewControllerIdentifier: "BeschikbaarheidViewController", storyboardIdentifier: "Beschikbaarheid", id: 3),
+        MenuItem(text: "menu_vehicle".localize, viewControllerIdentifier: "CarsViewController", storyboardIdentifier: "Car", id: 4),
+        MenuItem(text: "menu_invoice".localize, viewControllerIdentifier: "InvoiceViewController", storyboardIdentifier: "Invoice", id: 5)
     ]
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        TableView.tableFooterView = UIView()
         TableView.dataSource = self
         TableView.delegate = self
+        
+        let third = self.view.frame.height / 3
+        BottomView.frame = CGRect(x: 0, y: 0, width: BottomView.frame.width, height: third)
+        
+        LogoutButton.setTextPrimary()
+        LogoutButton.setTitle("button_logout".localize, for: .normal)
+        
+        let name = KeychainWrapper.standard.string(forKey: "AdvisorName")
+        NameLabel.text = "menu_name_label".localizeWithVars(name ?? "Your Name Here")
+        
+        super.viewDidLoad()
+    }
+    
+    @IBAction func LogoutButtonClicked(_ sender: Any) {
+        KeychainWrapper.standard.removeAllKeys()
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
     }
 }
 
@@ -42,14 +66,10 @@ extension MenuViewController: UITableViewDataSource {
         let menuItem: MenuItem = self.menuItems[indexPath.row]
         
         cell!.textLabel?.text = menuItem.text
-        var color: UIColor
         if (MenuViewController.selectedItem == menuItem.id){
-            color = .blue
-        } else {
-            color = .red
+            cell!.backgroundColor = UIColor(named: "BorderColor")
         }
         
-        cell!.textLabel?.backgroundColor = color
        return cell!
     }
 }

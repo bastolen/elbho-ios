@@ -13,6 +13,7 @@
 "error_conflict" = "Een veld met deze waarde bestaat al";
 "error_empty_field" = "Een van de verplichte velden is nog leeg";
 "error_fileInvalid" = "Dit bestand is niet valide";
+"error_before_now" = "De geselecteerde datum ligt in de toekomst";
 
 "menu_name_label" = "Ingelogd als %@";
 "menu_open" = "Openstaande afspraken";

@@ -17,7 +17,7 @@ class AddInvoiceViewController: UIViewController {
     
     var yearController: MDCTextInputControllerUnderline?
     @IBOutlet weak var yearInputField: MDCTextField!
-    var years = ["2018", "2019", "2020", "2021", "2022"]
+    var years: [Int] = []
     
     var monthController: MDCTextInputController?
     @IBOutlet weak var monthInputField: MDCTextField!
@@ -66,16 +66,21 @@ class AddInvoiceViewController: UIViewController {
     }
     
     @IBAction func SubmitClicked(_ sender: Any) {
-        if(fileURL == nil && callSend) {
+        if(fileURL == nil || callSend) {
+            showSnackbarDanger("error_empty_field".localize)
             return
         }
-        callSend = true
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM"
         formatter.timeZone = TimeZone(abbreviation: "UTC")
         let date = formatter.date(from: "\(yearInputField.text!)/\(String(format: "%02d", selectedMonth))")!
+        if Date().isBefore(date) {
+            showSnackbarDanger("error_before_now".localize)
+            return
+        }
         
+        callSend = true
         APIService.createInvoice(fileURL: fileURL!, date: date).subscribe(onNext: { invoice in
             self.callSend = false
             NotificationCenter.default.post(name: Notification.Name("refreshInvoices"), object: nil)
@@ -91,6 +96,13 @@ class AddInvoiceViewController: UIViewController {
     }
     
     private func setupInputFields() {
+        let currentYear = Calendar.current.component(.year, from: Date())
+        years = [currentYear]
+        for index in 1...5 {
+            years.append(currentYear - index)
+        }
+        years.reverse()
+        
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(dismissPicker))
         
         yearController = MDCTextInputControllerUnderline(textInput: yearInputField)
@@ -98,7 +110,7 @@ class AddInvoiceViewController: UIViewController {
         yearInputField.placeholderLabel.text = "input_year".localize
         yearInputField.placeholderLabel.textColor = UIColor(named: "Primary")!
         yearInputField.clearButtonMode = .never
-        yearInputField.text = years[0]
+        yearInputField.text = String(years[years.count - 1])
         
         let yearPicker = UIPickerView()
         yearPicker.delegate = self
@@ -160,7 +172,7 @@ extension AddInvoiceViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (pickerView.tag == 1) {
-            return years[row]
+            return String(years[row])
         } else {
             return months[row];
         }
@@ -168,7 +180,7 @@ extension AddInvoiceViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView.tag == 1) {
-            yearInputField.text = years[row]
+            yearInputField.text = String(years[row])
         } else {
             selectedMonth = row + 1
             monthInputField.text = months[row]

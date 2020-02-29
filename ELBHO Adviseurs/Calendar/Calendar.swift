@@ -11,7 +11,20 @@ import Foundation
 let date = Date()
 let calendar = Calendar.current
 
-let months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"]
+let months = [
+    "month_1".localize,
+    "month_2".localize,
+    "month_3".localize,
+    "month_4".localize,
+    "month_5".localize,
+    "month_6".localize,
+    "month_7".localize,
+    "month_8".localize,
+    "month_9".localize,
+    "month_10".localize,
+    "month_11".localize,
+    "month_12".localize
+]
 let daysOfMonth = ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"]
 let daysShort = ["MA", "DI", "WO", "DO", "VR", "ZA", "ZO"]
 var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]

@@ -102,7 +102,7 @@ class WeekOverzichtViewController: UIViewController {
         if(!callSend) {
             items = []
             callSend = true
-            APIService.getAvailability(after: "\(firstDate)T00:00:00.000Z", before: "\(lastDate)T00:00:00.000Z").subscribe(onNext: { availability in
+            APIService.getAvailability(after: firstDate, before: lastDate).subscribe(onNext: { availability in
                 self.items = availability
                 print(self.items)
                 self.setTimeInput()

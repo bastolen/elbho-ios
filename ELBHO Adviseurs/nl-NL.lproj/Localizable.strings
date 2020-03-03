@@ -111,3 +111,9 @@
 "until" = "Tot";
 "car_invalid_fields" = "Niet alle velden ingevuld";
 "car_taken" = "De auto is gereserveerd!";
+
+"button_copy_week" = "Kopieer week";
+"button_save_week" = "Wijzigignen opslaan";
+"button_copy_and_save" = "Kopieren & opslaan";
+"button_car_reservation" = "Auto reserveren";
+"button_car_cancel" = "Reservering annuleren";

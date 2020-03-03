@@ -34,7 +34,7 @@ class CarDetailViewController : UIViewController {
         ImageHolder.kf.setImage(with: item?.vehicle.image)
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellReuseIdentifier: "DetailViewCell")
-        
+        cancelButton.setTitle("button_car_cancel".localize.uppercased(), for: .normal)
         cancelButton.setDanger()
     }
 

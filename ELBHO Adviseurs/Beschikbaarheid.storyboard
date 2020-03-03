@@ -905,6 +905,7 @@
                         <outlet property="switch6" destination="NIQ-qk-ZlY" id="obA-or-q0a"/>
                         <outlet property="switch7" destination="XDP-If-9gE" id="xbe-Wr-MPA"/>
                         <outlet property="switch8" destination="zYW-Cr-xYp" id="FRB-F0-xjc"/>
+                        <outlet property="weekCopyButton" destination="T5R-gD-1lP" id="gfl-cq-3mx"/>
                         <outlet property="weekLabel1" destination="DdX-bW-OUq" id="mLQ-11-L7o"/>
                         <outlet property="weekLabel2" destination="XIt-cx-A8D" id="7Ga-VQ-lBO"/>
                         <outlet property="weekLabel3" destination="k3b-vW-vyK" id="Jac-i4-e57"/>

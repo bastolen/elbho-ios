@@ -45,6 +45,7 @@ class CarReservationViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "vehicle".localize
+        carReservationButton.setTitle("button_car_reservation".localize.uppercased(), for: .normal)
         resetVars()
         
         Calendar.dataSource = self

@@ -32,10 +32,10 @@ class CarsViewController : UIViewController {
         
         title = "title_car".localize
         topLabel.text = "car_header".localize
+        bookCarButton.setTitle("button_car_reservation".localize.uppercased(), for: .normal)
         navigationController?.navigationBar.tintColor = .white
         
         nc.addObserver(self, selector: #selector(initContent), name: Notification.Name("reloadCarReservations"), object: nil)
-
         
         bookCarButton.setPrimary()
         mainView.layer.borderWidth = 1

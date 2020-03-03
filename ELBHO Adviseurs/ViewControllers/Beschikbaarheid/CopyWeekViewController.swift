@@ -23,6 +23,8 @@ class CopyWeekViewController : UIViewController {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var weekToCopyLabel: UILabel!
     
+    @IBOutlet weak var weekCopyButton: UIButton!
+    
     private let disposeBag = DisposeBag()
     private var callSend: Bool = false
     
@@ -56,8 +58,8 @@ class CopyWeekViewController : UIViewController {
         
         mainView.layer.borderWidth = 1
         mainView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
+        weekCopyButton.setTitle("button_copy_and_save".localize.uppercased(), for: .normal)
         
-        //weekToCopyLabel.text = "Week "+String(weekToCopy)+" kopieren naar"
         weekToCopyLabel.text = "week_to_copy".localizeWithVars(String(weekToCopy))
         
         setArrays()

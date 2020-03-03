@@ -81,7 +81,10 @@ class WeekOverzichtViewController: UIViewController {
         
         formattedDate = formatStringToDate(toFormat: clickedDate)
         weekNumberLabel.text = "week".localize+" "+String(getWeekNumber(date: formattedDate))
-         
+        
+        buttonCopyWeek.setTitle("button_copy_week".localize.uppercased(), for: .normal)
+        buttonSaveWeek.setTitle("button_save_week".localize.uppercased(), for: .normal)
+        
         weekView.layer.borderWidth = 1
         weekView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
         buttonCopyWeek.layer.borderWidth = 1
@@ -109,7 +112,6 @@ class WeekOverzichtViewController: UIViewController {
             callSend = true
             APIService.getAvailability(after: firstDate, before: lastDate).subscribe(onNext: { availability in
                 self.items = availability
-                print(self.items)
                 self.setTimeInput()
                 self.callSend = false
             }, onError: {error in

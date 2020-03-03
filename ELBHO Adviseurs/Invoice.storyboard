@@ -137,12 +137,13 @@
                                     <constraint firstAttribute="trailing" secondItem="0YT-oT-1N5" secondAttribute="trailing" id="sXw-YC-Wka"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFn-Nl-B1a" customClass="MDCButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFn-Nl-B1a" customClass="MDCButton">
                                 <rect key="frame" x="20" y="794" width="374" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="AXQ-9X-Wlv"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button" image="plus" catalog="system"/>
                                 <connections>
                                     <action selector="AddButtonClicked:" destination="5Vg-FV-f0X" eventType="touchUpInside" id="VO4-hy-bPr"/>
                                 </connections>
@@ -174,5 +175,6 @@
     </scenes>
     <resources>
         <image name="InvoiceIcon" width="27" height="27"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

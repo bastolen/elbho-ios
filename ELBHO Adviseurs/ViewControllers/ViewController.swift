@@ -18,10 +18,8 @@ class ViewController: UIViewController {
     private let disposeBag = DisposeBag()
     static var SelectedItemTag: Int = 0
     let refreshControl = UIRefreshControl()
-    let locManager = CLLocationManager()
     
     private var callSend: Bool = false
-    private var intervalFunction: Timer?
     
     private var openAppointments: [Appointment?] = []
     private var acceptedAppointments: [Appointment?] = []
@@ -50,8 +48,9 @@ class ViewController: UIViewController {
     }
     
     private func initPermissions() {
-        if( CLLocationManager.authorizationStatus() == .notDetermined){
-            self.locManager.requestWhenInUseAuthorization()
+        if( CLLocationManager.authorizationStatus() != .authorizedAlways){
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.locManager.requestAlwaysAuthorization()
         }
     }
     
@@ -159,23 +158,6 @@ class ViewController: UIViewController {
             initTableData()
         }
     }
-    
-    @objc func updateLocation() {
-        var currentLocation: CLLocation!
-        
-        if(!callSend && (CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() ==  .authorizedAlways)){
-            callSend = true
-            
-            currentLocation = locManager.location
-            APIService.updateLocation(lon: "\(currentLocation.coordinate.longitude)", lat: "\(currentLocation.coordinate.latitude)").subscribe(onNext: {
-                self.callSend = false
-            }, onError: { error in
-                self.callSend = false
-                self.showSnackbarDanger("error_api".localize)
-            }).disposed(by: self.disposeBag)
-        }
-    }
 }
 
 extension ViewController: UITabBarDelegate {
@@ -264,12 +246,13 @@ extension ViewController: UITableViewDelegate {
             break
         case 1:
             title = "appointment_detail_title_accepted"
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             if (KeychainWrapper.standard.string(forKey: "trackingId") == item._id) {
                 detailVc.buttons = [
                     DetailViewButton(text: "button_arrive".localize, style: .primary, clicked: {
                         KeychainWrapper.standard.removeObject(forKey: "trackingId")
-                        self.intervalFunction?.invalidate()
-                        self.intervalFunction = nil;
+
+                        appDelegate.stopTracking()
                         self.showSnackbarSuccess("appointment_arrived".localize)
                         self.navigationController?.popViewController(animated: true)
                     })
@@ -278,7 +261,7 @@ extension ViewController: UITableViewDelegate {
                 detailVc.buttons = [
                     DetailViewButton(text: "button_leave".localize, style: .primary, clicked: {
                         KeychainWrapper.standard.set(item._id, forKey: "trackingId")
-                        self.intervalFunction = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(ViewController.updateLocation), userInfo: nil, repeats: true)
+                        appDelegate.startTracking()
                         self.showSnackbarSuccess("appointment_left".localize)
                         self.navigationController?.popViewController(animated: true)
                     })

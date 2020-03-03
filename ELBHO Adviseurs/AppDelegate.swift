@@ -7,11 +7,45 @@
 //
 
 import UIKit
+import CoreLocation
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    private let disposeBag = DisposeBag()
+    let locManager = CLLocationManager()
+    private var intervalFunction: Timer?
+    private var callSend: Bool = false
+    
 
+    func stopTracking() -> Void {
+        self.intervalFunction?.invalidate()
+        self.intervalFunction = nil;
+    }
+    
+    func startTracking() -> Void {
+        updateLocation()
+        self.intervalFunction = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(AppDelegate.updateLocation), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateLocation() {
+        var currentLocation: CLLocation!
+        
+        if(!callSend && CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+            callSend = true
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            currentLocation = appDelegate.locManager.location
 
+            APIService.updateLocation(lon: "\(currentLocation.coordinate.longitude)", lat: "\(currentLocation.coordinate.latitude)").subscribe(onNext: {
+                self.callSend = false
+            }, onError: { error in
+                self.callSend = false
+                (UIApplication.shared.keyWindow?.rootViewController as? UINavigationController)?.visibleViewController?.showSnackbarDanger("error_api".localize)
+            }).disposed(by: self.disposeBag)
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

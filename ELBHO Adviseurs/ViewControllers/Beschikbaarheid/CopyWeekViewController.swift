@@ -51,7 +51,7 @@ class CopyWeekViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Beschikbaarheid"
+        title = "title_availability".localize
         navigationController?.navigationBar.tintColor = .white
         
         mainView.layer.borderWidth = 1
@@ -92,7 +92,7 @@ class CopyWeekViewController : UIViewController {
     {
         if labels.count > 0 {
             for i in 0..<labels.count {
-                labels[i].text = "Week "+String(weeks[i])
+                labels[i].text = "week".localize+" "+String(weeks[i])
             }
         }
     }
@@ -129,7 +129,7 @@ class CopyWeekViewController : UIViewController {
         if(!callSend) {
             callSend = true
             APIService.postAvailability(availabilities: sendItems).subscribe(onNext: {
-                self.showSnackbarSuccess("De beschikbaarheid is ingevoerd.")
+                self.showSnackbarSuccess("availability_succes".localize)
                 self.callSend = false
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)

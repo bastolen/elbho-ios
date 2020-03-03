@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SVH-rd-bKZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SVH-rd-bKZ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -31,8 +31,8 @@
                                     <action selector="nextMonth:" destination="SVH-rd-bKZ" eventType="touchUpInside" id="6Bl-ba-6Kc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 2019" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgl-a3-gXt">
-                                <rect key="frame" x="139" y="64" width="136.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgl-a3-gXt">
+                                <rect key="frame" x="191" y="64" width="32.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -165,7 +165,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8l8-XJ-IC0">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpK-Zp-cm3">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpK-Zp-cm3">
                                                         <rect key="frame" x="0.0" y="8" width="50" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="I9q-19-rhE"/>
@@ -245,7 +245,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRJ-G9-g00">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCC-Wt-ELM">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCC-Wt-ELM">
                                                         <rect key="frame" x="0.0" y="8" width="50" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="xvY-wc-RGc"/>
@@ -325,7 +325,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMs-sX-Iz6">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQ2-Da-qUH">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQ2-Da-qUH">
                                                         <rect key="frame" x="0.0" y="8" width="50" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="XhN-vz-5On"/>
@@ -405,7 +405,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZT-t6-doj">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixI-5h-aeC">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixI-5h-aeC">
                                                         <rect key="frame" x="0.0" y="8" width="50" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="bPZ-ah-xjG"/>
@@ -485,7 +485,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-V8-hB0">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3O-jI-ICw">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3O-jI-ICw">
                                                         <rect key="frame" x="0.0" y="8" width="50" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="EAu-dA-Gu8"/>
@@ -609,6 +609,11 @@
                         <outlet property="dateLabelDay3" destination="nII-xu-SxX" id="3ag-qs-viR"/>
                         <outlet property="dateLabelDay4" destination="iBV-KV-926" id="fI1-PE-C15"/>
                         <outlet property="dateLabelDay5" destination="t9R-Rp-A6R" id="9jY-Sz-1hS"/>
+                        <outlet property="dayLabelDay1" destination="NpK-Zp-cm3" id="Gvx-7e-s4N"/>
+                        <outlet property="dayLabelDay2" destination="oCC-Wt-ELM" id="DgR-z5-vSG"/>
+                        <outlet property="dayLabelDay3" destination="qQ2-Da-qUH" id="c9p-cv-bH6"/>
+                        <outlet property="dayLabelDay4" destination="ixI-5h-aeC" id="hBB-DL-kdj"/>
+                        <outlet property="dayLabelDay5" destination="e3O-jI-ICw" id="gTr-AM-VbJ"/>
                         <outlet property="timeInputDay1From" destination="BsM-Q3-qKT" id="XZB-qZ-vxO"/>
                         <outlet property="timeInputDay1Until" destination="7bs-o0-aC7" id="fwS-Fg-Yvk"/>
                         <outlet property="timeInputDay2From" destination="Z7V-Ia-g3e" id="Bq4-Lc-Wmr"/>
@@ -918,8 +923,8 @@
     </scenes>
     <resources>
         <image name="checkmark" catalog="system" width="64" height="56"/>
-        <image name="chevron.left" catalog="system" width="48" height="64"/>
-        <image name="chevron.right" catalog="system" width="48" height="64"/>
+        <image name="chevron.left" catalog="system" width="46" height="64"/>
+        <image name="chevron.right" catalog="system" width="46" height="64"/>
         <image name="doc.on.doc.fill" catalog="system" width="58" height="64"/>
         <image name="trash" catalog="system" width="60" height="64"/>
         <namedColor name="BeschikbaarheidDateBackground">

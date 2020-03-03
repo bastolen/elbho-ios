@@ -82,4 +82,20 @@
 "month_11" = "November";
 "month_12" = "December";
 
+"day_1" = "Maandag";
+"day_2" = "Dinsdag";
+"day_3" = "Woensdag";
+"day_4" = "Donderdag";
+"day_5" = "Vrijdag";
+"day_6" = "Zaterdag";
+"day_7" = "Zondag";
+
+"day_1_small" = "MA";
+"day_2_small" = "DI";
+"day_3_small" = "WO";
+"day_4_small" = "DO";
+"day_5_small" = "VR";
+"day_6_small" = "ZA";
+"day_7_small" = "ZO";
+
 "car_button_book" = "Auto reserveren";

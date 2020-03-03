@@ -33,27 +33,32 @@ class WeekOverzichtViewController: UIViewController {
     @IBOutlet weak var weekNumberLabel: UILabel!
     
     // Dag 1
+    @IBOutlet weak var dayLabelDay1: UILabel!
     @IBOutlet weak var dateLabelDay1: UILabel!
     @IBOutlet weak var timeInputDay1From: UITextField!
     @IBOutlet weak var timeInputDay1Until: UITextField!
     
     // Dag 2
+    @IBOutlet weak var dayLabelDay2: UILabel!
     @IBOutlet weak var dateLabelDay2: UILabel!
     @IBOutlet weak var timeInputDay2From: UITextField!
     @IBOutlet weak var timeInputDay2Until: UITextField!
     
     // Dag 3
+    @IBOutlet weak var dayLabelDay3: UILabel!
     @IBOutlet weak var dateLabelDay3: UILabel!
     @IBOutlet weak var timeInputDay3From: UITextField!
     @IBOutlet weak var timeInputDay3Until: UITextField!
     
     
     // Dag 4
+    @IBOutlet weak var dayLabelDay4: UILabel!
     @IBOutlet weak var dateLabelDay4: UILabel!
     @IBOutlet weak var timeInputDay4From: UITextField!
     @IBOutlet weak var timeInputDay4Until: UITextField!
     
     // Dag 5
+    @IBOutlet weak var dayLabelDay5: UILabel!
     @IBOutlet weak var dateLabelDay5: UILabel!
     @IBOutlet weak var timeInputDay5From: UITextField!
     @IBOutlet weak var timeInputDay5Until: UITextField!
@@ -72,11 +77,11 @@ class WeekOverzichtViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Beschikbaarheid"
+        title = "title_availability".localize
         
         formattedDate = formatStringToDate(toFormat: clickedDate)
-        weekNumberLabel.text = "Week "+String(getWeekNumber(date: formattedDate))
-        
+        weekNumberLabel.text = "week".localize+" "+String(getWeekNumber(date: formattedDate))
+         
         weekView.layer.borderWidth = 1
         weekView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
         buttonCopyWeek.layer.borderWidth = 1
@@ -130,6 +135,12 @@ class WeekOverzichtViewController: UIViewController {
             dateLabelDay3.text = dateFormatter.string(from: daysToShow[2])
             dateLabelDay4.text = dateFormatter.string(from: daysToShow[3])
             dateLabelDay5.text = dateFormatter.string(from: daysToShow[4])
+            
+            dayLabelDay1.text = "day_1_small".localize
+            dayLabelDay2.text = "day_2_small".localize
+            dayLabelDay3.text = "day_3_small".localize
+            dayLabelDay4.text = "day_4_small".localize
+            dayLabelDay5.text = "day_5_small".localize
         }
         
     }
@@ -263,7 +274,7 @@ class WeekOverzichtViewController: UIViewController {
     
     @IBAction func copyWeekClick(_ sender: Any) {
         if (!KeychainWrapper.standard.hasValue(forKey: "onboarding-copy-week")) {
-            let alert = UIAlertController(title: "Week kopieren", message: "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "week_copy".localize, message: "week_copy_info".localize, preferredStyle: .alert)
             let imageView = UIImageView(frame: CGRect(x: 10, y: 110, width: 250, height: 125))
             imageView.image = UIImage(named: "KopieerWeekAlert")
             alert.view.addSubview(imageView)
@@ -272,7 +283,7 @@ class WeekOverzichtViewController: UIViewController {
             let width = NSLayoutConstraint(item: alert.view!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
             alert.view.addConstraint(height)
             alert.view.addConstraint(width)
-            alert.addAction(UIAlertAction(title: "Begrepen", style: .default, handler: { (action) in
+            alert.addAction(UIAlertAction(title: "understand".localize, style: .default, handler: { (action) in
                 KeychainWrapper.standard.set(true, forKey: "onboarding-copy-week")
             }))
             self.present(alert, animated: true)
@@ -352,7 +363,7 @@ class WeekOverzichtViewController: UIViewController {
         if(!callSend) {
             callSend = true
             APIService.postAvailability(availabilities: sendItems).subscribe(onNext: {
-                self.showSnackbarSuccess("De beschikbaarheid is ingevoerd.")
+                self.showSnackbarSuccess("availability_succes".localize)
                 self.callSend = false
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)
@@ -368,13 +379,13 @@ class WeekOverzichtViewController: UIViewController {
     func createAvailabilityObject(from : String, until : String, date : Date, empty: Bool) -> Availability2 {
         // Eerst de normale date
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        let dateToSend = dateFormatter.string(from: date)+"T00:00:00.000Z"
+        let dateToSend = dateFormatter.string(from: date)
         var startToSend = String()
         var endToSend = String()
         
         if empty {
-            startToSend = dateFormatter.string(from: date)+"T00:00:00.000Z"
-            endToSend = dateFormatter.string(from: date)+"T00:00:00.000Z"
+            startToSend = dateFormatter.string(from: date)
+            endToSend = dateFormatter.string(from: date)
         } else {
             startToSend = dateFormatter.string(from: date)+"T"+from+":00.000Z"
             endToSend = dateFormatter.string(from: date)+"T"+until+":00.000Z"

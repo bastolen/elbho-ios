@@ -25,8 +25,16 @@ let months = [
     "month_11".localize,
     "month_12".localize
 ]
-let daysOfMonth = ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"]
-let daysShort = ["MA", "DI", "WO", "DO", "VR", "ZA", "ZO"]
+let daysOfMonth = ["day_1".localize, "day_2".localize, "day_3".localize, "day_4".localize, "day_5".localize, "day_6".localize, "day_7".localize]
+let daysShort = [
+     "day_1_small".localize,
+     "day_2_small".localize,
+     "day_3_small".localize,
+     "day_4_small".localize,
+     "day_5_small".localize,
+     "day_6_small".localize,
+     "day_7_small".localize
+]
 var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 var currentMonth = String()
@@ -56,7 +64,17 @@ func resetVars()
     weekday = calendar.component(.weekday, from: date) - 1
     month = calendar.component(.month, from: date) - 1
     year = calendar.component(.year, from: date)
+    leapCheck()
     
+}
+
+func leapCheck()
+{
+    if (year % 4 == 0) {
+        daysInMonth[1] = 29
+    } else {
+        daysInMonth[1] = 28
+    }
 }
 
 func getStartDateDayPosition()

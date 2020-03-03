@@ -33,7 +33,8 @@ class BeschikbaarheidViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Beschikbaarheid"
+        title = "title_availability".localize
+        
         navigationController?.navigationBar.tintColor = .white
         initMenu(id: 3)
         resetVars()
@@ -62,7 +63,7 @@ class BeschikbaarheidViewController : UIViewController {
         let modifiedDate = NSCalendar.current.date(byAdding: .month, value: 2, to: today)!
         
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        
+        print(today)
         if(!callSend) {
             items = []
             callSend = true
@@ -91,15 +92,9 @@ class BeschikbaarheidViewController : UIViewController {
     
     
     @IBAction func prevMonth(_ sender: Any) {
-        
-        if year == 2020 {
-            daysInMonth[1] = 29
-        } else {
-            daysInMonth[1] = 28
-        }
-        
+        leapCheck()
         switch currentMonth {
-        case "Januari":
+        case "month_1".localize:
             month = 11
             year -= 1
             direction = -1
@@ -123,14 +118,9 @@ class BeschikbaarheidViewController : UIViewController {
     }
     
     @IBAction func nextMonth(_ sender: Any) {
-        if year == 2020 {
-            daysInMonth[1] = 29
-        } else {
-            daysInMonth[1] = 28
-        }
-        
+        leapCheck()
         switch currentMonth {
-        case "December":
+        case "month_12".localize:
             month = 0
             year += 1
             direction = 1
@@ -227,7 +217,7 @@ extension BeschikbaarheidViewController : UICollectionViewDelegate, UICollection
         
         let storyboard = UIStoryboard(name: "Beschikbaarheid", bundle: nil)
         let Vc = storyboard.instantiateViewController(withIdentifier: "WeekOverzichtViewController") as! WeekOverzichtViewController
-        Vc.clickedDate = clickedDate+" 12:00:00"
+        Vc.clickedDate = clickedDate+" 01:00:00"
         self.navigationController?.pushViewController(Vc, animated: true)
         
     }

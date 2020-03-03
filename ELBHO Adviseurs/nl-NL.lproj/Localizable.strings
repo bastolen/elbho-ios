@@ -79,3 +79,28 @@
 "month_10" = "Oktober";
 "month_11" = "November";
 "month_12" = "December";
+
+"day_1" = "Maandag";
+"day_2" = "Dinsdag";
+"day_3" = "Woensdag";
+"day_4" = "Donderdag";
+"day_5" = "Vrijdag";
+"day_6" = "Zaterdag";
+"day_7" = "Zondag";
+
+"day_1_small" = "MA";
+"day_2_small" = "DI";
+"day_3_small" = "WO";
+"day_4_small" = "DO";
+"day_5_small" = "VR";
+"day_6_small" = "ZA";
+"day_7_small" = "ZO";
+
+"week" = "Week";
+"week_copy" = "Week kopieren";
+"week_copy_info" = "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.";
+"understand" = "Begrepen";
+
+"availability_succes" = "De beschikbaarheid is ingevoerd";
+"title_car" = "Auto overzicht";
+"car_header" = "Gereserveerde auto's";

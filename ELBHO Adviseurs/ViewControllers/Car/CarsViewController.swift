@@ -15,6 +15,7 @@ class CarsViewController : UIViewController {
     
     let nc = NotificationCenter.default
     
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bookCarButton: MDCButton!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -28,7 +29,9 @@ class CarsViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Auto overzicht"
+        
+        title = "title_car".localize
+        topLabel.text = "car_header".localize
         navigationController?.navigationBar.tintColor = .white
         
         nc.addObserver(self, selector: #selector(initContent), name: Notification.Name("reloadCarReservations"), object: nil)

@@ -116,15 +116,17 @@ class AddInvoiceViewController: UIViewController {
         yearPicker.delegate = self
         yearPicker.dataSource = self
         yearPicker.tag = 1
+        yearPicker.selectRow(years.count-1, inComponent:0, animated:true)
         yearInputField.inputView = yearPicker
         yearInputField.inputAccessoryView = toolBar
-        monthInputField.text = months[0]
+
         
         monthController = MDCTextInputControllerUnderline(textInput: monthInputField)
         monthController?.activeColor = UIColor(named: "Primary")
         monthInputField.placeholderLabel.text = "input_month".localize
         monthInputField.placeholderLabel.textColor = UIColor(named: "Primary")!
         monthInputField.clearButtonMode = .never
+        monthInputField.text = months[0]
         
         let monthPicker = UIPickerView()
         monthPicker.delegate = self

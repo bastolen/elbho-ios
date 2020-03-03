@@ -14,6 +14,7 @@ class InvoiceViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var TopLabel: UILabel!
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var AddButton: MDCButton!
@@ -26,6 +27,9 @@ class InvoiceViewController: UIViewController {
         super.viewDidLoad()
         title = "title_invoice".localize
         TopLabel.text = "invoice_header".localize
+        
+        mainView.layer.borderWidth = 1
+        mainView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
         
         TableView.dataSource = self
         TableView.delegate = self

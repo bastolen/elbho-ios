@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ap2-0s-eQW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Vg-FV-f0X">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,95 +25,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yfb-uA-SZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="41" y="712"/>
-        </scene>
-        <!--Invoice View Controller-->
-        <scene sceneID="F6j-r1-aS3">
-            <objects>
-                <viewController storyboardIdentifier="InvoiceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ap2-0s-eQW" customClass="InvoiceViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7b8-4Z-4sy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SXC-vO-Tg3">
-                                <rect key="frame" x="0.0" y="54" width="414" height="808"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mMf-bP-BD7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LY9-8E-d4F">
-                                                <rect key="frame" x="134.5" y="0.0" width="145.5" height="50"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InvoiceIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-lU-d45">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="50" id="0s2-5d-Z5I"/>
-                                                            <constraint firstAttribute="width" secondItem="9eA-lU-d45" secondAttribute="height" multiplier="1:1" id="SPG-Lw-XKD"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erm-6m-18z">
-                                                        <rect key="frame" x="70" y="0.0" width="75.5" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W4i-mU-hri">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="690"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUK-fl-fIu">
-                                        <rect key="frame" x="0.0" y="760" width="414" height="48"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlC-8h-uwl">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="48"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="Bn9-aN-gjM"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgc-Rh-gcn" customClass="MDCButton">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="48"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="aau-t6-cwv"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <connections>
-                                                    <action selector="AddButtonClicked:" destination="Ap2-0s-eQW" eventType="touchUpInside" id="OMc-1e-PdM"/>
-                                                </connections>
-                                            </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjy-Ip-fd1">
-                                                <rect key="frame" x="394" y="0.0" width="20" height="48"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="SZx-xZ-K7R"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="SXC-vO-Tg3" firstAttribute="leading" secondItem="Ua5-ul-ofp" secondAttribute="leading" id="6lZ-Fd-eeS"/>
-                            <constraint firstItem="Ua5-ul-ofp" firstAttribute="trailing" secondItem="SXC-vO-Tg3" secondAttribute="trailing" id="8Qk-V7-2yt"/>
-                            <constraint firstItem="Ua5-ul-ofp" firstAttribute="bottom" secondItem="SXC-vO-Tg3" secondAttribute="bottom" id="IbL-aR-KrX"/>
-                            <constraint firstItem="SXC-vO-Tg3" firstAttribute="top" secondItem="Ua5-ul-ofp" secondAttribute="top" constant="10" id="ofP-WI-mhQ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Ua5-ul-ofp"/>
-                    </view>
-                    <connections>
-                        <outlet property="AddButton" destination="Pgc-Rh-gcn" id="X1B-7q-ZBm"/>
-                        <outlet property="TableView" destination="W4i-mU-hri" id="7At-hY-7gm"/>
-                        <outlet property="TopLabel" destination="erm-6m-18z" id="NvV-zq-ZGn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ac1-le-UlF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="40.579710144927539" y="41.517857142857139"/>
         </scene>
         <!--Add Invoice View Controller-->
         <scene sceneID="fPv-iE-ujR">
@@ -180,8 +92,86 @@
             </objects>
             <point key="canvasLocation" x="796" y="42"/>
         </scene>
+        <!--Invoice View Controller-->
+        <scene sceneID="PsB-7x-ioo">
+            <objects>
+                <viewController storyboardIdentifier="InvoiceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Vg-FV-f0X" customClass="InvoiceViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yie-4X-EjX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Oc-4Z-DM5">
+                                <rect key="frame" x="20" y="64" width="374" height="710"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InvoiceIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Zgh-oL-8g2">
+                                        <rect key="frame" x="15" y="15" width="30" height="30"/>
+                                        <color key="tintColor" name="Primary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="AqK-8y-ssp"/>
+                                            <constraint firstAttribute="width" constant="30" id="gng-Kx-HiW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0YT-oT-1N5">
+                                        <rect key="frame" x="0.0" y="63" width="374" height="647"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title_invoice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYG-V5-kqu">
+                                        <rect key="frame" x="60" y="15" width="132" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0YT-oT-1N5" firstAttribute="top" secondItem="fYG-V5-kqu" secondAttribute="bottom" constant="15" id="0WR-WZ-dmC"/>
+                                    <constraint firstItem="Zgh-oL-8g2" firstAttribute="top" secondItem="7Oc-4Z-DM5" secondAttribute="top" constant="15" id="6Va-CE-r8d"/>
+                                    <constraint firstItem="Zgh-oL-8g2" firstAttribute="leading" secondItem="7Oc-4Z-DM5" secondAttribute="leading" constant="15" id="Ksj-CO-a0Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="0YT-oT-1N5" secondAttribute="bottom" id="Tpn-zP-Ool"/>
+                                    <constraint firstItem="fYG-V5-kqu" firstAttribute="top" secondItem="7Oc-4Z-DM5" secondAttribute="top" constant="15" id="WBA-Cw-ao9"/>
+                                    <constraint firstItem="0YT-oT-1N5" firstAttribute="leading" secondItem="7Oc-4Z-DM5" secondAttribute="leading" id="YA6-5j-Crw"/>
+                                    <constraint firstItem="fYG-V5-kqu" firstAttribute="leading" secondItem="Zgh-oL-8g2" secondAttribute="trailing" constant="15" id="sF4-cs-PmD"/>
+                                    <constraint firstAttribute="trailing" secondItem="0YT-oT-1N5" secondAttribute="trailing" id="sXw-YC-Wka"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFn-Nl-B1a" customClass="MDCButton">
+                                <rect key="frame" x="20" y="794" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="AXQ-9X-Wlv"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="AddButtonClicked:" destination="5Vg-FV-f0X" eventType="touchUpInside" id="VO4-hy-bPr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Mjp-6s-7Jo" firstAttribute="trailing" secondItem="7Oc-4Z-DM5" secondAttribute="trailing" constant="20" id="1LB-qa-B8M"/>
+                            <constraint firstItem="7Oc-4Z-DM5" firstAttribute="leading" secondItem="Mjp-6s-7Jo" secondAttribute="leading" constant="20" id="MQe-py-p4D"/>
+                            <constraint firstItem="7Oc-4Z-DM5" firstAttribute="top" secondItem="Mjp-6s-7Jo" secondAttribute="top" constant="20" id="Rqi-m2-gJf"/>
+                            <constraint firstItem="Mjp-6s-7Jo" firstAttribute="bottom" secondItem="LFn-Nl-B1a" secondAttribute="bottom" constant="20" id="aAn-Cz-c59"/>
+                            <constraint firstItem="LFn-Nl-B1a" firstAttribute="leading" secondItem="Mjp-6s-7Jo" secondAttribute="leading" constant="20" id="iV5-PW-TIC"/>
+                            <constraint firstItem="Mjp-6s-7Jo" firstAttribute="trailing" secondItem="LFn-Nl-B1a" secondAttribute="trailing" constant="20" id="kKX-WG-7MC"/>
+                            <constraint firstItem="LFn-Nl-B1a" firstAttribute="top" secondItem="7Oc-4Z-DM5" secondAttribute="bottom" constant="20" id="obc-rQ-xDs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mjp-6s-7Jo"/>
+                    </view>
+                    <connections>
+                        <outlet property="AddButton" destination="LFn-Nl-B1a" id="vNI-ia-iQG"/>
+                        <outlet property="TableView" destination="0YT-oT-1N5" id="HRe-w2-L19"/>
+                        <outlet property="TopLabel" destination="fYG-V5-kqu" id="Fqs-6J-Afa"/>
+                        <outlet property="mainView" destination="7Oc-4Z-DM5" id="LA5-tz-QDv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XzV-k2-oDy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="41" y="42"/>
+        </scene>
     </scenes>
     <resources>
         <image name="InvoiceIcon" width="27" height="27"/>
+        <namedColor name="Primary">
+            <color red="0.0" green="0.28999999165534973" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

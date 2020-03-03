@@ -42,7 +42,7 @@ class CarDetailViewController : UIViewController {
         if(!callSend) {
             callSend = true
             APIService.deleteCarReservation(_id: item!._id).subscribe(onNext: {
-                self.showSnackbarSuccess("De reservering is verwijderd!")
+                self.showSnackbarSuccess("reservation_canceled".localize)
                 self.callSend = false
                 self.nc.post(name: Notification.Name("reloadCarReservations"), object: nil)
                 self.navigationController?.popViewController(animated: true)

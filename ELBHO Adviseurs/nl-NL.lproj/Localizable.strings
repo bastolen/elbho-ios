@@ -100,7 +100,14 @@
 "week_copy" = "Week kopieren";
 "week_copy_info" = "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.";
 "understand" = "Begrepen";
-
+"week_to_copy" = "Week %@ kopieren naar";
 "availability_succes" = "De beschikbaarheid is ingevoerd";
+
 "title_car" = "Auto overzicht";
 "car_header" = "Gereserveerde auto's";
+"vehicle" = "Auto reserveren";
+"reservation_canceled" = "De reservering is verwijderd!";
+"from" = "Van";
+"until" = "Tot";
+"car_invalid_fields" = "Niet alle velden ingevuld";
+"car_taken" = "De auto is gereserveerd!";

@@ -57,7 +57,8 @@ class CopyWeekViewController : UIViewController {
         mainView.layer.borderWidth = 1
         mainView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
         
-        weekToCopyLabel.text = "Week "+String(weekToCopy)+" kopieren naar"
+        //weekToCopyLabel.text = "Week "+String(weekToCopy)+" kopieren naar"
+        weekToCopyLabel.text = "week_to_copy".localizeWithVars(String(weekToCopy))
         
         setArrays()
         fillLabels()

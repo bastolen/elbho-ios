@@ -44,7 +44,7 @@ class CarReservationViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Auto reserveren"
+        title = "vehicle".localize
         resetVars()
         
         Calendar.dataSource = self
@@ -81,13 +81,13 @@ class CarReservationViewController : UIViewController {
         inputTimeFromInputController = MDCTextInputControllerUnderline(textInput: timeFromInput)
         inputTimeFromInputController?.activeColor = UIColor(named: "Primary")
         
-        timeFromInput.placeholderLabel.text = "Van"
+        timeFromInput.placeholderLabel.text = "from".localize
         timeFromInput.placeholderLabel.textColor = UIColor(named: "Primary")!
         timeFromInput.clearButtonMode = .never
         
         inputTimeFromUntilController = MDCTextInputControllerUnderline(textInput: timeUntilInput)
         inputTimeFromUntilController?.activeColor = UIColor(named: "Primary")
-        timeUntilInput.placeholderLabel.text = "Tot"
+        timeUntilInput.placeholderLabel.text = "until".localize
         timeUntilInput.placeholderLabel.textColor = UIColor(named: "Primary")!
         timeUntilInput.clearButtonMode = .never
         
@@ -143,7 +143,7 @@ class CarReservationViewController : UIViewController {
         if(!callSend) {
             items = []
             callSend = true
-            APIService.getCarsAvailability(date: dateSend+"T00:00:00.000Z").subscribe(onNext: { cars in
+            APIService.getCarsAvailability(date: dateSend).subscribe(onNext: { cars in
                 self.items = cars
                 self.tableView.reloadData()
                 self.callSend = false
@@ -157,7 +157,7 @@ class CarReservationViewController : UIViewController {
     @IBAction func makeCarReservation(_ sender: Any) {
         
         if(timeFromInput.text!.isEmpty || timeUntilInput.text!.isEmpty) {
-            self.showSnackbarDanger("Niet alle velden ingevuld")
+            self.showSnackbarDanger("car_invalid_fields".localize)
         } else {
             dateFormatter.dateFormat = "YYYY-MM-dd"
             dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
@@ -180,7 +180,7 @@ class CarReservationViewController : UIViewController {
                     start: clickedInString+"T"+timeFromInput.text!+":00.000Z",
                     end: clickedInString+"T"+timeUntilInput.text!+":00.000Z")
                     .subscribe(onNext: {
-                    self.showSnackbarSuccess("De auto is gereserveerd!")
+                    self.showSnackbarSuccess("car_taken".localize)
                     self.callSend = false
                 }, onError: {error in
                     self.showSnackbarDanger("error_api".localize)
@@ -196,7 +196,7 @@ class CarReservationViewController : UIViewController {
     @IBAction func prevMonthClick(_ sender: Any) {
         highLighted = -1
         switch currentMonth {
-        case "Januari":
+        case "month_1".localize:
             month = 11
             year -= 1
             direction = -1
@@ -221,7 +221,7 @@ class CarReservationViewController : UIViewController {
     @IBAction func nextMonthClick(_ sender: Any) {
         highLighted = -1
         switch currentMonth {
-        case "December":
+        case "month_12".localize:
             month = 0
             year += 1
             direction = 1
@@ -337,7 +337,7 @@ extension CarReservationViewController: UITableViewDataSource {
         // Nu kijken of de auto wel beschikbaar is in de aangegeven tijden
         if !checkAvailability(reservations: item!.reservations) {
             cell.isUserInteractionEnabled = false
-            cell.TimeLocationLabel.text = "Deze auto is al gereserveerd"
+            cell.TimeLocationLabel.text = "car_taken".localize
             cell.imageViewBackground.backgroundColor = UIColor.darkGray
         }
         

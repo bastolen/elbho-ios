@@ -91,7 +91,7 @@ class WeekOverzichtViewController: UIViewController {
         dateFormatter.dateFormat =  "HH:mm"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         datePicker.date = dateFormatter.date(from: "17:00")!
-        
+        datePicker.timeZone = TimeZone(abbreviation: "UTC")
         datePicker.datePickerMode = .time
         datePicker.minuteInterval = 15
         

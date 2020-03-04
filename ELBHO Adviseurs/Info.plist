@@ -37,9 +37,9 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App needs Location</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>App needs Location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App needs Location</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

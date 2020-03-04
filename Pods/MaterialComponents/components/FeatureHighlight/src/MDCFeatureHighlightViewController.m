@@ -57,8 +57,6 @@ static const CGFloat kMDCFeatureHighlightPulseAnimationInterval = (CGFloat)1.5;
 
     _displayedView.accessibilityTraits = UIAccessibilityTraitButton;
 
-    _viewAccessiblityHint = [[self class] dismissAccessibilityHint];
-
     super.transitioningDelegate = self;
     super.modalPresentationStyle = UIModalPresentationCustom;
   }
@@ -88,7 +86,9 @@ static const CGFloat kMDCFeatureHighlightPulseAnimationInterval = (CGFloat)1.5;
   UIGestureRecognizer *tapGestureRecognizer =
       [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(acceptFeature)];
   [_displayedView addGestureRecognizer:tapGestureRecognizer];
-
+  [self.featureHighlightView.accessibilityDismissView addTarget:self
+                                                         action:@selector(rejectFeature)
+                                               forControlEvents:UIControlEventTouchUpInside];
   self.featureHighlightView.outerHighlightColor = _outerHighlightColor;
   self.featureHighlightView.innerHighlightColor = _innerHighlightColor;
   self.featureHighlightView.titleColor = _titleColor;
@@ -350,14 +350,6 @@ static const CGFloat kMDCFeatureHighlightPulseAnimationInterval = (CGFloat)1.5;
 
 - (NSString *)accessibilityHint {
   return _viewAccessiblityHint;
-}
-
-+ (NSString *)dismissAccessibilityHint {
-  NSString *key =
-      kMaterialFeatureHighlightStringTable[kStr_MaterialFeatureHighlightDismissAccessibilityHint];
-  NSString *localizedString = NSLocalizedStringFromTableInBundle(
-      key, kMaterialFeatureHighlightStringsTableName, [self bundle], @"Double-tap to dismiss.");
-  return localizedString;
 }
 
 #pragma mark - Private

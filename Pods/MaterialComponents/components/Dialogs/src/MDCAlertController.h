@@ -20,6 +20,45 @@
 #import <UIKit/UIKit.h>
 
 @class MDCAlertAction;
+@class MDCAlertController;
+
+@protocol MDCAlertControllerDelegate <NSObject>
+
+@optional
+
+/**
+ Informs the receiver that the alert controller will appear on the screen or the application is
+ entering the foreground.
+ */
+- (void)alertController:(nonnull MDCAlertController *)alertController willAppear:(BOOL)animated;
+
+/**
+ Informs the receiver that the alert controller appeared on the screen or the application has
+ entered the foreground.
+ */
+- (void)alertController:(nonnull MDCAlertController *)alertController didAppear:(BOOL)animated;
+
+/**
+ Informs the receiver that the alert controller will disappear from the screen or the application is
+ entering the background.
+ */
+- (void)alertController:(nonnull MDCAlertController *)alertController willDisappear:(BOOL)animated;
+
+/**
+ Informs the receiver that the alert controller disappeared from the screen or the application has
+ entered the background.
+ */
+- (void)alertController:(nonnull MDCAlertController *)alertController didDisappear:(BOOL)animated;
+
+/**
+ Called on the delegate after the alert action is tapped by the user and while the alert is still on
+ the screen.
+ */
+- (void)alertController:(nonnull MDCAlertController *)alertController
+           didTapAction:(nonnull MDCAlertAction *)action
+              withEvent:(nonnull UIEvent *)event;
+
+@end
 
 /**
  MDCAlertController displays an alert message to the user, similar to UIAlertController.
@@ -52,6 +91,12 @@
 
 /** Alert controllers must be created with alertControllerWithTitle:message: */
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder NS_UNAVAILABLE;
+
+/**
+ An object conforming to @c MDCAlertControllerDelegate. When non-nil, the @c MDCAlertController will
+ call the appropriate @c MDCAlertControllerDelegate methods on this object.
+ */
+@property(nonatomic, weak, nullable) id<MDCAlertControllerDelegate> delegate;
 
 /** The font applied to the title of Alert Controller.*/
 @property(nonatomic, strong, nullable) UIFont *titleFont;
@@ -119,8 +164,22 @@
  */
 @property(nonatomic, nullable, copy) NSString *title;
 
+/**
+ A custom accessibility label for the title.
+
+ When @c nil the title accessibilityLabel will be set to the value of the @c title.
+ */
+@property(nonatomic, nullable, copy) NSString *titleAccessibilityLabel;
+
 /** Descriptive text that summarizes a decision in a sentence of two. */
 @property(nonatomic, nullable, copy) NSString *message;
+
+/**
+ A custom accessibility label for the message.
+
+ When @c nil the message accessibilityLabel will be set to the value of the @c message.
+ */
+@property(nonatomic, nullable, copy) NSString *messageAccessibilityLabel;
 
 /**
  Accessory view that contains custom UI.
@@ -142,6 +201,28 @@
  accessory view's size if the alert's width changes.
  */
 - (void)setAccessoryViewNeedsLayout;
+
+/**
+ Duration of the dialog fade-in or fade-out presentation animation.
+
+ Defaults to 0.27 seconds.
+ */
+@property(nonatomic, assign) NSTimeInterval presentationOpacityAnimationDuration;
+
+/**
+ Duration of dialog scale-up or scale-down presentation animation.
+
+ Defaults to 0 seconds (no animation is performed).
+ */
+@property(nonatomic, assign) NSTimeInterval presentationScaleAnimationDuration;
+
+/**
+ The starting scale factor of the dialog during the presentation animation, between 0 and 1. The
+ "animate in" transition scales the dialog from this value to 1.0.
+
+ Defaults to 1.0 (no scaling is performed).
+ */
+@property(nonatomic, assign) CGFloat presentationInitialScaleFactor;
 
 /*
  Indicates whether the alert contents should automatically update their font when the device’s

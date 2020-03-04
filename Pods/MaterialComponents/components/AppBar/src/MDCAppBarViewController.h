@@ -36,6 +36,21 @@
  */
 @property(nonatomic, strong, nonnull) MDCHeaderStackView *headerStackView;
 
+/**
+ When this flag is set to YES, the height of the app bar will be automatically adjusted to the sum
+ of the top bar height and the bottom bar height.
+
+ Enabling this property will disable `minMaxHeightIncludesSafeArea` on the flexible header view.
+
+ Defaults to NO.
+*/
+@property(nonatomic) BOOL shouldAdjustHeightBasedOnHeaderStackView;
+
+/**
+ Defines a downward shift distance for `headerStackView`.
+ */
+@property(nonatomic) CGFloat headerStackViewOffset;
+
 @end
 
 #pragma mark - To be deprecated

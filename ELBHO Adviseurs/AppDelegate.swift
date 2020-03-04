@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.callSend = false
             }, onError: { error in
                 self.callSend = false
-                (UIApplication.shared.keyWindow?.rootViewController as? UINavigationController)?.visibleViewController?.showSnackbarDanger("error_api".localize)
+                (UIApplication.shared.windows.first {$0.isKeyWindow}?.rootViewController as? UINavigationController)?.visibleViewController?.showSnackbarDanger("error_api".localize)
             }).disposed(by: self.disposeBag)
         }
     }

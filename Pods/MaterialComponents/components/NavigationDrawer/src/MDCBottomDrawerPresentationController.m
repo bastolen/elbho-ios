@@ -59,7 +59,9 @@ static CGFloat kTopHandleTopMargin = (CGFloat)5.0;
 
 @end
 
-@implementation MDCBottomDrawerPresentationController
+@implementation MDCBottomDrawerPresentationController {
+  UIColor *_scrimColor;
+}
 
 @synthesize delegate;
 
@@ -98,6 +100,11 @@ static CGFloat kTopHandleTopMargin = (CGFloat)5.0;
   }
   bottomDrawerContainerViewController.shouldIncludeSafeAreaInContentHeight =
       self.shouldIncludeSafeAreaInContentHeight;
+  bottomDrawerContainerViewController.shouldIncludeSafeAreaInInitialDrawerHeight =
+      self.shouldIncludeSafeAreaInInitialDrawerHeight;
+  bottomDrawerContainerViewController.shouldUseStickyStatusBar = self.shouldUseStickyStatusBar;
+  bottomDrawerContainerViewController.shouldAdjustOnContentSizeChange =
+      self.shouldAdjustOnContentSizeChange;
   bottomDrawerContainerViewController.shouldAlwaysExpandHeader = self.shouldAlwaysExpandHeader;
   bottomDrawerContainerViewController.elevation = self.elevation;
   bottomDrawerContainerViewController.drawerShadowColor = self.drawerShadowColor;
@@ -121,8 +128,7 @@ static CGFloat kTopHandleTopMargin = (CGFloat)5.0;
   self.bottomDrawerContainerViewController.delegate = self;
 
   self.scrimView = [[MDCBottomDrawerScrimView alloc] initWithFrame:self.containerView.bounds];
-  self.scrimView.backgroundColor =
-      self.scrimColor ?: [UIColor colorWithWhite:0 alpha:(CGFloat)0.32];
+  self.scrimView.backgroundColor = self.scrimColor;
   self.scrimView.autoresizingMask =
       UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   self.scrimView.accessibilityIdentifier = @"Close drawer";
@@ -243,6 +249,8 @@ static CGFloat kTopHandleTopMargin = (CGFloat)5.0;
           self.bottomDrawerContainerViewController.contentViewController.view.frame);
       newFrame.size.height -= self.bottomDrawerContainerViewController.addedHeight;
       self.bottomDrawerContainerViewController.contentViewController.view.frame = newFrame;
+      [self.bottomDrawerContainerViewController willMoveToParentViewController:nil];
+      [self.bottomDrawerContainerViewController.view removeFromSuperview];
       [self.bottomDrawerContainerViewController removeFromParentViewController];
     }
     [self.scrimView removeFromSuperview];
@@ -293,6 +301,10 @@ static CGFloat kTopHandleTopMargin = (CGFloat)5.0;
   self.scrimView.backgroundColor = scrimColor;
 }
 
+- (UIColor *)scrimColor {
+  return _scrimColor ?: [UIColor colorWithWhite:0 alpha:(CGFloat)0.32];
+}
+
 - (void)setTopHandleHidden:(BOOL)topHandleHidden {
   _topHandleHidden = topHandleHidden;
   self.topHandle.hidden = topHandleHidden;
@@ -313,9 +325,26 @@ static CGFloat kTopHandleTopMargin = (CGFloat)5.0;
   self.bottomDrawerContainerViewController.shouldAlwaysExpandHeader = shouldAlwaysExpandHeader;
 }
 
+- (void)setShouldAdjustOnContentSizeChange:(BOOL)shouldAdjustOnContentSizeChange {
+  _shouldAdjustOnContentSizeChange = shouldAdjustOnContentSizeChange;
+  self.bottomDrawerContainerViewController.shouldAdjustOnContentSizeChange =
+      shouldAdjustOnContentSizeChange;
+}
+
 - (void)setDrawerShadowColor:(UIColor *)drawerShadowColor {
   _drawerShadowColor = drawerShadowColor;
   self.bottomDrawerContainerViewController.drawerShadowColor = drawerShadowColor;
+}
+
+- (void)setTrackingScrollView:(UIScrollView *)trackingScrollView {
+  _trackingScrollView = trackingScrollView;
+  self.bottomDrawerContainerViewController.trackingScrollView = trackingScrollView;
+}
+
+- (void)setMaximumInitialDrawerHeight:(CGFloat)maximumInitialDrawerHeight {
+  _maximumInitialDrawerHeight = maximumInitialDrawerHeight;
+  self.bottomDrawerContainerViewController.maximumInitialDrawerHeight =
+      self.maximumInitialDrawerHeight;
 }
 
 - (BOOL)contentReachesFullscreen {

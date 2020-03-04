@@ -19,6 +19,7 @@
 
 #import "MDCNumericValueLabel.h"
 #import "MDCThumbView.h"
+#import "MaterialAvailability.h"
 #import "MaterialInk.h"
 #import "MaterialMath.h"
 #import "MaterialRipple.h"
@@ -167,10 +168,10 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
   return MDCHypot(point1.x - point2.x, point1.y - point2.y);
 }
 
-#if defined(__IPHONE_10_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0)
+#if MDC_AVAILABLE_SDK_IOS(10_0)
 @interface MDCThumbTrack () <CAAnimationDelegate>
 @end
-#endif
+#endif  // MDC_AVAILABLE_SDK_IOS(10_0)
 
 @interface MDCThumbTrack () <MDCInkTouchControllerDelegate>
 @property(nonatomic, strong, nullable) MDCRippleView *rippleView;
@@ -213,6 +214,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
   if (self) {
     self.userInteractionEnabled = YES;
     [super setMultipleTouchEnabled:NO];  // We only want one touch event at a time
+    _allowAnimatedValueChanges = YES;
     _continuousUpdateEvents = YES;
     _lastDispatchedValue = _value;
     _maximumValue = 1;
@@ -223,6 +225,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
     _shouldDisplayRipple = YES;
     _valueLabelHeight = kValueLabelHeight;
     _discreteDotVisibility = MDCThumbDiscreteDotVisibilityNever;
+    _discrete = YES;
 
     // Default thumb view.
     CGRect thumbFrame = CGRectMake(0, 0, self.thumbRadius * 2, self.thumbRadius * 2);
@@ -304,18 +307,6 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
 
 #pragma mark - Properties
 
-- (void)setContinuousUpdateEvents:(BOOL)continuousUpdateEvents {
-  _requireExplicitDiscreteMode = YES;
-  _continuousUpdateEvents = continuousUpdateEvents;
-}
-
-- (BOOL)isContinuous {
-  if (self.requireExplicitDiscreteMode) {
-    return _continuousUpdateEvents;
-  }
-  return _numDiscreteValues < 2;
-}
-
 - (void)setPrimaryColor:(UIColor *)primaryColor {
   _primaryColor = primaryColor ?: TrackOnColorDefault();
 
@@ -376,6 +367,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
   }
 
   _trackHeight = trackHeight;
+  [self updateTrackEnds];
   [self setNeedsLayout];
 }
 
@@ -513,7 +505,10 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
 
 - (void)setTrackEndsAreRounded:(BOOL)trackEndsAreRounded {
   _trackEndsAreRounded = trackEndsAreRounded;
+  [self updateTrackEnds];
+}
 
+- (void)updateTrackEnds {
   if (_trackEndsAreRounded) {
     _trackView.layer.cornerRadius = _trackHeight / 2;
   } else {
@@ -565,7 +560,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
 
   if (_value != previousValue) {
     [self interruptAnimation];
-    [self updateThumbTrackAnimated:animated
+    [self updateThumbTrackAnimated:animated && self.allowAnimatedValueChanges
              animateThumbAfterMove:animateThumbAfterMove
                      previousValue:previousValue
                         completion:completion];
@@ -575,6 +570,11 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
 - (void)setNumDiscreteValues:(NSUInteger)numDiscreteValues {
   _numDiscreteValues = numDiscreteValues;
   _discreteDots.numDiscreteDots = numDiscreteValues;
+  [self setValue:_value];
+}
+
+- (void)setDiscrete:(BOOL)discrete {
+  _discrete = discrete;
   [self setValue:_value];
 }
 
@@ -590,13 +590,19 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
                                 2 * thumbRadius, 2 * thumbRadius);
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (CGFloat)thumbMaxRippleRadius {
   return _touchController.defaultInkView.maxRippleRadius;
 }
+#pragma clang diagnostic pop
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (void)setThumbMaxRippleRadius:(CGFloat)thumbMaxRippleRadius {
   _touchController.defaultInkView.maxRippleRadius = thumbMaxRippleRadius;
 }
+#pragma clang diagnostic pop
 
 - (CGFloat)thumbRippleMaximumRadius {
   return _rippleView.maximumRadius;
@@ -874,7 +880,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
   _discreteDots.frame = [_trackView bounds];
 
   // Make sure Numeric Value Label matches up
-  if (!self.continuous && _shouldDisplayDiscreteValueLabel) {
+  if (_shouldDisplayDiscreteValueLabel && _discrete && _numDiscreteValues > 1) {
     // Note that "center" here doesn't refer to the actual center, but rather the anchor point,
     // which is re-defined to be slightly below the bottom of the label
     _valueLabel.center = [self numericValueLabelPositionForValue:_value];
@@ -955,7 +961,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
       break;
   }
 
-  if (!self.continuous && _shouldDisplayDiscreteValueLabel) {
+  if (_shouldDisplayDiscreteValueLabel && _discrete && _numDiscreteValues > 1) {
     if (self.enabled && _isDraggingThumb) {
       _valueLabel.transform = CGAffineTransformIdentity;
     } else {
@@ -977,7 +983,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
 
   CGFloat radius;
   if (_isDraggingThumb) {
-    if (!self.continuous && _shouldDisplayDiscreteValueLabel) {
+    if (_shouldDisplayDiscreteValueLabel && _discrete && _numDiscreteValues > 1) {
       radius = 0;
     } else {
       radius = _thumbRadius + _trackHeight;
@@ -1041,9 +1047,8 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
   radius = MAX(radius, _thumbRadius);
 
   BOOL isDisabledWithThumbGaps = !self.enabled && _disabledTrackHasThumbGaps;
-  BOOL isNotDiscreteWithValueLabelWhileDraggingThumb =
-      !(!self.continuous && _shouldDisplayDiscreteValueLabel && _numDiscreteValues > 0 &&
-        _isDraggingThumb);
+  BOOL isNotDiscreteWithValueLabelWhileDraggingThumb = !(
+      _shouldDisplayDiscreteValueLabel && _discrete && _numDiscreteValues > 1 && _isDraggingThumb);
   BOOL isMinValueWithHollowThumbAndNotDiscreteWhileDraggingThumb =
       ([self isValueAtMinimum] && _thumbIsHollowAtStart &&
        isNotDiscreteWithValueLabelWhileDraggingThumb);
@@ -1143,7 +1148,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
 }
 
 - (CGFloat)closestValueToTargetValue:(CGFloat)targetValue {
-  if (self.continuous) {
+  if (!_discrete || _numDiscreteValues < 2) {
     return targetValue;
   }
   if (MDCCGFloatEqual(_minimumValue, _maximumValue)) {
@@ -1233,7 +1238,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
   CGFloat previousValue = _value;
   CGFloat value = [self valueForThumbPosition:CGPointMake(thumbPosition, 0)];
 
-  BOOL shouldAnimate = !self.continuous;
+  BOOL shouldAnimate = _discrete && _numDiscreteValues > 1;
   [self setValue:value
                    animated:shouldAnimate
       animateThumbAfterMove:YES
@@ -1321,7 +1326,7 @@ static inline CGFloat DistanceFromPointToPoint(CGPoint point1, CGPoint point2) {
   // Having two discrete values is a special case (e.g. the switch) in which any tap just flips the
   // value between the two discrete values, irrespective of the tap location.
   CGFloat value;
-  if (isTap && !self.continuous && _numDiscreteValues == 2) {
+  if (isTap && _discrete && _numDiscreteValues == 2) {
     // If we are at the maximum then make it the minimum:
     // For switch like thumb tracks where there is only 2 values we ignore the position of the tap
     // and toggle between the minimum and maximum values.

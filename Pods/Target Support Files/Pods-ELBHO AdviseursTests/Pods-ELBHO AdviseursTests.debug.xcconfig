@@ -1,9 +1,11 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/MDFInternationalization" "${PODS_CONFIGURATION_BUILD_DIR}/MDFTextAccessibility" "${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents" "${PODS_CONFIGURATION_BUILD_DIR}/MotionAnimator" "${PODS_CONFIGURATION_BUILD_DIR}/MotionInterchange" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftKeychainWrapper"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/MDFInternationalization/MDFInternationalization.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialComponents.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MotionAnimator/MotionAnimator.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MotionInterchange/MotionInterchange.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "CoreGraphics" -framework "MDFInternationalization" -framework "MDFTextAccessibility" -framework "MaterialComponents" -framework "MotionAnimator" -framework "MotionInterchange" -framework "QuartzCore" -framework "SwiftKeychainWrapper" -framework "WebKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MDFInternationalization" "${PODS_ROOT}/Headers/Public/MDFTextAccessibility" "${PODS_ROOT}/Headers/Public/MaterialComponents" "${PODS_ROOT}/Headers/Public/MotionAnimator" "${PODS_ROOT}/Headers/Public/MotionInterchange" "${PODS_ROOT}/Headers/Public/SwiftKeychainWrapper"
+OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.modulemap" -fmodule-map-file="${PODS_ROOT}/Headers/Public/MaterialComponents/MaterialComponents.modulemap"
+OTHER_LDFLAGS = $(inherited) -framework "CoreGraphics" -framework "QuartzCore" -framework "WebKit"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.modulemap" -Xcc -fmodule-map-file="${PODS_ROOT}/Headers/Public/MaterialComponents/MaterialComponents.modulemap"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+SWIFT_INCLUDE_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/SwiftKeychainWrapper"
 USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

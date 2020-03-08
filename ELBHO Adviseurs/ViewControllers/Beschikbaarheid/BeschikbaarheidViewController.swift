@@ -217,7 +217,7 @@ extension BeschikbaarheidViewController : UICollectionViewDelegate, UICollection
         
         let storyboard = UIStoryboard(name: "Beschikbaarheid", bundle: nil)
         let Vc = storyboard.instantiateViewController(withIdentifier: "WeekOverzichtViewController") as! WeekOverzichtViewController
-        Vc.clickedDate = clickedDate+" 01:00:00"
+        Vc.clickedDate = clickedDate+" 10:00:00"
         self.navigationController?.pushViewController(Vc, animated: true)
         
     }

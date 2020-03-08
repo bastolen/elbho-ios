@@ -78,7 +78,6 @@ class WeekOverzichtViewController: UIViewController {
         super.viewDidLoad()
         
         title = "title_availability".localize
-        
         formattedDate = formatStringToDate(toFormat: clickedDate)
         weekNumberLabel.text = "week".localize+" "+String(getWeekNumber(date: formattedDate))
         
@@ -99,7 +98,7 @@ class WeekOverzichtViewController: UIViewController {
         datePicker.minuteInterval = 15
         
         daysToShow = getDays()
-        
+
         setTimeInput()
         fillLabelsAndInput()
         

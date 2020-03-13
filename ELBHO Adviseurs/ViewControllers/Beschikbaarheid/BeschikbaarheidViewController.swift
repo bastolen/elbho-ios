@@ -12,7 +12,7 @@ import SwiftKeychainWrapper
 import MaterialComponents
 
 class BeschikbaarheidViewController : UIViewController {
-    
+    let refreshControl = UIRefreshControl()
     let nc = NotificationCenter.default
     // Calendar
     @IBOutlet weak var Calendar: UICollectionView!
@@ -26,6 +26,7 @@ class BeschikbaarheidViewController : UIViewController {
     var monthCheck = Int()
     
     let dateFormatter = DateFormatter()
+    let today = Date()
     
     private let disposeBag = DisposeBag()
     var items: [Availability?] = []
@@ -47,6 +48,9 @@ class BeschikbaarheidViewController : UIViewController {
             weekday = 7
         }
         
+        Calendar.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(initContent), for: .allEvents)
+        
         nc.addObserver(self, selector: #selector(initContent), name: Notification.Name("reloadAvailibility"), object: nil)
         
         buttonNext.imageView?.tintColor = UIColor.black
@@ -59,21 +63,22 @@ class BeschikbaarheidViewController : UIViewController {
     }
     
     @objc private func initContent() {
-        let today = Date()
-        let modifiedDate = NSCalendar.current.date(byAdding: .month, value: 2, to: today)!
         
+        let before = NSCalendar.current.date(byAdding: .month, value: 2, to: today)!
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        print(today)
+        refreshControl.beginRefreshing()
         if(!callSend) {
             items = []
             callSend = true
-            APIService.getAvailability(after: dateFormatter.string(from: today), before: dateFormatter.string(from: modifiedDate)).subscribe(onNext: { availability in
+            APIService.getAvailability(after: dateFormatter.string(from: today), before: dateFormatter.string(from: before)).subscribe(onNext: { availability in
                 self.items = availability
                 self.Calendar.reloadData()
                 self.callSend = false
+                self.refreshControl.endRefreshing()
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)
                 self.callSend = false
+                self.refreshControl.endRefreshing()
             }).disposed(by: disposeBag)
         }
     }
@@ -188,10 +193,17 @@ extension BeschikbaarheidViewController : UICollectionViewDelegate, UICollection
                     } else {
                         checkDate = "\(year)-0\(month+1)-\((indexPath.row-6) - positionIndex)"
                     }
-                    
-                    for item in items {
-                        if dateFormatter.string(from: item!.date) == checkDate {
-                            cell.backgroundColor = UIColor.init(named: "ActiveCellColor")!
+
+                    // Als checkDate in het verleden is rood maken
+                    if dateFormatter.date(from: checkDate)!.isBefore(today) {
+                        cell.backgroundColor = UIColor(named: "BorderColor")
+                        cell.isUserInteractionEnabled = false
+                        cell.dateLabel.textColor = UIColor.lightGray
+                    } else {
+                        for item in items {
+                            if dateFormatter.string(from: item!.date) == checkDate {
+                                cell.backgroundColor = UIColor.init(named: "ActiveCellColor")!
+                            }
                         }
                     }
                 }

@@ -117,3 +117,6 @@
 "button_copy_and_save" = "Kopieren & opslaan";
 "button_car_reservation" = "Auto reserveren";
 "button_car_cancel" = "Reservering annuleren";
+
+"time_smaller" = "De eind tijd kan niet kleiner zijn dan de start tijd!";
+"time_bigger" = "De start tijd kan niet groter zijn dan de eind tijd!";

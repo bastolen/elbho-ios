@@ -160,7 +160,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhO-jA-UZu" userLabel="Day 1">
-                                        <rect key="frame" x="0.0" y="56" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="374" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8l8-XJ-IC0">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
@@ -241,7 +241,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-VD-ss5" userLabel="Day 2">
-                                        <rect key="frame" x="0.0" y="116" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="130" width="374" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRJ-G9-g00">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
@@ -322,7 +322,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-AR-AYf" userLabel="Day 3">
-                                        <rect key="frame" x="0.0" y="176" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="190" width="374" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMs-sX-Iz6">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
@@ -403,7 +403,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TpS-kU-yta" userLabel="Day 4">
-                                        <rect key="frame" x="0.0" y="236" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="250" width="374" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZT-t6-doj">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
@@ -484,7 +484,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OmO-FB-5Nh" userLabel="Day 5">
-                                        <rect key="frame" x="0.0" y="296" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="310" width="374" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-V8-hB0">
                                                 <rect key="frame" x="5" y="0.0" width="50" height="50"/>
@@ -564,6 +564,20 @@
                                             <constraint firstAttribute="bottom" secondItem="g9S-u2-59K" secondAttribute="bottom" constant="10" id="n8H-qe-IHv"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Van" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVv-h5-OSy">
+                                        <rect key="frame" x="108" y="51" width="25" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWN-Ti-3gd">
+                                        <rect key="frame" x="228" y="51" width="21" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -573,7 +587,7 @@
                                     <constraint firstItem="VtS-Hz-hXm" firstAttribute="centerX" secondItem="t9l-ar-NU6" secondAttribute="centerX" id="1YI-KJ-K0P"/>
                                     <constraint firstAttribute="trailing" secondItem="TpS-kU-yta" secondAttribute="trailing" id="3yV-Ce-jsQ"/>
                                     <constraint firstItem="dY6-VD-ss5" firstAttribute="leading" secondItem="t9l-ar-NU6" secondAttribute="leading" id="71n-wO-z7y"/>
-                                    <constraint firstItem="LhO-jA-UZu" firstAttribute="top" secondItem="VtS-Hz-hXm" secondAttribute="bottom" constant="20" id="ApT-C7-Wd2"/>
+                                    <constraint firstItem="LhO-jA-UZu" firstAttribute="top" secondItem="VtS-Hz-hXm" secondAttribute="bottom" constant="34" id="ApT-C7-Wd2"/>
                                     <constraint firstAttribute="trailing" secondItem="ovJ-AR-AYf" secondAttribute="trailing" id="FDy-gi-z1e"/>
                                     <constraint firstItem="OmO-FB-5Nh" firstAttribute="top" secondItem="TpS-kU-yta" secondAttribute="bottom" constant="10" id="N8C-Q9-okr"/>
                                     <constraint firstItem="TpS-kU-yta" firstAttribute="top" secondItem="ovJ-AR-AYf" secondAttribute="bottom" constant="10" id="O2s-b7-uV4"/>

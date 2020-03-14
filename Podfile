@@ -7,6 +7,8 @@ target 'ELBHO Adviseurs' do
   # Pods for ELBHO Adviseurs
   pod 'MaterialComponents',:modular_headers => true
   pod 'SwiftKeychainWrapper',:modular_headers => true
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
   target 'ELBHO AdviseursTests' do
     inherit! :search_paths

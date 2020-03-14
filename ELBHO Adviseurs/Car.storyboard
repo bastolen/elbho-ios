@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pqZ-3l-net">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pqZ-3l-net">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -78,7 +78,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RoZ-fG-iTj" firstAttribute="leading" secondItem="XGW-dW-mGI" secondAttribute="leading" constant="20" id="EGF-8I-d8K"/>
                             <constraint firstItem="yKS-pH-0Kv" firstAttribute="top" secondItem="XGW-dW-mGI" secondAttribute="top" constant="20" id="L2R-eH-hqg"/>
@@ -134,7 +134,7 @@
                                     <constraint firstItem="NPY-yH-mgs" firstAttribute="top" secondItem="dxU-zc-29K" secondAttribute="top" constant="5" id="ury-w2-D8l"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eqT-m7-v1C">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eqT-m7-v1C">
                                 <rect key="frame" x="5" y="314" width="404" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -358,11 +358,14 @@
     <resources>
         <image name="CarIcon" width="24" height="24"/>
         <image name="Fiat500Placeholder" width="989" height="546"/>
-        <image name="calendar" catalog="system" width="64" height="52"/>
-        <image name="car.fill" catalog="system" width="64" height="46"/>
-        <image name="chevron.left" catalog="system" width="48" height="64"/>
-        <image name="chevron.right" catalog="system" width="48" height="64"/>
-        <image name="multiply" catalog="system" width="64" height="54"/>
+        <image name="calendar" catalog="system" width="64" height="54"/>
+        <image name="car.fill" catalog="system" width="64" height="48"/>
+        <image name="chevron.left" catalog="system" width="46" height="64"/>
+        <image name="chevron.right" catalog="system" width="46" height="64"/>
+        <image name="multiply" catalog="system" width="64" height="56"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BorderColor">
             <color red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

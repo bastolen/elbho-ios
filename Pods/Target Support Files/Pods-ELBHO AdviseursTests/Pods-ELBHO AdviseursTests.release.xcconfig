@@ -1,7 +1,8 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/GoogleMaps/Base/Frameworks" "${PODS_ROOT}/GoogleMaps/Maps/Frameworks" "${PODS_ROOT}/GooglePlaces/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MDFInternationalization" "${PODS_ROOT}/Headers/Public/MDFTextAccessibility" "${PODS_ROOT}/Headers/Public/MaterialComponents" "${PODS_ROOT}/Headers/Public/MotionAnimator" "${PODS_ROOT}/Headers/Public/MotionInterchange" "${PODS_ROOT}/Headers/Public/SwiftKeychainWrapper"
 OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.modulemap" -fmodule-map-file="${PODS_ROOT}/Headers/Public/MaterialComponents/MaterialComponents.modulemap"
-OTHER_LDFLAGS = $(inherited) -framework "CoreGraphics" -framework "QuartzCore" -framework "WebKit"
+OTHER_LDFLAGS = $(inherited) -l"c++" -l"z" -framework "Accelerate" -framework "CoreData" -framework "CoreGraphics" -framework "CoreImage" -framework "CoreLocation" -framework "CoreTelephony" -framework "CoreText" -framework "GLKit" -framework "ImageIO" -framework "Metal" -framework "OpenGLES" -framework "QuartzCore" -framework "SystemConfiguration" -framework "UIKit" -framework "WebKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.modulemap" -Xcc -fmodule-map-file="${PODS_ROOT}/Headers/Public/MaterialComponents/MaterialComponents.modulemap"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

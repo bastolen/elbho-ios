@@ -14,6 +14,7 @@ import MaterialComponents
 class CarsViewController : UIViewController {
     
     let nc = NotificationCenter.default
+    let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bookCarButton: MDCButton!
@@ -44,18 +45,24 @@ class CarsViewController : UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(initContent), for: .allEvents)
+        
         initMenu(id: 4)
         initContent()
     }
     
     @objc private func initContent() {
+        refreshControl.beginRefreshing()
         if(!callSend) {
             items = []
             callSend = true
-            APIService.getCarReservation(after: "2020-01-01T00:00:00.000Z").subscribe(onNext: { reservation in
+            APIService.getCarReservation(after: Date()).subscribe(onNext: { reservation in
                 self.items = reservation
                 self.tableView.reloadData()
                 self.callSend = false
+                self.refreshControl.endRefreshing()
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)
                 self.callSend = false
@@ -78,7 +85,6 @@ extension CarsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
         let item = items[indexPath.row]
-        
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
@@ -88,8 +94,10 @@ extension CarsViewController: UITableViewDataSource {
         formatter.dateFormat = "dd-MM"
         cell.DateLabel.text = formatter.string(from: item!.date)
         
-        cell.CompanyLabel.text = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model))"
-        cell.iconView.image = nil
+        cell.CompanyLabel.text = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model)) \(item!.vehicle.transmission)"
+        
+        cell.iconView.image = UIImage(systemName: "chevron.right")
+        cell.iconView.tintColor = UIColor.lightGray
         
         formatter.dateFormat = "HH:mm"
         cell.TimeLocationLabel.text = "\(formatter.string(from: item!.start)) - \(formatter.string(from: item!.end))"

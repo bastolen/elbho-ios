@@ -97,6 +97,8 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
+  install_resource "${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle"
   install_resource "${PODS_ROOT}/MaterialComponents/components/ActivityIndicator/src/MaterialActivityIndicator.bundle"
   install_resource "${PODS_ROOT}/MaterialComponents/components/AppBar/src/MaterialAppBar.bundle"
   install_resource "${PODS_ROOT}/MaterialComponents/components/BottomNavigation/src/MaterialBottomNavigation.bundle"
@@ -120,6 +122,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_settings.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
+  install_resource "${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle"
   install_resource "${PODS_ROOT}/MaterialComponents/components/ActivityIndicator/src/MaterialActivityIndicator.bundle"
   install_resource "${PODS_ROOT}/MaterialComponents/components/AppBar/src/MaterialAppBar.bundle"
   install_resource "${PODS_ROOT}/MaterialComponents/components/BottomNavigation/src/MaterialBottomNavigation.bundle"

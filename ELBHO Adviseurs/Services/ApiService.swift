@@ -142,7 +142,7 @@ final class APIService {
         }
     }
     
-    static func getCarReservation(after: String) -> Observable<[CarReservation?]> {
+    static func getCarReservation(after: Date) -> Observable<[CarReservation?]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/reservation/me", method: .get, parameters: [
                 "after" : after

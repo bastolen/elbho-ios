@@ -151,6 +151,7 @@
 #import "MDCLibraryInfo.h"
 #import "MaterialList.h"
 #import "MDCBaseCell.h"
+#import "MDCSelfSizingLayoutAttributes.h"
 #import "MDCSelfSizingStereoCell.h"
 #import "MaterialList+Theming.h"
 #import "MDCBaseCell+MaterialTheming.h"

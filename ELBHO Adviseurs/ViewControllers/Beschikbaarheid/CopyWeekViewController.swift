@@ -108,11 +108,19 @@ class CopyWeekViewController : UIViewController {
                 let daysToAdd = weeksDiff * 7
                 
                 for item in daysFromWeekToCopy {
-                    let date = Calendar.current.date(byAdding: .day, value: daysToAdd, to: item!.date)!
-                    let start = Calendar.current.date(byAdding: .day, value: daysToAdd, to: item!.start)!
-                    let end = Calendar.current.date(byAdding: .day, value: daysToAdd, to: item!.end)!
+                    var date = Calendar.current.date(byAdding: .day, value: daysToAdd, to: item!.date)!
+                    var start = Calendar.current.date(byAdding: .day, value: daysToAdd, to: item!.start)!
+                    var end = Calendar.current.date(byAdding: .day, value: daysToAdd, to: item!.end)!
                     
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    if !TimeZone.current.isDaylightSavingTime(for: item!.date) {
+                        if TimeZone.current.isDaylightSavingTime(for: date) {
+                            date = Calendar.current.date(byAdding: .hour, value: 1, to: date)!
+                            start = Calendar.current.date(byAdding: .hour, value: 1, to: start)!
+                            end = Calendar.current.date(byAdding: .hour, value: 1, to: end)!
+                        }
+                    }
+                    
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                     dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
                     
                     let a = Availability2(
@@ -124,7 +132,6 @@ class CopyWeekViewController : UIViewController {
                 }
             }
         }
-        
         sendItemsToAPI(sendItems: daysToApi)
     }
     

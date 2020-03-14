@@ -66,10 +66,10 @@ class BeschikbaarheidViewController : UIViewController {
     }
     
     @objc private func initContent() {
-        
+        print("Triggerd initContent")
+        refreshControl.beginRefreshing()
         let before = NSCalendar.current.date(byAdding: .month, value: 2, to: today)!
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        refreshControl.beginRefreshing()
         if(!callSend) {
             items = []
             callSend = true
@@ -205,6 +205,7 @@ extension BeschikbaarheidViewController : UICollectionViewDelegate, UICollection
                     } else {
                         for item in items {
                             if dateFormatter.string(from: item!.date) == checkDate {
+                                print("BLAUW")
                                 cell.backgroundColor = UIColor.init(named: "ActiveCellColor")!
                             }
                         }

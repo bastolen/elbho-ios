@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import MapKit
 import RxSwift
 import SwiftKeychainWrapper
 import MaterialComponents
 import Kingfisher
+import GoogleMaps
 
 class CarDetailViewController : UIViewController {
     let nc = NotificationCenter.default
     
+    let geoCoder = CLGeocoder()
+    
     var item : CarReservation? = nil
     var rows: [DetailViewRow] = []
+    let tableFooter = UIView();
     
     @IBOutlet weak var carNameLabel: UILabel!
     @IBOutlet weak var ImageHolder: UIImageView!
@@ -28,6 +33,7 @@ class CarDetailViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GMSServices.provideAPIKey("AIzaSyCgUVIYKDg-seHCHk3q-NsjCL2SxyDOd1w")
         
         let fullCarName = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model))"
         carNameLabel.text = fullCarName
@@ -36,6 +42,32 @@ class CarDetailViewController : UIViewController {
         tableView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellReuseIdentifier: "DetailViewCell")
         cancelButton.setTitle("button_car_cancel".localize.uppercased(), for: .normal)
         cancelButton.setDanger()
+        
+        setGoogleMaps(address: (item?.vehicle.location)!)
+        
+        // START GOOGLE MAPS
+        tableFooter.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 270)
+        tableView.tableFooterView = tableFooter
+        tableView.reloadData()
+    }
+    
+    func setGoogleMaps(address:String)
+    {
+        geoCoder.geocodeAddressString((address)) {
+            placemarks, error in
+            let placemark = placemarks?.first
+            let lat = placemark?.location?.coordinate.latitude
+            let lon = placemark?.location?.coordinate.longitude
+            let camera = GMSCameraPosition.camera(withLatitude: lat!, longitude: lon!, zoom: 15.0)
+            let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+            
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: lon!)
+            marker.map = mapView
+            
+            mapView.frame = CGRect(x: 15, y: 0, width: self.view.frame.width - 40, height: 270)
+            self.tableFooter.addSubview(mapView)
+        }
     }
 
     @IBAction func carCancelReservationClick(_ sender: Any) {

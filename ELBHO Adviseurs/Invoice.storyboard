@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,7 +63,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="neW-bD-6f2" firstAttribute="trailing" secondItem="Ki0-xg-S5G" secondAttribute="trailing" constant="20" id="1iZ-ns-O70"/>
                             <constraint firstItem="R3k-Jx-ybp" firstAttribute="top" secondItem="Ki0-xg-S5G" secondAttribute="bottom" constant="-15" id="9Tc-dL-CAZ"/>
@@ -103,7 +104,7 @@
                                 <rect key="frame" x="20" y="64" width="374" height="710"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HnT-U8-gCQ">
-                                        <rect key="frame" x="66.5" y="0.0" width="241" height="60"/>
+                                        <rect key="frame" x="119" y="0.0" width="136" height="60"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InvoiceIcon" translatesAutoresizingMaskIntoConstraints="NO" id="tlG-Yg-NfF">
                                                 <rect key="frame" x="0.0" y="15" width="30" height="30"/>
@@ -113,7 +114,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="invoice_header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpx-az-yMp">
-                                                <rect key="frame" x="45" y="14" width="196" height="32.5"/>
+                                                <rect key="frame" x="45" y="14" width="91" height="32.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -149,7 +150,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Mjp-6s-7Jo" firstAttribute="trailing" secondItem="7Oc-4Z-DM5" secondAttribute="trailing" constant="20" id="1LB-qa-B8M"/>
                             <constraint firstItem="7Oc-4Z-DM5" firstAttribute="leading" secondItem="Mjp-6s-7Jo" secondAttribute="leading" constant="20" id="MQe-py-p4D"/>
@@ -176,5 +177,8 @@
     <resources>
         <image name="InvoiceIcon" width="27" height="27"/>
         <image name="plus" catalog="system" width="64" height="56"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

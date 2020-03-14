@@ -10,40 +10,33 @@ import Foundation
 import MaterialComponents.MDCButton
 
 extension MDCButton {
-    func setPrimary() -> Void {
-        setBackgroundColor(UIColor(named: "Primary"), for: .normal)
+    private func setButton(_ type: String) {
+        setBackgroundColor(UIColor(named: type), for: .normal)
         setBackgroundColor(UIColor(named: "Disabled"), for: .disabled)
         setBorderColor(.black, for: .disabled)
         setBorderWidth(2, for: .disabled)
         setTitleColor(.white, for: .normal)
         setTitleColor(.black, for: .disabled)
+        
+        if self.currentImage != nil {
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        }
+    }
+    
+    func setPrimary() -> Void {
+        setButton("Primary")
     }
     
     func setSecondary() -> Void {
-        setBackgroundColor(UIColor(named: "Secondary"), for: .normal)
-        setBackgroundColor(UIColor(named: "Disabled"), for: .disabled)
-        setBorderColor(.black, for: .disabled)
-        setBorderWidth(2, for: .disabled)
-        setTitleColor(.white, for: .normal)
-        setTitleColor(.black, for: .disabled)
+        setButton("Secondary")
     }
     
     func setSuccess() -> Void {
-        setBackgroundColor(UIColor(named: "Success"), for: .normal)
-        setBackgroundColor(UIColor(named: "Disabled"), for: .disabled)
-        setBorderColor(.black, for: .disabled)
-        setBorderWidth(2, for: .disabled)
-        setTitleColor(.white, for: .normal)
-        setTitleColor(.black, for: .disabled)
+        setButton("Success")
     }
     
     func setDanger() -> Void {
-        setBackgroundColor(UIColor(named: "Danger"), for: .normal)
-        setBackgroundColor(UIColor(named: "Disabled"), for: .disabled)
-        setBorderColor(.black, for: .disabled)
-        setBorderWidth(2, for: .disabled)
-        setTitleColor(.white, for: .normal)
-        setTitleColor(.black, for: .disabled)
+        setButton("Danger")
     }
     
     func setTextPrimary() -> Void {

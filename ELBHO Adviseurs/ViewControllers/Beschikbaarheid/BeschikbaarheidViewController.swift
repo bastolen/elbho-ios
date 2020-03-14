@@ -51,6 +51,9 @@ class BeschikbaarheidViewController : UIViewController {
         Calendar.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(initContent), for: .allEvents)
         
+        Calendar.layer.borderWidth = 1
+        Calendar.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
+        
         nc.addObserver(self, selector: #selector(initContent), name: Notification.Name("reloadAvailibility"), object: nil)
         
         buttonNext.imageView?.tintColor = UIColor.black
@@ -92,7 +95,7 @@ class BeschikbaarheidViewController : UIViewController {
         flow.minimumInteritemSpacing = itemSpacing
         flow.minimumLineSpacing = 7
         let cellWidth = (UIScreen.main.bounds.width - (itemSpacing * 2) - ((itemsInOneLine - 1) * itemSpacing)) / itemsInOneLine
-        flow.itemSize = CGSize(width: cellWidth, height: 45)
+        flow.itemSize = CGSize(width: cellWidth-6, height: 43)
     }
     
     

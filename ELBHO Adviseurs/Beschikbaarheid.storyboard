@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40E-2D-PLr">
-                                <rect key="frame" x="20" y="64" width="30" height="22"/>
+                                <rect key="frame" x="20" y="64" width="40" height="30"/>
                                 <state key="normal" image="chevron.left" catalog="system"/>
                                 <connections>
                                     <action selector="prevMonth:" destination="SVH-rd-bKZ" eventType="touchUpInside" id="g6c-Nr-Ugc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRZ-2t-yrw">
-                                <rect key="frame" x="364" y="64" width="30" height="22"/>
+                                <rect key="frame" x="364" y="64" width="40" height="30"/>
                                 <state key="normal" image="chevron.right" catalog="system"/>
                                 <connections>
                                     <action selector="nextMonth:" destination="SVH-rd-bKZ" eventType="touchUpInside" id="6Bl-ba-6Kc"/>
@@ -38,8 +38,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W0m-zP-qVa">
-                                <rect key="frame" x="0.0" y="121" width="414" height="741"/>
+                                <rect key="frame" x="20" y="121" width="374" height="741"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <inset key="scrollIndicatorInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ro7-Sg-ltu">
                                     <size key="itemSize" width="35" height="35"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -55,17 +56,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sd-VX-Yet">
-                                                    <rect key="frame" x="5" y="5" width="25" height="25"/>
+                                                    <rect key="frame" x="2" y="5" width="31" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="4Sd-VX-Yet" secondAttribute="trailing" constant="5" id="KwN-k3-dTb"/>
+                                                <constraint firstAttribute="trailing" secondItem="4Sd-VX-Yet" secondAttribute="trailing" constant="2" id="KwN-k3-dTb"/>
                                                 <constraint firstItem="4Sd-VX-Yet" firstAttribute="centerY" secondItem="KSF-DG-cPf" secondAttribute="centerY" id="YZf-ux-ELt"/>
                                                 <constraint firstItem="4Sd-VX-Yet" firstAttribute="top" secondItem="KSF-DG-cPf" secondAttribute="top" constant="5" id="joz-Wk-20Q"/>
-                                                <constraint firstItem="4Sd-VX-Yet" firstAttribute="leading" secondItem="KSF-DG-cPf" secondAttribute="leading" constant="5" id="y1r-if-h20"/>
+                                                <constraint firstItem="4Sd-VX-Yet" firstAttribute="leading" secondItem="KSF-DG-cPf" secondAttribute="leading" constant="2" id="y1r-if-h20"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -80,14 +81,14 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wgl-a3-gXt" firstAttribute="centerX" secondItem="NBe-bX-6Fp" secondAttribute="centerX" id="4eh-MJ-Yzq"/>
                             <constraint firstItem="40E-2D-PLr" firstAttribute="leading" secondItem="ReA-Us-X4c" secondAttribute="leading" constant="20" id="7B1-Tx-VrP"/>
                             <constraint firstItem="40E-2D-PLr" firstAttribute="top" secondItem="ReA-Us-X4c" secondAttribute="top" constant="20" id="EfV-eC-hd4"/>
-                            <constraint firstItem="ReA-Us-X4c" firstAttribute="trailing" secondItem="W0m-zP-qVa" secondAttribute="trailing" id="KrK-YJ-N2V"/>
+                            <constraint firstItem="ReA-Us-X4c" firstAttribute="trailing" secondItem="W0m-zP-qVa" secondAttribute="trailing" constant="20" id="KrK-YJ-N2V"/>
                             <constraint firstItem="wgl-a3-gXt" firstAttribute="top" secondItem="ReA-Us-X4c" secondAttribute="top" constant="20" id="Q40-AV-lwQ"/>
-                            <constraint firstItem="W0m-zP-qVa" firstAttribute="leading" secondItem="ReA-Us-X4c" secondAttribute="leading" id="Ydv-Ep-744"/>
+                            <constraint firstItem="W0m-zP-qVa" firstAttribute="leading" secondItem="ReA-Us-X4c" secondAttribute="leading" constant="20" id="Ydv-Ep-744"/>
                             <constraint firstItem="ReA-Us-X4c" firstAttribute="bottom" secondItem="W0m-zP-qVa" secondAttribute="bottom" id="jXw-1x-Zhc"/>
                             <constraint firstItem="W0m-zP-qVa" firstAttribute="top" secondItem="40E-2D-PLr" secondAttribute="bottom" constant="35" id="lu7-Vm-Kck"/>
                             <constraint firstItem="LRZ-2t-yrw" firstAttribute="top" secondItem="ReA-Us-X4c" secondAttribute="top" constant="20" id="qGk-YN-TQW"/>
@@ -601,7 +602,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Elr-sF-XK1" firstAttribute="bottom" secondItem="BK9-b4-Veq" secondAttribute="bottom" constant="20" id="3Im-0J-bJS"/>
                             <constraint firstItem="BK9-b4-Veq" firstAttribute="leading" secondItem="Elr-sF-XK1" secondAttribute="leading" constant="20" id="E0Y-3Q-GaN"/>
@@ -902,7 +903,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vhy-dv-lMg" firstAttribute="bottom" secondItem="T5R-gD-1lP" secondAttribute="bottom" constant="20" id="3zc-YM-vmN"/>
                             <constraint firstItem="MbQ-H8-Pms" firstAttribute="leading" secondItem="vhy-dv-lMg" secondAttribute="leading" constant="20" id="GVM-5J-sXE"/>
@@ -947,6 +948,9 @@
         <image name="chevron.right" catalog="system" width="46" height="64"/>
         <image name="doc.on.doc.fill" catalog="system" width="58" height="64"/>
         <image name="trash" catalog="system" width="60" height="64"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BeschikbaarheidDateBackground">
             <color red="0.98039215686274506" green="0.9882352941176471" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

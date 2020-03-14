@@ -66,7 +66,6 @@ class BeschikbaarheidViewController : UIViewController {
     }
     
     @objc private func initContent() {
-        print("Triggerd initContent")
         refreshControl.beginRefreshing()
         let before = NSCalendar.current.date(byAdding: .month, value: 2, to: today)!
         dateFormatter.dateFormat = "YYYY-MM-dd"
@@ -159,7 +158,7 @@ extension BeschikbaarheidViewController : UICollectionViewDelegate, UICollection
         case -1:
             return daysInMonth[month] + previousNumberOfEmtyBox + 7
         default:
-            fatalError()
+            return 0
         }
     }
     
@@ -181,38 +180,36 @@ extension BeschikbaarheidViewController : UICollectionViewDelegate, UICollection
             case -1:
                 cell.dateLabel.text = "\(indexPath.row - 6 - previousNumberOfEmtyBox)"
             default:
-                fatalError()
+                cell.dateLabel.text = ""
             }
             
             // Cell hiden wanner het 0 of negatief is
             if Int(cell.dateLabel.text!)! < 1 {
                 cell.isHidden = true
             } else {
-                if items.count > 0 {
-                    dateFormatter.dateFormat = "YYYY-MM-dd"
-                    // Checken op beschikbaarheid
-                    if((indexPath.row-6) - positionIndex) < 10 {
-                        checkDate = "\(year)-0\(month+1)-0\((indexPath.row-6) - positionIndex)"
-                    } else {
-                        checkDate = "\(year)-0\(month+1)-\((indexPath.row-6) - positionIndex)"
-                    }
+                dateFormatter.dateFormat = "YYYY-MM-dd"
+                // Checken op beschikbaarheid
+                if((indexPath.row-6) - positionIndex) < 10 {
+                    checkDate = "\(year)-0\(month+1)-0\((indexPath.row-6) - positionIndex)"
+                } else {
+                    checkDate = "\(year)-0\(month+1)-\((indexPath.row-6) - positionIndex)"
+                }
 
-                    // Als checkDate in het verleden is rood maken
-                    if dateFormatter.date(from: checkDate)!.isBefore(today) {
-                        cell.backgroundColor = UIColor(named: "BorderColor")
-                        cell.isUserInteractionEnabled = false
-                        cell.dateLabel.textColor = UIColor.lightGray
-                    } else {
+                // Als checkDate in het verleden is rood maken
+                if dateFormatter.date(from: checkDate)!.isBefore(today) {
+                    cell.backgroundColor = UIColor(named: "BorderColor")
+                    cell.isUserInteractionEnabled = false
+                    cell.dateLabel.textColor = UIColor.lightGray
+                } else {
+                    if items.count > 0 {
                         for item in items {
                             if dateFormatter.string(from: item!.date) == checkDate {
-                                print("BLAUW")
                                 cell.backgroundColor = UIColor.init(named: "ActiveCellColor")!
                             }
                         }
                     }
                 }
             }
-            
             
             // Kleurtje voor het weekend
             switch indexPath.row {

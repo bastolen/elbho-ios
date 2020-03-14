@@ -19,10 +19,10 @@ class CopyWeekViewController : UIViewController {
     var weeks : [Int] = []
     var daysFromWeekToCopy: [Availability?] = []
     var daysToApi : [Availability2] = []
+    var datesToShow : [Date] = []
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var weekToCopyLabel: UILabel!
-    
     @IBOutlet weak var weekCopyButton: UIButton!
     
     private let disposeBag = DisposeBag()
@@ -61,7 +61,6 @@ class CopyWeekViewController : UIViewController {
         weekCopyButton.setTitle("button_copy_and_save".localize.uppercased(), for: .normal)
         
         weekToCopyLabel.text = "week_to_copy".localizeWithVars(String(weekToCopy))
-        
         setArrays()
         fillLabels()
     }
@@ -95,9 +94,23 @@ class CopyWeekViewController : UIViewController {
     {
         if labels.count > 0 {
             for i in 0..<labels.count {
-                labels[i].text = "week".localize+" "+String(weeks[i])
+                let d = getDaysByWeekNumber(weekNumber: weeks[i])
+                labels[i].text = "week".localize+" "+String(weeks[i])+", "+d
             }
         }
+    }
+    
+    func getDaysByWeekNumber(weekNumber : Int) -> String {
+        let weeksDiff = weekNumber - weekToCopy
+        let daysToAdd = weeksDiff * 7
+        
+        let first = Calendar.current.date(byAdding: .day, value: daysToAdd, to: datesToShow[0])
+        let last = Calendar.current.date(byAdding: .day, value: daysToAdd, to: datesToShow[4])
+
+        dateFormatter.dateFormat = "d MMMM"
+        let s = "\(dateFormatter.string(from: first!)) tot \(dateFormatter.string(from: last!))"
+        
+        return s
     }
     
     @IBAction func copyWeekClick(_ sender: Any) {
@@ -141,13 +154,12 @@ class CopyWeekViewController : UIViewController {
             APIService.postAvailability(availabilities: sendItems).subscribe(onNext: {
                 self.showSnackbarSuccess("availability_succes".localize)
                 self.callSend = false
+                self.nc.post(name: Notification.Name("reloadAvailibility"), object: nil)
+                self.navigationController?.popViewController(animated: true)
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)
                 self.callSend = false
             }).disposed(by: disposeBag)
         }
-        
-        _ = navigationController?.popViewController(animated: true)
-        nc.post(name: Notification.Name("reloadAvailibility"), object: nil)
     }
 }

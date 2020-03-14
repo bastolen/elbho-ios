@@ -311,7 +311,7 @@ class WeekOverzichtViewController: UIViewController {
         let dayOfWeek = calendar.component(.weekday, from: today)
         let weekdays = calendar.range(of: .weekday, in: .weekOfYear, for: today)!
         let days = (weekdays.lowerBound ..< weekdays.upperBound)
-            .compactMap { calendar.date(byAdding: .day, value: $0 - dayOfWeek, to: today) }  // use `flatMap` in Xcode versions before 9.3
+            .compactMap { calendar.date(byAdding: .day, value: $0 - dayOfWeek, to: today) }
             .filter { !calendar.isDateInWeekend($0) }
         
         return days
@@ -349,6 +349,7 @@ class WeekOverzichtViewController: UIViewController {
         let Vc = storyboard.instantiateViewController(withIdentifier: "CopyWeekViewController") as! CopyWeekViewController
         Vc.weekToCopy = getWeekNumber(date: formattedDate)
         Vc.daysFromWeekToCopy = items
+        Vc.datesToShow = daysToShow
         self.navigationController?.pushViewController(Vc, animated: true)
         
         
@@ -419,14 +420,13 @@ class WeekOverzichtViewController: UIViewController {
             APIService.postAvailability(availabilities: sendItems).subscribe(onNext: {
                 self.showSnackbarSuccess("availability_succes".localize)
                 self.callSend = false
+                self.nc.post(name: Notification.Name("reloadAvailibility"), object: nil)
+                self.navigationController?.popViewController(animated: true)
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)
                 self.callSend = false
             }).disposed(by: disposeBag)
         }
-        
-        _ = navigationController?.popViewController(animated: true)
-        nc.post(name: Notification.Name("reloadAvailibility"), object: nil)
     }
     
     
@@ -441,8 +441,8 @@ class WeekOverzichtViewController: UIViewController {
             startToSend = dateFormatter.string(from: date)
             endToSend = dateFormatter.string(from: date)
         } else {
-            startToSend = dateFormatter.string(from: date)+"T"+from+":00.000Z"
-            endToSend = dateFormatter.string(from: date)+"T"+until+":00.000Z"
+            startToSend = dateFormatter.string(from: date)+" "+from
+            endToSend = dateFormatter.string(from: date)+" "+until
         }
         
         let a = Availability2(date: dateToSend, start: startToSend, end: endToSend)

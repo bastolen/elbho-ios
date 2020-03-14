@@ -106,6 +106,6 @@ func getStartDateDayPosition()
         }
         positionIndex = previousNumberOfEmtyBox
     default:
-        fatalError()
+        positionIndex = 0
     }
 }

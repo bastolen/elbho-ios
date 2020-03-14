@@ -96,8 +96,8 @@ extension CarsViewController: UITableViewDataSource {
         
         cell.CompanyLabel.text = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model)) \(item!.vehicle.transmission)"
         
-        cell.iconView.image = UIImage(systemName: "chevron.right")
-        cell.iconView.tintColor = UIColor.lightGray
+//        cell.iconView.image = UIImage(systemName: "chevron.right")
+//        cell.iconView.tintColor = UIColor.lightGray
         
         formatter.dateFormat = "HH:mm"
         cell.TimeLocationLabel.text = "\(formatter.string(from: item!.start)) - \(formatter.string(from: item!.end))"
@@ -126,7 +126,10 @@ extension CarsViewController: UITableViewDelegate {
             DetailViewRow(title: "Kenteken", content: (item?.vehicle.licensePlate)!, icon: nil, iconClicked: {}),
             DetailViewRow(title: "Datum", content: (detailDate), icon: nil, iconClicked: {}),
             DetailViewRow(title: "Tijd", content: ("\(dateFormatter.string(from: item!.start)) - \(dateFormatter.string(from: item!.end))"), icon: nil, iconClicked: {}),
-            DetailViewRow(title: "Adres", content: item!.vehicle.location, icon: nil, iconClicked: {}),
+            DetailViewRow(title: "Adres", content: item!.vehicle.location, icon: UIImage(systemName: "arrow.up.right.diamond.fill"), iconClicked: {
+                let url = URL(string: "http://maps.apple.com/?address=\(item!.vehicle.location.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")
+                UIApplication.shared.open(url!)
+            }),
         ]
         
         navigationController?.pushViewController(detailVc, animated: true)

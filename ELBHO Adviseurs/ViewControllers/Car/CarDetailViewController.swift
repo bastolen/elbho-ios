@@ -32,14 +32,17 @@ class CarDetailViewController : UIViewController {
     private var callSend: Bool = false
     
     override func viewDidLoad() {
+        title = "car_reservation".localize
         super.viewDidLoad()
         GMSServices.provideAPIKey("AIzaSyCgUVIYKDg-seHCHk3q-NsjCL2SxyDOd1w")
         
-        let fullCarName = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model))"
+        let fullCarName = "\(item!.vehicle.brand) \(item!.vehicle.model) \(item!.vehicle.transmission)"
         carNameLabel.text = fullCarName
         ImageHolder.kf.setImage(with: item?.vehicle.image)
+        
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellReuseIdentifier: "DetailViewCell")
+        
         cancelButton.setTitle("button_car_cancel".localize.uppercased(), for: .normal)
         cancelButton.setDanger()
         
@@ -102,6 +105,7 @@ extension CarDetailViewController: UITableViewDataSource {
         
         if row.icon != nil {
             cell.iconView.image = row.icon
+            cell.iconView.tintColor = UIColor.lightGray
             cell.iconView.addTapGestureRecognizer(action: row.iconClicked)
         }
         

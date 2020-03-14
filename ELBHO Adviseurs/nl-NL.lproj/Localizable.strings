@@ -106,6 +106,7 @@
 "title_car" = "Auto overzicht";
 "car_header" = "Gereserveerde auto's";
 "vehicle" = "Auto reserveren";
+"car_reservation" = "Auto reservering";
 "reservation_canceled" = "De reservering is verwijderd!";
 "from" = "Van";
 "until" = "Tot";

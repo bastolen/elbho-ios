@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9k-mh-y7m">
-                        <rect key="frame" x="252" y="15" width="38" height="38"/>
+                        <rect key="frame" x="262" y="20" width="28" height="28"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" button="YES" image="YES"/>
                         </accessibility>
@@ -46,7 +46,7 @@
                     <constraint firstAttribute="bottom" secondItem="TzJ-kS-IOU" secondAttribute="bottom" constant="15" id="V0A-AE-MTo"/>
                     <constraint firstAttribute="trailing" secondItem="p9k-mh-y7m" secondAttribute="trailing" constant="30" id="Wl7-Ok-jKf"/>
                     <constraint firstItem="TzJ-kS-IOU" firstAttribute="top" secondItem="HZC-aa-zdj" secondAttribute="bottom" constant="5" id="eRW-Do-0Lw"/>
-                    <constraint firstItem="p9k-mh-y7m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="f9F-tm-Ifu"/>
+                    <constraint firstItem="p9k-mh-y7m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="f9F-tm-Ifu"/>
                     <constraint firstItem="HZC-aa-zdj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="kUq-w8-aTX"/>
                     <constraint firstItem="TzJ-kS-IOU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="rWz-AQ-yw0"/>
                 </constraints>

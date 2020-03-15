@@ -62,12 +62,14 @@ extension MenuViewController: UITableViewDataSource {
        if( !(cell != nil))
        {
         cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell")
+        cell!.backgroundColor = UIColor(named: "BackgroundColor")
        }
         let menuItem: MenuItem = self.menuItems[indexPath.row]
         
         cell!.textLabel?.text = menuItem.text
+        
         if (MenuViewController.selectedItem == menuItem.id){
-            cell!.backgroundColor = UIColor(named: "BorderColor")
+            cell!.textLabel?.textColor = UIColor(named: "Primary")
         }
         
        return cell!

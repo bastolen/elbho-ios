@@ -57,9 +57,9 @@
 		5FE0640923796CBD00E3015B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0640723796CBD00E3015B /* LaunchScreen.storyboard */; };
 		5FE0641423796CBD00E3015B /* ELBHO_AdviseursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0641323796CBD00E3015B /* ELBHO_AdviseursTests.swift */; };
 		5FE0641F23796CBD00E3015B /* ELBHO_AdviseursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0641E23796CBD00E3015B /* ELBHO_AdviseursUITests.swift */; };
-		5FE0642E2379728600E3015B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE0642D2379728600E3015B /* SwiftPackageProductDependency */; };
-		5FE064312379732900E3015B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE064302379732900E3015B /* SwiftPackageProductDependency */; };
-		5FE06434237973A100E3015B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE06433237973A100E3015B /* SwiftPackageProductDependency */; };
+		5FE0642E2379728600E3015B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE0642D2379728600E3015B /* RxSwift */; };
+		5FE064312379732900E3015B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE064302379732900E3015B /* Alamofire */; };
+		5FE06434237973A100E3015B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE06433237973A100E3015B /* Kingfisher */; };
 		5FE064372379824C00E3015B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE064362379824C00E3015B /* String.swift */; };
 		5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5B8B223799E0F00EF12D6 /* ApiService.swift */; };
 		5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5B8B423799F9900EF12D6 /* Error.swift */; };
@@ -117,7 +117,6 @@
 		5F2301A823AE6F6B001880C5 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		5F4F766B238423B4001821BB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		5F584DCE2383EC5500EBE536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5F584DD02383EC8D00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/Main.strings"; sourceTree = "<group>"; };
 		5F584DD12383EC8D00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5F584DD22383EC8E00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5F584DD52384016000EBE536 /* Advisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advisor.swift; sourceTree = "<group>"; };
@@ -164,9 +163,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FE06434237973A100E3015B /* BuildFile in Frameworks */,
-				5FE064312379732900E3015B /* BuildFile in Frameworks */,
-				5FE0642E2379728600E3015B /* BuildFile in Frameworks */,
+				5FE06434237973A100E3015B /* Kingfisher in Frameworks */,
+				5FE064312379732900E3015B /* Alamofire in Frameworks */,
+				5FE0642E2379728600E3015B /* RxSwift in Frameworks */,
 				3A778610462F17E3BC59A004 /* libPods-ELBHO Adviseurs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,9 +418,9 @@
 			);
 			name = "ELBHO Adviseurs";
 			packageProductDependencies = (
-				5FE0642D2379728600E3015B /* SwiftPackageProductDependency */,
-				5FE064302379732900E3015B /* SwiftPackageProductDependency */,
-				5FE06433237973A100E3015B /* SwiftPackageProductDependency */,
+				5FE0642D2379728600E3015B /* RxSwift */,
+				5FE064302379732900E3015B /* Alamofire */,
+				5FE06433237973A100E3015B /* Kingfisher */,
 			);
 			productName = "ELBHO Adviseurs";
 			productReference = 5FE063F923796CBC00E3015B /* ELBHO Adviseurs.app */;
@@ -500,9 +499,9 @@
 			);
 			mainGroup = 5FE063F023796CBC00E3015B;
 			packageReferences = (
-				5FE0642C2379728600E3015B /* RemoteSwiftPackageReference */,
-				5FE0642F2379732900E3015B /* RemoteSwiftPackageReference */,
-				5FE06432237973A100E3015B /* RemoteSwiftPackageReference */,
+				5FE0642C2379728600E3015B /* XCRemoteSwiftPackageReference "RxSwift" */,
+				5FE0642F2379732900E3015B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5FE06432237973A100E3015B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 5FE063FA23796CBC00E3015B /* Products */;
 			projectDirPath = "";
@@ -746,7 +745,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5FE0640323796CBC00E3015B /* Base */,
-				5F584DD02383EC8D00EBE536 /* nl-NL */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1043,7 +1041,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5FE0642C2379728600E3015B /* RemoteSwiftPackageReference */ = {
+		5FE0642C2379728600E3015B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -1051,7 +1049,7 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		5FE0642F2379732900E3015B /* RemoteSwiftPackageReference */ = {
+		5FE0642F2379732900E3015B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1059,7 +1057,7 @@
 				minimumVersion = 4.9.1;
 			};
 		};
-		5FE06432237973A100E3015B /* RemoteSwiftPackageReference */ = {
+		5FE06432237973A100E3015B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -1070,19 +1068,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5FE0642D2379728600E3015B /* SwiftPackageProductDependency */ = {
+		5FE0642D2379728600E3015B /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5FE0642C2379728600E3015B /* RemoteSwiftPackageReference */;
+			package = 5FE0642C2379728600E3015B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		5FE064302379732900E3015B /* SwiftPackageProductDependency */ = {
+		5FE064302379732900E3015B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5FE0642F2379732900E3015B /* RemoteSwiftPackageReference */;
+			package = 5FE0642F2379732900E3015B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		5FE06433237973A100E3015B /* SwiftPackageProductDependency */ = {
+		5FE06433237973A100E3015B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5FE06432237973A100E3015B /* RemoteSwiftPackageReference */;
+			package = 5FE06432237973A100E3015B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */

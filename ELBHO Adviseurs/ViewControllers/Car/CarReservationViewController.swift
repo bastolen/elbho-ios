@@ -49,10 +49,14 @@ class CarReservationViewController : UIViewController {
         resetVars()
         
         Calendar.dataSource = self
+        Calendar.layer.borderWidth = 1
+        Calendar.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
         
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        tableView.layer.borderWidth = 1
+        tableView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor
         
         Calendar.delegate = self
         
@@ -110,7 +114,7 @@ class CarReservationViewController : UIViewController {
         flow.minimumInteritemSpacing = itemSpacing
         flow.minimumLineSpacing = 7
         let cellWidth = (UIScreen.main.bounds.width - (itemSpacing * 2) - ((itemsInOneLine - 1) * itemSpacing)) / itemsInOneLine
-        flow.itemSize = CGSize(width: cellWidth, height: 45)
+        flow.itemSize = CGSize(width: cellWidth-6, height: 43)
     }
     
     @objc func dismissPicker() {
@@ -310,7 +314,12 @@ extension CarReservationViewController : UICollectionViewDelegate, UICollectionV
 
 extension CarReservationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        if items.count > 0 {
+            return items.count
+        } else {
+            self.tableView.setEmptyMessage("car_reservation_no_results".localize)
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

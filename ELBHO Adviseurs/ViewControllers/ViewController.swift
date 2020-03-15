@@ -144,6 +144,22 @@ class ViewController: UIViewController {
         TabBar.items = [tabItem1, tabItem2, tabItem3]
         TabBar.selectedItem = TabBar.items![ViewController.SelectedItemTag]
         TabBar.delegate = self
+        let fullWidth = self.view.frame.width
+        let itemCount = CGFloat(integerLiteral: TabBar.items!.count)
+        UITabBar.appearance().selectionIndicatorImage = getImageWithColorPosition(color: UIColor(named: "Primary")!, size: CGSize(width:fullWidth/itemCount, height:55), lineSize: CGSize(width:fullWidth/itemCount, height:3))
+    }
+    
+    func getImageWithColorPosition(color: UIColor, size: CGSize, lineSize: CGSize) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        let rectLine = CGRect(x: 0, y: size.height-lineSize.height, width: lineSize.width, height: lineSize.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        UIColor.clear.setFill()
+        UIRectFill(rect)
+        color.setFill()
+        UIRectFill(rectLine)
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
     }
     
     private func setupDateLabel() {

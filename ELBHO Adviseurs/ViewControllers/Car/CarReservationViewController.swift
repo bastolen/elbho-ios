@@ -141,7 +141,7 @@ class CarReservationViewController : UIViewController {
     private func initContent() {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
         
         let show = formatter.date(from: clickedDate)
         let dateSend = formatter.string(from: show!)
@@ -165,7 +165,7 @@ class CarReservationViewController : UIViewController {
             self.showSnackbarDanger("car_invalid_fields".localize)
         } else {
             dateFormatter.dateFormat = "YYYY-MM-dd"
-            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
             
             let clickedInFormat = dateFormatter.date(from: clickedDate)
             let clickedInString = dateFormatter.string(from: clickedInFormat!)
@@ -187,14 +187,14 @@ class CarReservationViewController : UIViewController {
                     .subscribe(onNext: {
                     self.showSnackbarSuccess("car_taken".localize)
                     self.callSend = false
+                    self.nc.post(name: Notification.Name("reloadCarReservations"), object: nil)
+                    self.navigationController?.popViewController(animated: true)
                 }, onError: {error in
                     self.showSnackbarDanger("error_api".localize)
                     self.callSend = false
                 }).disposed(by: disposeBag)
             }
             
-            _ = navigationController?.popViewController(animated: true)
-            nc.post(name: Notification.Name("reloadCarReservations"), object: nil)
         }
     }
     
@@ -315,20 +315,24 @@ extension CarReservationViewController : UICollectionViewDelegate, UICollectionV
 extension CarReservationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if items.count > 0 {
-            return items.count
+            self.tableView.restore()
+            
         } else {
             self.tableView.setEmptyMessage("car_reservation_no_results".localize)
-            return 0
         }
+        
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
         let item = items[indexPath.row]
+        
         let formatter = DateFormatter()
+        
         cell.isUserInteractionEnabled = true
         formatter.dateFormat = "YYYY-MM-dd"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
         
         let show = formatter.date(from: clickedDate)
         formatter.dateFormat = "EE"
@@ -356,10 +360,20 @@ extension CarReservationViewController: UITableViewDataSource {
     
     func checkAvailability(reservations: [CarReservations]) -> Bool
     {
-        var beschikbaar = false
-        
-        if reservations.count > 0 {
-            beschikbaar = false
+        var beschikbaar = true
+
+        if reservations.count > 0 { //Calendar.current.date(byAdding: .hour, value: 1, to: start)!
+            dateFormatter.dateFormat = "HH:mm"
+            let from = calendar.date(byAdding: .hour, value: 1, to: dateFormatter.date(from: timeFromInput.text!)!)
+            let until = calendar.date(byAdding: .hour, value: 1, to: dateFormatter.date(from: timeUntilInput.text!)!)
+            
+            for reservation in reservations {
+                let start = dateFormatter.date(from: dateFormatter.string(from: reservation.start))
+                let end = dateFormatter.date(from: dateFormatter.string(from: reservation.end))
+                
+                print(reservation)
+            }
+            
         } else {
             beschikbaar = true
         }

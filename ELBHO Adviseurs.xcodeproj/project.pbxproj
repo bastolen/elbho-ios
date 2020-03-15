@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171AE662241E6EC7004DB5E1 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171AE661241E6EC7004DB5E1 /* UITableView.swift */; };
 		172007FC239A9BF900EF762B /* Invoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172007FB239A9BF900EF762B /* Invoice.storyboard */; };
 		17200800239D4A1F00EF762B /* CarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172007FF239D4A1F00EF762B /* CarsViewController.swift */; };
 		17200802239D4A7E00EF762B /* Car.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17200801239D4A7E00EF762B /* Car.storyboard */; };
@@ -85,6 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		171AE661241E6EC7004DB5E1 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		172007FB239A9BF900EF762B /* Invoice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invoice.storyboard; sourceTree = "<group>"; };
 		172007FF239D4A1F00EF762B /* CarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsViewController.swift; sourceTree = "<group>"; };
 		17200801239D4A7E00EF762B /* Car.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Car.storyboard; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				5FC2093423996A310080C82B /* UIView.swift */,
 				5F2301A823AE6F6B001880C5 /* URL.swift */,
 				5F9B529223F9DA67001FA776 /* Date.swift */,
+				171AE661241E6EC7004DB5E1 /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1720080A239E5D6500EF762B /* CarDateCell.swift in Sources */,
+				171AE662241E6EC7004DB5E1 /* UITableView.swift in Sources */,
 				5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */,
 				5F584DD62384016000EBE536 /* Advisor.swift in Sources */,
 				5F124857238E602E00411781 /* MDCButton.swift in Sources */,

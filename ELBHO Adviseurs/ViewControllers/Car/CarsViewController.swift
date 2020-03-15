@@ -79,6 +79,13 @@ class CarsViewController : UIViewController {
 
 extension CarsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if items.count > 0 {
+            self.tableView.restore()
+            
+        } else {
+            self.tableView.setEmptyMessage("car_reservation_no_results".localize)
+        }
+        
         return items.count
     }
     

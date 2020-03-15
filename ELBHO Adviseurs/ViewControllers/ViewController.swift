@@ -121,13 +121,13 @@ class ViewController: UIViewController {
     
     
     private func setupTabBar() {
-        let tabItem1 = UITabBarItem(title: "agenda_open".localize, image: UIImage(named: "OpenAgenda"), selectedImage: UIImage(named: "OpenAgendaSelected"))
+        let tabItem1 = UITabBarItem(title: "agenda_open".localize.uppercased(), image: UIImage(named: "OpenAgenda"), selectedImage: UIImage(named: "OpenAgendaSelected"))
         tabItem1.tag = 0
         if (openAppointments.count != 0 ) {
             tabItem1.badgeValue = String(openAppointments.count)
         }
         
-        let tabItem2 = UITabBarItem(title: "agenda_accepted".localize, image: UIImage(named: "AcceptedAgenda"), selectedImage: UIImage(named: "AcceptedAgendaSelected"))
+        let tabItem2 = UITabBarItem(title: "agenda_accepted".localize.uppercased(), image: UIImage(named: "AcceptedAgenda"), selectedImage: UIImage(named: "AcceptedAgendaSelected"))
         tabItem2.tag = 1
         var counter = 0
         acceptedAppointments.forEach{appointment in
@@ -138,7 +138,7 @@ class ViewController: UIViewController {
         if (counter != 0) {
             tabItem2.badgeValue = String(counter)
         }
-        let tabItem3 = UITabBarItem(title: "agenda_done".localize, image: UIImage(named: "DoneAgenda"), selectedImage: UIImage(named: "DoneAgendaSelected"))
+        let tabItem3 = UITabBarItem(title: "agenda_done".localize.uppercased(), image: UIImage(named: "DoneAgenda"), selectedImage: UIImage(named: "DoneAgendaSelected"))
         tabItem3.tag = 2
         
         TabBar.items = [tabItem1, tabItem2, tabItem3]
@@ -166,7 +166,7 @@ class ViewController: UIViewController {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM yyyy"
-        DateLabel.text = formatter.string(from: date)
+        DateLabel.text = formatter.string(from: date).uppercased()
     }
     
     @objc func refresh() {
@@ -308,6 +308,9 @@ extension ViewController: UITableViewDelegate {
             break
         case 1:
             title = "appointment_detail_title_accepted"
+            if (KeychainWrapper.standard.string(forKey: "trackingId") == item._id) {
+                title += "_left"
+            }
             break
         case 2:
             title = "appointment_detail_title_done"
@@ -321,22 +324,21 @@ extension ViewController: UITableViewDelegate {
         detailVc.buttons = prepareButtons(ViewController.SelectedItemTag, item)
         detailVc.rows = [
             DetailViewRow(title: "appointment_detail_name".localize, content: item.COCName, icon: nil, iconClicked: {}),
-            DetailViewRow(title: "appointment_detail_address".localize, content: item.Address, icon: UIImage(named: "RouteIcon"), iconClicked: {
+            DetailViewRow(title: "appointment_detail_address".localize, content: item.Address, icon: UIImage(named: "RouteIconSecondary"), iconClicked: {
                 let url = URL(string: "http://maps.apple.com/?address=\(item.Address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")
                 UIApplication.shared.open(url!)
             }),
             DetailViewRow(title: "appointment_detail_contact_name".localize, content: item.ContactPersonName, icon: nil, iconClicked: {}),
             DetailViewRow(title: "appointment_detail_contact_function".localize, content: item.ContactPersonFunction, icon: nil, iconClicked: {}),
-            DetailViewRow(title: "appointment_detail_contact_phone".localize, content: item.ContactPersonPhoneNumber, icon: UIImage(named: "CallIcon"), iconClicked: {
+            DetailViewRow(title: "appointment_detail_contact_phone".localize, content: item.ContactPersonPhoneNumber, icon: UIImage(named: "CallIconSecondary"), iconClicked: {
                 let url = URL(string: "tel://\(item.ContactPersonPhoneNumber)")
                 UIApplication.shared.open(url!)
             }),
-            DetailViewRow(title: "appointment_detail_contact_email".localize, content: item.ContactPersonEmail, icon: UIImage(named: "MailIcon"), iconClicked: {
+            DetailViewRow(title: "appointment_detail_contact_email".localize, content: item.ContactPersonEmail, icon: UIImage(named: "MailIconSecondary"), iconClicked: {
                 let url = URL(string: "mailto:\(item.ContactPersonEmail)")
                 UIApplication.shared.open(url!)
             }),
-            DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime), icon: nil, iconClicked: {}),
-            DetailViewRow(title: "appointment_detail_time".localize, content: timeString, icon: nil, iconClicked: {}),
+            DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime) + ", " + timeString, icon: nil, iconClicked: {}),
             DetailViewRow(title: "appointment_detail_comment".localize, content: item.Comment, icon: nil, iconClicked: {}),
         ]
         

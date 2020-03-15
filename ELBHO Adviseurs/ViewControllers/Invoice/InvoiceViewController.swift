@@ -90,7 +90,7 @@ extension InvoiceViewController: UITableViewDataSource {
         cell.TimeLocationLabel.text = "\("upload_date".localize): \(formatter.string(from: item.Date))"
         cell.CompanyLabel.text = item.FileName
         formatter.dateFormat = "MMM"
-        cell.DayLabel.text = formatter.string(from: item.InvoiceMonth)
+        cell.DayLabel.text = formatter.string(from: item.InvoiceMonth).uppercased()
         formatter.dateFormat = "yyyy"
         cell.DateLabel.text = formatter.string(from: item.InvoiceMonth)
         cell.iconView.image = UIImage(named: "DownloadIcon")

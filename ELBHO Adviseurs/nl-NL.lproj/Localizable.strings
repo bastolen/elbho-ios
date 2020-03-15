@@ -52,6 +52,7 @@
 
 "appointment_detail_title_open" = "Openstaande Afspraak";
 "appointment_detail_title_accepted" = "Aanstaande Afspraak";
+"appointment_detail_title_accepted_left" = "Vertrokken naar afspraak";
 "appointment_detail_title_done" = "Afgeronde Afspraak";
 
 "title_appointment" = "Afspraken";

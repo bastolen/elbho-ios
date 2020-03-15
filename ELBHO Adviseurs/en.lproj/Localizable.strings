@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   ELBHO Adviseurs
 
@@ -52,6 +52,7 @@
 
 "appointment_detail_title_open" = "Openstaande Afspraak";
 "appointment_detail_title_accepted" = "Aanstaande Afspraak";
+"appointment_detail_title_accepted_left" = "Vertrokken naar afspraak";
 "appointment_detail_title_done" = "Afgeronde Afspraak";
 
 "title_appointment" = "Afspraken";
@@ -66,8 +67,6 @@
 "input_password" = "Wachtwoord";
 "input_month" = "Maand";
 "input_file" = "Bestand";
-"input_from" = "Van";
-"input_until" = "Tot";
 
 "month_1" = "Januari";
 "month_2" = "Februari";
@@ -98,4 +97,29 @@
 "day_6_small" = "ZA";
 "day_7_small" = "ZO";
 
-"car_button_book" = "Auto reserveren";
+"week" = "Week";
+"week_copy" = "Week kopieren";
+"week_copy_info" = "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.";
+"understand" = "Begrepen";
+"week_to_copy" = "Week %@ kopieren naar";
+"availability_succes" = "De beschikbaarheid is ingevoerd";
+
+"title_car" = "Auto overzicht";
+"car_header" = "Gereserveerde auto's";
+"vehicle" = "Auto reserveren";
+"car_reservation" = "Auto reservering";
+"reservation_canceled" = "De reservering is verwijderd!";
+"from" = "Van";
+"until" = "Tot";
+"car_invalid_fields" = "Niet alle velden ingevuld";
+"car_taken" = "De auto is gereserveerd!";
+
+"button_copy_week" = "Kopieer week";
+"button_save_week" = "Wijzigingen opslaan";
+"button_copy_and_save" = "Kopieren & opslaan";
+"button_car_reservation" = "Auto reserveren";
+"button_car_cancel" = "Reservering annuleren";
+
+"time_smaller" = "De eind tijd kan niet kleiner zijn dan de start tijd!";
+"time_bigger" = "De start tijd kan niet groter zijn dan de eind tijd!";
+"car_reservation_no_results" = "Geen auto's gevonden!";

@@ -158,6 +158,85 @@ class ViewController: UIViewController {
             initTableData()
         }
     }
+    
+    private func clearItems() {
+        self.shownItems = []
+        self.acceptedAppointments = []
+        self.doneAppointments = []
+        self.openAppointments = []
+        self.TableView.reloadData()
+    }
+    
+    private func prepareButtons(_ number: Int, _ item: Appointment) -> [DetailViewButton] {
+        if(number == 0) {
+            return getOpenButtons(item)
+        }
+        
+        if (number == 1) {
+            return getAcceptedButtons(item)
+        }
+        
+        if(number == 2) {
+            return [];
+        }
+        
+        return [];
+    }
+    
+    private func getOpenButtons(_ item: Appointment) -> [DetailViewButton] {
+        return [
+            DetailViewButton(text: "button_reject".localize, style: .danger, image: UIImage(systemName: "xmark"), clicked: {
+                if(!self.callSend) {
+                    APIService.respondToRequest(requestId: item._id, accept: false).subscribe(onNext: {
+                        self.showSnackbarSuccess("appointment_rejected".localize)
+                        self.clearItems()
+                        self.initTableData()
+                        self.navigationController?.popViewController(animated: true)
+                    }, onError: {error in
+                        self.showSnackbarDanger("error_api".localize)
+                    }).disposed(by: self.disposeBag)
+                }
+            }),
+            DetailViewButton(text: "button_accept".localize, style: .success, image: UIImage(systemName: "checkmark"), clicked: {
+                if(!self.callSend) {
+                    APIService.respondToRequest(requestId: item._id, accept: true).subscribe(onNext: {
+                        self.showSnackbarSuccess("appointment_accepted".localize)
+                        self.clearItems()
+                        self.initTableData()
+                        self.navigationController?.popViewController(animated: true)
+                    }, onError: { error in
+                        self.showSnackbarDanger("error_api".localize)
+                    }).disposed(by: self.disposeBag)
+                }
+            })
+        ]
+    }
+    
+    private func getAcceptedButtons(_ item: Appointment) -> [DetailViewButton] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if (KeychainWrapper.standard.string(forKey: "trackingId") == item._id) {
+            return [
+                DetailViewButton(text: "button_arrive".localize, style: .primary, image: UIImage(systemName: "car.fill"), clicked: {
+                    KeychainWrapper.standard.removeObject(forKey: "trackingId")
+
+                    appDelegate.stopTracking()
+                    self.showSnackbarSuccess("appointment_arrived".localize)
+                    self.navigationController?.popViewController(animated: true)
+                })
+            ]
+        } else if(Calendar.current.isDateInToday(item.StartTime) && !KeychainWrapper.standard.hasValue(forKey: "trackingId")) {
+            return [
+                DetailViewButton(text: "button_leave".localize, style: .primary, image: UIImage(systemName: "checkmark"), clicked: {
+                    KeychainWrapper.standard.set(item._id, forKey: "trackingId")
+                    appDelegate.startTracking()
+                    self.showSnackbarSuccess("appointment_left".localize)
+                    self.navigationController?.popViewController(animated: true)
+                })
+            ]
+        } else {
+            return []
+        }
+    }
 }
 
 extension ViewController: UITabBarDelegate {
@@ -210,69 +289,12 @@ extension ViewController: UITableViewDelegate {
         switch ViewController.SelectedItemTag {
         case 0:
             title = "appointment_detail_title_open"
-            detailVc.buttons = [
-                DetailViewButton(text: "button_reject".localize, style: .danger, clicked: {
-                    if(!self.callSend) {
-                        APIService.respondToRequest(requestId: item._id, accept: false).subscribe(onNext: {
-                            self.showSnackbarSuccess("appointment_rejected".localize)
-                            self.shownItems = []
-                            self.acceptedAppointments = []
-                            self.doneAppointments = []
-                            self.openAppointments = []
-                            self.TableView.reloadData()
-                            self.initTableData()
-                            self.navigationController?.popViewController(animated: true)
-                        }, onError: {error in
-                            self.showSnackbarDanger("error_api".localize)
-                        }).disposed(by: self.disposeBag)
-                    }
-                }),
-                DetailViewButton(text: "button_accept".localize, style: .success, clicked: {
-                    if(!self.callSend) {
-                        APIService.respondToRequest(requestId: item._id, accept: true).subscribe(onNext: {
-                            self.showSnackbarSuccess("appointment_accepted".localize)
-                            self.shownItems = []
-                            self.acceptedAppointments = []
-                            self.doneAppointments = []
-                            self.openAppointments = []
-                            self.initTableData()
-                            self.navigationController?.popViewController(animated: true)
-                        }, onError: { error in
-                            self.showSnackbarDanger("error_api".localize)
-                        }).disposed(by: self.disposeBag)
-                    }
-                })
-            ]
             break
         case 1:
             title = "appointment_detail_title_accepted"
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            if (KeychainWrapper.standard.string(forKey: "trackingId") == item._id) {
-                detailVc.buttons = [
-                    DetailViewButton(text: "button_arrive".localize, style: .primary, clicked: {
-                        KeychainWrapper.standard.removeObject(forKey: "trackingId")
-
-                        appDelegate.stopTracking()
-                        self.showSnackbarSuccess("appointment_arrived".localize)
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                ]
-            } else if(Calendar.current.isDateInToday(item.StartTime) && !KeychainWrapper.standard.hasValue(forKey: "trackingId")) {
-                detailVc.buttons = [
-                    DetailViewButton(text: "button_leave".localize, style: .primary, clicked: {
-                        KeychainWrapper.standard.set(item._id, forKey: "trackingId")
-                        appDelegate.startTracking()
-                        self.showSnackbarSuccess("appointment_left".localize)
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                ]
-            } else {
-                detailVc.buttons = []
-            }
             break
         case 2:
             title = "appointment_detail_title_done"
-            detailVc.buttons = []
             break
         default:
             title = item.COCName
@@ -280,6 +302,7 @@ extension ViewController: UITableViewDelegate {
         }
         
         detailVc.title = title.localize
+        detailVc.buttons = prepareButtons(ViewController.SelectedItemTag, item)
         detailVc.rows = [
             DetailViewRow(title: "appointment_detail_name".localize, content: item.COCName, icon: nil, iconClicked: {}),
             DetailViewRow(title: "appointment_detail_address".localize, content: item.Address, icon: UIImage(named: "RouteIcon"), iconClicked: {

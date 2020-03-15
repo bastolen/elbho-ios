@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct DetailViewButton {
     let text: String
     let style: colors
+    let image: UIImage?
     let clicked: () -> Void
 }
 

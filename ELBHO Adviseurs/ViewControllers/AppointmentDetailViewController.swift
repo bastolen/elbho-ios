@@ -35,6 +35,10 @@ class AppointmentDetailViewController: UIViewController {
             
             button.isUserInteractionEnabled = true
             button.addTapGestureRecognizer(action: btn.clicked)
+            if(btn.image != nil) {
+                button.setImage(btn.image, for: .normal)
+                button.tintColor = .white
+            }
             
             switch btn.style {
             case .primary:

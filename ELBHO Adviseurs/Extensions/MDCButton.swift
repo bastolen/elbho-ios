@@ -17,10 +17,7 @@ extension MDCButton {
         setBorderWidth(2, for: .disabled)
         setTitleColor(.white, for: .normal)
         setTitleColor(.black, for: .disabled)
-        
-        if self.currentImage != nil {
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-        }
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
     }
     
     func setPrimary() -> Void {

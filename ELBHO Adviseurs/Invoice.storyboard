@@ -52,12 +52,13 @@
                                     <action selector="FileInputTouched:" destination="0PY-Hf-M5g" eventType="touchDown" id="jp2-ad-phD"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJ5-5y-oYo" customClass="MDCButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJ5-5y-oYo" customClass="MDCButton">
                                 <rect key="frame" x="20" y="794" width="374" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="q1X-Hc-qM9"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button" image="plus" catalog="system"/>
                                 <connections>
                                     <action selector="SubmitClicked:" destination="0PY-Hf-M5g" eventType="touchUpInside" id="KF0-Se-4Ne"/>
                                 </connections>

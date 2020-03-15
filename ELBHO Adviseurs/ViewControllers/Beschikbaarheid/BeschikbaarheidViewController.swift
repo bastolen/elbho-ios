@@ -197,9 +197,11 @@ extension BeschikbaarheidViewController : UICollectionViewDelegate, UICollection
 
                 // Als checkDate in het verleden is rood maken
                 if dateFormatter.date(from: checkDate)!.isBefore(today) {
-                    cell.backgroundColor = UIColor(named: "BorderColor")
-                    cell.isUserInteractionEnabled = false
-                    cell.dateLabel.textColor = UIColor.lightGray
+                    if checkDate != dateFormatter.string(from: today) {
+                        cell.backgroundColor = UIColor(named: "BorderColor")
+                        cell.isUserInteractionEnabled = false
+                        cell.dateLabel.textColor = UIColor.lightGray
+                    }
                 } else {
                     if items.count > 0 {
                         for item in items {

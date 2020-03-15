@@ -31,6 +31,7 @@ class CarReservationViewController : UIViewController {
     var inputTimeFromUntilController: MDCTextInputControllerUnderline?
     
     var clickedDate = String()
+    var checkDate = String()
     var highLighted = -1
     var items: [CarAvailability?] = []
     let dateFormatter = DateFormatter()
@@ -284,10 +285,27 @@ extension CarReservationViewController : UICollectionViewDelegate, UICollectionV
             // Cell hiden wanner het 0 of negatief is
             if Int(cell.dateLabel.text!)! < 1 {
                 cell.isHidden = true
-            }
-            
-            if highLighted == indexPath.row {
-                cell.backgroundColor = UIColor.init(named: "ActiveCellColor")!
+            } else {
+                dateFormatter.dateFormat = "YYYY-MM-dd"
+                
+                if((indexPath.row-6) - positionIndex) < 10 {
+                    checkDate = "\(year)-0\(month+1)-0\((indexPath.row-6) - positionIndex)"
+                } else {
+                    checkDate = "\(year)-0\(month+1)-\((indexPath.row-6) - positionIndex)"
+                }
+                
+                let today = Date()
+                if dateFormatter.date(from: checkDate)!.isBefore(today) {
+                    if checkDate != dateFormatter.string(from: today) {
+                        cell.backgroundColor = UIColor(named: "BorderColor")
+                        cell.isUserInteractionEnabled = false
+                        cell.dateLabel.textColor = UIColor.lightGray
+                    }
+                } else {
+                    if highLighted == indexPath.row {
+                        cell.backgroundColor = UIColor.init(named: "ActiveCellColor")!
+                    }
+                }
             }
             
             // Kleurtje voor het weekend
@@ -371,7 +389,7 @@ extension CarReservationViewController: UITableViewDataSource {
                 let start = dateFormatter.date(from: dateFormatter.string(from: reservation.start))
                 let end = dateFormatter.date(from: dateFormatter.string(from: reservation.end))
                 
-                print(reservation)
+                print(from!, until!, start!, end!)
             }
             
         } else {

@@ -18,14 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40E-2D-PLr">
-                                <rect key="frame" x="20" y="64" width="12.5" height="22"/>
+                                <rect key="frame" x="20" y="64" width="30" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="03U-zK-iGv"/>
+                                </constraints>
                                 <state key="normal" image="chevron.left" catalog="system"/>
                                 <connections>
                                     <action selector="prevMonth:" destination="SVH-rd-bKZ" eventType="touchUpInside" id="g6c-Nr-Ugc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRZ-2t-yrw">
-                                <rect key="frame" x="381.5" y="64" width="12.5" height="22"/>
+                                <rect key="frame" x="364" y="64" width="30" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="M1M-t3-z1K"/>
+                                </constraints>
                                 <state key="normal" image="chevron.right" catalog="system"/>
                                 <connections>
                                     <action selector="nextMonth:" destination="SVH-rd-bKZ" eventType="touchUpInside" id="6Bl-ba-6Kc"/>
@@ -38,8 +44,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W0m-zP-qVa">
-                                <rect key="frame" x="20" y="121" width="374" height="741"/>
+                                <rect key="frame" x="20" y="121" width="374" height="360"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="qAU-au-Aww"/>
+                                </constraints>
                                 <inset key="scrollIndicatorInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ro7-Sg-ltu">
                                     <size key="itemSize" width="35" height="35"/>
@@ -89,7 +98,6 @@
                             <constraint firstItem="ReA-Us-X4c" firstAttribute="trailing" secondItem="W0m-zP-qVa" secondAttribute="trailing" constant="20" id="KrK-YJ-N2V"/>
                             <constraint firstItem="wgl-a3-gXt" firstAttribute="top" secondItem="ReA-Us-X4c" secondAttribute="top" constant="20" id="Q40-AV-lwQ"/>
                             <constraint firstItem="W0m-zP-qVa" firstAttribute="leading" secondItem="ReA-Us-X4c" secondAttribute="leading" constant="20" id="Ydv-Ep-744"/>
-                            <constraint firstItem="ReA-Us-X4c" firstAttribute="bottom" secondItem="W0m-zP-qVa" secondAttribute="bottom" id="jXw-1x-Zhc"/>
                             <constraint firstItem="W0m-zP-qVa" firstAttribute="top" secondItem="40E-2D-PLr" secondAttribute="bottom" constant="35" id="lu7-Vm-Kck"/>
                             <constraint firstItem="LRZ-2t-yrw" firstAttribute="top" secondItem="ReA-Us-X4c" secondAttribute="top" constant="20" id="qGk-YN-TQW"/>
                             <constraint firstItem="ReA-Us-X4c" firstAttribute="trailing" secondItem="LRZ-2t-yrw" secondAttribute="trailing" constant="20" id="sie-gd-Yvm"/>

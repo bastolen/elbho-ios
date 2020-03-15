@@ -284,35 +284,37 @@ final class APIService {
         }
     }
     
-    // TODO: Function doesn't work because you don't have access to read the files...
+    // TODO: Function doesn't work when the file is in the cloud...
     static func createInvoice(fileURL: URL, date: Date) -> Observable<Invoice> {
         return Observable<Invoice>.create { observer -> Disposable in
             let formatter = DateFormatter.apiDateResult
             var fileData: Data
-            
-            fileURL.startAccessingSecurityScopedResource()
-            fileData = try! Data(contentsOf: fileURL)
-            fileURL.stopAccessingSecurityScopedResource()
-            
-            Alamofire.upload(multipartFormData: { multipart in
-                multipart.append(fileData, withName: "file", fileName: fileURL.lastPathComponent, mimeType: fileURL.mimeType())
-                multipart.append((formatter.string(from: date).data(using: .utf8))!, withName: "date")
-            }, to: self.APIBASEURL + "/auth/invoice", method: .post, headers: self.getAuthHeader()) { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseJSON { response in
-                        guard let jsonData = response.data else {
-                            return observer.onError(CustomError.api)
+            do {
+                fileURL.startAccessingSecurityScopedResource()
+                fileData = try Data(contentsOf: fileURL)
+                fileURL.stopAccessingSecurityScopedResource()
+                Alamofire.upload(multipartFormData: { multipart in
+                    multipart.append(fileData, withName: "file", fileName: fileURL.lastPathComponent, mimeType: fileURL.mimeType())
+                    multipart.append((formatter.string(from: date).data(using: .utf8))!, withName: "date")
+                }, to: self.APIBASEURL + "/auth/invoice", method: .post, headers: self.getAuthHeader()) { encodingResult in
+                    switch encodingResult {
+                    case .success(let upload, _, _):
+                        upload.responseJSON { response in
+                            guard let jsonData = response.data else {
+                                return observer.onError(CustomError.api)
+                            }
+                            let decoder = JSONDecoder()
+                            decoder.dateDecodingStrategy = .formatted(.apiDateResult)
+                            let apiResult = try? decoder.decode(Invoice.self, from: jsonData)
+                            return observer.onNext(apiResult!)
                         }
-                        let decoder = JSONDecoder()
-                        decoder.dateDecodingStrategy = .formatted(.apiDateResult)
-                        let apiResult = try? decoder.decode(Invoice.self, from: jsonData)
-                        return observer.onNext(apiResult!)
+                    case .failure(let error):
+                        print("Error in upload: \(error.localizedDescription)")
+                        return observer.onError(CustomError.api)
                     }
-                case .failure(let error):
-                    print("Error in upload: \(error.localizedDescription)")
-                    return observer.onError(CustomError.api)
                 }
+            } catch {
+                observer.onError(CustomError.fileInvalid)
             }
             
             return Disposables.create()

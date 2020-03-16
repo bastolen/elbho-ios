@@ -72,8 +72,10 @@ class CarReservationViewController : UIViewController {
         nextMonth.imageView?.tintColor = UIColor.black
      
         dateFormatter.dateFormat =  "HH:mm"
-        datePicker.date = dateFormatter.date(from: "10:00")!
         
+        datePicker.minimumDate = dateFormatter.date(from: "06:00")!
+        datePicker.maximumDate = dateFormatter.date(from: "22:00")!
+        datePicker.date = dateFormatter.date(from: "10:00")!
         datePicker.datePickerMode = .time
         datePicker.minuteInterval = 15
         
@@ -123,10 +125,27 @@ class CarReservationViewController : UIViewController {
         let pickedTime = dateFormatter.string(from: datePicker.date)
         
         if timeFromInput.isFirstResponder {
-            timeFromInput.text = pickedTime
+            if !timeUntilInput.text!.isEmpty {
+                let check = dateFormatter.date(from: timeUntilInput.text!)!
+                datePicker.date.isBeforeOrEquel(check) ? timeUntilInput.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+            } else {
+                timeFromInput.text = pickedTime
+            }
         } else if timeUntilInput.isFirstResponder {
-            timeUntilInput.text = pickedTime
+            if !timeFromInput.text!.isEmpty {
+                let check = dateFormatter.date(from: timeFromInput.text!)!
+                !datePicker.date.isBeforeOrEquel(check) ? timeUntilInput.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+            } else {
+                timeUntilInput.text = pickedTime
+            }
         }
+        
+//        if !timeInputDay1Until.text!.isEmpty {
+//            let check = dateFormatter.date(from: timeInputDay1Until.text!)!
+//            datePicker.date.isBeforeOrEquel(check) ? timeInputDay1From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+//        } else {
+//            timeInputDay1From.text = pickedTime
+//        }
         
         view.endEditing(true)
         getCars()
@@ -296,11 +315,9 @@ extension CarReservationViewController : UICollectionViewDelegate, UICollectionV
                 
                 let today = Date()
                 if dateFormatter.date(from: checkDate)!.isBefore(today) {
-                    if checkDate != dateFormatter.string(from: today) {
-                        cell.backgroundColor = UIColor(named: "BorderColor")
-                        cell.isUserInteractionEnabled = false
-                        cell.dateLabel.textColor = UIColor.lightGray
-                    }
+                    cell.backgroundColor = UIColor(named: "BorderColor")
+                    cell.isUserInteractionEnabled = false
+                    cell.dateLabel.textColor = UIColor.lightGray
                 } else {
                     if highLighted == indexPath.row {
                         cell.backgroundColor = UIColor.init(named: "ActiveCellColor")!
@@ -389,7 +406,9 @@ extension CarReservationViewController: UITableViewDataSource {
                 let start = dateFormatter.date(from: dateFormatter.string(from: reservation.start))
                 let end = dateFormatter.date(from: dateFormatter.string(from: reservation.end))
                 
-                print(from!, until!, start!, end!)
+                if from! == start! || until! == end! || from! > start! && from! < end! || until! > start! && until! < end! || from! < start! && until! > end! {
+                    beschikbaar = false
+                }
             }
             
         } else {

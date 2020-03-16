@@ -70,6 +70,8 @@ extension MenuViewController: UITableViewDataSource {
         
         if (MenuViewController.selectedItem == menuItem.id){
             cell!.textLabel?.textColor = UIColor(named: "Primary")
+
+            cell!.textLabel?.font = UIFont.boldSystemFont(ofSize: (cell!.textLabel?.font.pointSize)!)
         }
         
        return cell!

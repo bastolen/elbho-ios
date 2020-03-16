@@ -57,7 +57,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="krA-8X-uDY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="0Bg-gj-ZfD"/>
+                    <constraint firstItem="krA-8X-uDY" firstAttribute="leading" secondItem="yU9-sf-VcZ" secondAttribute="leading" id="0Bg-gj-ZfD"/>
                     <constraint firstItem="yU9-sf-VcZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="0u2-lZ-VQB"/>
                     <constraint firstItem="yU9-sf-VcZ" firstAttribute="trailing" secondItem="vpt-yp-ibW" secondAttribute="trailing" id="4jG-vu-qdi"/>
                     <constraint firstItem="rw5-aB-0Io" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="7ip-em-NRw"/>
@@ -73,7 +73,7 @@
                     <constraint firstItem="puD-C0-x2z" firstAttribute="top" secondItem="rw5-aB-0Io" secondAttribute="bottom" constant="15" id="nTz-LA-iC2"/>
                     <constraint firstItem="puD-C0-x2z" firstAttribute="leading" secondItem="yU9-sf-VcZ" secondAttribute="trailing" constant="20" id="nb2-fI-iaR"/>
                     <constraint firstItem="yU9-sf-VcZ" firstAttribute="trailing" secondItem="krA-8X-uDY" secondAttribute="trailing" id="rQJ-Hv-Uj9"/>
-                    <constraint firstItem="vpt-yp-ibW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="vbT-NV-cPP"/>
+                    <constraint firstItem="vpt-yp-ibW" firstAttribute="leading" secondItem="yU9-sf-VcZ" secondAttribute="leading" id="vbT-NV-cPP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -81,6 +81,7 @@
                 <outlet property="CompanyLabel" destination="rw5-aB-0Io" id="VeY-10-slJ"/>
                 <outlet property="DateLabel" destination="vpt-yp-ibW" id="mvV-69-OPd"/>
                 <outlet property="DayLabel" destination="krA-8X-uDY" id="sSw-gP-GNZ"/>
+                <outlet property="LeftConstraint" destination="0u2-lZ-VQB" id="kvi-2Y-JNr"/>
                 <outlet property="TimeLocationLabel" destination="puD-C0-x2z" id="umJ-sG-QFa"/>
                 <outlet property="iconView" destination="4kE-ez-GgO" id="hxW-hb-QYD"/>
                 <outlet property="imageViewBackground" destination="yU9-sf-VcZ" id="sOs-jc-9B8"/>

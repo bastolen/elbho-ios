@@ -86,7 +86,7 @@ extension InvoiceViewController: UITableViewDataSource {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM"
-        
+        cell.isInGrid()
         cell.TimeLocationLabel.text = "\("upload_date".localize): \(formatter.string(from: item.Date))"
         cell.CompanyLabel.text = item.FileName
         formatter.dateFormat = "MMM"

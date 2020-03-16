@@ -14,10 +14,10 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var CompanyLabel: UILabel!
     @IBOutlet weak var TimeLocationLabel: UILabel!
+    @IBOutlet weak var LeftConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var imageViewBackground: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -29,13 +29,18 @@ class CustomTableViewCell: UITableViewCell {
         TimeLocationLabel.text = nil
         imageViewBackground.backgroundColor = UIColor(named: "Primary")
         iconView.gestureRecognizers = []
-        iconView.isUserInteractionEnabled = true;
+        iconView.isUserInteractionEnabled = true
         iconView.image = UIImage(named: "ChevronRight")
+        LeftConstraint.constant = 20.0
         super.prepareForReuse()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func isInGrid() {
+        LeftConstraint.constant = 0.0
     }
     
 }

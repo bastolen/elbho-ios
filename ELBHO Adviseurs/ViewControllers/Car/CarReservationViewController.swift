@@ -384,7 +384,6 @@ extension CarReservationViewController: UITableViewDataSource {
             cell.TimeLocationLabel.text = "Gereserveerd:"
             formatter.dateFormat = "HH:mm"
             for reservation in item!.reservations {
-                //label.text = (label.text ?? "") + " some other word(s)"
                 cell.TimeLocationLabel.text = (cell.TimeLocationLabel.text ?? "") + "\n" + formatter.string(from: reservation.start) + " - " + formatter.string(from: reservation.end)
             }
             

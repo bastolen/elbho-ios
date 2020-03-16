@@ -127,7 +127,7 @@ class CarReservationViewController : UIViewController {
         if timeFromInput.isFirstResponder {
             if !timeUntilInput.text!.isEmpty {
                 let check = dateFormatter.date(from: timeUntilInput.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeUntilInput.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEquel(check) ? timeFromInput.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeFromInput.text = pickedTime
             }
@@ -139,13 +139,6 @@ class CarReservationViewController : UIViewController {
                 timeUntilInput.text = pickedTime
             }
         }
-        
-//        if !timeInputDay1Until.text!.isEmpty {
-//            let check = dateFormatter.date(from: timeInputDay1Until.text!)!
-//            datePicker.date.isBeforeOrEquel(check) ? timeInputDay1From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
-//        } else {
-//            timeInputDay1From.text = pickedTime
-//        }
         
         view.endEditing(true)
         getCars()
@@ -383,10 +376,19 @@ extension CarReservationViewController: UITableViewDataSource {
             cell.imageViewBackground.backgroundColor = UIColor(named: "Secondary")
         }
         
+        cell.TimeLocationLabel.numberOfLines = 1
+        
         // Nu kijken of de auto wel beschikbaar is in de aangegeven tijden
         if !checkAvailability(reservations: item!.reservations) {
             cell.isUserInteractionEnabled = false
-            cell.TimeLocationLabel.text = "car_taken".localize
+            cell.TimeLocationLabel.text = "Gereserveerd:"
+            formatter.dateFormat = "HH:mm"
+            for reservation in item!.reservations {
+                //label.text = (label.text ?? "") + " some other word(s)"
+                cell.TimeLocationLabel.text = (cell.TimeLocationLabel.text ?? "") + "\n" + formatter.string(from: reservation.start) + " - " + formatter.string(from: reservation.end)
+            }
+            
+            cell.TimeLocationLabel.numberOfLines = 0
             cell.imageViewBackground.backgroundColor = UIColor.darkGray
         }
         
@@ -419,7 +421,20 @@ extension CarReservationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 96
+        let item = items[indexPath.row]
+        
+        if !checkAvailability(reservations: item!.reservations) {
+            if (item?.reservations.count)! > 1 {
+                // 20
+                let t = item?.reservations.count
+                
+                return CGFloat(96 + ((t!-1) * 20))
+            } else {
+                return 96
+            }
+        } else {
+            return 96
+        }
     }
 }
 

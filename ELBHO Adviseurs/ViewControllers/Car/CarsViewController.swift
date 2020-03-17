@@ -54,11 +54,14 @@ class CarsViewController : UIViewController {
     }
     
     @objc private func initContent() {
+        var ophalenVanaf = Date()
+        ophalenVanaf = Calendar.current.date(byAdding: .day, value: -1, to: ophalenVanaf)!
+        
         refreshControl.beginRefreshing()
         if(!callSend) {
             items = []
             callSend = true
-            APIService.getCarReservation(after: Date()).subscribe(onNext: { reservation in
+            APIService.getCarReservation(after: ophalenVanaf).subscribe(onNext: { reservation in
                 self.items = reservation
                 self.tableView.reloadData()
                 self.callSend = false
@@ -66,6 +69,7 @@ class CarsViewController : UIViewController {
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)
                 self.callSend = false
+                self.refreshControl.endRefreshing()
             }).disposed(by: disposeBag)
         }
     }
@@ -91,9 +95,9 @@ extension CarsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
+        cell.isInGrid()
         let item = items[indexPath.row]
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         formatter.dateFormat = "EE"
         cell.DayLabel.text = formatter.string(from: item!.date).uppercased()
@@ -102,9 +106,6 @@ extension CarsViewController: UITableViewDataSource {
         cell.DateLabel.text = formatter.string(from: item!.date)
         
         cell.CompanyLabel.text = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model)) \(item!.vehicle.transmission)"
-        
-//        cell.iconView.image = UIImage(systemName: "chevron.right")
-//        cell.iconView.tintColor = UIColor.lightGray
         
         formatter.dateFormat = "HH:mm"
         cell.TimeLocationLabel.text = "\(formatter.string(from: item!.start)) - \(formatter.string(from: item!.end))"

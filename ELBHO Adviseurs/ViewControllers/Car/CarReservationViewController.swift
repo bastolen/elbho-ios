@@ -354,6 +354,7 @@ extension CarReservationViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
+        cell.isInGrid()
         let item = items[indexPath.row]
         
         let formatter = DateFormatter()
@@ -424,7 +425,6 @@ extension CarReservationViewController: UITableViewDataSource {
         
         if !checkAvailability(reservations: item!.reservations) {
             if (item?.reservations.count)! > 1 {
-                // 20
                 let t = item?.reservations.count
                 
                 return CGFloat(96 + ((t!-1) * 20))

@@ -15,6 +15,7 @@ class AppointmentDetailViewController: UIViewController {
     var rows: [DetailViewRow] = []
     
     @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var BottomView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,8 @@ class AppointmentDetailViewController: UIViewController {
         
         TableView.dataSource = self
         TableView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellReuseIdentifier: "DetailViewCell")
-        let tableFooter = UIView()
-        
-        var yPos: CGFloat = 0
+        TableView.tableFooterView = UIView()
+        var yPos: CGFloat = 14
         
         buttons.forEach{ btn in
             let button = MDCButton()
@@ -57,14 +57,15 @@ class AppointmentDetailViewController: UIViewController {
                 button.setPrimary()
             }
             
-            tableFooter.addSubview(button)
+            BottomView.addSubview(button)
             
             yPos = yPos + 56
         }
         
-        tableFooter.frame = CGRect(x: 0, y: 0, width: TableView.frame.width, height: yPos)
+        if let constraint = (BottomView.constraints.filter{$0.firstAttribute == .height}.first) {
+            constraint.constant = yPos
+        }
         
-        TableView.tableFooterView = tableFooter
         TableView.reloadData()
     }
 }

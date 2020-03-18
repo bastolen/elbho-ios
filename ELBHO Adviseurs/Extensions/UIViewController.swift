@@ -21,23 +21,25 @@ extension UIViewController {
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .left
 
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        view.addGestureRecognizer(tapRecognizer)
+        
         view.addGestureRecognizer(edgePan)
+    }
+    
+    @objc func viewTapped(_ recognizer: UITapGestureRecognizer) {
+        recognizer.cancelsTouchesInView = false
+        if (view.viewWithTag(999) != nil) {
+            let hit = (view.viewWithTag(999)?.frame.contains(recognizer.location(in: self.view)))!
+            if !hit {
+                return self.menuTapped()
+            }
+        }
     }
     
     @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
         if recognizer.state == .recognized {
             self.menuTapped()
-        }
-    }
-    
-    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (view.viewWithTag(999) != nil) {
-            if let firstTouch = touches.first {
-                let hit = (view.viewWithTag(999)?.frame.contains(firstTouch.location(in: self.view)))!
-                if !hit {
-                    self.menuTapped()
-                }
-            }
         }
     }
     

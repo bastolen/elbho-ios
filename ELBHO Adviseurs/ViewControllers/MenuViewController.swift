@@ -36,6 +36,7 @@ class MenuViewController: UIViewController {
         BottomView.frame = CGRect(x: 0, y: 0, width: BottomView.frame.width, height: third)
         
         LogoutButton.setTextPrimary()
+        LogoutButton.setBackgroundColor(UIColor(named: "BackgroundColor"), for: .normal)
         LogoutButton.setTitle("button_logout".localize, for: .normal)
         
         let name = KeychainWrapper.standard.string(forKey: "AdvisorName")
@@ -81,6 +82,10 @@ extension MenuViewController: UITableViewDataSource {
 extension MenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = self.menuItems[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: false)
+        if selectedItem.id == MenuViewController.selectedItem {
+            return
+        }
         if selectedItem.id < 3 {
             ViewController.SelectedItemTag = selectedItem.id
         }

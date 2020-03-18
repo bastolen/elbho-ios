@@ -24,34 +24,34 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3HG-oI-rI1"/>
+                        <segue destination="enj-FI-cyy" kind="relationship" relationship="rootViewController" id="iDa-7P-Xkp"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAg-yp-0eL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-710" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Appointment View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AppointmentViewController" storyboardIdentifier="AppointmentViewController" id="BYZ-38-t0r" customClass="AppointmentViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maT-Fr-l76">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items/>
                             </tabBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvJ-At-dUq">
-                                <rect key="frame" x="0.0" y="69" width="414" height="17"/>
+                                <rect key="frame" x="0.0" y="113" width="414" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YOY-Qe-58n">
-                                <rect key="frame" x="0.0" y="106" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -74,14 +74,73 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="7Rf-Fo-Zvg"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="DateLabel" destination="WvJ-At-dUq" id="yKI-LS-oof"/>
-                        <outlet property="TabBar" destination="maT-Fr-l76" id="Cc3-XJ-mMm"/>
-                        <outlet property="TableView" destination="YOY-Qe-58n" id="6J3-JH-Rv7"/>
+                        <outlet property="DateLabel" destination="WvJ-At-dUq" id="A10-05-RIY"/>
+                        <outlet property="TabBar" destination="maT-Fr-l76" id="rmX-kf-bd3"/>
+                        <outlet property="TableView" destination="YOY-Qe-58n" id="xap-CA-ie7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="134"/>
+            <point key="canvasLocation" x="929" y="134"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DdF-wZ-0X2">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="enj-FI-cyy" customClass="ViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nra-2H-z6M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BrandIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pnC-G7-rmw">
+                                <rect key="frame" x="75" y="150" width="264" height="236"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pnC-G7-rmw" secondAttribute="height" multiplier="1007:900" id="Avd-iE-KbL"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBv-I8-A0A" customClass="MDCButton">
+                                <rect key="frame" x="50" y="486" width="314" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="NO9-SA-9iD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="TryAgainClicked:" destination="enj-FI-cyy" eventType="touchUpInside" id="xta-gN-idv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORM-26-Hkm" customClass="MDCButton">
+                                <rect key="frame" x="50" y="559" width="314" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="dp1-BK-edM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="LogOutClicked:" destination="enj-FI-cyy" eventType="touchUpInside" id="Ndk-E3-GtL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ORM-26-Hkm" firstAttribute="leading" secondItem="baz-Jp-lPg" secondAttribute="leading" constant="50" id="RYD-Af-i76"/>
+                            <constraint firstItem="aBv-I8-A0A" firstAttribute="leading" secondItem="baz-Jp-lPg" secondAttribute="leading" constant="50" id="Rje-Te-izx"/>
+                            <constraint firstItem="aBv-I8-A0A" firstAttribute="top" secondItem="pnC-G7-rmw" secondAttribute="bottom" constant="100" id="ToQ-gQ-NBG"/>
+                            <constraint firstItem="baz-Jp-lPg" firstAttribute="trailing" secondItem="ORM-26-Hkm" secondAttribute="trailing" constant="50" id="W97-hP-FfU"/>
+                            <constraint firstItem="pnC-G7-rmw" firstAttribute="leading" secondItem="baz-Jp-lPg" secondAttribute="leading" constant="75" id="YKw-y6-kml"/>
+                            <constraint firstItem="baz-Jp-lPg" firstAttribute="trailing" secondItem="aBv-I8-A0A" secondAttribute="trailing" constant="50" id="cxE-NB-XYg"/>
+                            <constraint firstItem="ORM-26-Hkm" firstAttribute="top" secondItem="aBv-I8-A0A" secondAttribute="bottom" constant="25" id="mwb-nB-A7c"/>
+                            <constraint firstItem="pnC-G7-rmw" firstAttribute="top" secondItem="baz-Jp-lPg" secondAttribute="top" constant="150" id="nCo-iC-5aO"/>
+                            <constraint firstItem="baz-Jp-lPg" firstAttribute="trailing" secondItem="pnC-G7-rmw" secondAttribute="trailing" constant="75" id="qrU-4m-U2R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="baz-Jp-lPg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="M9k-3m-i3h"/>
+                    <connections>
+                        <outlet property="LogOutButton" destination="ORM-26-Hkm" id="CvS-r3-hoL"/>
+                        <outlet property="TryAgainButton" destination="aBv-I8-A0A" id="Tzz-OM-fRh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jz3-oU-B9a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125" y="134"/>
         </scene>
         <!--Appointment Detail View Controller-->
         <scene sceneID="i9L-wJ-bSz">
@@ -133,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6h-L0-8NV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1099" y="134"/>
+            <point key="canvasLocation" x="1780" y="134"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="HnY-fc-uQ2">

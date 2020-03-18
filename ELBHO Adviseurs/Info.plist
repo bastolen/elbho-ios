@@ -39,6 +39,8 @@
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>App needs Location</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Needed for unlocking</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App needs Location</string>
 	<key>UIApplicationSceneManifest</key>

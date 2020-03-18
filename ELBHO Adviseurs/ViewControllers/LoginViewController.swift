@@ -59,7 +59,7 @@ class LoginViewController: UIViewController {
                     if (result) {
                         // User is logged in
                         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "MainViewController")], animated:true)
+                        self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "AppointmentViewController")], animated:true)
                     } else {
                         // Saving the token failed
                         self.showSnackbarDanger("error_general".localize)

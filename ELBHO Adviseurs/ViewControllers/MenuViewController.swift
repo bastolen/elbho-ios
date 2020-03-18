@@ -19,9 +19,9 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var LogoutButton: MDCButton!
     
     let menuItems: [MenuItem] = [
-        MenuItem(text: "menu_open".localize, viewControllerIdentifier: "MainViewController", storyboardIdentifier: "Main", id: 0),
-        MenuItem(text: "menu_accepted".localize, viewControllerIdentifier: "MainViewController", storyboardIdentifier: "Main", id: 1),
-        MenuItem(text: "menu_done".localize, viewControllerIdentifier: "MainViewController", storyboardIdentifier: "Main", id: 2),
+        MenuItem(text: "menu_open".localize, viewControllerIdentifier: "AppointmentViewController", storyboardIdentifier: "Main", id: 0),
+        MenuItem(text: "menu_accepted".localize, viewControllerIdentifier: "AppointmentViewController", storyboardIdentifier: "Main", id: 1),
+        MenuItem(text: "menu_done".localize, viewControllerIdentifier: "AppointmentViewController", storyboardIdentifier: "Main", id: 2),
         MenuItem(text: "menu_availability".localize, viewControllerIdentifier: "BeschikbaarheidViewController", storyboardIdentifier: "Beschikbaarheid", id: 3),
         MenuItem(text: "menu_vehicle".localize, viewControllerIdentifier: "CarsViewController", storyboardIdentifier: "Car", id: 4),
         MenuItem(text: "menu_invoice".localize, viewControllerIdentifier: "InvoiceViewController", storyboardIdentifier: "Invoice", id: 5)
@@ -87,7 +87,7 @@ extension MenuViewController: UITableViewDelegate {
             return
         }
         if selectedItem.id < 3 {
-            ViewController.SelectedItemTag = selectedItem.id
+            AppointmentViewController.SelectedItemTag = selectedItem.id
         }
         MenuViewController.selectedItem = selectedItem.id
         let storyboard = UIStoryboard(name: selectedItem.storyboardIdentifier, bundle: nil)

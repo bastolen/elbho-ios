@@ -36,6 +36,7 @@
 		5F2301A723AE631F001880C5 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2301A623AE631F001880C5 /* PDFViewController.swift */; };
 		5F2301A923AE6F6B001880C5 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2301A823AE6F6B001880C5 /* URL.swift */; };
 		5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F766B238423B4001821BB /* DateFormatter.swift */; };
+		5F5023822422C07900952837 /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5023812422C07900952837 /* AppointmentViewController.swift */; };
 		5F584DCD2383EC5500EBE536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F584DCF2383EC5500EBE536 /* Localizable.strings */; };
 		5F584DD62384016000EBE536 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F584DD52384016000EBE536 /* Advisor.swift */; };
 		5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7335DB2399204B0013F4EA /* Appointment.swift */; };
@@ -116,6 +117,7 @@
 		5F2301A623AE631F001880C5 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		5F2301A823AE6F6B001880C5 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		5F4F766B238423B4001821BB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		5F5023812422C07900952837 /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
 		5F584DCE2383EC5500EBE536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F584DD12383EC8D00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5F584DD22383EC8E00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */,
 				5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */,
 				5FC988F023EC9F67009877FF /* MenuViewController.swift */,
+				5F5023812422C07900952837 /* AppointmentViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */,
 				5FC2092E239954FE0080C82B /* DetailViewButton.swift in Sources */,
 				5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */,
+				5F5023822422C07900952837 /* AppointmentViewController.swift in Sources */,
 				5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */,
 				17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */,
 				5F06D83A239AAB6200A15EDD /* Invoice.swift in Sources */,

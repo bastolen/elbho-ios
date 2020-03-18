@@ -113,6 +113,10 @@
 "until" = "Tot";
 "car_invalid_fields" = "Niet alle velden ingevuld";
 "car_taken" = "De auto is gereserveerd!";
+"car_detail_date" = "Datum";
+"car_detail_licenceplate" = "Kenteken";
+"car_detail_adress" = "Adres";
+"car_detail_time" = "Tijd";
 
 "button_copy_week" = "Kopieer week";
 "button_save_week" = "Wijzigingen opslaan";

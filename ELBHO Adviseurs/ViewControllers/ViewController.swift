@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
                 if success {
                     DispatchQueue.main.async { [unowned self] in
-                        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let mainStoryboard = UIStoryboard(name: "Appointment", bundle: nil)
                         self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "AppointmentViewController")], animated:true)                    }
                 }
             }

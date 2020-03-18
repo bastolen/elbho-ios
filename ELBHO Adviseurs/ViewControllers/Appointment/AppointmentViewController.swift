@@ -266,7 +266,7 @@ extension AppointmentViewController: UITableViewDataSource {
 
 extension AppointmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainStoryboard = UIStoryboard(name: "Appointment", bundle: nil)
  
         let detailVc = mainStoryboard.instantiateViewController(withIdentifier:
             "AppointmentDetailViewController") as! AppointmentDetailViewController

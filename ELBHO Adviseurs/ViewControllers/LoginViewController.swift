@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
                 .subscribe(onNext: {result in
                     if (result) {
                         // User is logged in
-                        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let mainStoryboard = UIStoryboard(name: "Appointment", bundle: nil)
                         self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "AppointmentViewController")], animated:true)
                     } else {
                         // Saving the token failed

@@ -31,58 +31,6 @@
             </objects>
             <point key="canvasLocation" x="-710" y="134"/>
         </scene>
-        <!--Appointment View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController restorationIdentifier="AppointmentViewController" storyboardIdentifier="AppointmentViewController" id="BYZ-38-t0r" customClass="AppointmentViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maT-Fr-l76">
-                                <rect key="frame" x="0.0" y="44" width="414" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items/>
-                            </tabBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvJ-At-dUq">
-                                <rect key="frame" x="0.0" y="113" width="414" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YOY-Qe-58n">
-                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
-                                <color key="backgroundColor" name="BackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" name="BackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YOY-Qe-58n" secondAttribute="bottom" id="BWh-ZW-sZA"/>
-                            <constraint firstItem="YOY-Qe-58n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JWL-HF-x8F"/>
-                            <constraint firstItem="maT-Fr-l76" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MC8-Mk-0yJ"/>
-                            <constraint firstItem="WvJ-At-dUq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Oo0-ry-Jj9"/>
-                            <constraint firstItem="WvJ-At-dUq" firstAttribute="top" secondItem="maT-Fr-l76" secondAttribute="bottom" constant="20" id="UKD-pT-yKr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YOY-Qe-58n" secondAttribute="trailing" id="gHm-e3-lQn"/>
-                            <constraint firstItem="maT-Fr-l76" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jou-eX-Ubg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WvJ-At-dUq" secondAttribute="trailing" id="nji-ZX-fvW"/>
-                            <constraint firstItem="maT-Fr-l76" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xGE-K7-Ukw"/>
-                            <constraint firstItem="YOY-Qe-58n" firstAttribute="top" secondItem="WvJ-At-dUq" secondAttribute="bottom" constant="20" id="yY4-gX-FWw"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="B5D-vY-auu">
-                        <barButtonItem key="backBarButtonItem" title=" " id="7Rf-Fo-Zvg"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="DateLabel" destination="WvJ-At-dUq" id="A10-05-RIY"/>
-                        <outlet property="TabBar" destination="maT-Fr-l76" id="rmX-kf-bd3"/>
-                        <outlet property="TableView" destination="YOY-Qe-58n" id="xap-CA-ie7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="929" y="134"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="DdF-wZ-0X2">
             <objects>
@@ -141,58 +89,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jz3-oU-B9a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="125" y="134"/>
-        </scene>
-        <!--Appointment Detail View Controller-->
-        <scene sceneID="i9L-wJ-bSz">
-            <objects>
-                <viewController storyboardIdentifier="AppointmentDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ug0-2S-B7E" customClass="AppointmentDetailViewController" customModule="ELBHO_Adviseurs" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aBH-9U-kzh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wBc-oV-dOJ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qtt-GX-IEe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="474"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1l-Pe-TMB">
-                                        <rect key="frame" x="0.0" y="474" width="414" height="300"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="5tS-Ng-9Ye"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="qtt-GX-IEe" firstAttribute="leading" secondItem="wBc-oV-dOJ" secondAttribute="leading" id="2O0-hc-22l"/>
-                                    <constraint firstItem="qtt-GX-IEe" firstAttribute="top" secondItem="wBc-oV-dOJ" secondAttribute="top" id="AkG-Pu-zRA"/>
-                                    <constraint firstAttribute="trailing" secondItem="G1l-Pe-TMB" secondAttribute="trailing" id="o3g-cJ-a7f"/>
-                                    <constraint firstAttribute="bottom" secondItem="G1l-Pe-TMB" secondAttribute="bottom" id="t9b-Ee-4Ku"/>
-                                    <constraint firstItem="G1l-Pe-TMB" firstAttribute="leading" secondItem="wBc-oV-dOJ" secondAttribute="leading" id="vJd-mx-ai4"/>
-                                    <constraint firstAttribute="trailing" secondItem="qtt-GX-IEe" secondAttribute="trailing" id="vUr-Hl-sw5"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" name="BackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="LZL-Lh-ez5" firstAttribute="bottom" secondItem="wBc-oV-dOJ" secondAttribute="bottom" id="4Mx-D5-dPd"/>
-                            <constraint firstItem="LZL-Lh-ez5" firstAttribute="trailing" secondItem="wBc-oV-dOJ" secondAttribute="trailing" id="FJS-Ap-IRB"/>
-                            <constraint firstItem="wBc-oV-dOJ" firstAttribute="leading" secondItem="LZL-Lh-ez5" secondAttribute="leading" id="k1B-dj-8dX"/>
-                            <constraint firstItem="wBc-oV-dOJ" firstAttribute="top" secondItem="LZL-Lh-ez5" secondAttribute="top" id="x0g-9Y-dGu"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="LZL-Lh-ez5"/>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="BottomView" destination="G1l-Pe-TMB" id="I3E-7W-umR"/>
-                        <outlet property="TableView" destination="qtt-GX-IEe" id="tbI-XM-tBQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6h-L0-8NV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1780" y="134"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="HnY-fc-uQ2">

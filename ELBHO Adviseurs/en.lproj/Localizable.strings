@@ -128,3 +128,6 @@
 "time_smaller" = "De eind tijd kan niet kleiner zijn dan de start tijd!";
 "time_bigger" = "De start tijd kan niet groter zijn dan de eind tijd!";
 "car_reservation_no_results" = "Geen auto's gevonden!";
+
+"faceid_cancel" = "Annuleren";
+"faceid_reason" = "Log in op ELBHO";

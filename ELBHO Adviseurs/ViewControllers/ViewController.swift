@@ -46,10 +46,10 @@ class ViewController: UIViewController {
     
     private func checkAuth() {
         let context = LAContext()
-        context.localizedCancelTitle = "Cancel"
+        context.localizedCancelTitle = "faceid_cancel".localize
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-            let reason = "Log in to your account"
+            let reason = "faceid_reason".localize
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
                 if success {
                     DispatchQueue.main.async { [unowned self] in

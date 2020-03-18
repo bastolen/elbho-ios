@@ -45,6 +45,14 @@ class AppointmentViewController: UIViewController {
         setupDateLabel()
         setupTabBar()
         initTableData()
+        initPermissions()
+    }
+
+    private func initPermissions() {
+        if( CLLocationManager.authorizationStatus() != .authorizedAlways){
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.locManager.requestAlwaysAuthorization()
+        }
     }
     
     private func initTableData() {

@@ -26,14 +26,6 @@ class ViewController: UIViewController {
         LogOutButton.setBackgroundColor(UIColor(named: "BackgroundColor"), for: .normal)
         LogOutButton.setTitle("button_logout".localize, for: .normal)
         checkAuth()
-        initPermissions()
-    }
-    
-    private func initPermissions() {
-        if( CLLocationManager.authorizationStatus() != .authorizedAlways){
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.locManager.requestAlwaysAuthorization()
-        }
     }
     
     @IBAction func LogOutClicked(_ sender: Any) {

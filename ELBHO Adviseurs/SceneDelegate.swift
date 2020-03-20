@@ -41,13 +41,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let stopDate = formatter.date(from: KeychainWrapper.standard.string(forKey: "CloseAppDate")!)!.timeIntervalSinceNow
             
             KeychainWrapper.standard.removeObject(forKey: "CloseAppDate")
-            
             // It has been 5 min, require auth
-            if stopDate < -1 * 5 * 60 {
+            if stopDate < -1 * 1 * 60 {
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let faceIdVC = mainStoryboard.instantiateViewController(identifier: "MainViewController")
-                
-                window?.rootViewController = faceIdVC
+                let navigationController = (mainStoryboard.instantiateViewController(identifier: "StartNavigationController") as UINavigationController)
+                navigationController.setViewControllers([faceIdVC], animated: true)
+                self.window?.rootViewController = navigationController
+                self.window?.makeKeyAndVisible()
             }
         }
     }

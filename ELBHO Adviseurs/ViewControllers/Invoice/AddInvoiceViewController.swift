@@ -58,7 +58,7 @@ class AddInvoiceViewController: UIViewController {
     }
     
     @IBAction func FileInputTouched(_ sender: Any) {
-        let importMenu = UIDocumentPickerViewController(documentTypes: ["com.microsoft.word.doc","org.openxmlformats.wordprocessingml.document", kUTTypePDF as String], in: .open)
+        let importMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF), String(kUTTypeImage)], in: .import)
         
         importMenu.delegate = self
         importMenu.modalPresentationStyle = .formSheet

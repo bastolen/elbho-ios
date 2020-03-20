@@ -46,6 +46,21 @@ class AppointmentViewController: UIViewController {
         setupTabBar()
         initTableData()
         initPermissions()
+        initAdvisor()
+    }
+    
+    private func initAdvisor() {
+        if (
+            !KeychainWrapper.standard.hasValue(forKey: "AdvisorId") ||
+                !KeychainWrapper.standard.hasValue(forKey: "AdvisorName")
+            ) {
+            APIService.getLoggedInAdvisor().subscribe(onNext: {advisor in
+                KeychainWrapper.standard.set(advisor._id, forKey: "AdvisorId")
+                KeychainWrapper.standard.set("\(advisor.FirstName) \(advisor.LastName)", forKey: "AdvisorName")
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+            }).disposed(by: disposeBag)
+        }
     }
 
     private func initPermissions() {
@@ -241,6 +256,11 @@ extension AppointmentViewController: UITabBarDelegate {
 
 extension AppointmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if shownItems.count > 0 {
+            self.TableView.restore()
+        } else {
+            self.TableView.setEmptyMessage("appointment_no_result".localize)
+        }
         return shownItems.count
     }
     

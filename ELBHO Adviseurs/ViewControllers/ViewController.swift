@@ -11,10 +11,13 @@ import SwiftKeychainWrapper
 import MaterialComponents
 import CoreLocation
 import LocalAuthentication
+import RxSwift
 
 class ViewController: UIViewController {
     @IBOutlet weak var TryAgainButton: MDCButton!
     @IBOutlet weak var LogOutButton: MDCButton!
+    
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         navigationController?.isNavigationBarHidden = true
@@ -69,6 +72,21 @@ class ViewController: UIViewController {
             
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
             return
+        }
+        initAdvisor()
+    }
+    
+    private func initAdvisor() {
+        if (
+            !KeychainWrapper.standard.hasValue(forKey: "AdvisorId") ||
+                !KeychainWrapper.standard.hasValue(forKey: "AdvisorName")
+            ) {
+            APIService.getLoggedInAdvisor().subscribe(onNext: {advisor in
+                KeychainWrapper.standard.set(advisor._id, forKey: "AdvisorId")
+                KeychainWrapper.standard.set("\(advisor.FirstName) \(advisor.LastName)", forKey: "AdvisorName")
+            }, onError: {error in
+                self.showSnackbarDanger("error_api".localize)
+            }).disposed(by: disposeBag)
         }
     }
 }

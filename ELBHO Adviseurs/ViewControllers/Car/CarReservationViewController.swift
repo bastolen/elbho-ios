@@ -382,7 +382,7 @@ extension CarReservationViewController: UITableViewDataSource {
         // Nu kijken of de auto wel beschikbaar is in de aangegeven tijden
         if !checkAvailability(reservations: item!.reservations) {
             cell.isUserInteractionEnabled = false
-            cell.TimeLocationLabel.text = "Gereserveerd:"
+            cell.TimeLocationLabel.text = "car_reservation_reserved".localize
             formatter.dateFormat = "HH:mm"
             for reservation in item!.reservations {
                 cell.TimeLocationLabel.text = (cell.TimeLocationLabel.text ?? "") + "\n" + formatter.string(from: reservation.start) + " - " + formatter.string(from: reservation.end)

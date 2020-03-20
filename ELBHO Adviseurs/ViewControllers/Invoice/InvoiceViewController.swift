@@ -77,6 +77,12 @@ class InvoiceViewController: UIViewController {
 
 extension InvoiceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if items.count > 0 {
+            self.TableView.restore()
+        } else {
+            self.TableView.setEmptyMessage("invoices_no_results".localize)
+        }
+        
         return items.count
     }
     

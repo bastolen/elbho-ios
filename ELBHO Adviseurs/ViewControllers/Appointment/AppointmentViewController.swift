@@ -137,7 +137,7 @@ class AppointmentViewController: UIViewController {
         TabBar.delegate = self
         let fullWidth = self.view.frame.width
         let itemCount = CGFloat(integerLiteral: TabBar.items!.count)
-        UITabBar.appearance().selectionIndicatorImage = getImageWithColorPosition(color: UIColor(named: "Primary")!, size: CGSize(width:fullWidth/itemCount, height:55), lineSize: CGSize(width:fullWidth/itemCount, height:3))
+        UITabBar.appearance().selectionIndicatorImage = getImageWithColorPosition(color: UIColor(named: "Primary")!, size: CGSize(width:fullWidth/itemCount, height:55), lineSize: CGSize(width:fullWidth/itemCount, height:2))
     }
     
     func getImageWithColorPosition(color: UIColor, size: CGSize, lineSize: CGSize) -> UIImage {

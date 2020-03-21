@@ -24,7 +24,7 @@
 "menu_invoice" = "Facturen";
 
 "button_login" = "Login";
-"button_logout" = "Log uit";
+"button_logout" = "Uitloggen";
 "button_try_again" = "Probeer opnieuw";
 "button_reject" = "Afwijzen";
 "button_accept" = "Accepteren";

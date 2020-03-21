@@ -54,10 +54,10 @@ class CarsViewController : UIViewController {
     }
     
     @objc private func initContent() {
+        refreshControl.beginRefreshing()
         var ophalenVanaf = Date()
         ophalenVanaf = Calendar.current.date(byAdding: .day, value: -1, to: ophalenVanaf)!
         
-        refreshControl.beginRefreshing()
         if(!callSend) {
             items = []
             callSend = true
@@ -85,7 +85,7 @@ extension CarsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if items.count > 0 {
             self.tableView.restore()
-            
+
         } else {
             self.tableView.setEmptyMessage("car_reservation_no_results".localize)
         }
@@ -99,7 +99,9 @@ extension CarsViewController: UITableViewDataSource {
         let item = items[indexPath.row]
         let formatter = DateFormatter()
         
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
         formatter.dateFormat = "EE"
+        
         cell.DayLabel.text = formatter.string(from: item!.date).uppercased()
         
         formatter.dateFormat = "dd-MM"

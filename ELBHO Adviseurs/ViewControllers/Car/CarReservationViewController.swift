@@ -181,7 +181,6 @@ class CarReservationViewController : UIViewController {
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
             
             let clickedInFormat = dateFormatter.date(from: clickedDate)
-            let clickedInString = dateFormatter.string(from: clickedInFormat!)
             var car = String()
             
             for c in items {
@@ -190,13 +189,16 @@ class CarReservationViewController : UIViewController {
                 }
             }
             
+            let startTijd = "\(dateFormatter.string(from: clickedInFormat!)) \(timeFromInput.text!)"
+            let eindTijd = "\(dateFormatter.string(from: clickedInFormat!)) \(timeUntilInput.text!)"
+            
             if(!callSend) {
                 callSend = true
                 APIService.postCarReservation(
                     vehicle: car,
-                    date: clickedInString+"T00:00:00.000Z",
-                    start: clickedInString+"T"+timeFromInput.text!+":00.000Z",
-                    end: clickedInString+"T"+timeUntilInput.text!+":00.000Z")
+                    date: dateFormatter.string(from: clickedInFormat!),
+                    start: startTijd,
+                    end: eindTijd)
                     .subscribe(onNext: {
                     self.showSnackbarSuccess("car_taken".localize)
                     self.callSend = false

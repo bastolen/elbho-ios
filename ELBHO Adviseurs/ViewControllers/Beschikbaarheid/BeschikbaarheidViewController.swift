@@ -17,6 +17,7 @@ class BeschikbaarheidViewController : UIViewController {
     // Calendar
     @IBOutlet weak var Calendar: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var topLabel: UILabel!
     
     @IBOutlet weak var buttonPrev: UIButton!
     @IBOutlet weak var buttonNext: UIButton!
@@ -35,6 +36,7 @@ class BeschikbaarheidViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "title_availability".localize
+        topLabel.text = "availability_info".localize
         
         navigationController?.navigationBar.tintColor = .white
         initMenu(id: 3)

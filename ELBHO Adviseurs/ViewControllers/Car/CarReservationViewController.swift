@@ -175,7 +175,7 @@ class CarReservationViewController : UIViewController {
     @IBAction func makeCarReservation(_ sender: Any) {
         
         if(timeFromInput.text!.isEmpty || timeUntilInput.text!.isEmpty) {
-            self.showSnackbarDanger("car_invalid_fields".localize)
+            self.showSnackbarSecondary("car_invalid_fields".localize)
         } else {
             dateFormatter.dateFormat = "YYYY-MM-dd"
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
@@ -348,7 +348,7 @@ extension CarReservationViewController: UITableViewDataSource {
             self.tableView.restore()
             
         } else {
-            self.tableView.setEmptyMessage("car_reservation_no_results".localize)
+            self.tableView.setEmptyMessage("car_reservation_not_all_fields".localize)
         }
         
         return items.count
@@ -357,6 +357,10 @@ extension CarReservationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath ) as! CustomTableViewCell
         cell.isInGrid()
+        
+        cell.iconView.image = UIImage(systemName: "circle")
+        cell.iconView.tintColor = UIColor.lightGray
+        
         let item = items[indexPath.row]
         
         let formatter = DateFormatter()
@@ -377,6 +381,8 @@ extension CarReservationViewController: UITableViewDataSource {
         
         if item!.selected == true {
             cell.imageViewBackground.backgroundColor = UIColor(named: "Secondary")
+            cell.iconView.image = UIImage(systemName: "largecircle.fill.circle")
+            cell.iconView.tintColor = UIColor(named: "Secondary")
         }
         
         cell.TimeLocationLabel.numberOfLines = 1
@@ -393,6 +399,7 @@ extension CarReservationViewController: UITableViewDataSource {
             cell.TimeLocationLabel.numberOfLines = 0
             cell.imageViewBackground.backgroundColor = UIColor.darkGray
         }
+        
         
         return cell
     }

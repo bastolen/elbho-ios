@@ -66,7 +66,7 @@ class AddInvoiceViewController: UIViewController {
     
     @IBAction func SubmitClicked(_ sender: Any) {
         if(fileURL == nil || callSend) {
-            showSnackbarDanger("error_empty_field".localize)
+            showSnackbarSecondary("error_empty_field".localize)
             return
         }
         
@@ -75,7 +75,7 @@ class AddInvoiceViewController: UIViewController {
         formatter.timeZone = TimeZone(abbreviation: "UTC")
         let date = formatter.date(from: "\(yearInputField.text!)/\(String(format: "%02d", selectedMonth))")!
         if Date().isBefore(date) {
-            showSnackbarDanger("error_before_now".localize)
+            showSnackbarSecondary("error_before_now".localize)
             return
         }
         

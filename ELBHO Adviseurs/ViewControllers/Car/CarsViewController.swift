@@ -110,7 +110,7 @@ extension CarsViewController: UITableViewDataSource {
         cell.CompanyLabel.text = "\(String(describing: item!.vehicle.brand)) \(String(describing: item!.vehicle.model)) \(item!.vehicle.transmission)"
         
         formatter.dateFormat = "HH:mm"
-        cell.TimeLocationLabel.text = "\(formatter.string(from: item!.start)) - \(formatter.string(from: item!.end))"
+        cell.TimeLocationLabel.text = "\(formatter.string(from: item!.start)) - \(formatter.string(from: item!.end)), \(item!.vehicle.city)"
         
         return cell
     }

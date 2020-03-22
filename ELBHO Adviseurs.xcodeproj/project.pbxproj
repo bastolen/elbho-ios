@@ -42,6 +42,7 @@
 		5F584DD62384016000EBE536 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F584DD52384016000EBE536 /* Advisor.swift */; };
 		5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7335DB2399204B0013F4EA /* Appointment.swift */; };
 		5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */; };
+		5F970E352427A65A00BDFFDF /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F970E342427A65A00BDFFDF /* NSAttributedString.swift */; };
 		5F9B529323F9DA67001FA776 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9B529223F9DA67001FA776 /* Date.swift */; };
 		5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */; };
 		5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092B23994D980080C82B /* DetailViewRow.swift */; };
@@ -126,6 +127,7 @@
 		5F584DD52384016000EBE536 /* Advisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advisor.swift; sourceTree = "<group>"; };
 		5F7335DB2399204B0013F4EA /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F970E342427A65A00BDFFDF /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		5F9B529223F9DA67001FA776 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewController.swift; sourceTree = "<group>"; };
 		5FC2092B23994D980080C82B /* DetailViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewRow.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				5F2301A823AE6F6B001880C5 /* URL.swift */,
 				5F9B529223F9DA67001FA776 /* Date.swift */,
 				171AE661241E6EC7004DB5E1 /* UITableView.swift */,
+				5F970E342427A65A00BDFFDF /* NSAttributedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				1720080A239E5D6500EF762B /* CarDateCell.swift in Sources */,
 				171AE662241E6EC7004DB5E1 /* UITableView.swift in Sources */,
 				5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */,
+				5F970E352427A65A00BDFFDF /* NSAttributedString.swift in Sources */,
 				5F584DD62384016000EBE536 /* Advisor.swift in Sources */,
 				5F124857238E602E00411781 /* MDCButton.swift in Sources */,
 				5FC209322399649B0080C82B /* DetailViewCell.swift in Sources */,

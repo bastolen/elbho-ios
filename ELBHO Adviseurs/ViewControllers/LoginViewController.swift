@@ -12,6 +12,8 @@ import RxSwift
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var BrandIconTop: NSLayoutConstraint!
+    private var defaultConstraint: CGFloat = 1
     var emailController: MDCTextInputControllerUnderline?
     @IBOutlet weak var emailTextField: MDCTextField!
     
@@ -26,10 +28,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        defaultConstraint = BrandIconTop.constant
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        hideKeyboardWhenTappingOutside()
-        moveViewUp()
-        
+
         navigationController?.isNavigationBarHidden = true
         
         loginButton.setPrimary()
@@ -48,6 +51,20 @@ class LoginViewController: UIViewController {
         passwordTextField.placeholderLabel.textColor = UIColor(named: "Primary")!
         passwordTextField.delegate = self
         passwordTextField.clearButtonMode = .never
+    }
+    
+    @objc override func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if (BrandIconTop.constant < keyboardSize.height) {
+                BrandIconTop.constant = defaultConstraint - keyboardSize.height
+            }
+        }
+    }
+
+    @objc override func keyboardWillHide(notification: NSNotification) {
+        if (BrandIconTop.constant != defaultConstraint) {
+            BrandIconTop.constant = defaultConstraint
+        }
     }
     
     @IBAction func loginClicked() {
@@ -79,7 +96,7 @@ class LoginViewController: UIViewController {
                 }).disposed(by: disposeBag)
         } else if !callSend {
             // One of the fields is empty
-            showSnackbarDanger("error_empty_field".localize)
+            showSnackbarSecondary("error_empty_field".localize)
         } else {
             // Call is send, probably do nothing
         }

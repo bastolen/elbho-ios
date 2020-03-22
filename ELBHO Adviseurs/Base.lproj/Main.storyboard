@@ -145,6 +145,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="BrandIconTop" destination="Rm9-UP-qAc" id="ZXI-R9-uib"/>
                         <outlet property="emailTextField" destination="gam-AI-c1f" id="wZ0-BD-e3s"/>
                         <outlet property="loginButton" destination="oJm-bi-UWa" id="1Pd-Ls-O46"/>
                         <outlet property="passwordTextField" destination="RZh-Lc-CL6" id="eO0-Az-vW2"/>

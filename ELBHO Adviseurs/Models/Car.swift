@@ -14,6 +14,7 @@ struct Car: Codable {
     var brand: String
     var model: String
     var location: String
+    var city: String
     var image: URL
     var transmission : String
     
@@ -23,6 +24,7 @@ struct Car: Codable {
         case brand = "brand"
         case model = "model"
         case location = "location"
+        case city = "city"
         case image = "image"
         case transmission = "transmission"
     }

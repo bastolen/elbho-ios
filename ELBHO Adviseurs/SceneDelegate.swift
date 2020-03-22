@@ -31,25 +31,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-
-        if (
-            KeychainWrapper.standard.hasValue(forKey: "CloseAppDate") &&
-                KeychainWrapper.standard.hasValue(forKey: "authToken")
-            ) {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            let stopDate = formatter.date(from: KeychainWrapper.standard.string(forKey: "CloseAppDate")!)!.timeIntervalSinceNow
-            
-            KeychainWrapper.standard.removeObject(forKey: "CloseAppDate")
-            // It has been 5 min, require auth
-            if stopDate < -1 * 5 * 60 {
-                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let faceIdVC = mainStoryboard.instantiateViewController(identifier: "MainViewController")
-                let navigationController = (mainStoryboard.instantiateViewController(identifier: "StartNavigationController") as UINavigationController)
-                navigationController.setViewControllers([faceIdVC], animated: true)
-                self.window?.rootViewController = navigationController
-                self.window?.makeKeyAndVisible()
+        if KeychainWrapper.standard.hasValue(forKey: "authToken") {
+            if (KeychainWrapper.standard.hasValue(forKey: "CloseAppDate")) {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                let stopDate = formatter.date(from: KeychainWrapper.standard.string(forKey: "CloseAppDate")!)!.timeIntervalSinceNow
+                
+                KeychainWrapper.standard.removeObject(forKey: "CloseAppDate")
+                // It has been 5 min, require auth
+                if stopDate < -1 * 5 * 60 {
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let faceIdVC = mainStoryboard.instantiateViewController(identifier: "MainViewController")
+                    let navigationController = (mainStoryboard.instantiateViewController(identifier: "StartNavigationController") as UINavigationController)
+                    navigationController.setViewControllers([faceIdVC], animated: true)
+                    self.window?.rootViewController = navigationController
+                    self.window?.makeKeyAndVisible()
+                }
             }
+        } else {
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let faceIdVC = mainStoryboard.instantiateViewController(identifier: "LoginViewController")
+            let navigationController = (mainStoryboard.instantiateViewController(identifier: "StartNavigationController") as UINavigationController)
+            navigationController.setViewControllers([faceIdVC], animated: true)
+            self.window?.rootViewController = navigationController
+            self.window?.makeKeyAndVisible()
+
         }
     }
 

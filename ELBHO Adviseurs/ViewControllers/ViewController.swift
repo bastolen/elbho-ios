@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         if checkLoggedIn() {
+            initAdvisor()
             checkAuth()
         }
     }
@@ -52,7 +53,8 @@ class ViewController: UIViewController {
                 if success {
                     DispatchQueue.main.async { [unowned self] in
                         let mainStoryboard = UIStoryboard(name: "Appointment", bundle: nil)
-                        self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "AppointmentViewController")], animated:true)                    }
+                        self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "AppointmentViewController")], animated:true)
+                    }
                 }
             }
         }
@@ -76,7 +78,6 @@ class ViewController: UIViewController {
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
             return false
         }
-        initAdvisor()
         return true
     }
     

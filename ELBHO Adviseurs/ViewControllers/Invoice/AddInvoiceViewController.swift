@@ -48,7 +48,6 @@ class AddInvoiceViewController: UIViewController {
         super.viewDidLoad()
         title = "title_invoice".localize
         setupInputFields()
-        hideKeyboardWhenTappingOutside()
         SubmitButton.setPrimary()
         SubmitButton.setTitle("button_addinvoice".localize, for: .normal)
         

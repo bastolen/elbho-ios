@@ -41,6 +41,8 @@ class MenuViewController: UIViewController {
         
         let name = KeychainWrapper.standard.string(forKey: "AdvisorName")
         NameLabel.text = "menu_name_label".localizeWithVars(name ?? "Your Name Here")
+    
+        NameLabel.attributedText = NSAttributedString.getPartBold(withString: "menu_name_label".localizeWithVars(name ?? "Your Name Here"), boldString: name ?? "Your Name Here", font: NameLabel.font)
         
         super.viewDidLoad()
     }
@@ -71,6 +73,7 @@ extension MenuViewController: UITableViewDataSource {
         
         if (MenuViewController.selectedItem == menuItem.id){
             cell!.textLabel?.textColor = UIColor(named: "Primary")
+            cell!.textLabel?.backgroundColor = UIColor(named: "Primary")?.withAlphaComponent(0.25)
 
             cell!.textLabel?.font = UIFont.boldSystemFont(ofSize: (cell!.textLabel?.font.pointSize)!)
         }

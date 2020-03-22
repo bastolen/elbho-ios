@@ -100,6 +100,7 @@
 "day_6_small" = "ZA";
 "day_7_small" = "ZO";
 
+"availability_info" = "Selecteer een dag om de beschikbaarheid van die week aan te passen";
 "week" = "Week";
 "week_copy" = "Week kopieren";
 "week_copy_info" = "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.";
@@ -130,7 +131,8 @@
 
 "time_smaller" = "De eind tijd kan niet kleiner zijn dan de start tijd!";
 "time_bigger" = "De start tijd kan niet groter zijn dan de eind tijd!";
-"car_reservation_no_results" = "Geen auto's gevonden!";
+"car_reservation_no_results" = "Geen gereserveerde auto's gevonden!";
+"car_reservation_not_all_fields" = "Voer een datum, start en eindtijd in om een auto te reserveren";
 
 "faceid_cancel" = "Annuleren";
 "faceid_reason" = "Log in op ELBHO";

@@ -21,14 +21,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         navigationController?.isNavigationBarHidden = true
-        checkLoggedIn()
-        super.viewDidLoad()
+
         TryAgainButton.setPrimary()
         TryAgainButton.setTitle("button_try_again".localize, for: .normal)
         LogOutButton.setTextPrimary()
         LogOutButton.setBackgroundColor(UIColor(named: "BackgroundColor"), for: .normal)
         LogOutButton.setTitle("button_logout".localize, for: .normal)
-        checkAuth()
+        
+        super.viewDidLoad()
+        if checkLoggedIn() {
+            checkAuth()
+        }
     }
     
     @IBAction func LogOutClicked(_ sender: Any) {
@@ -62,7 +65,7 @@ class ViewController: UIViewController {
         navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
     }
     
-    private func checkLoggedIn() {
+    private func checkLoggedIn() -> Bool {
 //        KeychainWrapper.standard.removeAllKeys()
 //        KeychainWrapper.standard.set("testToken", forKey: "authToken")
 
@@ -71,9 +74,10 @@ class ViewController: UIViewController {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
             navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
-            return
+            return false
         }
         initAdvisor()
+        return true
     }
     
     private func initAdvisor() {

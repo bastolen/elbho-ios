@@ -175,7 +175,7 @@ class CarReservationViewController : UIViewController {
     @IBAction func makeCarReservation(_ sender: Any) {
         
         if(timeFromInput.text!.isEmpty || timeUntilInput.text!.isEmpty) {
-            self.showSnackbarDanger("car_invalid_fields".localize)
+            self.showSnackbarSecondary("car_invalid_fields".localize)
         } else {
             dateFormatter.dateFormat = "YYYY-MM-dd"
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")

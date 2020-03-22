@@ -105,7 +105,7 @@ extension CarDetailViewController: UITableViewDataSource {
         
         if row.icon != nil {
             cell.iconView.image = row.icon
-            cell.iconView.tintColor = UIColor.lightGray
+            cell.iconView.tintColor = UIColor(named: "Secondary")
             cell.iconView.addTapGestureRecognizer(action: row.iconClicked)
         }
         

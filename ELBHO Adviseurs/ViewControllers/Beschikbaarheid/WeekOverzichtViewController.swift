@@ -31,6 +31,9 @@ class WeekOverzichtViewController: UIViewController {
     
     @IBOutlet weak var weekView: UIView!
     @IBOutlet weak var weekNumberLabel: UILabel!
+    @IBOutlet weak var fromLabel: UILabel!
+    @IBOutlet weak var untilLabel: UILabel!
+    
     
     // Dag 1
     @IBOutlet weak var dayLabelDay1: UILabel!
@@ -83,6 +86,8 @@ class WeekOverzichtViewController: UIViewController {
         
         buttonCopyWeek.setTitle("button_copy_week".localize.uppercased(), for: .normal)
         buttonSaveWeek.setTitle("button_save_week".localize.uppercased(), for: .normal)
+        fromLabel.text = "from".localize
+        untilLabel.text = "until".localize
         
         weekView.layer.borderWidth = 1
         weekView.layer.borderColor = UIColor(named: "BorderColor")?.cgColor

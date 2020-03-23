@@ -71,12 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if (status == .authorizedAlways || status == .authorizedWhenInUse) {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if (CLLocationManager.isRangingAvailable() && KeychainWrapper.standard.hasValue(forKey: "trackingId")) {
-                        self.startTracking()
-                }
-            }
+        if (KeychainWrapper.standard.hasValue(forKey: "trackingId") && (status == .authorizedAlways || status == .authorizedWhenInUse)) {
+            self.startTracking()
         }
     }
 }

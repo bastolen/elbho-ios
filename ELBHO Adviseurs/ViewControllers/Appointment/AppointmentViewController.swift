@@ -212,7 +212,7 @@ class AppointmentViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if (KeychainWrapper.standard.string(forKey: "trackingId") == item._id) {
             return [
-                DetailViewButton(text: "button_arrive".localize, style: .primary, image: UIImage(systemName: "car.fill"), clicked: {
+                DetailViewButton(text: "button_arrive".localize, style: .primary, image: UIImage(systemName: "checkmark"), clicked: {
                     KeychainWrapper.standard.removeObject(forKey: "trackingId")
 
                     appDelegate.stopTracking()
@@ -222,7 +222,7 @@ class AppointmentViewController: UIViewController {
             ]
         } else if(Calendar.current.isDateInToday(item.StartTime) && !KeychainWrapper.standard.hasValue(forKey: "trackingId")) {
             return [
-                DetailViewButton(text: "button_leave".localize, style: .primary, image: UIImage(systemName: "checkmark"), clicked: {
+                DetailViewButton(text: "button_leave".localize, style: .primary, image: UIImage(systemName: "car.fill"), clicked: {
                     KeychainWrapper.standard.set(item._id, forKey: "trackingId")
                     appDelegate.startTracking()
                     self.showSnackbarSuccess("appointment_left".localize)

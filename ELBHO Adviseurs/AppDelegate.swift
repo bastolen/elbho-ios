@@ -9,45 +9,47 @@
 import UIKit
 import CoreLocation
 import RxSwift
+import SwiftKeychainWrapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let disposeBag = DisposeBag()
     let locManager = CLLocationManager()
-    private var intervalFunction: Timer?
+    private var intervalFunction = Timer()
     private var callSend: Bool = false
     
 
     func stopTracking() -> Void {
-        self.intervalFunction?.invalidate()
-        self.intervalFunction = nil;
+        self.intervalFunction.invalidate()
+        self.intervalFunction = Timer();
     }
     
     func startTracking() -> Void {
-        updateLocation()
-        self.intervalFunction = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(AppDelegate.updateLocation), userInfo: nil, repeats: true)
+        if(CLLocationManager.authorizationStatus() != .authorizedAlways && CLLocationManager.authorizationStatus() != .authorizedWhenInUse ){
+            self.locManager.requestAlwaysAuthorization()
+        } else {
+            updateLocation()
+            self.intervalFunction = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(AppDelegate.updateLocation), userInfo: nil, repeats: true)
+        }
     }
     
     @objc func updateLocation() {
-        var currentLocation: CLLocation!
-        
-        if(!callSend && CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+        if(!callSend && (CLLocationManager.authorizationStatus() ==  .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse)){
             callSend = true
-            
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            currentLocation = appDelegate.locManager.location
-
+            guard let currentLocation = locManager.location else {
+                return
+            }
             APIService.updateLocation(lon: "\(currentLocation.coordinate.longitude)", lat: "\(currentLocation.coordinate.latitude)").subscribe(onNext: {
                 self.callSend = false
             }, onError: { error in
                 self.callSend = false
-                (UIApplication.shared.windows.first {$0.isKeyWindow}?.rootViewController as? UINavigationController)?.visibleViewController?.showSnackbarDanger("error_api".localize)
             }).disposed(by: self.disposeBag)
         }
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        locManager.delegate = self
         // Override point for customization after application launch.
         return true
     }
@@ -65,7 +67,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 
+extension AppDelegate: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if (status == .authorizedAlways || status == .authorizedWhenInUse) {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if (CLLocationManager.isRangingAvailable() && KeychainWrapper.standard.hasValue(forKey: "trackingId")) {
+                        self.startTracking()
+                }
+            }
+        }
+    }
+}

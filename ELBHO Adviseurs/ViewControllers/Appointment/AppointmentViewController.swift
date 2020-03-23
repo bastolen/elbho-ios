@@ -45,7 +45,6 @@ class AppointmentViewController: UIViewController {
         setupDateLabel()
         setupTabBar()
         initTableData()
-        initPermissions()
         initAdvisor()
     }
     
@@ -60,13 +59,6 @@ class AppointmentViewController: UIViewController {
             }, onError: {error in
                 self.showSnackbarDanger("error_api".localize)
             }).disposed(by: disposeBag)
-        }
-    }
-
-    private func initPermissions() {
-        if( CLLocationManager.authorizationStatus() != .authorizedAlways){
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.locManager.requestAlwaysAuthorization()
         }
     }
     

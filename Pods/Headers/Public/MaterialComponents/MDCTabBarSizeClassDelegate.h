@@ -1,0 +1,1 @@
+../../../MaterialComponents/components/Tabs/src/MDCTabBarSizeClassDelegate.h

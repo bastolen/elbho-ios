@@ -1,0 +1,138 @@
+/*
+  Localizable.strings
+  ELBHO Adviseurs
+
+  Created by Bas Tolen on 19/11/2019.
+  Copyright © 2019 Otters. All rights reserved.
+*/
+
+"error_api" = "Er is iets mis gegaan op de server";
+"error_general" = "Er is iets mis gegaan";
+"error_body_invalid" = "De opgestuurde velden zijn niet toegestaan";
+"error_unauthorized" = "Deze actie is niet toegestaan";
+"error_conflict" = "Een veld met deze waarde bestaat al";
+"error_empty_field" = "Een van de verplichte velden is nog leeg";
+"error_fileInvalid" = "Dit bestand is niet valide";
+"error_before_now" = "De geselecteerde datum ligt in de toekomst";
+
+"menu_name_label" = "Ingelogd als %@";
+"menu_open" = "Openstaande afspraken";
+"menu_accepted" = "Aanstaande afspraken";
+"menu_done" = "Afgeronde afspraken";
+"menu_availability" = "Beschikbaarheid";
+"menu_vehicle" = "Auto reserveren";
+"menu_invoice" = "Facturen";
+
+"button_login" = "Login";
+"button_logout" = "Uitloggen";
+"button_try_again" = "Probeer opnieuw";
+"button_reject" = "Afwijzen";
+"button_accept" = "Accepteren";
+"button_leave" = "Vertrekken";
+"button_arrive" = "Bestemming bereikt";
+"button_addinvoice" = "Factuur toevoegen";
+
+"agenda_open" = "Openstaand";
+"agenda_accepted" = "Aanstaand";
+"agenda_done" = "Afgerond";
+
+"appointment_rejected" = "De afspraak is afgewezen";
+"appointment_accepted" = "De afspraak is geaccepteerd";
+"appointment_arrived" = "U bent aangekomen, de tracking stopt";
+"appointment_left" = "U bent vertrokken, de tracking start";
+
+"appointment_detail_name" = "Bedrijfsnaam";
+"appointment_detail_address" = "Adres";
+"appointment_detail_contact_name" = "Contactpersoon";
+"appointment_detail_contact_function" = "Functie";
+"appointment_detail_contact_phone" = "Telefoon";
+"appointment_detail_contact_email" = "Email";
+"appointment_detail_date" = "Datum";
+"appointment_detail_time" = "Tijd";
+"appointment_detail_comment" = "Opmerking";
+"appointment_no_result" = "Geen afspraken gevonden";
+
+"appointment_detail_title_open" = "Openstaande Afspraak";
+"appointment_detail_title_accepted" = "Aanstaande Afspraak";
+"appointment_detail_title_accepted_left" = "Vertrokken naar afspraak";
+"appointment_detail_title_done" = "Afgeronde Afspraak";
+
+"title_appointment" = "Afspraken";
+"title_invoice" = "Facturen";
+"title_availability" = "Beschikbaarheid";
+
+"invoice_header" = "Geüploade facturen";
+"invoices_no_results" = "Geen facturen gevonden";
+"upload_date" = "Datum upgeload";
+
+"input_year" = "Jaar";
+"input_email" = "Email";
+"input_password" = "Wachtwoord";
+"input_month" = "Maand";
+"input_file" = "Bestand";
+
+"month_1" = "Januari";
+"month_2" = "Februari";
+"month_3" = "Maart";
+"month_4" = "April";
+"month_5" = "Mei";
+"month_6" = "Juni";
+"month_7" = "Juli";
+"month_8" = "Augustus";
+"month_9" = "September";
+"month_10" = "Oktober";
+"month_11" = "November";
+"month_12" = "December";
+
+"day_1" = "Maandag";
+"day_2" = "Dinsdag";
+"day_3" = "Woensdag";
+"day_4" = "Donderdag";
+"day_5" = "Vrijdag";
+"day_6" = "Zaterdag";
+"day_7" = "Zondag";
+
+"day_1_small" = "MA";
+"day_2_small" = "DI";
+"day_3_small" = "WO";
+"day_4_small" = "DO";
+"day_5_small" = "VR";
+"day_6_small" = "ZA";
+"day_7_small" = "ZO";
+
+"availability_info" = "Selecteer een dag om de beschikbaarheid van die week aan te passen";
+"week" = "Week";
+"week_copy" = "Week kopieren";
+"week_copy_info" = "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.";
+"understand" = "Begrepen";
+"week_to_copy" = "Week %@ kopieren naar";
+"availability_succes" = "De beschikbaarheid is ingevoerd";
+
+"title_car" = "Auto overzicht";
+"car_header" = "Gereserveerde auto's";
+"vehicle" = "Auto reserveren";
+"car_reservation" = "Auto reservering";
+"reservation_canceled" = "De reservering is verwijderd!";
+"from" = "Van";
+"until" = "Tot";
+"car_invalid_fields" = "Niet alle velden ingevuld";
+"car_taken" = "De auto is gereserveerd!";
+"car_detail_date" = "Datum";
+"car_detail_licenceplate" = "Kenteken";
+"car_detail_adress" = "Adres";
+"car_detail_time" = "Tijd";
+"car_reservation_reserved" = "Gereserveerd:";
+
+"button_copy_week" = "Kopieer week";
+"button_save_week" = "Wijzigingen opslaan";
+"button_copy_and_save" = "Kopieren & opslaan";
+"button_car_reservation" = "Auto reserveren";
+"button_car_cancel" = "Reservering annuleren";
+
+"time_smaller" = "De eind tijd kan niet kleiner zijn dan de start tijd!";
+"time_bigger" = "De start tijd kan niet groter zijn dan de eind tijd!";
+"car_reservation_no_results" = "Geen gereserveerde auto's gevonden!";
+"car_reservation_not_all_fields" = "Voer een datum, start en eindtijd in om een auto te reserveren";
+
+"faceid_cancel" = "Annuleren";
+"faceid_reason" = "Log in op ELBHO";

@@ -3,11 +3,55 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		329372E836273CE285CD985C /* Pods_ELBHO_AdviseursTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */; };
+		171AE662241E6EC7004DB5E1 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171AE661241E6EC7004DB5E1 /* UITableView.swift */; };
+		172007FC239A9BF900EF762B /* Invoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172007FB239A9BF900EF762B /* Invoice.storyboard */; };
+		17200800239D4A1F00EF762B /* CarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172007FF239D4A1F00EF762B /* CarsViewController.swift */; };
+		17200802239D4A7E00EF762B /* Car.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17200801239D4A7E00EF762B /* Car.storyboard */; };
+		17200804239D513D00EF762B /* CarReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200803239D513D00EF762B /* CarReservation.swift */; };
+		17200806239D590300EF762B /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200805239D590300EF762B /* CarDetailViewController.swift */; };
+		17200808239E4BA700EF762B /* CarReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200807239E4BA700EF762B /* CarReservationViewController.swift */; };
+		1720080A239E5D6500EF762B /* CarDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17200809239E5D6500EF762B /* CarDateCell.swift */; };
+		1720080C239E884900EF762B /* CarAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720080B239E884900EF762B /* CarAvailability.swift */; };
+		17488BCA239837FA008BAA98 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BC9239837FA008BAA98 /* Calendar.swift */; };
+		17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */; };
+		1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754193C239912510091D29D /* WeekOverzichtViewController.swift */; };
+		17A1F79623943E68009FAEA7 /* Beschikbaarheid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */; };
+		17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */; };
+		17A34A3C23AA553200C90CDC /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A34A3B23AA553200C90CDC /* Availability.swift */; };
+		17A34A3E23C0C68F00C90CDC /* Availability2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A34A3D23C0C68F00C90CDC /* Availability2.swift */; };
+		17A34A4023C219FC00C90CDC /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A34A3F23C219FC00C90CDC /* Car.swift */; };
+		17A34A4223C3650C00C90CDC /* CopyWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A34A4123C3650C00C90CDC /* CopyWeekViewController.swift */; };
+		3A778610462F17E3BC59A004 /* libPods-ELBHO Adviseurs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EB6BD15AEEDFF41483DAE9 /* libPods-ELBHO Adviseurs.a */; };
+		5F06D838239AA13500A15EDD /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D837239AA13500A15EDD /* InvoiceViewController.swift */; };
+		5F06D83A239AAB6200A15EDD /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D839239AAB6200A15EDD /* Invoice.swift */; };
+		5F06D83C239ADED700A15EDD /* AddInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D83B239ADED700A15EDD /* AddInvoiceViewController.swift */; };
+		5F124853238DB98900411781 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F124852238DB98900411781 /* UIViewController.swift */; };
+		5F124857238E602E00411781 /* MDCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F124856238E602E00411781 /* MDCButton.swift */; };
+		5F12485B23911C2100411781 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F12485923911C2100411781 /* CustomTableViewCell.swift */; };
+		5F12485C23911C2100411781 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F12485A23911C2100411781 /* CustomTableViewCell.xib */; };
+		5F2301A723AE631F001880C5 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2301A623AE631F001880C5 /* PDFViewController.swift */; };
+		5F2301A923AE6F6B001880C5 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2301A823AE6F6B001880C5 /* URL.swift */; };
+		5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F766B238423B4001821BB /* DateFormatter.swift */; };
+		5F5023822422C07900952837 /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5023812422C07900952837 /* AppointmentViewController.swift */; };
+		5F55B1002422CC510044AF4E /* Appointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F55B0FF2422CC510044AF4E /* Appointment.storyboard */; };
+		5F584DCD2383EC5500EBE536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F584DCF2383EC5500EBE536 /* Localizable.strings */; };
+		5F584DD62384016000EBE536 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F584DD52384016000EBE536 /* Advisor.swift */; };
+		5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7335DB2399204B0013F4EA /* Appointment.swift */; };
+		5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */; };
+		5F970E352427A65A00BDFFDF /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F970E342427A65A00BDFFDF /* NSAttributedString.swift */; };
+		5F9B529323F9DA67001FA776 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9B529223F9DA67001FA776 /* Date.swift */; };
+		5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */; };
+		5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092B23994D980080C82B /* DetailViewRow.swift */; };
+		5FC2092E239954FE0080C82B /* DetailViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2092D239954FE0080C82B /* DetailViewButton.swift */; };
+		5FC209322399649B0080C82B /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC209302399649B0080C82B /* DetailViewCell.swift */; };
+		5FC209332399649B0080C82B /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC209312399649B0080C82B /* DetailViewCell.xib */; };
+		5FC2093523996A310080C82B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC2093423996A310080C82B /* UIView.swift */; };
+		5FC988EF23EC9ECA009877FF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC988EE23EC9ECA009877FF /* MenuItem.swift */; };
+		5FC988F123EC9F67009877FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC988F023EC9F67009877FF /* MenuViewController.swift */; };
 		5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FC23796CBC00E3015B /* AppDelegate.swift */; };
 		5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE063FE23796CBC00E3015B /* SceneDelegate.swift */; };
 		5FE0640123796CBC00E3015B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0640023796CBC00E3015B /* ViewController.swift */; };
@@ -16,8 +60,15 @@
 		5FE0640923796CBD00E3015B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0640723796CBD00E3015B /* LaunchScreen.storyboard */; };
 		5FE0641423796CBD00E3015B /* ELBHO_AdviseursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0641323796CBD00E3015B /* ELBHO_AdviseursTests.swift */; };
 		5FE0641F23796CBD00E3015B /* ELBHO_AdviseursUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0641E23796CBD00E3015B /* ELBHO_AdviseursUITests.swift */; };
-		B3192E5AF023303E332086F7 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9F5590008F316A5059CAB9 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */; };
-		F3C09FCB107C6A00958ED2F2 /* Pods_ELBHO_Adviseurs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24C4A8651D68918388D100F /* Pods_ELBHO_Adviseurs.framework */; };
+		5FE0642E2379728600E3015B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE0642D2379728600E3015B /* RxSwift */; };
+		5FE064312379732900E3015B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE064302379732900E3015B /* Alamofire */; };
+		5FE06434237973A100E3015B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE06433237973A100E3015B /* Kingfisher */; };
+		5FE064372379824C00E3015B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE064362379824C00E3015B /* String.swift */; };
+		5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5B8B223799E0F00EF12D6 /* ApiService.swift */; };
+		5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5B8B423799F9900EF12D6 /* Error.swift */; };
+		5FE5B8B72379A0C600EF12D6 /* ApiLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5B8B62379A0C600EF12D6 /* ApiLoginModel.swift */; };
+		6C35A1D94F4B20F0E85A0023 /* libPods-ELBHO AdviseursTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B1F8674822C6ABFB3AF537 /* libPods-ELBHO AdviseursTests.a */; };
+		CE068FC14B56935B4C674289 /* libPods-ELBHO Adviseurs-ELBHO AdviseursUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FADA80C581695F8B13255D8 /* libPods-ELBHO Adviseurs-ELBHO AdviseursUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +89,54 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		171AE661241E6EC7004DB5E1 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		172007FB239A9BF900EF762B /* Invoice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invoice.storyboard; sourceTree = "<group>"; };
+		172007FF239D4A1F00EF762B /* CarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsViewController.swift; sourceTree = "<group>"; };
+		17200801239D4A7E00EF762B /* Car.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Car.storyboard; sourceTree = "<group>"; };
+		17200803239D513D00EF762B /* CarReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarReservation.swift; sourceTree = "<group>"; };
+		17200805239D590300EF762B /* CarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
+		17200807239E4BA700EF762B /* CarReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarReservationViewController.swift; sourceTree = "<group>"; };
+		17200809239E5D6500EF762B /* CarDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDateCell.swift; sourceTree = "<group>"; };
+		1720080B239E884900EF762B /* CarAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarAvailability.swift; sourceTree = "<group>"; };
+		17488BC9239837FA008BAA98 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		1754193C239912510091D29D /* WeekOverzichtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekOverzichtViewController.swift; sourceTree = "<group>"; };
+		17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Beschikbaarheid.storyboard; sourceTree = "<group>"; };
+		17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeschikbaarheidViewController.swift; sourceTree = "<group>"; };
+		17A34A3B23AA553200C90CDC /* Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
+		17A34A3D23C0C68F00C90CDC /* Availability2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Availability2.swift; sourceTree = "<group>"; };
+		17A34A3F23C219FC00C90CDC /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		17A34A4123C3650C00C90CDC /* CopyWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyWeekViewController.swift; sourceTree = "<group>"; };
+		2FADA80C581695F8B13255D8 /* libPods-ELBHO Adviseurs-ELBHO AdviseursUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELBHO Adviseurs-ELBHO AdviseursUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		416ED8342F0E54585839F80F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5F06D837239AA13500A15EDD /* InvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
+		5F06D839239AAB6200A15EDD /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		5F06D83B239ADED700A15EDD /* AddInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceViewController.swift; sourceTree = "<group>"; };
+		5F124852238DB98900411781 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		5F124856238E602E00411781 /* MDCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDCButton.swift; sourceTree = "<group>"; };
+		5F12485923911C2100411781 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		5F12485A23911C2100411781 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		5F2301A623AE631F001880C5 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		5F2301A823AE6F6B001880C5 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		5F4F766B238423B4001821BB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		5F5023812422C07900952837 /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
+		5F55B0FF2422CC510044AF4E /* Appointment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Appointment.storyboard; sourceTree = "<group>"; };
+		5F584DCE2383EC5500EBE536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5F584DD12383EC8D00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5F584DD22383EC8E00EBE536 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5F584DD52384016000EBE536 /* Advisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advisor.swift; sourceTree = "<group>"; };
+		5F7335DB2399204B0013F4EA /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F970E342427A65A00BDFFDF /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
+		5F9B529223F9DA67001FA776 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewController.swift; sourceTree = "<group>"; };
+		5FC2092B23994D980080C82B /* DetailViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewRow.swift; sourceTree = "<group>"; };
+		5FC2092D239954FE0080C82B /* DetailViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewButton.swift; sourceTree = "<group>"; };
+		5FC209302399649B0080C82B /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
+		5FC209312399649B0080C82B /* DetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
+		5FC2093423996A310080C82B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		5FC988EE23EC9ECA009877FF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		5FC988F023EC9F67009877FF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		5FE063F923796CBC00E3015B /* ELBHO Adviseurs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ELBHO Adviseurs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE063FC23796CBC00E3015B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE063FE23796CBC00E3015B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,14 +151,17 @@
 		5FE0641A23796CBD00E3015B /* ELBHO AdviseursUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ELBHO AdviseursUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE0641E23796CBD00E3015B /* ELBHO_AdviseursUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELBHO_AdviseursUITests.swift; sourceTree = "<group>"; };
 		5FE0642023796CBD00E3015B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FE064362379824C00E3015B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		5FE5B8B223799E0F00EF12D6 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		5FE5B8B423799F9900EF12D6 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		5FE5B8B62379A0C600EF12D6 /* ApiLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLoginModel.swift; sourceTree = "<group>"; };
+		68B1F8674822C6ABFB3AF537 /* libPods-ELBHO AdviseursTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELBHO AdviseursTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F935BF3AEDE1663C13528F /* Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9A9F5590008F316A5059CAB9 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELBHO_AdviseursTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D819A136307EE416AA60D6 /* Pods-ELBHO Adviseurs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs.debug.xcconfig"; sourceTree = "<group>"; };
 		BB6A269DAB75CADACB8ACCA6 /* Pods-ELBHO Adviseurs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO Adviseurs.release.xcconfig"; path = "Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs.release.xcconfig"; sourceTree = "<group>"; };
 		CE932965EAC8C4BB1FA65BD5 /* Pods-ELBHO AdviseursTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO AdviseursTests.release.xcconfig"; path = "Target Support Files/Pods-ELBHO AdviseursTests/Pods-ELBHO AdviseursTests.release.xcconfig"; sourceTree = "<group>"; };
 		DF928A0AFEC4778A2DB75621 /* Pods-ELBHO AdviseursTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELBHO AdviseursTests.debug.xcconfig"; path = "Target Support Files/Pods-ELBHO AdviseursTests/Pods-ELBHO AdviseursTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F24C4A8651D68918388D100F /* Pods_ELBHO_Adviseurs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELBHO_Adviseurs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9EB6BD15AEEDFF41483DAE9 /* libPods-ELBHO Adviseurs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ELBHO Adviseurs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +169,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3C09FCB107C6A00958ED2F2 /* Pods_ELBHO_Adviseurs.framework in Frameworks */,
+				5FE06434237973A100E3015B /* Kingfisher in Frameworks */,
+				5FE064312379732900E3015B /* Alamofire in Frameworks */,
+				5FE0642E2379728600E3015B /* RxSwift in Frameworks */,
+				3A778610462F17E3BC59A004 /* libPods-ELBHO Adviseurs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				329372E836273CE285CD985C /* Pods_ELBHO_AdviseursTests.framework in Frameworks */,
+				6C35A1D94F4B20F0E85A0023 /* libPods-ELBHO AdviseursTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,21 +188,88 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3192E5AF023303E332086F7 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework in Frameworks */,
+				CE068FC14B56935B4C674289 /* libPods-ELBHO Adviseurs-ELBHO AdviseursUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		172007FD239D497700EF762B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				17488BC9239837FA008BAA98 /* Calendar.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		172007FE239D49FC00EF762B /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				172007FF239D4A1F00EF762B /* CarsViewController.swift */,
+				17200805239D590300EF762B /* CarDetailViewController.swift */,
+				17200807239E4BA700EF762B /* CarReservationViewController.swift */,
+				17200809239E5D6500EF762B /* CarDateCell.swift */,
+			);
+			path = Car;
+			sourceTree = "<group>";
+		};
+		17488BC8239837A4008BAA98 /* Beschikbaarheid */ = {
+			isa = PBXGroup;
+			children = (
+				17A1F79723943F05009FAEA7 /* BeschikbaarheidViewController.swift */,
+				17488BCB2398386B008BAA98 /* DateCollectionViewCell.swift */,
+				1754193C239912510091D29D /* WeekOverzichtViewController.swift */,
+				17A34A4123C3650C00C90CDC /* CopyWeekViewController.swift */,
+			);
+			path = Beschikbaarheid;
+			sourceTree = "<group>";
+		};
 		492888730674320C6758B744 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F24C4A8651D68918388D100F /* Pods_ELBHO_Adviseurs.framework */,
-				9A9F5590008F316A5059CAB9 /* Pods_ELBHO_Adviseurs_ELBHO_AdviseursUITests.framework */,
-				9F54AA7620137046E85727F4 /* Pods_ELBHO_AdviseursTests.framework */,
+				E9EB6BD15AEEDFF41483DAE9 /* libPods-ELBHO Adviseurs.a */,
+				2FADA80C581695F8B13255D8 /* libPods-ELBHO Adviseurs-ELBHO AdviseursUITests.a */,
+				68B1F8674822C6ABFB3AF537 /* libPods-ELBHO AdviseursTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F06D836239AA0F200A15EDD /* Invoice */ = {
+			isa = PBXGroup;
+			children = (
+				5F06D837239AA13500A15EDD /* InvoiceViewController.swift */,
+				5F06D83B239ADED700A15EDD /* AddInvoiceViewController.swift */,
+				5F2301A623AE631F001880C5 /* PDFViewController.swift */,
+			);
+			path = Invoice;
+			sourceTree = "<group>";
+		};
+		5F12485823911AEA00411781 /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5F12485923911C2100411781 /* CustomTableViewCell.swift */,
+				5F12485A23911C2100411781 /* CustomTableViewCell.xib */,
+			);
+			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		5F55B1012422CDBA0044AF4E /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				5FC2092923993EB90080C82B /* AppointmentDetailViewController.swift */,
+				5F5023812422C07900952837 /* AppointmentViewController.swift */,
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		5FC2092F239964760080C82B /* DetailViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5FC209302399649B0080C82B /* DetailViewCell.swift */,
+				5FC209312399649B0080C82B /* DetailViewCell.xib */,
+			);
+			path = DetailViewCell;
 			sourceTree = "<group>";
 		};
 		5FE063F023796CBC00E3015B = {
@@ -126,10 +297,21 @@
 		5FE063FB23796CBC00E3015B /* ELBHO Adviseurs */ = {
 			isa = PBXGroup;
 			children = (
+				172007FD239D497700EF762B /* Calendar */,
+				5FC2092F239964760080C82B /* DetailViewCell */,
+				5F12485823911AEA00411781 /* CustomTableViewCell */,
+				5FE0643A2379835300E3015B /* Services */,
+				5FE064382379833B00E3015B /* Models */,
+				5FE064352379822500E3015B /* Extensions */,
+				5FE0643B237983AF00E3015B /* ViewControllers */,
 				5FE063FC23796CBC00E3015B /* AppDelegate.swift */,
+				5F584DCF2383EC5500EBE536 /* Localizable.strings */,
 				5FE063FE23796CBC00E3015B /* SceneDelegate.swift */,
-				5FE0640023796CBC00E3015B /* ViewController.swift */,
 				5FE0640223796CBC00E3015B /* Main.storyboard */,
+				17200801239D4A7E00EF762B /* Car.storyboard */,
+				5F55B0FF2422CC510044AF4E /* Appointment.storyboard */,
+				17A1F79523943E68009FAEA7 /* Beschikbaarheid.storyboard */,
+				172007FB239A9BF900EF762B /* Invoice.storyboard */,
 				5FE0640523796CBD00E3015B /* Assets.xcassets */,
 				5FE0640723796CBD00E3015B /* LaunchScreen.storyboard */,
 				5FE0640A23796CBD00E3015B /* Info.plist */,
@@ -155,6 +337,72 @@
 			path = "ELBHO AdviseursUITests";
 			sourceTree = "<group>";
 		};
+		5FE064352379822500E3015B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5FE064362379824C00E3015B /* String.swift */,
+				5FE5B8B423799F9900EF12D6 /* Error.swift */,
+				5F4F766B238423B4001821BB /* DateFormatter.swift */,
+				5F124852238DB98900411781 /* UIViewController.swift */,
+				5F124856238E602E00411781 /* MDCButton.swift */,
+				5FC2093423996A310080C82B /* UIView.swift */,
+				5F2301A823AE6F6B001880C5 /* URL.swift */,
+				5F9B529223F9DA67001FA776 /* Date.swift */,
+				171AE661241E6EC7004DB5E1 /* UITableView.swift */,
+				5F970E342427A65A00BDFFDF /* NSAttributedString.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5FE064382379833B00E3015B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5FE064392379834500E3015B /* API */,
+				5F584DD52384016000EBE536 /* Advisor.swift */,
+				5F7335DB2399204B0013F4EA /* Appointment.swift */,
+				5FC2092B23994D980080C82B /* DetailViewRow.swift */,
+				5FC2092D239954FE0080C82B /* DetailViewButton.swift */,
+				5F06D839239AAB6200A15EDD /* Invoice.swift */,
+				17200803239D513D00EF762B /* CarReservation.swift */,
+				1720080B239E884900EF762B /* CarAvailability.swift */,
+				17A34A3B23AA553200C90CDC /* Availability.swift */,
+				17A34A3D23C0C68F00C90CDC /* Availability2.swift */,
+				17A34A3F23C219FC00C90CDC /* Car.swift */,
+				5FC988EE23EC9ECA009877FF /* MenuItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5FE064392379834500E3015B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5FE5B8B62379A0C600EF12D6 /* ApiLoginModel.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		5FE0643A2379835300E3015B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5FE5B8B223799E0F00EF12D6 /* ApiService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5FE0643B237983AF00E3015B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5F55B1012422CDBA0044AF4E /* Appointment */,
+				172007FE239D49FC00EF762B /* Car */,
+				5F06D836239AA0F200A15EDD /* Invoice */,
+				17488BC8239837A4008BAA98 /* Beschikbaarheid */,
+				5FE0640023796CBC00E3015B /* ViewController.swift */,
+				5F7EBDE3238BC4F100E40472 /* LoginViewController.swift */,
+				5FC988F023EC9F67009877FF /* MenuViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		EAC3C32954C3D5C718A2603D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +413,6 @@
 				DF928A0AFEC4778A2DB75621 /* Pods-ELBHO AdviseursTests.debug.xcconfig */,
 				CE932965EAC8C4BB1FA65BD5 /* Pods-ELBHO AdviseursTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -180,12 +427,18 @@
 				5FE063F523796CBC00E3015B /* Sources */,
 				5FE063F623796CBC00E3015B /* Frameworks */,
 				5FE063F723796CBC00E3015B /* Resources */,
+				818F5FCC659CE34E87EEF9B9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "ELBHO Adviseurs";
+			packageProductDependencies = (
+				5FE0642D2379728600E3015B /* RxSwift */,
+				5FE064302379732900E3015B /* Alamofire */,
+				5FE06433237973A100E3015B /* Kingfisher */,
+			);
 			productName = "ELBHO Adviseurs";
 			productReference = 5FE063F923796CBC00E3015B /* ELBHO Adviseurs.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +470,7 @@
 				5FE0641623796CBD00E3015B /* Sources */,
 				5FE0641723796CBD00E3015B /* Frameworks */,
 				5FE0641823796CBD00E3015B /* Resources */,
+				8B5127F71867DB5BDA90E01F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,7 +490,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1120;
-				ORGANIZATIONNAME = "Bas Tolen";
+				ORGANIZATIONNAME = Otters;
 				TargetAttributes = {
 					5FE063F823796CBC00E3015B = {
 						CreatedOnToolsVersion = 11.2;
@@ -258,8 +512,14 @@
 			knownRegions = (
 				en,
 				Base,
+				"nl-NL",
 			);
 			mainGroup = 5FE063F023796CBC00E3015B;
+			packageReferences = (
+				5FE0642C2379728600E3015B /* XCRemoteSwiftPackageReference "RxSwift" */,
+				5FE0642F2379732900E3015B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5FE06432237973A100E3015B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 5FE063FA23796CBC00E3015B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -277,7 +537,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FE0640923796CBD00E3015B /* LaunchScreen.storyboard in Resources */,
+				5FC209332399649B0080C82B /* DetailViewCell.xib in Resources */,
+				5F584DCD2383EC5500EBE536 /* Localizable.strings in Resources */,
+				17A1F79623943E68009FAEA7 /* Beschikbaarheid.storyboard in Resources */,
+				5F55B1002422CC510044AF4E /* Appointment.storyboard in Resources */,
 				5FE0640623796CBD00E3015B /* Assets.xcassets in Resources */,
+				5F12485C23911C2100411781 /* CustomTableViewCell.xib in Resources */,
+				17200802239D4A7E00EF762B /* Car.storyboard in Resources */,
+				172007FC239A9BF900EF762B /* Invoice.storyboard in Resources */,
 				5FE0640423796CBC00E3015B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +610,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		818F5FCC659CE34E87EEF9B9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs/Pods-ELBHO Adviseurs-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		87604E62AE8B4234D636F5D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,6 +649,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8B5127F71867DB5BDA90E01F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests/Pods-ELBHO Adviseurs-ELBHO AdviseursUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -372,9 +673,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1720080A239E5D6500EF762B /* CarDateCell.swift in Sources */,
+				171AE662241E6EC7004DB5E1 /* UITableView.swift in Sources */,
+				5F4F766C238423B4001821BB /* DateFormatter.swift in Sources */,
+				5F970E352427A65A00BDFFDF /* NSAttributedString.swift in Sources */,
+				5F584DD62384016000EBE536 /* Advisor.swift in Sources */,
+				5F124857238E602E00411781 /* MDCButton.swift in Sources */,
+				5FC209322399649B0080C82B /* DetailViewCell.swift in Sources */,
+				17488BCA239837FA008BAA98 /* Calendar.swift in Sources */,
+				5FC988EF23EC9ECA009877FF /* MenuItem.swift in Sources */,
 				5FE0640123796CBC00E3015B /* ViewController.swift in Sources */,
+				5F124853238DB98900411781 /* UIViewController.swift in Sources */,
+				17200808239E4BA700EF762B /* CarReservationViewController.swift in Sources */,
+				5F2301A723AE631F001880C5 /* PDFViewController.swift in Sources */,
+				5F2301A923AE6F6B001880C5 /* URL.swift in Sources */,
+				5FC2093523996A310080C82B /* UIView.swift in Sources */,
+				5F9B529323F9DA67001FA776 /* Date.swift in Sources */,
+				5FE5B8B323799E0F00EF12D6 /* ApiService.swift in Sources */,
 				5FE063FD23796CBC00E3015B /* AppDelegate.swift in Sources */,
+				5F06D83C239ADED700A15EDD /* AddInvoiceViewController.swift in Sources */,
+				17A34A4223C3650C00C90CDC /* CopyWeekViewController.swift in Sources */,
+				17A34A3E23C0C68F00C90CDC /* Availability2.swift in Sources */,
+				5FE5B8B72379A0C600EF12D6 /* ApiLoginModel.swift in Sources */,
+				5FE064372379824C00E3015B /* String.swift in Sources */,
+				5FE5B8B523799F9900EF12D6 /* Error.swift in Sources */,
+				17200806239D590300EF762B /* CarDetailViewController.swift in Sources */,
+				17200804239D513D00EF762B /* CarReservation.swift in Sources */,
+				5FC2092A23993EB90080C82B /* AppointmentDetailViewController.swift in Sources */,
+				5FC2092E239954FE0080C82B /* DetailViewButton.swift in Sources */,
+				5F7EBDE4238BC4F100E40472 /* LoginViewController.swift in Sources */,
+				5F5023822422C07900952837 /* AppointmentViewController.swift in Sources */,
+				5FC2092C23994D980080C82B /* DetailViewRow.swift in Sources */,
+				17488BCC2398386B008BAA98 /* DateCollectionViewCell.swift in Sources */,
+				5F06D83A239AAB6200A15EDD /* Invoice.swift in Sources */,
+				17A34A4023C219FC00C90CDC /* Car.swift in Sources */,
+				1720080C239E884900EF762B /* CarAvailability.swift in Sources */,
+				5FC988F123EC9F67009877FF /* MenuViewController.swift in Sources */,
+				1754193D239912510091D29D /* WeekOverzichtViewController.swift in Sources */,
 				5FE063FF23796CBC00E3015B /* SceneDelegate.swift in Sources */,
+				17A1F79823943F05009FAEA7 /* BeschikbaarheidViewController.swift in Sources */,
+				5F7335DC2399204B0013F4EA /* Appointment.swift in Sources */,
+				5F06D838239AA13500A15EDD /* InvoiceViewController.swift in Sources */,
+				17A34A3C23AA553200C90CDC /* Availability.swift in Sources */,
+				5F12485B23911C2100411781 /* CustomTableViewCell.swift in Sources */,
+				17200800239D4A1F00EF762B /* CarsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +752,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5F584DCF2383EC5500EBE536 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F584DCE2383EC5500EBE536 /* en */,
+				5F584DD22383EC8E00EBE536 /* nl-NL */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5FE0640223796CBC00E3015B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -422,6 +773,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5FE0640823796CBD00E3015B /* Base */,
+				5F584DD12383EC8D00EBE536 /* nl-NL */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -433,6 +785,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -479,7 +832,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -493,6 +846,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -533,7 +887,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -705,6 +1059,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5FE0642C2379728600E3015B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		5FE0642F2379732900E3015B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.1;
+			};
+		};
+		5FE06432237973A100E3015B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5FE0642D2379728600E3015B /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FE0642C2379728600E3015B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		5FE064302379732900E3015B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FE0642F2379732900E3015B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		5FE06433237973A100E3015B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FE06432237973A100E3015B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FE063F123796CBC00E3015B /* Project object */;
 }

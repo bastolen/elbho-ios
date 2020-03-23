@@ -1,4 +1,4 @@
-framework module Pods_ELBHO_Adviseurs {
+module Pods_ELBHO_Adviseurs {
   umbrella header "Pods-ELBHO Adviseurs-umbrella.h"
 
   export *

@@ -3,9 +3,12 @@
 
 target 'ELBHO Adviseurs' do
   # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
+#  use_frameworks!
   # Pods for ELBHO Adviseurs
+  pod 'MaterialComponents',:modular_headers => true
+  pod 'SwiftKeychainWrapper',:modular_headers => true
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
   target 'ELBHO AdviseursTests' do
     inherit! :search_paths

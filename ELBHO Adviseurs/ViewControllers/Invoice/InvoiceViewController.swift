@@ -33,6 +33,7 @@ class InvoiceViewController: UIViewController {
         
         TableView.dataSource = self
         TableView.delegate = self
+        TableView.tableFooterView = UIView()
         TableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         
         TableView.refreshControl = refreshControl

@@ -38,6 +38,7 @@ class AppointmentViewController: UIViewController {
         TableView.dataSource = self
         TableView.delegate = self
         TableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        TableView.tableFooterView = UIView()
         
         TableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refresh), for: .allEvents)

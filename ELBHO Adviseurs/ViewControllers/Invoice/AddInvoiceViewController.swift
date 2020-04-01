@@ -48,6 +48,7 @@ class AddInvoiceViewController: UIViewController {
         super.viewDidLoad()
         title = "title_invoice".localize
         setupInputFields()
+        navigationController?.navigationBar.tintColor = .white
         SubmitButton.setPrimary()
         SubmitButton.setTitle("button_addinvoice".localize, for: .normal)
         

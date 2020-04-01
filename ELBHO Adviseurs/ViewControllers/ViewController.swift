@@ -44,6 +44,24 @@ class ViewController: UIViewController {
     }
     
     private func checkAuth() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        if (KeychainWrapper.standard.hasValue(forKey: "CloseAppDate")) {
+            let stopDate = formatter.date(from: KeychainWrapper.standard.string(forKey: "CloseAppDate")!)!.timeIntervalSinceNow
+
+            // It has more than 5 min, require auth
+            if (stopDate < -1 * 5 * 60) {
+                self.faceId()
+            } else {
+                let mainStoryboard = UIStoryboard(name: "Appointment", bundle: nil)
+                self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "AppointmentViewController")], animated:true)
+            }
+        } else {
+            self.faceId()
+        }
+    }
+    
+    private func faceId() {
         let context = LAContext()
         context.localizedCancelTitle = "faceid_cancel".localize
         var error: NSError?

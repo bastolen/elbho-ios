@@ -39,7 +39,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
                 // It has been 5 min, require auth
                 if (stopDate < -1 * 5 * 60 &&  !((window?.rootViewController is UINavigationController && (window?.rootViewController as! UINavigationController).visibleViewController?.restorationIdentifier == "MainViewController"))) {
-                    KeychainWrapper.standard.removeObject(forKey: "CloseAppDate")
                     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let faceIdVC = mainStoryboard.instantiateViewController(identifier: "MainViewController")
                     let navigationController = (mainStoryboard.instantiateViewController(identifier: "StartNavigationController") as UINavigationController)

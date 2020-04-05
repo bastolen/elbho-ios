@@ -43,6 +43,8 @@
 	<string>App needs Location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App needs Location</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>The app wants to add an event to your agenda</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

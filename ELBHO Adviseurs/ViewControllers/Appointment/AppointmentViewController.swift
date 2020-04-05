@@ -12,6 +12,7 @@ import SwiftKeychainWrapper
 import MaterialComponents
 import CoreLocation
 import MessageUI
+import EventKit
 
 class AppointmentViewController: UIViewController {
     
@@ -324,10 +325,38 @@ extension AppointmentViewController: UITableViewDelegate {
                 let url = URL(string: "mailto:\(item.ContactPersonEmail)")
                 UIApplication.shared.open(url!)
             }),
-            DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime) + ", " + timeString, icon: nil, iconClicked: {}),
-            DetailViewRow(title: "appointment_detail_comment".localize, content: item.Comment, icon: nil, iconClicked: {}),
         ]
         
+        if AppointmentViewController.SelectedItemTag != 2 {
+            detailVc.rows.append(DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime) + ", " + timeString, icon: UIImage(named: "EventIconSecondary"), iconClicked: {
+                let eventStore = EKEventStore()
+
+                eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
+
+                    if (granted) && (error == nil) {
+                        let event = EKEvent(eventStore: eventStore)
+                        event.title = "appointment_agenda_title".localizeWithVars(item.COCName)
+                        event.startDate = item.StartTime
+                        event.endDate = item.EndTime
+                        event.notes = item.Comment
+                        event.location = item.Address
+                        event.calendar = eventStore.defaultCalendarForNewEvents
+
+                        do {
+                            try eventStore.save(event, span: .thisEvent)
+                            self.showSnackbarSuccess("appointment_added_to_agenda".localize)
+                        } catch {
+                            self.showSnackbarSecondary("error_adding_to_agenda".localize)
+                        }
+                    }
+                })
+            }))
+        } else {
+            detailVc.rows.append(DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime) + ", " + timeString, icon: nil, iconClicked: {}))
+
+        }
+        
+        detailVc.rows.append(DetailViewRow(title: "appointment_detail_comment".localize, content: item.Comment, icon: nil, iconClicked: {}))
         navigationController?.pushViewController(detailVc, animated: true)
     }
     

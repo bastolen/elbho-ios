@@ -25,6 +25,13 @@ extension UIViewController {
         view.addGestureRecognizer(tapRecognizer)
         
         view.addGestureRecognizer(edgePan)
+        
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "Primary")
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.standardAppearance = appearance
     }
     
     @objc func viewTapped(_ recognizer: UITapGestureRecognizer) {

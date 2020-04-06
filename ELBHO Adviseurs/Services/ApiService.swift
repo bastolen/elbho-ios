@@ -12,6 +12,10 @@ import SwiftKeychainWrapper
 final class APIService {
     private static let APIBASEURL: String = "https://bt-elbho-api.herokuapp.com"
     
+    /**
+     Logs the user in and saves the token
+     If Successful, returns true otherwise return false
+     */
     static func login(email: String, password: String) -> Observable<Bool> {
         return Observable<String>.create { (observer) -> Disposable in
             Alamofire.request(self.APIBASEURL + "/login", method: .post, parameters: [
@@ -38,6 +42,9 @@ final class APIService {
         }
     }
     
+    /**
+     Get the logged in user
+     */
     static func getLoggedInAdvisor() -> Observable<Advisor> {
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/advisor/me", method: .get, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
@@ -60,6 +67,9 @@ final class APIService {
         }
     }
     
+    /**
+     Get the appointments that can be accepted
+     */
     static func getAppointmentRequests() -> Observable<[Appointment?]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/request/me", method: .get, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
@@ -82,6 +92,10 @@ final class APIService {
         }
     }
     
+    /**
+     Get the appointments for the given parameters
+     Used for getting appointments before a date or after a date
+     */
     static func getAppointments(parameters: Parameters = [:]) -> Observable<[Appointment?]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/appointment/me", method: .get, parameters: parameters,  encoding: URLEncoding.queryString,headers: self.getAuthHeader() ).validate().responseJSON(completionHandler: {response in
@@ -104,6 +118,9 @@ final class APIService {
         }
     }
     
+    /**
+     Respond to an open request
+     */
     static func respondToRequest(requestId: String, accept: Bool) -> Observable<Void> {
         return Observable<Void>.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/request/\(requestId)", method: .put, parameters: [
@@ -120,6 +137,9 @@ final class APIService {
         }
     }
     
+    /**
+     Get all the invoices for the user
+     */
     static func getInvoices() -> Observable<[Invoice?]> {
         return Observable.create { observer -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/invoice/me", method: .get, headers: self.getAuthHeader()).validate().responseJSON(completionHandler: {response in
@@ -267,6 +287,9 @@ final class APIService {
         }
     }
     
+    /**
+     Updates the location of the user with the given coordinates
+     */
     static func updateLocation(lon: String, lat: String) -> Observable<Void> {
         return Observable<Void>.create { (observer) -> Disposable in
             Alamofire.request(self.APIBASEURL + "/auth/location", method: .put, parameters: [
@@ -284,13 +307,18 @@ final class APIService {
         }
     }
     
-    // TODO: Function doesn't work when the file is in the cloud...
+    /**
+     Uploads the invoice to the cloud for the given month
+     */
     static func createInvoice(fileURL: URL, date: Date) -> Observable<Invoice> {
         return Observable<Invoice>.create { observer -> Disposable in
             let formatter = DateFormatter.apiDateResult
             var fileData: Data
             do {
-                fileURL.startAccessingSecurityScopedResource()
+                let canOpen = fileURL.startAccessingSecurityScopedResource()
+                if(!canOpen) {
+                    throw CustomError.fileInvalid
+                }
                 fileData = try Data(contentsOf: fileURL)
                 fileURL.stopAccessingSecurityScopedResource()
                 Alamofire.upload(multipartFormData: { multipart in
@@ -321,6 +349,9 @@ final class APIService {
         }
     }
     
+    /**
+     Creates the header used for the auth token
+     */
     private static func getAuthHeader() -> [String:String] {
         guard let authToken =  KeychainWrapper.standard.string(forKey: "authToken") else {
             return [:]
@@ -328,6 +359,9 @@ final class APIService {
         return ["Authorization": "Bearer \(authToken)"]
     }
     
+    /**
+     Used for checking the default error in the API
+     */
     private static func returnError<X, Y>(response: DataResponse<X>, observer: AnyObserver<Y>) -> Void {
         var error: CustomError
         switch response.response?.statusCode {

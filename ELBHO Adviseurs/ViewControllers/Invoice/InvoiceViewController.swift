@@ -50,7 +50,6 @@ class InvoiceViewController: UIViewController {
     private func initContent() {
         if(!callSend) {
             refreshControl.beginRefreshing()
-            items = []
             TableView.reloadData()
             callSend = true
             APIService.getInvoices().subscribe(onNext: { invoices in
@@ -65,12 +64,18 @@ class InvoiceViewController: UIViewController {
         }
     }
     
+    /**
+     Open the add invoice VC to be able to add a new invoice to this list
+     */
     @IBAction func AddButtonClicked(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Invoice", bundle: nil)
         let addVc = storyboard.instantiateViewController(withIdentifier: "AddInvoiceViewController") as! AddInvoiceViewController
         self.navigationController?.pushViewController(addVc, animated: true)
     }
     
+    /**
+     Function called when pulling down or when a new invoice is added
+     */
     @objc func refresh() {
         initContent()
     }

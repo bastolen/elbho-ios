@@ -26,6 +26,9 @@ class AppointmentDetailViewController: UIViewController {
         TableView.tableFooterView = UIView()
         var yPos: CGFloat = 14
         
+        /**
+         Setup for the buttons that will shown per type of appointment
+         */
         buttons.forEach{ btn in
             let button = MDCButton()
             

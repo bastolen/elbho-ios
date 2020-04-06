@@ -92,9 +92,9 @@ extension InvoiceViewController: UITableViewDataSource {
         let item = items[indexPath.row]!
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM"
+        formatter.dateFormat = "dd-MM-YYYY"
         cell.isInGrid()
-        cell.TimeLocationLabel.text = "\("upload_date".localize): \(formatter.string(from: item.Date))"
+        cell.TimeLocationLabel.text = "upload_date".localizeWithVars(formatter.string(from: item.Date))
         cell.CompanyLabel.text = item.FileName
         formatter.dateFormat = "MMM"
         cell.DayLabel.text = formatter.string(from: item.InvoiceMonth).uppercased()

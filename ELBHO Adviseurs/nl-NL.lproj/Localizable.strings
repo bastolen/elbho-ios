@@ -66,7 +66,7 @@
 
 "invoice_header" = "Geüploade facturen";
 "invoices_no_results" = "Geen facturen gevonden";
-"upload_date" = "Datum upgeload";
+"upload_date" = "Geüpload op %@";
 
 "input_year" = "Jaar";
 "input_email" = "Email";

@@ -12,6 +12,13 @@ import MaterialComponents.MDCSnackbarMessage
 
 extension UIViewController {
     // MARK: Menu
+    /**
+     Menu functions. Used for interacting with the menu
+     */
+    
+    /**
+     Create the menu button and initializes the actions to open the menu
+     */
     func initMenu(id: Int) {
         MenuViewController.selectedItem = id
         let button = UIBarButtonItem(image: UIImage(named: "MenuIcon"), style: .plain, target: self, action: #selector(menuTapped))
@@ -51,6 +58,9 @@ extension UIViewController {
         }
     }
     
+    /**
+     Open or close the menu
+     */
     @objc func menuTapped() {
         let menuWidth = self.view.frame.width*0.75
         let animationTime = 0.2
@@ -84,6 +94,9 @@ extension UIViewController {
     }
     
     // MARK: Snackbars
+    /**
+     Shows a small message to the user in different styles
+     */
     func showSnackbarPrimary(_ text: String) -> Void {
         let message = MDCSnackbarMessage(text: text)
         
@@ -124,6 +137,11 @@ extension UIViewController {
         
         present(alertController, animated:true, completion: nil)
     }
+    
+    // MARK: Keyboard functions
+    /**
+     Used for showing and hiding the keyboard for different interactions
+     */
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {

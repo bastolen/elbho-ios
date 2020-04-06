@@ -127,14 +127,14 @@ class CarReservationViewController : UIViewController {
         if timeFromInput.isFirstResponder {
             if !timeUntilInput.text!.isEmpty {
                 let check = dateFormatter.date(from: timeUntilInput.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeFromInput.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeFromInput.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeFromInput.text = pickedTime
             }
         } else if timeUntilInput.isFirstResponder {
             if !timeFromInput.text!.isEmpty {
                 let check = dateFormatter.date(from: timeFromInput.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeUntilInput.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeUntilInput.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeUntilInput.text = pickedTime
             }

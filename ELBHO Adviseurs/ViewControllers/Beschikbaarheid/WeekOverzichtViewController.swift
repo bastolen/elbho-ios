@@ -236,70 +236,70 @@ class WeekOverzichtViewController: UIViewController {
         if timeInputDay1From.isFirstResponder {
             if !timeInputDay1Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay1Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay1From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay1From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay1From.text = pickedTime
             }
         } else if timeInputDay1Until.isFirstResponder {
             if !timeInputDay1From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay1From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay1Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay1Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay1Until.text = pickedTime
             }
         } else if timeInputDay2From.isFirstResponder {
             if !timeInputDay2Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay2Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay2From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay2From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay2From.text = pickedTime
             }
         } else if timeInputDay2Until.isFirstResponder {
             if !timeInputDay2From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay2From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay2Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay2Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay2Until.text = pickedTime
             }
         } else if timeInputDay3From.isFirstResponder {
             if !timeInputDay3Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay3Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay3From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay3From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay3From.text = pickedTime
             }
         } else if timeInputDay3Until.isFirstResponder {
             if !timeInputDay3From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay3From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay3Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay3Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay3Until.text = pickedTime
             }
         } else if timeInputDay4From.isFirstResponder {
             if !timeInputDay4Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay4Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay4From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay4From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay4From.text = pickedTime
             }
         } else if timeInputDay4Until.isFirstResponder {
             if !timeInputDay4From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay4From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay4Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay4Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay4Until.text = pickedTime
             }
         } else if timeInputDay5From.isFirstResponder {
             if !timeInputDay5Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay5Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay5From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay5From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay5From.text = pickedTime
             }
         } else if timeInputDay5Until.isFirstResponder {
             if !timeInputDay5From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay5From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay5Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay5Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay5Until.text = pickedTime
             }

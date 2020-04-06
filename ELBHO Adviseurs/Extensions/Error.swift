@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Custom error types used for API errors
+ */
 public enum CustomError: Error {
     case api
     case bodyInvalid

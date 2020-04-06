@@ -38,6 +38,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This may occur due to temporary interruptions (ex. an incoming phone call).
     }
 
+    /**
+     Function that will check upon opening if you need faceid or nit
+     */
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
@@ -68,6 +71,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
+    /**
+     Set the close time upon closing, used for knowin if you need faceid or not
+     */
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information

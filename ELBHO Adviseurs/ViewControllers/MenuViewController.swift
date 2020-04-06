@@ -27,6 +27,9 @@ class MenuViewController: UIViewController {
         MenuItem(text: "menu_invoice".localize, viewControllerIdentifier: "InvoiceViewController", storyboardIdentifier: "Invoice", id: 5)
     ]
     
+    /**
+     Creates the view and sets the namelabel
+     */
     override func viewDidLoad() {
         TableView.tableFooterView = UIView()
         TableView.dataSource = self
@@ -47,6 +50,9 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    /**
+     Logout the user
+     */
     @IBAction func LogoutButtonClicked(_ sender: Any) {
         KeychainWrapper.standard.removeAllKeys()
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -59,7 +65,10 @@ extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.menuItems.count
     }
-    
+
+    /**
+     Styles the view according to if its selected or not
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
        if( !(cell != nil))
@@ -83,6 +92,9 @@ extension MenuViewController: UITableViewDataSource {
 }
 
 extension MenuViewController: UITableViewDelegate {
+    /**
+     Opens the viewcontroller on selecting an item
+     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = self.menuItems[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: false)

@@ -46,7 +46,9 @@ class InvoiceViewController: UIViewController {
         initMenu(id: 5)
         initContent()
     }
-    
+    /**
+     Get the data from the api and display it in the tableview
+     */
     private func initContent() {
         if(!callSend) {
             refreshControl.beginRefreshing()

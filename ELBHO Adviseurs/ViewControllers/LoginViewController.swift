@@ -53,6 +53,9 @@ class LoginViewController: UIViewController {
         passwordTextField.clearButtonMode = .never
     }
     
+    /**
+     Move the screen up when showing the keyboard
+     */
     @objc override func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if (BrandIconTop.constant < keyboardSize.height) {
@@ -61,12 +64,18 @@ class LoginViewController: UIViewController {
         }
     }
 
+    /**
+     Move the screen down when hiding the keyboard
+     */
     @objc override func keyboardWillHide(notification: NSNotification) {
         if (BrandIconTop.constant != defaultConstraint) {
             BrandIconTop.constant = defaultConstraint
         }
     }
     
+    /**
+     Check fields and login
+     */
     @IBAction func loginClicked() {
         if emailTextField.hasText && passwordTextField.hasText && !callSend {
             callSend = true
@@ -104,6 +113,9 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: UITextFieldDelegate {
+    /**
+     Settup the enter button for the keyboards
+     */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.returnKeyType == .next {
             if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {

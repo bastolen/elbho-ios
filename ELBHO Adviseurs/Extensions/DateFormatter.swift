@@ -9,6 +9,9 @@
 import Foundation
 
 extension DateFormatter {
+    /**
+     Forrmatter used for formatting the JSON date to iOS date
+     */
     static let apiDateResult: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"

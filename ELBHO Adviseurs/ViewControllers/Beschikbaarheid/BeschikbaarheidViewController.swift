@@ -14,7 +14,7 @@ import MaterialComponents
 class BeschikbaarheidViewController : UIViewController {
     let refreshControl = UIRefreshControl()
     let nc = NotificationCenter.default
-    // Calendar
+
     @IBOutlet weak var Calendar: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var topLabel: UILabel!
@@ -40,9 +40,11 @@ class BeschikbaarheidViewController : UIViewController {
         
         navigationController?.navigationBar.tintColor = .white
         initMenu(id: 3)
-        resetVars()
         
-        // Start vullen calendar
+        /**
+            Reset Calendar vars
+         */
+        resetVars()
         currentMonth = months[month]
         monthLabel.text = "\(currentMonth) \(year)"
         
@@ -50,6 +52,9 @@ class BeschikbaarheidViewController : UIViewController {
             weekday = 7
         }
         
+        /**
+         Setup refresh control
+         */
         Calendar.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(initContent), for: .allEvents)
         
@@ -67,6 +72,9 @@ class BeschikbaarheidViewController : UIViewController {
         initContent()
     }
     
+    /**
+     Get date from API and reload Calendar
+     */
     @objc private func initContent() {
         refreshControl.beginRefreshing()
         let before = NSCalendar.current.date(byAdding: .month, value: 2, to: today)!
@@ -87,6 +95,9 @@ class BeschikbaarheidViewController : UIViewController {
         }
     }
     
+    /**
+     Cell width for collectionview
+     */
     func setupCollectionView()
     {
         let itemSpacing: CGFloat = 5
@@ -98,7 +109,6 @@ class BeschikbaarheidViewController : UIViewController {
         let cellWidth = (UIScreen.main.bounds.width - (itemSpacing * 2) - ((itemsInOneLine - 1) * itemSpacing)) / itemsInOneLine
         flow.itemSize = CGSize(width: cellWidth-6, height: 43)
     }
-    
     
     @IBAction func prevMonth(_ sender: Any) {
         leapCheck()

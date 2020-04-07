@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 extension NSAttributedString {
+    /**
+     Makes a part of the string bold
+     */
     static func getPartBold(withString string: String, boldString: String, font: UIFont) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: string,
                                                      attributes: [NSAttributedString.Key.font: font])

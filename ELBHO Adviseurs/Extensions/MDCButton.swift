@@ -9,6 +9,9 @@
 import Foundation
 import MaterialComponents.MDCButton
 
+/**
+ Used for applying styles to the material buttons
+ */
 extension MDCButton {
     private func setButton(_ type: String) {
         setBackgroundColor(UIColor(named: type), for: .normal)

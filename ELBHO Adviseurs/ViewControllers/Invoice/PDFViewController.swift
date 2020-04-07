@@ -13,6 +13,10 @@ class PDFViewController: UIViewController {
     var pdfLink: String = ""
     
     @IBOutlet var pdfView: PDFView!
+    
+    /**
+     Shows the pdf on the current URL
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         

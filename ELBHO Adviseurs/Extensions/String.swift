@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Translation functions for using the strings file. Usable with vars if there is a %@ in the localized string
+ */
 extension String {
     func localizeWithVars(_ arguments: CVarArg...) -> String{
         String(format: self.localize, arguments: arguments)

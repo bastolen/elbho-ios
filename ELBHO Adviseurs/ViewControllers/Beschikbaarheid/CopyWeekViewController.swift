@@ -94,8 +94,8 @@ class CopyWeekViewController : UIViewController {
     {
         if labels.count > 0 {
             for i in 0..<labels.count {
-                let d = getDaysByWeekNumber(weekNumber: weeks[i])
-                labels[i].text = "week".localize+" "+String(weeks[i])+", "+d
+                let days = getDaysByWeekNumber(weekNumber: weeks[i])
+                labels[i].text = "week".localize+" "+String(weeks[i])+", "+days
             }
         }
     }

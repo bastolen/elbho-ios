@@ -44,6 +44,8 @@ class CarsViewController : UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
+        
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         
         tableView.refreshControl = refreshControl

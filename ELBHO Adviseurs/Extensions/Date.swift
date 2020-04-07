@@ -13,7 +13,7 @@ extension Date {
         return Int(self.distance(to: otherDate)) > 0
     }
     
-    func isBeforeOrEquel(_ otherDate: Date) -> Bool {
+    func isBeforeOrEqual(_ otherDate: Date) -> Bool {
         return Int(self.distance(to: otherDate)) >= 0
     }
 }

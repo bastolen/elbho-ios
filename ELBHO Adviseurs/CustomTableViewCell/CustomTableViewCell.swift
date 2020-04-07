@@ -22,6 +22,9 @@ class CustomTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
+    /**
+     Reset the cell
+     */
     override func prepareForReuse() {
         DayLabel.text = nil
         DateLabel.text = nil

@@ -10,6 +10,9 @@ import Foundation
 import MobileCoreServices
 
 extension URL {
+    /**
+     Returns the mimeType of the file of the URL
+     */
     func mimeType() -> String {
         let pathExtension = self.pathExtension
         if let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension as NSString, nil)?.takeRetainedValue() {
@@ -19,26 +22,4 @@ extension URL {
         }
         return "application/octet-stream"
     }
-    var containsImage: Bool {
-        let mimeType = self.mimeType()
-        guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil)?.takeRetainedValue() else {
-            return false
-        }
-        return UTTypeConformsTo(uti, kUTTypeImage)
-    }
-    var containsAudio: Bool {
-        let mimeType = self.mimeType()
-        guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil)?.takeRetainedValue() else {
-            return false
-        }
-        return UTTypeConformsTo(uti, kUTTypeAudio)
-    }
-    var containsVideo: Bool {
-        let mimeType = self.mimeType()
-        guard  let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil)?.takeRetainedValue() else {
-            return false
-        }
-        return UTTypeConformsTo(uti, kUTTypeMovie)
-    }
-
 }

@@ -97,15 +97,20 @@ class WeekOverzichtViewController: UIViewController {
         // Datepicker opties
         dateFormatter.dateFormat =  "HH:mm"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        // Min en max tijd
+        
+        // Min en max tijd voor datepicker
         datePicker.minimumDate = dateFormatter.date(from: "06:00")!
         datePicker.maximumDate = dateFormatter.date(from: "22:00")!
+        
         // Startijd instellen
         datePicker.date = dateFormatter.date(from: "08:00")!
         datePicker.timeZone = TimeZone(abbreviation: "UTC")
         datePicker.datePickerMode = .time
         datePicker.minuteInterval = 15
         
+        /**
+         Dag bij deze week ophalen aan de hand van het doorgegeven weeknummer
+         */
         daysToShow = getDays()
 
         setTimeInput()
@@ -114,6 +119,9 @@ class WeekOverzichtViewController: UIViewController {
         initContent()
     }
     
+    /**
+     Get data from API and set time fields
+     */
     private func initContent() {
         if(!callSend) {
             items = []
@@ -129,11 +137,16 @@ class WeekOverzichtViewController: UIViewController {
         }
     }
     
+    /**
+     Function to fill the date labels
+     */
     func fillLabelsAndInput()
     {
         // Checken of er wel 5 dagen zijn doorgekomen
         if daysToShow.count == 5 {
-            // Eerst API vars goedzetten
+            /**
+             Fill 2 vars for the API call
+             */
             dateFormatter.dateFormat = "YYYY-MM-dd"
             firstDate = dateFormatter.string(from: daysToShow[0])
             lastDate = dateFormatter.string(from: daysToShow[4])
@@ -155,6 +168,9 @@ class WeekOverzichtViewController: UIViewController {
         
     }
     
+    /**
+     Set all input fields with API response
+     */
     func setTimeInput()
     {
         var response = [String]()
@@ -210,6 +226,9 @@ class WeekOverzichtViewController: UIViewController {
         
     }
     
+    /**
+     Function to get the API response row by index
+     */
     func getInfoByDate(index : Int) -> [String]
     {
         var values = [String]()
@@ -228,6 +247,9 @@ class WeekOverzichtViewController: UIViewController {
         return values
     }
     
+    /**
+     Add times to input fields when picker is dismissed
+     */
     @objc func dismissPicker() {
 
         dateFormatter.dateFormat = "HH:mm"
@@ -236,70 +258,70 @@ class WeekOverzichtViewController: UIViewController {
         if timeInputDay1From.isFirstResponder {
             if !timeInputDay1Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay1Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay1From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay1From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay1From.text = pickedTime
             }
         } else if timeInputDay1Until.isFirstResponder {
             if !timeInputDay1From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay1From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay1Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay1Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay1Until.text = pickedTime
             }
         } else if timeInputDay2From.isFirstResponder {
             if !timeInputDay2Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay2Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay2From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay2From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay2From.text = pickedTime
             }
         } else if timeInputDay2Until.isFirstResponder {
             if !timeInputDay2From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay2From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay2Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay2Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay2Until.text = pickedTime
             }
         } else if timeInputDay3From.isFirstResponder {
             if !timeInputDay3Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay3Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay3From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay3From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay3From.text = pickedTime
             }
         } else if timeInputDay3Until.isFirstResponder {
             if !timeInputDay3From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay3From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay3Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay3Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay3Until.text = pickedTime
             }
         } else if timeInputDay4From.isFirstResponder {
             if !timeInputDay4Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay4Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay4From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay4From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay4From.text = pickedTime
             }
         } else if timeInputDay4Until.isFirstResponder {
             if !timeInputDay4From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay4From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay4Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay4Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay4Until.text = pickedTime
             }
         } else if timeInputDay5From.isFirstResponder {
             if !timeInputDay5Until.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay5Until.text!)!
-                datePicker.date.isBeforeOrEquel(check) ? timeInputDay5From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
+                datePicker.date.isBeforeOrEqual(check) ? timeInputDay5From.text = pickedTime : self.showSnackbarSecondary("time_bigger".localize)
             } else {
                 timeInputDay5From.text = pickedTime
             }
         } else if timeInputDay5Until.isFirstResponder {
             if !timeInputDay5From.text!.isEmpty {
                 let check = dateFormatter.date(from: timeInputDay5From.text!)!
-                !datePicker.date.isBeforeOrEquel(check) ? timeInputDay5Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
+                !datePicker.date.isBeforeOrEqual(check) ? timeInputDay5Until.text = pickedTime : self.showSnackbarSecondary("time_smaller".localize)
             } else {
                 timeInputDay5Until.text = pickedTime
             }
@@ -309,7 +331,9 @@ class WeekOverzichtViewController: UIViewController {
 
     }
     
-    // Alle dagen bij dit weeknummer ophalen
+    /**
+     Get days by week number
+     */
     func getDays() -> [Date]
     {
         let today = formattedDate
@@ -323,7 +347,7 @@ class WeekOverzichtViewController: UIViewController {
     }
     
     func formatStringToDate(toFormat: String) -> Date {
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Gegeven date format in String
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let formatted = dateFormatter.date(from: toFormat)
         
         let finalDate = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: formatted!))!
@@ -332,6 +356,9 @@ class WeekOverzichtViewController: UIViewController {
     }
     
     @IBAction func copyWeekClick(_ sender: Any) {
+        /**
+         Show alert with info on first time clicking the Copy Week button
+         */
         if (!KeychainWrapper.standard.hasValue(forKey: "onboarding-copy-week")) {
             let alert = UIAlertController(title: "week_copy".localize, message: "week_copy_info".localize, preferredStyle: .alert)
             let imageView = UIImageView(frame: CGRect(x: 10, y: 110, width: 250, height: 125))
@@ -362,7 +389,6 @@ class WeekOverzichtViewController: UIViewController {
     
     @IBAction func saveWeekClick(_ sender: Any) {
         sendItems.removeAll()
-        // Eerst checken of de data klopt
         
         var from = String()
         var until = String()

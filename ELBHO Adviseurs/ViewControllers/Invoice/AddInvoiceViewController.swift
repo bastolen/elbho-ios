@@ -48,6 +48,7 @@ class AddInvoiceViewController: UIViewController {
         super.viewDidLoad()
         title = "title_invoice".localize
         setupInputFields()
+        navigationController?.navigationBar.tintColor = .white
         SubmitButton.setPrimary()
         SubmitButton.setTitle("button_addinvoice".localize, for: .normal)
         
@@ -56,6 +57,9 @@ class AddInvoiceViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    /**
+     Function called to open the file input
+     */
     @IBAction func FileInputTouched(_ sender: Any) {
         let importMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF), String(kUTTypeImage)], in: .import)
         
@@ -64,6 +68,9 @@ class AddInvoiceViewController: UIViewController {
         present(importMenu, animated: true)
     }
     
+    /**
+     Check if the form is valid and send the invoice to the api. If valid, return to overview
+     */
     @IBAction func SubmitClicked(_ sender: Any) {
         if(fileURL == nil || callSend) {
             showSnackbarSecondary("error_empty_field".localize)
@@ -94,10 +101,13 @@ class AddInvoiceViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
+    /**
+     Style the input fields and add the selector dates
+     */
     private func setupInputFields() {
         let currentYear = Calendar.current.component(.year, from: Date())
-        years = [currentYear]
-        for index in 1...5 {
+        
+        for index in 0...5 {
             years.append(currentYear - index)
         }
         years.reverse()
@@ -141,10 +151,16 @@ class AddInvoiceViewController: UIViewController {
         fileInputField.clearButtonMode = .never
     }
     
+    /**
+     Used to close the picker when pressing done
+     */
     @objc func dismissPicker() {
         view.endEditing(true)
     }
     
+    /**
+     Move the submit button up top show the button above the picker
+     */
     @objc override func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if (SubmitButtonBottomConstraint.constant < keyboardSize.height) {
@@ -153,6 +169,9 @@ class AddInvoiceViewController: UIViewController {
         }
     }
 
+    /**
+     Move the submit button down to the bottom when the picker disappears
+     */
     @objc override func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if (SubmitButtonBottomConstraint.constant > keyboardSize.height) {
@@ -197,6 +216,9 @@ extension AddInvoiceViewController: UIPickerViewDataSource {
     
 }
 
+/**
+ Fills the inputfield with the filename and sets the filepath
+ */
 extension AddInvoiceViewController: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         fileURL = url

@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         if checkLoggedIn() {
+//            If Loggedin initialize advisor and check if FaceId is needed
             initAdvisor()
             checkAuth()
         }
@@ -43,7 +44,31 @@ class ViewController: UIViewController {
         self.checkAuth()
     }
     
+    /**
+     Check if face id is needed. If not needed go to appointmentlist, else open faceid
+     */
     private func checkAuth() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        if (KeychainWrapper.standard.hasValue(forKey: "CloseAppDate")) {
+            let stopDate = formatter.date(from: KeychainWrapper.standard.string(forKey: "CloseAppDate")!)!.timeIntervalSinceNow
+
+            // It has more than 5 min, require auth
+            if (stopDate < -1 * 5 * 60) {
+                self.faceId()
+            } else {
+                let mainStoryboard = UIStoryboard(name: "Appointment", bundle: nil)
+                self.navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "AppointmentViewController")], animated:true)
+            }
+        } else {
+            self.faceId()
+        }
+    }
+    
+    /**
+     Open faceid and on success go to appointmenlist
+     */
+    private func faceId() {
         let context = LAContext()
         context.localizedCancelTitle = "faceid_cancel".localize
         var error: NSError?
@@ -60,6 +85,9 @@ class ViewController: UIViewController {
         }
     }
     
+    /**
+     Logs out the user and goes to login screen
+     */
     private func logOut() {
         KeychainWrapper.standard.removeAllKeys()
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -67,6 +95,9 @@ class ViewController: UIViewController {
         navigationController?.setViewControllers([mainStoryboard.instantiateViewController(identifier: "LoginViewController")], animated:true)
     }
     
+    /**
+     Check if the user is logged in, if not go to loginscreen
+     */
     private func checkLoggedIn() -> Bool {
 //        KeychainWrapper.standard.removeAllKeys()
 //        KeychainWrapper.standard.set("testToken", forKey: "authToken")
@@ -81,6 +112,9 @@ class ViewController: UIViewController {
         return true
     }
     
+    /**
+     Get advisor name and id and store it in keychain if not available yet
+     */
     private func initAdvisor() {
         if (
             !KeychainWrapper.standard.hasValue(forKey: "AdvisorId") ||

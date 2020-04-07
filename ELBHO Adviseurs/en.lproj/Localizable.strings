@@ -14,6 +14,7 @@
 "error_empty_field" = "Een van de verplichte velden is nog leeg";
 "error_fileInvalid" = "Dit bestand is niet valide";
 "error_before_now" = "De geselecteerde datum ligt in de toekomst";
+"error_adding_to_agenda" = "De afspraak kon niet toegevoegd worden aan uw agenda.";
 
 "menu_name_label" = "Ingelogd als %@";
 "menu_open" = "Openstaande afspraken";
@@ -40,6 +41,8 @@
 "appointment_accepted" = "De afspraak is geaccepteerd";
 "appointment_arrived" = "U bent aangekomen, de tracking stopt";
 "appointment_left" = "U bent vertrokken, de tracking start";
+"appointment_agenda_title" = "ELBHO afspraak: %@";
+"appointment_added_to_agenda" = "De afspraak is toegevoegd aan uw agenda.";
 
 "appointment_detail_name" = "Bedrijfsnaam";
 "appointment_detail_address" = "Adres";
@@ -63,7 +66,7 @@
 
 "invoice_header" = "Geüploade facturen";
 "invoices_no_results" = "Geen facturen gevonden";
-"upload_date" = "Datum upgeload";
+"upload_date" = "Geüpload op %@";
 
 "input_year" = "Jaar";
 "input_email" = "Email";
@@ -100,6 +103,7 @@
 "day_6_small" = "ZA";
 "day_7_small" = "ZO";
 
+"availability_info" = "Selecteer een dag om de beschikbaarheid van die week aan te passen";
 "week" = "Week";
 "week_copy" = "Week kopieren";
 "week_copy_info" = "Je kan deze week direct kopiëren naar andere weken met de KOPIEER WEEK functie.";
@@ -130,7 +134,8 @@
 
 "time_smaller" = "De eind tijd kan niet kleiner zijn dan de start tijd!";
 "time_bigger" = "De start tijd kan niet groter zijn dan de eind tijd!";
-"car_reservation_no_results" = "Geen auto's gevonden!";
+"car_reservation_no_results" = "Geen gereserveerde auto's gevonden!";
+"car_reservation_not_all_fields" = "Voer een datum, start en eindtijd in om een auto te reserveren";
 
 "faceid_cancel" = "Annuleren";
 "faceid_reason" = "Log in op ELBHO";

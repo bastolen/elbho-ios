@@ -12,6 +12,7 @@ import SwiftKeychainWrapper
 import MaterialComponents
 import CoreLocation
 import MessageUI
+import EventKit
 
 class AppointmentViewController: UIViewController {
     
@@ -38,6 +39,7 @@ class AppointmentViewController: UIViewController {
         TableView.dataSource = self
         TableView.delegate = self
         TableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        TableView.tableFooterView = UIView()
         
         TableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refresh), for: .allEvents)
@@ -48,6 +50,10 @@ class AppointmentViewController: UIViewController {
         initAdvisor()
     }
     
+    
+    /**
+     Check if the advisor name and id are already in storage. If not, get them
+     */
     private func initAdvisor() {
         if (
             !KeychainWrapper.standard.hasValue(forKey: "AdvisorId") ||
@@ -62,6 +68,9 @@ class AppointmentViewController: UIViewController {
         }
     }
     
+    /**
+     Get the needed data to fill the table, here we get all the Appointments per type at once
+     */
     private func initTableData() {
         callSend = true
         refreshControl.beginRefreshing()
@@ -84,6 +93,9 @@ class AppointmentViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
+    /**
+     Switches between data for the selected item
+     */
     private func fillTheTable() {
         switch AppointmentViewController.SelectedItemTag {
         case 0:
@@ -102,7 +114,9 @@ class AppointmentViewController: UIViewController {
         TableView.reloadData()
     }
     
-    
+    /**
+     Initialize the tabbar. Also called when data is updated to set the badges accordingly
+     */
     private func setupTabBar() {
         let tabItem1 = UITabBarItem(title: "agenda_open".localize.uppercased(), image: UIImage(named: "OpenAgenda"), selectedImage: UIImage(named: "OpenAgendaSelected"))
         tabItem1.tag = 0
@@ -133,6 +147,9 @@ class AppointmentViewController: UIViewController {
         UITabBar.appearance().tintColor = UIColor(named: "Primary")!
     }
     
+    /**
+     Helper function used for getting the position of the selected tab. Used for adding the line under it
+     */
     func getImageWithColorPosition(color: UIColor, size: CGSize, lineSize: CGSize) -> UIImage {
         let rectLine = CGRect(x: 0, y: size.height-lineSize.height, width: lineSize.width, height: lineSize.height)
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
@@ -142,6 +159,9 @@ class AppointmentViewController: UIViewController {
         return image
     }
     
+    /**
+     Fill the current date label
+     */
     private func setupDateLabel() {
         let date = Date()
         let formatter = DateFormatter()
@@ -149,12 +169,18 @@ class AppointmentViewController: UIViewController {
         DateLabel.text = formatter.string(from: date).uppercased()
     }
     
+    /**
+     Function called when pulling down to refresh
+     */
     @objc func refresh() {
         if(!callSend) {
             initTableData()
         }
     }
     
+    /**
+     Remove all the data and reloads the table
+     */
     private func clearItems() {
         self.shownItems = []
         self.acceptedAppointments = []
@@ -163,6 +189,9 @@ class AppointmentViewController: UIViewController {
         self.TableView.reloadData()
     }
     
+    /**
+     Helper function for preparing the buttons for the selected appointment
+     */
     private func prepareButtons(_ number: Int, _ item: Appointment) -> [DetailViewButton] {
         if(number == 0) {
             return getOpenButtons(item)
@@ -179,6 +208,9 @@ class AppointmentViewController: UIViewController {
         return [];
     }
     
+    /**
+     Returns an accept and reject button for an open appointment
+     */
     private func getOpenButtons(_ item: Appointment) -> [DetailViewButton] {
         return [
             DetailViewButton(text: "button_reject".localize, style: .danger, image: UIImage(systemName: "xmark"), clicked: {
@@ -208,6 +240,10 @@ class AppointmentViewController: UIViewController {
         ]
     }
     
+    /**
+     Returns an leave button if not yet on their way and an arrive button when the user is at it's location
+     Buttons only shown if it is the day of the appointment and/or if the user already left for the selected appointment
+     */
     private func getAcceptedButtons(_ item: Appointment) -> [DetailViewButton] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if (KeychainWrapper.standard.string(forKey: "trackingId") == item._id) {
@@ -305,6 +341,9 @@ extension AppointmentViewController: UITableViewDelegate {
             break
         }
         
+        /**
+         Fill the detail view page
+         */
         detailVc.title = title.localize
         detailVc.buttons = prepareButtons(AppointmentViewController.SelectedItemTag, item)
         detailVc.rows = [
@@ -323,10 +362,38 @@ extension AppointmentViewController: UITableViewDelegate {
                 let url = URL(string: "mailto:\(item.ContactPersonEmail)")
                 UIApplication.shared.open(url!)
             }),
-            DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime) + ", " + timeString, icon: nil, iconClicked: {}),
-            DetailViewRow(title: "appointment_detail_comment".localize, content: item.Comment, icon: nil, iconClicked: {}),
         ]
         
+        if AppointmentViewController.SelectedItemTag != 2 {
+            detailVc.rows.append(DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime) + ", " + timeString, icon: UIImage(named: "EventIconSecondary"), iconClicked: {
+                let eventStore = EKEventStore()
+
+                eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
+
+                    if (granted) && (error == nil) {
+                        let event = EKEvent(eventStore: eventStore)
+                        event.title = "appointment_agenda_title".localizeWithVars(item.COCName)
+                        event.startDate = item.StartTime
+                        event.endDate = item.EndTime
+                        event.notes = item.Comment
+                        event.location = item.Address
+                        event.calendar = eventStore.defaultCalendarForNewEvents
+
+                        do {
+                            try eventStore.save(event, span: .thisEvent)
+                            self.showSnackbarSuccess("appointment_added_to_agenda".localize)
+                        } catch {
+                            self.showSnackbarSecondary("error_adding_to_agenda".localize)
+                        }
+                    }
+                })
+            }))
+        } else {
+            detailVc.rows.append(DetailViewRow(title: "appointment_detail_date".localize, content: formatter.string(from: item.StartTime) + ", " + timeString, icon: nil, iconClicked: {}))
+
+        }
+        
+        detailVc.rows.append(DetailViewRow(title: "appointment_detail_comment".localize, content: item.Comment, icon: nil, iconClicked: {}))
         navigationController?.pushViewController(detailVc, animated: true)
     }
     

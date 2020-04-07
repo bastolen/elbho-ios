@@ -33,6 +33,7 @@ class InvoiceViewController: UIViewController {
         
         TableView.dataSource = self
         TableView.delegate = self
+        TableView.tableFooterView = UIView()
         TableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         
         TableView.refreshControl = refreshControl
@@ -45,11 +46,12 @@ class InvoiceViewController: UIViewController {
         initMenu(id: 5)
         initContent()
     }
-    
+    /**
+     Get the data from the api and display it in the tableview
+     */
     private func initContent() {
         if(!callSend) {
             refreshControl.beginRefreshing()
-            items = []
             TableView.reloadData()
             callSend = true
             APIService.getInvoices().subscribe(onNext: { invoices in
@@ -64,12 +66,18 @@ class InvoiceViewController: UIViewController {
         }
     }
     
+    /**
+     Open the add invoice VC to be able to add a new invoice to this list
+     */
     @IBAction func AddButtonClicked(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Invoice", bundle: nil)
         let addVc = storyboard.instantiateViewController(withIdentifier: "AddInvoiceViewController") as! AddInvoiceViewController
         self.navigationController?.pushViewController(addVc, animated: true)
     }
     
+    /**
+     Function called when pulling down or when a new invoice is added
+     */
     @objc func refresh() {
         initContent()
     }
@@ -91,9 +99,9 @@ extension InvoiceViewController: UITableViewDataSource {
         let item = items[indexPath.row]!
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM"
+        formatter.dateFormat = "dd-MM-YYYY"
         cell.isInGrid()
-        cell.TimeLocationLabel.text = "\("upload_date".localize): \(formatter.string(from: item.Date))"
+        cell.TimeLocationLabel.text = "upload_date".localizeWithVars(formatter.string(from: item.Date))
         cell.CompanyLabel.text = item.FileName
         formatter.dateFormat = "MMM"
         cell.DayLabel.text = formatter.string(from: item.InvoiceMonth).uppercased()

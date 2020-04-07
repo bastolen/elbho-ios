@@ -31,15 +31,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+    }
+
+    func sceneWillResignActive(_ scene: UIScene) {
+        // Called when the scene will move from an active state to an inactive state.
+        // This may occur due to temporary interruptions (ex. an incoming phone call).
+    }
+
+    /**
+     Function that will check upon opening if you need faceid or nit
+     */
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        // Called as the scene transitions from the background to the foreground.
+        // Use this method to undo the changes made on entering the background.
         if KeychainWrapper.standard.hasValue(forKey: "authToken") {
             if (KeychainWrapper.standard.hasValue(forKey: "CloseAppDate")) {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
                 let stopDate = formatter.date(from: KeychainWrapper.standard.string(forKey: "CloseAppDate")!)!.timeIntervalSinceNow
                 
-                KeychainWrapper.standard.removeObject(forKey: "CloseAppDate")
                 // It has been 5 min, require auth
-                if stopDate < -1 * 5 * 60 {
+                if (stopDate < -1 * 5 * 60 &&  !((window?.rootViewController is UINavigationController && (window?.rootViewController as! UINavigationController).visibleViewController?.restorationIdentifier == "MainViewController"))) {
                     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let faceIdVC = mainStoryboard.instantiateViewController(identifier: "MainViewController")
                     let navigationController = (mainStoryboard.instantiateViewController(identifier: "StartNavigationController") as UINavigationController)
@@ -59,16 +71,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
-
+    /**
+     Set the close time upon closing, used for knowin if you need faceid or not
+     */
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information

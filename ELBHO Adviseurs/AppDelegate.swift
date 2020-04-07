@@ -20,11 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var callSend: Bool = false
     
 
+    /**
+     Send the location for the last time and stop the tracker
+     */
     func stopTracking() -> Void {
+        updateLocation()
         self.intervalFunction.invalidate()
         self.intervalFunction = Timer();
     }
-    
+    /**
+     If there is authorization start the track timer otherwise ask for authorization
+     */
     func startTracking() -> Void {
         if(CLLocationManager.authorizationStatus() != .authorizedAlways && CLLocationManager.authorizationStatus() != .authorizedWhenInUse ){
             self.locManager.requestAlwaysAuthorization()
@@ -34,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    /**
+     Update the location using the current location
+     */
     @objc func updateLocation() {
         if(!callSend && (CLLocationManager.authorizationStatus() ==  .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse)){
             callSend = true
@@ -70,6 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: CLLocationManagerDelegate {
+    /**
+     On changing of permission, start the tracker
+     */
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if (KeychainWrapper.standard.hasValue(forKey: "trackingId") && (status == .authorizedAlways || status == .authorizedWhenInUse)) {
             self.startTracking()

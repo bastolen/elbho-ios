@@ -18,6 +18,9 @@ class DetailViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
+    /**
+     Reset the cell
+     */
     override func prepareForReuse() {
         titleLabel.text = nil
         contentLabel.text = nil

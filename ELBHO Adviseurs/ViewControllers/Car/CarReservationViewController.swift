@@ -99,7 +99,6 @@ class CarReservationViewController : UIViewController {
         timeUntilInput.placeholderLabel.textColor = UIColor(named: "Primary")!
         timeUntilInput.clearButtonMode = .never
         
-        
         timeFromInput.inputView = datePicker
         timeFromInput.inputAccessoryView = toolBar
         timeUntilInput.inputView = datePicker
@@ -141,11 +140,13 @@ class CarReservationViewController : UIViewController {
         }
         
         view.endEditing(true)
+        // On every time change reload data
         getCars()
     }
     
     func getCars()
     {
+        // Only initContent if the date and times aren't empty
         if !clickedDate.isEmpty && !timeFromInput.text!.isEmpty && !timeUntilInput.text!.isEmpty {
             initContent()
         }
@@ -183,9 +184,9 @@ class CarReservationViewController : UIViewController {
             let clickedInFormat = dateFormatter.date(from: clickedDate)
             var car = String()
             
-            for c in items {
-                if c?.selected == true {
-                    car = c!._id
+            for item in items {
+                if item?.selected == true {
+                    car = item!._id
                 }
             }
             
@@ -408,7 +409,7 @@ extension CarReservationViewController: UITableViewDataSource {
     {
         var beschikbaar = true
 
-        if reservations.count > 0 { //Calendar.current.date(byAdding: .hour, value: 1, to: start)!
+        if reservations.count > 0 { 
             dateFormatter.dateFormat = "HH:mm"
             let from = calendar.date(byAdding: .hour, value: 1, to: dateFormatter.date(from: timeFromInput.text!)!)
             let until = calendar.date(byAdding: .hour, value: 1, to: dateFormatter.date(from: timeUntilInput.text!)!)

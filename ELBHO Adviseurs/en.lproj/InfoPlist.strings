@@ -1,0 +1,11 @@
+/*
+  InfoPlist.strings
+  ELBHO Adviseurs
+
+  Created by Bas Tolen on 07/04/2020.
+  Copyright © 2020 Otters. All rights reserved.
+*/
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "De applicatie heeft uw locatie nodig om deze door te geven naar uw contactpersoon";
+"NSLocationWhenInUseUsageDescription" = "De applicatie heeft uw locatie nodig om deze door te geven naar uw contactpersoon";
+"NSCalendarsUsageDescription" = "De applicatie heeft toegang nodig tot uw agenda om afspraken aan te maken";
+"NSFaceIDUsageDescription" = "De applicatie heeft toegang nodig tot uw FaceID om de applicatie te ontgrendelen";
